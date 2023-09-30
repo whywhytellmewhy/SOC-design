@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="Multiplication.h" path="/home/ubuntu/course-lab_1/hls_Multiplication/Multiplication.h"/>
+    <originFiles name="Multiplication.cpp" path="/home/ubuntu/course-lab_1/hls_Multiplication/Multiplication.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="MultipTester.cpp" path="/home/ubuntu/course-lab_1/hls_Multiplication/MultipTester.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

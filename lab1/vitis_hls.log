@@ -1,0 +1,41 @@
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.1/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'ubuntu' on host 'ubuntu2004.linuxvmimages.local' (Linux_x86_64 version 5.15.0-76-generic) on Thu Sep 28 08:19:01 EDT 2023
+INFO: [HLS 200-10] On os Ubuntu 20.04.4 LTS
+INFO: [HLS 200-10] In directory '/home/ubuntu/course-lab_1'
+Sourcing Tcl script '/home/ubuntu/course-lab_1/hls_ip/solution1/export.tcl'
+INFO: [HLS 200-1510] Running: source /home/ubuntu/course-lab_1/hls_ip/solution1/export.tcl
+INFO: [HLS 200-1510] Running: open_project hls_ip 
+INFO: [HLS 200-10] Opening project '/home/ubuntu/course-lab_1/hls_ip'.
+INFO: [HLS 200-1510] Running: set_top multip_2num 
+INFO: [HLS 200-1510] Running: add_files hls_Multiplication/Multiplication.h 
+INFO: [HLS 200-10] Adding design file 'hls_Multiplication/Multiplication.h' to the project
+INFO: [HLS 200-1510] Running: add_files hls_Multiplication/Multiplication.cpp 
+INFO: [HLS 200-10] Adding design file 'hls_Multiplication/Multiplication.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb hls_Multiplication/MultipTester.cpp -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'hls_Multiplication/MultipTester.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Opening solution '/home/ubuntu/course-lab_1/hls_ip/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_export -format ip_catalog -rtl verilog 
+INFO: [HLS 200-1510] Running: source ./hls_ip/solution1/directives.tcl
+INFO: [HLS 200-1510] Running: set_directive_top -name multip_2num multip_2num 
+INFO: [HLS 200-1510] Running: export_design -rtl verilog -format ip_catalog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2022.1 (64-bit)
+  **** SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+  **** IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [Common 17-206] Exiting Vivado at Thu Sep 28 08:19:09 2023...
+INFO: [HLS 200-802] Generated output file hls_ip/solution1/impl/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 8.18 seconds. CPU system time: 1.07 seconds. Elapsed time: 10.28 seconds; current allocated memory: -1026.547 MB.
+INFO: [HLS 200-112] Total CPU user time: 9.91 seconds. Total CPU system time: 1.54 seconds. Total elapsed time: 11.87 seconds; peak allocated memory: 469.539 MB.

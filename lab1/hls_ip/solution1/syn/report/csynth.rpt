@@ -1,0 +1,108 @@
+
+
+================================================================
+== Synthesis Summary Report of 'multip_2num'
+================================================================
++ General Information: 
+    * Date:           Thu Sep 28 08:15:34 2023
+    * Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
+    * Project:        hls_ip
+    * Solution:       solution1 (Vivado IP Flow Target)
+    * Product family: zynq
+    * Target device:  xc7z020-clg400-1
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +---------------+------+------+---------+--------+----------+---------+------+----------+------+--------+-----------+-----------+-----+
+    |    Modules    | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |        |           |           |     |
+    |    & Loops    | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM |   DSP  |     FF    |    LUT    | URAM|
+    +---------------+------+------+---------+--------+----------+---------+------+----------+------+--------+-----------+-----------+-----+
+    |+ multip_2num  |     -|  0.39|        3|  30.000|         -|        4|     -|        no|     -|  3 (1%)|  409 (~0%)|  307 (~0%)|    -|
+    +---------------+------+------+---------+--------+----------+---------+------+----------+------+--------+-----------+-----------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 6             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-----------------+--------+-------+--------+------------------------------+---------------------+
+| Interface     | Register        | Offset | Width | Access | Description                  | Bit Fields          |
++---------------+-----------------+--------+-------+--------+------------------------------+---------------------+
+| s_axi_control | n32In1          | 0x10   | 32    | W      | Data signal of n32In1        |                     |
+| s_axi_control | n32In2          | 0x18   | 32    | W      | Data signal of n32In2        |                     |
+| s_axi_control | pn32ResOut      | 0x20   | 32    | R      | Data signal of pn32ResOut    |                     |
+| s_axi_control | pn32ResOut_ctrl | 0x24   | 32    | R      | Control signal of pn32ResOut | 0=pn32ResOut_ap_vld |
++---------------+-----------------+--------+-------+--------+------------------------------+---------------------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+----------+
+| Interface | Type         | Ports    |
++-----------+--------------+----------+
+| ap_clk    | clock        | ap_clk   |
+| ap_rst_n  | reset        | ap_rst_n |
+| ap_ctrl   | ap_ctrl_none |          |
++-----------+--------------+----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++------------+-----------+----------+
+| Argument   | Direction | Datatype |
++------------+-----------+----------+
+| n32In1     | in        | int      |
+| n32In2     | in        | int      |
+| pn32ResOut | out       | int*     |
++------------+-----------+----------+
+
+* SW-to-HW Mapping
++------------+---------------+----------+-------------------------------------------+
+| Argument   | HW Interface  | HW Type  | HW Info                                   |
++------------+---------------+----------+-------------------------------------------+
+| n32In1     | s_axi_control | register | name=n32In1 offset=0x10 range=32          |
+| n32In2     | s_axi_control | register | name=n32In2 offset=0x18 range=32          |
+| pn32ResOut | s_axi_control | register | name=pn32ResOut offset=0x20 range=32      |
+| pn32ResOut | s_axi_control | register | name=pn32ResOut_ctrl offset=0x24 range=32 |
++------------+---------------+----------+-------------------------------------------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++-------------------------+-----+--------+----------+-----+------+---------+
+| Name                    | DSP | Pragma | Variable | Op  | Impl | Latency |
++-------------------------+-----+--------+----------+-----+------+---------+
+| + multip_2num           | 3   |        |          |     |      |         |
+|   mul_32s_32s_32_2_1_U1 | 3   |        | mul_ln11 | mul | auto | 1       |
++-------------------------+-----+--------+----------+-----+------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------+---------------------------+--------------------------------------------------------------------+
+| Type      | Options                   | Location                                                           |
++-----------+---------------------------+--------------------------------------------------------------------+
+| interface | s_axilite port=pn32ResOut | hls_Multiplication/Multiplication.cpp:6 in multip_2num, pn32ResOut |
+| interface | s_axilite port=n32In2     | hls_Multiplication/Multiplication.cpp:7 in multip_2num, n32In2     |
+| interface | s_axilite port=n32In1     | hls_Multiplication/Multiplication.cpp:8 in multip_2num, n32In1     |
+| interface | ap_ctrl_none port=return  | hls_Multiplication/Multiplication.cpp:9 in multip_2num, return     |
++-----------+---------------------------+--------------------------------------------------------------------+
+
+

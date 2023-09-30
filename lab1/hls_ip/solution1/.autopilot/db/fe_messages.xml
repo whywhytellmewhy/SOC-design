@@ -1,0 +1,21 @@
+<xilinx:hls_fe_msgs>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/course-lab_1/hls_ip/solution1/csynth.tcl:16:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="multip_2num" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=multip_2num" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/ubuntu/course-lab_1/hls_ip/solution1/directives.tcl:6:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaContext="directive" ARG_PragmaFunction="multip_2num" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=multip_2num" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hls_Multiplication/Multiplication.cpp:6:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="multip_2num" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=pn32ResOut" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hls_Multiplication/Multiplication.cpp:7:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="multip_2num" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=n32In2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hls_Multiplication/Multiplication.cpp:8:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="multip_2num" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port=n32In1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="hls_Multiplication/Multiplication.cpp:9:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="multip_2num" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_ctrl_none port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+</xilinx:hls_fe_msgs>
+

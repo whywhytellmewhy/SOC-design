@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/ubuntu/course-lab_1/hls_ip/solution1/./sim/autowrap/testbench/Multiplication.cpp_pre.cpp.tb.cpp

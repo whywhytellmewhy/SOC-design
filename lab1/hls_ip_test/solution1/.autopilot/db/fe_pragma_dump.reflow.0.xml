@@ -1,0 +1,6 @@
+<pragmas>
+<pragma file="hls_Multiplication/Multiplication.cpp" line="6" pragmaType="interface" parentfunction="multip_2num" mode="s_axilite" port="pn32ResOut" bundle="" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="hls_Multiplication/Multiplication.cpp" line="7" pragmaType="interface" parentfunction="multip_2num" mode="s_axilite" port="n32In2" bundle="" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="hls_Multiplication/Multiplication.cpp" line="8" pragmaType="interface" parentfunction="multip_2num" mode="s_axilite" port="n32In1" bundle="" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="hls_Multiplication/Multiplication.cpp" line="9" pragmaType="interface" parentfunction="multip_2num" mode="ap_ctrl_none" port="return" name=""/>
+</pragmas>
