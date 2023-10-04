@@ -1,0 +1,7 @@
+Running: xsim.dir/fir_n11_maxi/xsimk -simmode gui -wdb fir_n11_maxi.wdb -simrunnum 0 -socket 54141
+Design successfully loaded
+Design Loading Memory Usage: 28740 KB (Peak: 28740 KB)
+Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 123840 KB (Peak: 168008 KB)
+Simulation CPU Usage: 50 ms

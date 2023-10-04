@@ -1,0 +1,161 @@
+
+
+================================================================
+== Vitis HLS Report for 'fir_n11_strm'
+================================================================
+* Date:           Tue Oct  3 13:58:17 2023
+
+* Version:        2022.1 (Build 3526262 on Mon Apr 18 15:47:01 MDT 2022)
+* Project:        hls_FIR_stream
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  |  10.00 ns|  6.923 ns|     2.70 ns|
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 3.55>
+ST_1 : Operation 5 [1/1] (1.00ns)   --->   "%regXferLeng_read = read i32 @_ssdm_op_Read.s_axilite.i32, i32 %regXferLeng" [hls_FIR_stream/FIR.cpp:4]   --->   Operation 5 'read' 'regXferLeng_read' <Predicate = true> <Delay = 1.00> <CoreInst = "s_axilite">   --->   Core 114 's_axilite' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write'>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%zext_ln1541 = zext i32 %regXferLeng_read"   --->   Operation 6 'zext' 'zext_ln1541' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (2.55ns)   --->   "%ret_V = add i33 %zext_ln1541, i33 3"   --->   Operation 7 'add' 'ret_V' <Predicate = true> <Delay = 2.55> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 2.55> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%tmp = partselect i31 @_ssdm_op_PartSelect.i31.i33.i32.i32, i33 %ret_V, i32 2, i32 32" [hls_FIR_stream/FIR.cpp:20]   --->   Operation 8 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 6.91>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%empty = wait i32 @_ssdm_op_Wait"   --->   Operation 9 'wait' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [2/2] (6.91ns)   --->   "%call_ln20 = call void @fir_n11_strm_Pipeline_XFER_LOOP, i32 %an32Coef, i31 %tmp, i32 %pstrmInput_V_data_V, i4 %pstrmInput_V_keep_V, i4 %pstrmInput_V_strb_V, i1 %pstrmInput_V_user_V, i1 %pstrmInput_V_last_V, i1 %pstrmInput_V_id_V, i1 %pstrmInput_V_dest_V, i32 %pstrmOutput_V_data_V, i4 %pstrmOutput_V_keep_V, i4 %pstrmOutput_V_strb_V, i1 %pstrmOutput_V_user_V, i1 %pstrmOutput_V_last_V, i1 %pstrmOutput_V_id_V, i1 %pstrmOutput_V_dest_V, i32 %an32ShiftReg_9, i32 %an32ShiftReg_8, i32 %an32ShiftReg_7, i32 %an32ShiftReg_6, i32 %an32ShiftReg_5, i32 %an32ShiftReg_4, i32 %an32ShiftReg_3, i32 %an32ShiftReg_2, i32 %an32ShiftReg_1, i32 %an32ShiftReg_0" [hls_FIR_stream/FIR.cpp:20]   --->   Operation 10 'call' 'call_ln20' <Predicate = true> <Delay = 6.91> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 6.92>
+ST_3 : Operation 11 [1/2] (6.92ns)   --->   "%call_ln20 = call void @fir_n11_strm_Pipeline_XFER_LOOP, i32 %an32Coef, i31 %tmp, i32 %pstrmInput_V_data_V, i4 %pstrmInput_V_keep_V, i4 %pstrmInput_V_strb_V, i1 %pstrmInput_V_user_V, i1 %pstrmInput_V_last_V, i1 %pstrmInput_V_id_V, i1 %pstrmInput_V_dest_V, i32 %pstrmOutput_V_data_V, i4 %pstrmOutput_V_keep_V, i4 %pstrmOutput_V_strb_V, i1 %pstrmOutput_V_user_V, i1 %pstrmOutput_V_last_V, i1 %pstrmOutput_V_id_V, i1 %pstrmOutput_V_dest_V, i32 %an32ShiftReg_9, i32 %an32ShiftReg_8, i32 %an32ShiftReg_7, i32 %an32ShiftReg_6, i32 %an32ShiftReg_5, i32 %an32ShiftReg_4, i32 %an32ShiftReg_3, i32 %an32ShiftReg_2, i32 %an32ShiftReg_1, i32 %an32ShiftReg_0" [hls_FIR_stream/FIR.cpp:20]   --->   Operation 11 'call' 'call_ln20' <Predicate = true> <Delay = 6.92> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 12 [1/1] (0.00ns)   --->   "%spectopmodule_ln4 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_1" [hls_FIR_stream/FIR.cpp:4]   --->   Operation 12 'spectopmodule' 'spectopmodule_ln4' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %pstrmInput_V_data_V, i4 %pstrmInput_V_keep_V, i4 %pstrmInput_V_strb_V, i1 %pstrmInput_V_user_V, i1 %pstrmInput_V_last_V, i1 %pstrmInput_V_id_V, i1 %pstrmInput_V_dest_V, void @empty_6, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 14 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %pstrmInput_V_data_V"   --->   Operation 14 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 15 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %pstrmInput_V_keep_V"   --->   Operation 15 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 16 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %pstrmInput_V_strb_V"   --->   Operation 16 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 17 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %pstrmInput_V_user_V"   --->   Operation 17 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 18 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %pstrmInput_V_last_V"   --->   Operation 18 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 19 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %pstrmInput_V_id_V"   --->   Operation 19 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 20 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %pstrmInput_V_dest_V"   --->   Operation 20 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %pstrmOutput_V_data_V, i4 %pstrmOutput_V_keep_V, i4 %pstrmOutput_V_strb_V, i1 %pstrmOutput_V_user_V, i1 %pstrmOutput_V_last_V, i1 %pstrmOutput_V_id_V, i1 %pstrmOutput_V_dest_V, void @empty_6, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 21 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %pstrmOutput_V_data_V"   --->   Operation 22 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 23 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %pstrmOutput_V_keep_V"   --->   Operation 23 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 24 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i4 %pstrmOutput_V_strb_V"   --->   Operation 24 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %pstrmOutput_V_user_V"   --->   Operation 25 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %pstrmOutput_V_last_V"   --->   Operation 26 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %pstrmOutput_V_id_V"   --->   Operation 27 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i1 %pstrmOutput_V_dest_V"   --->   Operation 28 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %an32Coef, void @empty_4, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_7, void @empty_8, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %an32Coef, void @empty_9, i32 0, i32 0, void @empty_5, i32 1, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 30 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %an32Coef, i64 666, i64 207, i64 1"   --->   Operation 31 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %an32Coef"   --->   Operation 32 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i32 %regXferLeng"   --->   Operation 33 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %regXferLeng, void @empty_4, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_7, void @empty, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 34 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %regXferLeng, void @empty_0, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_5, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 35 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 0, void @empty_4, i32 0, i32 0, void @empty_5, i32 0, i32 0, void @empty_7, void @empty_5, void @empty_5, i32 0, i32 0, i32 0, i32 0, void @empty_5, void @empty_5, i32 4294967295, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%ret_ln43 = ret" [hls_FIR_stream/FIR.cpp:43]   --->   Operation 37 'ret' 'ret_ln43' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 3.55ns
+The critical path consists of the following:
+	s_axi read operation ('regXferLeng_read', hls_FIR_stream/FIR.cpp:4) on port 'regXferLeng' (hls_FIR_stream/FIR.cpp:4) [52]  (1 ns)
+	'add' operation ('ret.V') [54]  (2.55 ns)
+
+ <State 2>: 6.91ns
+The critical path consists of the following:
+	'call' operation ('call_ln20', hls_FIR_stream/FIR.cpp:20) to 'fir_n11_strm_Pipeline_XFER_LOOP' [57]  (6.91 ns)
+
+ <State 3>: 6.92ns
+The critical path consists of the following:
+	'call' operation ('call_ln20', hls_FIR_stream/FIR.cpp:20) to 'fir_n11_strm_Pipeline_XFER_LOOP' [57]  (6.92 ns)
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

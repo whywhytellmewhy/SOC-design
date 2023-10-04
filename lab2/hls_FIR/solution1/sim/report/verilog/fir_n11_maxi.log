@@ -1,0 +1,300 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "/tools/Xilinx/Vitis_HLS/2022.1/tps/lnx64/gcc-8.3.0/bin/g++"
+   Compiling FIRTester.cpp_pre.cpp.tb.cpp
+   Compiling FIR.cpp_pre.cpp.tb.cpp
+   Compiling apatb_fir_n11_maxi.cpp
+   Compiling apatb_fir_n11_maxi_ir.ll
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+>> Start test!
+>> Comparing against output data...
+>> Test passed!
+------------------------
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_fir_n11_maxi_top glbl -Oenable_linking_all_libraries -prj fir_n11_maxi.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_20 -L floating_point_v7_1_14 --lib ieee_proposed=./ieee_proposed -s fir_n11_maxi -debug wave 
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by Xilinx, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+    LIBRARY_PATH
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/AESL_axi_master_gmem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_master_gmem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/fir_n11_maxi_mul_32s_32s_32_2_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_mul_32s_32s_32_2_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/fir_n11_maxi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/fir_n11_maxi_gmem_m_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_load
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_store
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_flushManager
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_read
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_write
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_throttle
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_reg_slice
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_fifo
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_srl
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_gmem_m_axi_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/fir_n11_maxi.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_fir_n11_maxi_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/fir_n11_maxi_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_control_s_axi
+INFO: [VRFC 10-311] analyzing module fir_n11_maxi_control_s_axi_ram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.fir_n11_maxi_mul_32s_32s_32_2_1(...
+Compiling module xil_defaultlib.fir_n11_maxi_fir_n11_maxi_Pipeli...
+Compiling module xil_defaultlib.fir_n11_maxi_control_s_axi_ram(M...
+Compiling module xil_defaultlib.fir_n11_maxi_control_s_axi
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_srl(DATA...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_fifo(DAT...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_mem(MEM_...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_fifo(MEM...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_srl(DATA...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_fifo(DAT...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_srl(DATA...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_fifo(DAT...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_store(NU...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_mem(MEM_...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_fifo(MEM...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_load(NUM...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_reg_slic...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_srl(DATA...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_fifo(DAT...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_reg_slic...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_srl(DATA...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_fifo(DAT...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_srl(DATA...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_fifo(DAT...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_throttle...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_reg_slic...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_write(CO...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_reg_slic...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi_read(C_U...
+Compiling module xil_defaultlib.fir_n11_maxi_gmem_m_axi(CONSERVA...
+Compiling module xil_defaultlib.fir_n11_maxi
+Compiling module xil_defaultlib.AESL_axi_master_gmem
+Compiling module xil_defaultlib.AESL_axi_slave_control
+WARNING: [XSIM 43-3373] "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/AESL_axi_slave_control.v" Line 1017. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/AESL_axi_slave_control.v" Line 1026. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/AESL_axi_slave_control.v" Line 1067. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.pp_loop_intf(FSM_WIDTH=13)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_fir_n11_maxi_top
+Compiling module work.glbl
+Built simulation snapshot fir_n11_maxi
+
+****** xsim v2022.1 (64-bit)
+  **** SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+  **** IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/fir_n11_maxi/xsim_script.tcl
+# xsim {fir_n11_maxi} -view {{fir_n11_maxi_dataflow_ana.wcfg}} -tclbatch {fir_n11_maxi.tcl} -protoinst {fir_n11_maxi.protoinst}
+INFO: [Wavedata 42-565] Reading protoinst file fir_n11_maxi.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi//AESL_inst_fir_n11_maxi_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242_activity
+Time resolution is 1 ps
+open_wave_config fir_n11_maxi_dataflow_ana.wcfg
+source fir_n11_maxi.tcl
+## log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
+## set pn32HPInput__pn32HPOutput_group [add_wave_group pn32HPInput__pn32HPOutput(axi_master) -into $cinoutgroup]
+## set rdata_group [add_wave_group "Read Channel" -into $pn32HPInput__pn32HPOutput_group]
+## set wdata_group [add_wave_group "Write Channel" -into $pn32HPInput__pn32HPOutput_group]
+## set ctrl_group [add_wave_group "Handshakes" -into $pn32HPInput__pn32HPOutput_group]
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_BUSER -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_BID -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_BRESP -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_BREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_BVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_RRESP -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_RUSER -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_RID -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_RLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_RDATA -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_RREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_RVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARUSER -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARREGION -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARQOS -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARPROT -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARCACHE -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARLOCK -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARBURST -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARSIZE -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARLEN -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARID -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARADDR -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_ARVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_WUSER -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_WID -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_WLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_WSTRB -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_WDATA -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_WREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_WVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWUSER -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWREGION -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWQOS -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWPROT -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWCACHE -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWLOCK -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWBURST -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWSIZE -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWLEN -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWID -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWADDR -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/m_axi_gmem_AWVALID -into $ctrl_group -color #ffff00 -radix hex
+## set pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group [add_wave_group pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return(axi_slave) -into $cinoutgroup]
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/interrupt -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_BRESP -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_BREADY -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_BVALID -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_RRESP -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_RDATA -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_RREADY -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_RVALID -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_ARREADY -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_ARVALID -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_ARADDR -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_WSTRB -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_WDATA -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_WREADY -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_WVALID -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_AWREADY -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_AWVALID -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/s_axi_control_AWADDR -into $pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake(internal)" -into $designtopgroup]
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/ap_done -into $blocksiggroup
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/ap_idle -into $blocksiggroup
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/ap_ready -into $blocksiggroup
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/ap_start -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/ap_rst_n -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_fir_n11_maxi_top/AESL_inst_fir_n11_maxi/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_fir_n11_maxi_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/LENGTH_pn32HPInput -into $tb_portdepth_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/LENGTH_pn32HPOutput -into $tb_portdepth_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/LENGTH_an32Coef -into $tb_portdepth_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/LENGTH_regXferLeng -into $tb_portdepth_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/LENGTH_gmem -into $tb_portdepth_group -radix hex
+## set tbcinoutgroup [add_wave_group "C InOuts" -into $testbenchgroup]
+## set tb_pn32HPInput__pn32HPOutput_group [add_wave_group pn32HPInput__pn32HPOutput(axi_master) -into $tbcinoutgroup]
+## set rdata_group [add_wave_group "Read Channel" -into $tb_pn32HPInput__pn32HPOutput_group]
+## set wdata_group [add_wave_group "Write Channel" -into $tb_pn32HPInput__pn32HPOutput_group]
+## set ctrl_group [add_wave_group "Handshakes" -into $tb_pn32HPInput__pn32HPOutput_group]
+## add_wave /apatb_fir_n11_maxi_top/gmem_BUSER -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_BID -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_BRESP -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_BREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_BVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_RRESP -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_RUSER -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_RID -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_RLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_RDATA -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_RREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_RVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARUSER -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARREGION -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARQOS -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARPROT -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARCACHE -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARLOCK -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARBURST -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARSIZE -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARLEN -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARID -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARADDR -into $rdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_ARVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_WUSER -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_WID -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_WLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_WSTRB -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_WDATA -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_WREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_WVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWUSER -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWREGION -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWQOS -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWPROT -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWCACHE -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWLOCK -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWBURST -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWSIZE -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWLEN -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWID -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWADDR -into $wdata_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/gmem_AWVALID -into $ctrl_group -color #ffff00 -radix hex
+## set tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group [add_wave_group pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return(axi_slave) -into $tbcinoutgroup]
+## add_wave /apatb_fir_n11_maxi_top/control_INTERRUPT -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_BRESP -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_BREADY -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_BVALID -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_RRESP -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_RDATA -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_RREADY -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_RVALID -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_ARREADY -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_ARVALID -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_ARADDR -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_WSTRB -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_WDATA -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_WREADY -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_WVALID -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_AWREADY -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_AWVALID -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -color #ffff00 -radix hex
+## add_wave /apatb_fir_n11_maxi_top/control_AWADDR -into $tb_pn32HPInput__pn32HPOutput__an32Coef__regXferLeng__return_group -radix hex
+## save_wave_config fir_n11_maxi.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [n/a] @ "125000"
+// RTL Simulation : 1 / 1 [n/a] @ "9575000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 9635 ns : File "/home/ubuntu/course-lab_2/hls_FIR/solution1/sim/verilog/fir_n11_maxi.autotb.v" Line 438
+## quit
+INFO: [Common 17-206] Exiting xsim at Tue Oct  3 02:54:58 2023...
+>> Start test!
+>> Comparing against output data...
+>> Test passed!
+------------------------
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.

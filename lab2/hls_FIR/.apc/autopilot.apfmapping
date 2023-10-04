@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="FIR.h" path="/home/ubuntu/course-lab_2/hls_FIR/FIR.h"/>
+    <originFiles name="FIR.cpp" path="/home/ubuntu/course-lab_2/hls_FIR/FIR.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="FIRTester.cpp" path="/home/ubuntu/course-lab_2/hls_FIR/FIRTester.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

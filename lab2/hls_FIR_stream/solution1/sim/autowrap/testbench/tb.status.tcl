@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /home/ubuntu/course-lab_2/hls_FIR_stream/solution1/./sim/autowrap/testbench/FIR.cpp_pre.cpp.tb.cpp

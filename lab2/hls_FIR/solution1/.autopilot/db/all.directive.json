@@ -1,0 +1,141 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "fir_n11_maxi",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "\/home\/ubuntu\/course-lab_2\/hls_FIR\/solution1\/directives.tcl",
+          "sourceLine": "6",
+          "pragma": {
+            "name": "INTERFACE",
+            "option": [
+              {
+                "name": "s_axilite",
+                "value": ""
+              },
+              {
+                "name": "port",
+                "value": "return"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "fir_n11_maxi",
+          "label": "",
+          "functionLabel": "",
+          "id": "2",
+          "sourceFile": "\/home\/ubuntu\/course-lab_2\/hls_FIR\/solution1\/directives.tcl",
+          "sourceLine": "7",
+          "pragma": {
+            "name": "INTERFACE",
+            "option": [
+              {
+                "name": "m_axi",
+                "value": ""
+              },
+              {
+                "name": "depth",
+                "value": "600"
+              },
+              {
+                "name": "port",
+                "value": "pn32HPInput"
+              },
+              {
+                "name": "offset",
+                "value": "slave"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "fir_n11_maxi",
+          "label": "",
+          "functionLabel": "",
+          "id": "3",
+          "sourceFile": "\/home\/ubuntu\/course-lab_2\/hls_FIR\/solution1\/directives.tcl",
+          "sourceLine": "8",
+          "pragma": {
+            "name": "INTERFACE",
+            "option": [
+              {
+                "name": "m_axi",
+                "value": ""
+              },
+              {
+                "name": "depth",
+                "value": "600"
+              },
+              {
+                "name": "port",
+                "value": "pn32HPOutput"
+              },
+              {
+                "name": "offset",
+                "value": "slave"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "fir_n11_maxi",
+          "label": "",
+          "functionLabel": "",
+          "id": "4",
+          "sourceFile": "\/home\/ubuntu\/course-lab_2\/hls_FIR\/solution1\/directives.tcl",
+          "sourceLine": "9",
+          "pragma": {
+            "name": "INTERFACE",
+            "option": [
+              {
+                "name": "s_axilite",
+                "value": ""
+              },
+              {
+                "name": "port",
+                "value": "an32Coef"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "fir_n11_maxi",
+          "label": "",
+          "functionLabel": "",
+          "id": "5",
+          "sourceFile": "\/home\/ubuntu\/course-lab_2\/hls_FIR\/solution1\/directives.tcl",
+          "sourceLine": "10",
+          "pragma": {
+            "name": "INTERFACE",
+            "option": [
+              {
+                "name": "s_axilite",
+                "value": ""
+              },
+              {
+                "name": "port",
+                "value": "regXferLeng"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "fir_n11_maxi",
+          "label": "",
+          "functionLabel": "",
+          "id": "6",
+          "sourceFile": "\/home\/ubuntu\/course-lab_2\/hls_FIR\/solution1\/csynth.tcl",
+          "sourceLine": "15",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "fir_n11_maxi"
+              }]
+          }
+        }
+      ]
+    }]}

@@ -1,0 +1,76 @@
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.1/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_fir_n11_strm_top glbl -Oenable_linking_all_libraries -prj fir_n11_strm.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_0_20 -L floating_point_v7_1_14 --lib ieee_proposed=./ieee_proposed -s fir_n11_strm -debug wave 
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by Xilinx, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_axi_s_pstrmInput.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_pstrmInput
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/fir_n11_strm_regslice_both.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_strm_regslice_both
+INFO: [VRFC 10-311] analyzing module fir_n11_strm_regslice_both_w1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/fir_n11_strm.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_fir_n11_strm_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/fir_n11_strm_mul_32s_32s_32_2_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_strm_mul_32s_32s_32_2_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/fir_n11_strm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_strm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_deadlock_kernel_monitor_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_kernel_monitor_top
+WARNING: [VRFC 10-3824] variable 'block_delay' must explicitly be declared as automatic or static [/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_deadlock_kernel_monitor_top.v:30]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/fir_n11_strm_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_strm_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_axi_s_pstrmOutput.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_pstrmOutput
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/fir_n11_strm_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_strm_control_s_axi
+INFO: [VRFC 10-311] analyzing module fir_n11_strm_control_s_axi_ram
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/fir_n11_strm_fir_n11_strm_Pipeline_XFER_LOOP.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fir_n11_strm_fir_n11_strm_Pipeline_XFER_LOOP
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_deadlock_idx0_monitor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_idx0_monitor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_deadlock_idx1_monitor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_idx1_monitor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3645] port 'axis_block_info' remains unconnected for this instance [/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_deadlock_kernel_monitor_top.v:20]
+WARNING: [VRFC 10-3705] select index -1 into 'axis_block_sigs' is out of bounds [/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_deadlock_idx0_monitor.v:42]
+WARNING: [VRFC 10-3705] select index -1 into 'axis_block_sigs' is out of bounds [/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_deadlock_idx0_monitor.v:50]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.fir_n11_strm_mul_32s_32s_32_2_1(...
+Compiling module xil_defaultlib.fir_n11_strm_flow_control_loop_p...
+Compiling module xil_defaultlib.fir_n11_strm_fir_n11_strm_Pipeli...
+Compiling module xil_defaultlib.fir_n11_strm_control_s_axi_ram(M...
+Compiling module xil_defaultlib.fir_n11_strm_control_s_axi
+Compiling module xil_defaultlib.fir_n11_strm_regslice_both
+Compiling module xil_defaultlib.fir_n11_strm_regslice_both(DataW...
+Compiling module xil_defaultlib.fir_n11_strm_regslice_both(DataW...
+Compiling module xil_defaultlib.fir_n11_strm
+Compiling module xil_defaultlib.fifo(DEPTH=600,WIDTH=32)
+Compiling module xil_defaultlib.fifo(DEPTH=600,WIDTH=4)
+Compiling module xil_defaultlib.fifo(DEPTH=600,WIDTH=1)
+Compiling module xil_defaultlib.AESL_axi_s_pstrmInput
+Compiling module xil_defaultlib.AESL_axi_s_pstrmOutput
+Compiling module xil_defaultlib.AESL_axi_slave_control
+WARNING: [XSIM 43-3373] "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_axi_slave_control.v" Line 567. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_axi_slave_control.v" Line 576. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+WARNING: [XSIM 43-3373] "/home/ubuntu/course-lab_2/hls_FIR_stream/solution1/sim/verilog/AESL_axi_slave_control.v" Line 617. System function $fread is used as system task. This system function should have a LHS e.g. x=$fread().
+Compiling module xil_defaultlib.AESL_deadlock_idx1_monitor
+Compiling module xil_defaultlib.AESL_deadlock_idx0_monitor
+Compiling module xil_defaultlib.AESL_deadlock_kernel_monitor_top...
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=11)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_fir_n11_strm_top
+Compiling module work.glbl
+Built simulation snapshot fir_n11_strm

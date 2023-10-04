@@ -1,0 +1,5 @@
+<VitisHLS:BurstInfo>
+    <burst group="BURST_VERBOSE_MISSED" fe_name="NonSimpleMemoryAccessMissed" src_info="hls_FIR/FIR.cpp:30:28" msg_id="214-227" msg_severity="INFO" msg_body="Volatile or Atomic access cannot be transformed" resolution="214-227" ID="for.inc16.store.2" BundleName="gmem" VarName="pn32HPOutput" ParentFunc="fir_n11_maxi(int volatile*, int volatile*, int*, ap_uint&lt;32&gt;)"/>
+    <burst group="BURST_VERBOSE_MISSED" fe_name="NonSimpleMemoryAccessMissed" src_info="hls_FIR/FIR.cpp:18:13" msg_id="214-227" msg_severity="INFO" msg_body="Volatile or Atomic access cannot be transformed" resolution="214-227" ID="SHIFT_ACC_LOOP.load.4" BundleName="gmem" VarName="pn32HPInput" ParentFunc="fir_n11_maxi(int volatile*, int volatile*, int*, ap_uint&lt;32&gt;)"/>
+</VitisHLS:BurstInfo>
+

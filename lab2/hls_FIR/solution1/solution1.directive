@@ -1,0 +1,39 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="fir_n11_maxi" label="" functionLabel="">
+            <pragma name="INTERFACE">
+                <option name="s_axilite" value="" positionalBoolean="mode"/>
+                <option name="port" positionalBoolean="4" value="return"/>
+            </pragma>
+        </directive>
+        <directive functionName="fir_n11_maxi" label="" functionLabel="">
+            <pragma name="INTERFACE">
+                <option name="m_axi" value="" positionalBoolean="mode"/>
+                <option name="depth" value="600"/>
+                <option name="port" positionalBoolean="4" value="pn32HPInput"/>
+                <option name="offset" value="slave"/>
+            </pragma>
+        </directive>
+        <directive functionName="fir_n11_maxi" label="" functionLabel="">
+            <pragma name="INTERFACE">
+                <option name="m_axi" value="" positionalBoolean="mode"/>
+                <option name="depth" value="600"/>
+                <option name="port" positionalBoolean="4" value="pn32HPOutput"/>
+                <option name="offset" value="slave"/>
+            </pragma>
+        </directive>
+        <directive functionName="fir_n11_maxi" label="" functionLabel="">
+            <pragma name="INTERFACE">
+                <option name="s_axilite" value="" positionalBoolean="mode"/>
+                <option name="port" positionalBoolean="4" value="an32Coef"/>
+            </pragma>
+        </directive>
+        <directive functionName="fir_n11_maxi" label="" functionLabel="">
+            <pragma name="INTERFACE">
+                <option name="s_axilite" value="" positionalBoolean="mode"/>
+                <option name="port" positionalBoolean="4" value="regXferLeng"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+

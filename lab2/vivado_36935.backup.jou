@@ -1,0 +1,41 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Tue Oct  3 05:23:29 2023
+# Process ID: 36935
+# Current directory: /home/ubuntu/course-lab_2
+# Command line: vivado
+# Log file: /home/ubuntu/course-lab_2/vivado.log
+# Journal file: /home/ubuntu/course-lab_2/vivado.jou
+# Running On: ubuntu2004, OS: Linux, CPU Frequency: 2496.004 MHz, CPU Physical cores: 2, Host memory: 10425 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.xpr
+update_compile_order -fileset sources_1
+open_bd_design {/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0
+endgroup
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:hls:fir_n11_maxi:1.0 fir_n11_maxi_0
+endgroup
+regenerate_bd_layout
+apply_bd_automation -rule xilinx.com:bd_rule:processing_system7 -config {make_external "FIXED_IO, DDR" Master "Disable" Slave "Disable" }  [get_bd_cells processing_system7_0]
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} CONFIG.PCW_USE_S_AXI_HP0 {1}] [get_bd_cells processing_system7_0]
+endgroup
+regenerate_bd_layout
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {Auto} Clk_slave {Auto} Clk_xbar {Auto} Master {/processing_system7_0/M_AXI_GP0} Slave {/fir_n11_maxi_0/s_axi_control} ddr_seg {Auto} intc_ip {New AXI Interconnect} master_apm {0}}  [get_bd_intf_pins fir_n11_maxi_0/s_axi_control]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {Auto} Clk_slave {Auto} Clk_xbar {Auto} Master {/fir_n11_maxi_0/m_axi_gmem} Slave {/processing_system7_0/S_AXI_HP0} ddr_seg {Auto} intc_ip {New AXI Interconnect} master_apm {0}}  [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
+endgroup
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+regenerate_bd_layout
+make_wrapper -files [get_files /home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.srcs/sources_1/bd/design_1/design_1.bd] -top
+add_files -norecurse /home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1

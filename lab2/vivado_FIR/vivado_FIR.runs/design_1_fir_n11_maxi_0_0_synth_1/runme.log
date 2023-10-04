@@ -1,0 +1,1105 @@
+
+*** Running vivado
+    with args -log design_1_fir_n11_maxi_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_fir_n11_maxi_0_0.tcl
+
+
+****** Vivado v2022.1 (64-bit)
+  **** SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+  **** IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source design_1_fir_n11_maxi_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/course-lab_2/hls_FIR'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'.
+Command: synth_design -top design_1_fir_n11_maxi_0_0 -part xc7z020clg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 40115
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:05 . Memory (MB): peak = 2897.145 ; gain = 0.000 ; free physical = 140 ; free virtual = 1700
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_fir_n11_maxi_0_0' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ip/design_1_fir_n11_maxi_0_0/synth/design_1_fir_n11_maxi_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi.v:10]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP.v:10]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_mul_32s_32s_32_2_1' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_mul_32s_32s_32_2_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_mul_32s_32s_32_2_1' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_mul_32s_32s_32_2_1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP.v:10]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_control_s_axi' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_control_s_axi.v:7]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_control_s_axi_ram' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_control_s_axi.v:544]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_control_s_axi_ram' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_control_s_axi.v:544]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_control_s_axi.v:260]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_control_s_axi' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_control_s_axi.v:7]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:11]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_store' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:780]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_srl' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_srl' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized0' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_mem' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2918]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_mem' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2918]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized0' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized1' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized0' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized0' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized1' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized2' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized1' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized1' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized2' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_store' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:780]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_load' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:324]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized3' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_mem__parameterized0' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2918]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_mem__parameterized0' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2918]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized3' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_load' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:324]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_write' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:1852]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_reg_slice' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2584]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_reg_slice' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2584]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized4' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized2' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized2' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized4' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_throttle' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2360]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized0' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2584]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized0' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2584]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized5' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized3' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized3' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized5' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized6' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized4' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_srl__parameterized4' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2864]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_fifo__parameterized6' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2686]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_throttle' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2360]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized1' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2584]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized1' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2584]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2352]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2355]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_write' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:1852]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_read' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:1468]
+INFO: [Synth 8-6157] synthesizing module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized2' [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2584]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized2' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:2584]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:1844]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi_read' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:1468]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi_gmem_m_axi' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_gmem_m_axi.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'fir_n11_maxi' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_fir_n11_maxi_0_0' (0#1) [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ip/design_1_fir_n11_maxi_0_0/synth/design_1_fir_n11_maxi_0_0.v:53]
+WARNING: [Synth 8-6014] Unused sequential element int_ap_done_reg was removed.  [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ipshared/a3e7/hdl/verilog/fir_n11_maxi_control_s_axi.v:338]
+WARNING: [Synth 8-7129] Port in_BUS_RID[0] in module fir_n11_maxi_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[1] in module fir_n11_maxi_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RRESP[0] in module fir_n11_maxi_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_RUSER[0] in module fir_n11_maxi_gmem_m_axi_read is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BID[0] in module fir_n11_maxi_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[1] in module fir_n11_maxi_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BRESP[0] in module fir_n11_maxi_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port in_BUS_BUSER[0] in module fir_n11_maxi_gmem_m_axi_write is either unconnected or has no load
+WARNING: [Synth 8-7129] Port raddr[2] in module fir_n11_maxi_gmem_m_axi_srl is either unconnected or has no load
+WARNING: [Synth 8-7129] Port raddr[2] in module fir_n11_maxi_gmem_m_axi_srl__parameterized1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we0[3] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we0[2] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we0[1] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port we0[0] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[31] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[30] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[29] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[28] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[27] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[26] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[25] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[24] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[23] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[22] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[21] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[20] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[19] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[18] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[17] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[16] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[15] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[14] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[13] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[12] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[11] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[10] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[9] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[8] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[7] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[6] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[5] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[4] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[3] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[2] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[1] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port d0[0] in module fir_n11_maxi_control_s_axi_ram is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module fir_n11_maxi_mul_32s_32s_32_2_1 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RLAST in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RID[0] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RFIFONUM[8] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RFIFONUM[7] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RFIFONUM[6] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RFIFONUM[5] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RFIFONUM[4] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RFIFONUM[3] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RFIFONUM[2] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RFIFONUM[1] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RFIFONUM[0] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RUSER[0] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RRESP[1] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_RRESP[0] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_BRESP[1] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_BRESP[0] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_BID[0] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port m_axi_gmem_BUSER[0] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[63] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[62] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[61] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[60] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[59] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[58] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[57] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[56] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[55] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[54] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[53] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[52] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[51] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[50] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[49] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[48] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[47] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[46] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[45] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[44] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[43] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[42] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[41] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[40] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[39] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[38] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[37] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[36] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[35] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[34] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[33] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[32] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[31] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[30] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pn32HPInput[29] in module fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 2897.145 ; gain = 0.000 ; free physical = 2226 ; free virtual = 3594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 2897.145 ; gain = 0.000 ; free physical = 2404 ; free virtual = 3774
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 2897.145 ; gain = 0.000 ; free physical = 2404 ; free virtual = 3774
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2897.145 ; gain = 0.000 ; free physical = 2449 ; free virtual = 3818
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ip/design_1_fir_n11_maxi_0_0/constraints/fir_n11_maxi_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.gen/sources_1/bd/design_1/ip/design_1_fir_n11_maxi_0_0/constraints/fir_n11_maxi_ooc.xdc] for cell 'inst'
+Parsing XDC File [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.runs/design_1_fir_n11_maxi_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.runs/design_1_fir_n11_maxi_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2913.152 ; gain = 0.000 ; free physical = 2355 ; free virtual = 3731
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2913.152 ; gain = 0.000 ; free physical = 2354 ; free virtual = 3730
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 2412 ; free virtual = 3791
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 2412 ; free virtual = 3791
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for inst. (constraint file  /home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.runs/design_1_fir_n11_maxi_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 2412 ; free virtual = 3791
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-802] inferred FSM for state register 'wstate_reg' in module 'fir_n11_maxi_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'rstate_reg' in module 'fir_n11_maxi_control_s_axi'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fir_n11_maxi_gmem_m_axi_reg_slice'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized0'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized1'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized2'
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              001 |                               10
+*
+                  RDIDLE |                              010 |                               00
+                  RDDATA |                              100 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'rstate_reg' using encoding 'one-hot' in module 'fir_n11_maxi_control_s_axi'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                               11
+*
+                  WRIDLE |                             0010 |                               00
+                  WRDATA |                             0100 |                               01
+                  WRRESP |                             1000 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'wstate_reg' using encoding 'one-hot' in module 'fir_n11_maxi_control_s_axi'
+INFO: [Synth 8-7082] The signal mem_reg is implemented as Block RAM but is better mapped onto distributed LUT RAM for the following reason(s): The depth (4 address bits) is shallow. Please use attribute (* ram_style = "distributed" *) to instruct Vivado to infer distributed LUT RAM.
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fir_n11_maxi_gmem_m_axi_reg_slice'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized0'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized1'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    ZERO |                               00 |                               10
+                     ONE |                               10 |                               11
+                     TWO |                               01 |                               01
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'fir_n11_maxi_gmem_m_axi_reg_slice__parameterized2'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:12 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 2412 ; free virtual = 3797
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   64 Bit       Adders := 4     
+	   2 Input   52 Bit       Adders := 2     
+	   2 Input   33 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 3     
+	   3 Input   32 Bit       Adders := 3     
+	   4 Input   32 Bit       Adders := 1     
+	   2 Input   12 Bit       Adders := 2     
+	   2 Input    9 Bit       Adders := 4     
+	   2 Input    8 Bit       Adders := 3     
+	   2 Input    6 Bit       Adders := 2     
+	   2 Input    5 Bit       Adders := 17    
+	   2 Input    4 Bit       Adders := 15    
+	   2 Input    3 Bit       Adders := 6     
++---Registers : 
+	               96 Bit    Registers := 6     
+	               72 Bit    Registers := 3     
+	               64 Bit    Registers := 12    
+	               62 Bit    Registers := 2     
+	               52 Bit    Registers := 2     
+	               37 Bit    Registers := 1     
+	               36 Bit    Registers := 1     
+	               34 Bit    Registers := 1     
+	               33 Bit    Registers := 2     
+	               32 Bit    Registers := 61    
+	               31 Bit    Registers := 2     
+	               14 Bit    Registers := 1     
+	               13 Bit    Registers := 1     
+	               10 Bit    Registers := 4     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 6     
+	                7 Bit    Registers := 1     
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 9     
+	                4 Bit    Registers := 13    
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 6     
+	                1 Bit    Registers := 84    
++---Multipliers : 
+	              32x32  Multipliers := 11    
++---RAMs : 
+	               8K Bit	(255 X 34 bit)          RAMs := 1     
+	              540 Bit	(15 X 36 bit)          RAMs := 1     
+	              384 Bit	(12 X 32 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   96 Bit        Muxes := 2     
+	   2 Input   72 Bit        Muxes := 1     
+	   2 Input   64 Bit        Muxes := 8     
+	   2 Input   52 Bit        Muxes := 2     
+	   2 Input   33 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 10    
+	  10 Input   32 Bit        Muxes := 1     
+	   2 Input   14 Bit        Muxes := 1     
+	  15 Input   14 Bit        Muxes := 1     
+	   2 Input   13 Bit        Muxes := 1     
+	  14 Input   13 Bit        Muxes := 1     
+	   4 Input   12 Bit        Muxes := 2     
+	   2 Input   10 Bit        Muxes := 4     
+	   3 Input    9 Bit        Muxes := 1     
+	   2 Input    9 Bit        Muxes := 2     
+	   2 Input    8 Bit        Muxes := 8     
+	   4 Input    8 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 17    
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 18    
+	  11 Input    4 Bit        Muxes := 1     
+	   3 Input    3 Bit        Muxes := 1     
+	   2 Input    3 Bit        Muxes := 5     
+	   2 Input    2 Bit        Muxes := 64    
+	   3 Input    2 Bit        Muxes := 15    
+	   4 Input    2 Bit        Muxes := 5     
+	   2 Input    1 Bit        Muxes := 93    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: register an32Coef_load_reg_330_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_8_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_9_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: register an32Coef_load_reg_330_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_8_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_9_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: register an32Coef_load_1_reg_340_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_7_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_8_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: register an32Coef_load_1_reg_340_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_7_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_8_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: register an32Coef_load_4_reg_370_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_4_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_5_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: register an32Coef_load_4_reg_370_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_4_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_5_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U8/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: register an32Coef_load_2_reg_350_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_6_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_7_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: register an32Coef_load_2_reg_350_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_6_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_7_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U6/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: register an32Coef_load_3_reg_360_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_5_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_6_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: register an32Coef_load_3_reg_360_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_5_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_6_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U7/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: register an32Coef_load_7_reg_400_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_2_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_2_load_reg_583_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: register an32Coef_load_7_reg_400_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_2_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_2_load_reg_583_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U11/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: register an32Coef_load_5_reg_380_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_3_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_4_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: register an32Coef_load_5_reg_380_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_3_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_4_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U9/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: register an32Coef_load_6_reg_390_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_2_load_reg_583_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_3_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: register an32Coef_load_6_reg_390_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_2_load_reg_583_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_3_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U10/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product, operation Mode is: A2*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: register an32Coef_load_10_reg_446_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg, operation Mode is: (PCIN>>17)+A''*B.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: register an32Coef_load_10_reg_446_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product, operation Mode is: A''*B2.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg, operation Mode is: (PCIN>>17)+A''*B.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U3/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: register an32Coef_load_8_reg_410_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_1_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: register an32Coef_load_8_reg_410_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg, operation Mode is: (PCIN>>17)+A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_1_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U1/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product, operation Mode is: A''*B''.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: register an32Coef_load_9_reg_420_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg, operation Mode is: (PCIN>>17)+A''*B2.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: register control_s_axi_U/int_an32Coef/q0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: register an32Coef_load_9_reg_420_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product, operation Mode is: A''*B''.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product.
+DSP Report: Generating DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg, operation Mode is: (PCIN>>17)+A''*B2.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/an32ShiftReg_0_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: register grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+DSP Report: operator grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/tmp_product is absorbed into DSP grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U2/dout_reg.
+INFO: [Synth 8-7082] The signal store_unit/buff_wdata/U_fifo_mem/mem_reg is implemented as Block RAM but is better mapped onto distributed LUT RAM for the following reason(s): The depth (4 address bits) is shallow. Please use attribute (* ram_style = "distributed" *) to instruct Vivado to infer distributed LUT RAM.
+WARNING: [Synth 8-3332] Sequential element (control_s_axi_U/FSM_onehot_rstate_reg[0]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (control_s_axi_U/FSM_onehot_wstate_reg[0]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[47]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[46]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[45]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[44]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[43]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[42]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[41]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[40]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[39]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[38]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[37]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[36]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[35]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[34]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[33]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[32]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[31]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[30]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[29]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[28]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[27]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[26]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[25]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[24]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[23]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[22]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[21]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[20]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[19]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[18]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[17]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[16]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[15]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[47]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[46]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[45]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[44]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[43]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[42]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[41]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[40]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[39]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[38]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[37]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[36]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[35]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[34]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[33]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[32]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[31]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[30]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[29]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[28]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[27]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[26]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[25]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[24]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[23]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[22]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[21]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[20]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[19]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[18]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U4/dout_reg[17]__0) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[47]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[46]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[45]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[44]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[43]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[42]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[41]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[40]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[39]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[38]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[37]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[36]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[35]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[34]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[33]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[32]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[31]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[30]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[29]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[28]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[27]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[26]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[25]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[24]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[23]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[22]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[21]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[20]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[19]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[18]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[17]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[16]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[15]) is unused and will be removed from module fir_n11_maxi.
+WARNING: [Synth 8-3332] Sequential element (grp_fir_n11_maxi_Pipeline_XFER_LOOP_fu_242/mul_32s_32s_32_2_1_U5/dout_reg[47]__0) is unused and will be removed from module fir_n11_maxi.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:18 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 2488 ; free virtual = 3888
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------------+------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name       | RTL Object                               | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------------+------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|inst/gmem_m_axi_U | store_unit/buff_wdata/U_fifo_mem/mem_reg | 15 x 36(READ_FIRST)    | W |   | 15 x 36(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|inst/gmem_m_axi_U | load_unit/buff_rdata/U_fifo_mem/mem_reg  | 255 x 34(READ_FIRST)   | W |   | 255 x 34(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++------------------+------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++------------+--------------------------------------+-----------+----------------------+----------------+
+|Module Name | RTL Object                           | Inference | Size (Depth x Width) | Primitives     | 
++------------+--------------------------------------+-----------+----------------------+----------------+
+|inst        | control_s_axi_U/int_an32Coef/mem_reg | Implied   | 16 x 32              | RAM16X1D x 32  | 
++------------+--------------------------------------+-----------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++-------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name  | DSP Mapping        | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A2*B''             | 18     | 15     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B   | 15     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B2             | 18     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B   | 18     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 15     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B'' | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 15     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B2  | 15     | 15     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''            | 18     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17)+A''*B2  | 18     | 15     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
++-------------+--------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 2362 ; free virtual = 3756
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 3491 ; free virtual = 4906
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------------+------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name       | RTL Object                               | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------------+------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|inst/gmem_m_axi_U | store_unit/buff_wdata/U_fifo_mem/mem_reg | 15 x 36(READ_FIRST)    | W |   | 15 x 36(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|inst/gmem_m_axi_U | load_unit/buff_rdata/U_fifo_mem/mem_reg  | 255 x 34(READ_FIRST)   | W |   | 255 x 34(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
++------------------+------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++------------+--------------------------------------+-----------+----------------------+----------------+
+|Module Name | RTL Object                           | Inference | Size (Depth x Width) | Primitives     | 
++------------+--------------------------------------+-----------+----------------------+----------------+
+|inst        | control_s_axi_U/int_an32Coef/mem_reg | Implied   | 16 x 32              | RAM16X1D x 32  | 
++------------+--------------------------------------+-----------+----------------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance inst/gmem_m_axi_U/load_unit/buff_rdata/U_fifo_mem/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:23 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 3454 ; free virtual = 4879
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 2153 ; free virtual = 3652
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:19 ; elapsed = 00:00:25 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 2147 ; free virtual = 3646
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:26 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 1993 ; free virtual = 3492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:26 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 1993 ; free virtual = 3491
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:26 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 1987 ; free virtual = 3485
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:26 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 1986 ; free virtual = 3484
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Dynamic Shift Register Report:
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+|Module Name | RTL Name    | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+|dsrl        | mem_reg[3]  | 96     | 96         | 96     | 0       | 0      | 0      | 0      | 
+|dsrl__1     | mem_reg[14] | 1      | 1          | 1      | 0       | 0      | 0      | 0      | 
+|dsrl__2     | mem_reg[3]  | 1      | 1          | 1      | 0       | 0      | 0      | 0      | 
+|dsrl__3     | mem_reg[14] | 8      | 8          | 8      | 0       | 0      | 0      | 0      | 
+|dsrl__4     | mem_reg[14] | 72     | 72         | 72     | 0       | 0      | 0      | 0      | 
+|dsrl__5     | mem_reg[14] | 37     | 37         | 37     | 0       | 0      | 0      | 0      | 
++------------+-------------+--------+------------+--------+---------+--------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++-------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name  | DSP Mapping         | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A'*B'')'           | 17     | 18     | -      | -      | 48     | 1    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B'              | 17     | 17     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B')'  | 17     | 18     | -      | -      | 48     | 2    | 1    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | (A''*B'')'          | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
+|fir_n11_maxi | A''*B''             | 17     | 17     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 0    | 
+|fir_n11_maxi | (PCIN>>17+A''*B'')' | 17     | 18     | -      | -      | 48     | 2    | 2    | -    | -    | -     | 0    | 1    | 
++-------------+---------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |   229|
+|2     |DSP48E1  |    33|
+|7     |LUT1     |    85|
+|8     |LUT2     |   320|
+|9     |LUT3     |   665|
+|10    |LUT4     |   464|
+|11    |LUT5     |   205|
+|12    |LUT6     |   351|
+|13    |RAM16X1D |    32|
+|14    |RAMB18E1 |     2|
+|16    |SRL16E   |   296|
+|17    |FDRE     |  3436|
+|18    |FDSE     |     7|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:26 . Memory (MB): peak = 2913.152 ; gain = 16.008 ; free physical = 1985 ; free virtual = 3484
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 715 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:24 . Memory (MB): peak = 2913.152 ; gain = 0.000 ; free physical = 2033 ; free virtual = 3531
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:26 . Memory (MB): peak = 2913.160 ; gain = 16.008 ; free physical = 2032 ; free virtual = 3531
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2913.160 ; gain = 0.000 ; free physical = 2092 ; free virtual = 3591
+INFO: [Netlist 29-17] Analyzing 296 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2913.160 ; gain = 0.000 ; free physical = 2964 ; free virtual = 4466
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 32 instances were transformed.
+  RAM16X1D => RAM32X1D (RAMD32(x2)): 32 instances
+
+Synth Design complete, checksum: f2e578d3
+INFO: [Common 17-83] Releasing license: Synthesis
+102 Infos, 205 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 2913.160 ; gain = 16.016 ; free physical = 3185 ; free virtual = 4687
+INFO: [Common 17-1381] The checkpoint '/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.runs/design_1_fir_n11_maxi_0_0_synth_1/design_1_fir_n11_maxi_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_fir_n11_maxi_0_0, cache-ID = c0ea20b6a14e20dc
+INFO: [Coretcl 2-1174] Renamed 48 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/ubuntu/course-lab_2/vivado_FIR/vivado_FIR.runs/design_1_fir_n11_maxi_0_0_synth_1/design_1_fir_n11_maxi_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_fir_n11_maxi_0_0_utilization_synth.rpt -pb design_1_fir_n11_maxi_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Oct  3 05:41:39 2023...

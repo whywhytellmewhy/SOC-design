@@ -1,0 +1,11 @@
+sv work "glbl.v"
+sv xil_defaultlib "AESL_axi_master_gmem.v"
+sv xil_defaultlib "fir_n11_maxi_mul_32s_32s_32_2_1.v"
+sv xil_defaultlib "fir_n11_maxi.v"
+sv xil_defaultlib "fir_n11_maxi_gmem_m_axi.v"
+sv xil_defaultlib "AESL_axi_slave_control.v"
+sv xil_defaultlib "fir_n11_maxi.autotb.v"
+sv xil_defaultlib "fir_n11_maxi_fir_n11_maxi_Pipeline_XFER_LOOP.v"
+sv xil_defaultlib "fir_n11_maxi_control_s_axi.v"
+sv xil_defaultlib "dataflow_monitor.sv"
+
