@@ -25,4 +25,6 @@ This repository is created on 2023.9.30
    | Waveform</br>(configuration write) | configuration_write.png | 螢幕擷取畫面 2023-10-25 175823.png |
    | Waveform</br>(ap_start, ap_done) | ap_start: ap_start.png</br>ap_done: ap_done.png | ap_start: 螢幕擷取畫面 2023-10-25 221258.png</br>ap_done: 螢幕擷取畫面 2023-10-25 221351.png</br>number of clock cycles from ap_start to ap_done = 7203 |
    | Waveform</br>(x[n] stream-in, and y[n] stream-out) | stream_in.png (開始)</br>stream_out.png (結束) | 螢幕擷取畫面 2023-10-25 233147.png (開始)</br>螢幕擷取畫面 2023-10-25 233333.png (結束)</br>x[n] stream-in: use ss channel</br>y[n] stream-out: use sm channel |
-   
+
+2. 沒有上傳下列「有被git clone過來但實作過程中沒有動到」的檔案：`README.md`
+
