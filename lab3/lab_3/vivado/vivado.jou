@@ -1,0 +1,65 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Mon Oct 23 08:38:02 2023
+# Process ID: 2189
+# Current directory: /home/ubuntu/lab_3/vivado
+# Command line: vivado
+# Log file: /home/ubuntu/lab_3/vivado/vivado.log
+# Journal file: /home/ubuntu/lab_3/vivado/vivado.jou
+# Running On: ubuntu2004, OS: Linux, CPU Frequency: 2495.998 MHz, CPU Physical cores: 2, Host memory: 10425 MB
+#-----------------------------------------------------------
+start_gui
+open_project /home/ubuntu/lab_3/vivado/FIR_Verilog/FIR_Verilog.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_3
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_4
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_5
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_6 -file /home/ubuntu/lab_3/vivado/FIR_Verilog/timing_report_Max_frequency.txt -append
+refresh_design
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+reset_run synth_1
+close_design
+launch_runs synth_1
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab_3/vivado/FIR_Verilog/timing_report_Max_frequency.txt
+launch_simulation
+source fir_tb.tcl
+close_sim
+launch_simulation
+source fir_tb.tcl
+set_property -name {xsim.simulate.runtime} -value {80000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+source fir_tb.tcl
+report_utilization -name utilization_1
+report_utilization -file /home/ubuntu/lab_3/vivado/FIR_Verilog/utilization_report.txt -name utilization_2
+close_sim
+launch_simulation
+source fir_tb.tcl
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2 -file /home/ubuntu/lab_3/vivado/FIR_Verilog/timing_report_Max_frequency.txt
+report_utilization -name utilization_3
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_3 -file /home/ubuntu/lab_3/vivado/FIR_Verilog/timing_report_Max_frequency.txt

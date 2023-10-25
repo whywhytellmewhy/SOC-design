@@ -1,0 +1,24 @@
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.1/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot fir_tb_behav xil_defaultlib.fir_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/ubuntu/lab_3/fir/rtl/fir.v" Line 1. Module fir doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/ubuntu/lab_3/fir/rtl/multiplier_adder.v" Line 1. Module multiplier_adder doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/ubuntu/lab_3/bram/bram11.v" Line 3. Module bram11 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/ubuntu/lab_3/bram/bram11.v" Line 3. Module bram11 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/ubuntu/lab_3/fir/rtl/fir.v" Line 1. Module fir doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/ubuntu/lab_3/fir/rtl/multiplier_adder.v" Line 1. Module multiplier_adder doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/ubuntu/lab_3/bram/bram11.v" Line 3. Module bram11 doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/ubuntu/lab_3/bram/bram11.v" Line 3. Module bram11 doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.multiplier_adder
+Compiling module xil_defaultlib.fir
+Compiling module xil_defaultlib.bram11
+Compiling module xil_defaultlib.fir_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot fir_tb_behav

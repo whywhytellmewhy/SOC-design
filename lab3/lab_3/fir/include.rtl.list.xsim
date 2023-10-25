@@ -1,0 +1,7 @@
+# design sources
+./tb/fir_tb.v
+#./rtl/*.v
+./rtl/fir.v
+./rtl/multiplier_adder.v
+../bram/bram11.v
+../bram/bram12.v

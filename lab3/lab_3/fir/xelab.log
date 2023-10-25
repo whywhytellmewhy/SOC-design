@@ -1,0 +1,14 @@
+Vivado Simulator v2022.1
+Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2022.1/bin/unwrapped/lnx64.o/xelab -top fir_tb -snapshot fir_tb_elab 
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module work.multiplier_adder
+Compiling module work.fir
+Compiling module work.bram11
+Compiling module work.fir_tb
+Built simulation snapshot fir_tb_elab

@@ -1,0 +1,9 @@
+0.7
+2020.2
+Apr 18 2022
+15:53:03
+/home/ubuntu/lab_3/bram/bram11.v,1696843294,verilog,,/home/ubuntu/lab_3/fir/rtl/fir.v,,bram11,,,,,,,,
+/home/ubuntu/lab_3/fir/rtl/fir.v,1698220971,verilog,,/home/ubuntu/lab_3/fir/rtl/multiplier_adder.v,,fir,,,,,,,,
+/home/ubuntu/lab_3/fir/rtl/multiplier_adder.v,1697211374,verilog,,/home/ubuntu/lab_3/fir/tb/fir_tb.v,,multiplier_adder,,,,,,,,
+/home/ubuntu/lab_3/fir/tb/fir_tb.v,1698129517,verilog,,,,fir_tb,,,,,,,,
+/home/ubuntu/lab_3/vivado/FIR_Verilog/FIR_Verilog.sim/sim_1/behav/xsim/glbl.v,1649976174,verilog,,,,glbl,,,,,,,,

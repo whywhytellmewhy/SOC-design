@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../../bram/bram11.v" \
+"../../../../../../fir/rtl/fir.v" \
+"../../../../../../fir/rtl/multiplier_adder.v" \
+"../../../../../../fir/tb/fir_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

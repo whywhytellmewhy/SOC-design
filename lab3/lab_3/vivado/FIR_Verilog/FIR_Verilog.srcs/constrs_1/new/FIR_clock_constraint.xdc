@@ -1,0 +1,1 @@
+create_clock -period 5.9 -name axis_clk -waveform {0.000 2.950} [get_ports axis_clk]
