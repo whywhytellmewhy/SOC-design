@@ -34,13 +34,16 @@ This repository is created on 2023.9.30
    |:---------:|:---------:|:----------:|
    | Design | /Design/user_proj_example.counter.v | /lab_4-1/lab-exmem_fir/rtl/user_proj_example.counter.v |
    | Design | /Design/bram.v | /lab_4-1/lab-exmem_fir/rtl/bram.v |
+   | Design | /Design/fir.c | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/fir.c |
+   | Design | /Design/fir.h | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/fir.h |
+   | Synthesis report</br>(FF, LUT, BRAM) | /Synthesis_report/user_proj_example_utilization_synth.rpt | /lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.runs/synth_1/user_proj_example_utilization_synth.rpt |
+   | Synthesis report</br>(timing) | /Synthesis_report/timing_report_3_67ns.txt | /lab4-1/lab-exmem_fir/vivado/lab4_1/timing_report_3_67ns.txt |
    | Simulation | /Simulation/simulation.log | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/simulation.log</br>By using `source run_sim > simulation.log` |
+   | Simulation | /Simulation/counter_la_fir_tb.v | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir_tb.v |
    | Simulation | /Simulation/counter_la_fir.hex | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.hex |
-   | Simulation | /Simulation/counter_la_fir.vcd | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.vcd |
-   | Simulation | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
-   | Design | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
-   | Design | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
-   | Design | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
-   | Design | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
+   | Waveform | /Waveform/counter_la_fir.vcd | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.vcd |
+   | Waveform | /Waveform/BRAM_WB_interface.png | 螢幕擷取畫面 2023-10-31 161940.png |
+   | makefile</br>(for simulation) | run_sim | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/run_sim |
+   | makefile</br>(for simulation) | include.rtl.list | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/include.rtl.list |
    
 
