@@ -28,3 +28,19 @@ This repository is created on 2023.9.30
 
 2. 沒有上傳下列「有被git clone過來但實作過程中沒有動到」的檔案：`README.md`
 
+## Lab 4-1 (Team work)
+1. 在其中的`/lab_4-1`為實作過程中完整的資料，而在外層的檔案則是從其中複製出submission guide所提到的相關檔案，其對應路徑如下表所示：
+   | 分類 | 名稱 | 原路徑 |
+   |:---------:|:---------:|:----------:|
+   | Design | /Design/user_proj_example.counter.v | /lab_4-1/lab-exmem_fir/rtl/user_proj_example.counter.v |
+   | Design | /Design/bram.v | /lab_4-1/lab-exmem_fir/rtl/bram.v |
+   | Simulation | /Simulation/simulation.log | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/simulation.log</br>By using `source run_sim > simulation.log` |
+   | Simulation | /Simulation/counter_la_fir.hex | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.hex |
+   | Simulation | /Simulation/counter_la_fir.vcd | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.vcd |
+   | Simulation | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
+   | Design | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
+   | Design | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
+   | Design | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
+   | Design | XXX.v | /lab_4-1/lab-exmem_fir/rtl/XXX.v |
+   
+
