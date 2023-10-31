@@ -1,0 +1,7 @@
+Reading counter_la_fir.hex
+counter_la_fir.hex loaded into memory
+Memory 5 bytes = 0x6f 0x00 0x00 0x0b 0x13
+VCD info: dumpfile counter_la_fir.vcd opened for output.
+LA Test 1 started
+Call function fir() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x044a, which is  1098 in decimal
+LA Test 2 passed

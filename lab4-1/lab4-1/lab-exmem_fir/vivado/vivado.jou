@@ -1,0 +1,49 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Tue Oct 31 02:21:42 2023
+# Process ID: 16118
+# Current directory: /home/ubuntu/lab4-1/lab-exmem_fir/vivado
+# Command line: vivado
+# Log file: /home/ubuntu/lab4-1/lab-exmem_fir/vivado/vivado.log
+# Journal file: /home/ubuntu/lab4-1/lab-exmem_fir/vivado/vivado.jou
+# Running On: ubuntu2004, OS: Linux, CPU Frequency: 2495.998 MHz, CPU Physical cores: 2, Host memory: 10425 MB
+#-----------------------------------------------------------
+start_gui
+create_project lab4_1 /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1 -part xc7z020clg400-1
+add_files -norecurse -scan_for_includes {/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v}
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse -scan_for_includes /home/ubuntu/lab4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir_tb.v
+update_compile_order -fileset sim_1
+file mkdir /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1
+file mkdir /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new
+close [ open /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc w ]
+add_files -fileset constrs_1 /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc
+add_files -norecurse -scan_for_includes /home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v
+update_compile_order -fileset sources_1
+set_property -name {xsim.simulate.runtime} -value {100000ns} -objects [get_filesets sim_1]
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+export_ip_user_files -of_objects  [get_files /home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v] -no_script -reset -force -quiet
+remove_files  {/home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v}
+update_compile_order -fileset sim_1
+add_files -norecurse -scan_for_includes {/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v}
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+report_utilization -name utilization_1
+refresh_design
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+refresh_design

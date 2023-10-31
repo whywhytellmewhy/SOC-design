@@ -1,0 +1,727 @@
+/*
+
+Xilinx Vivado v2022.1 (64-bit) [Major: 2022, Minor: 1]
+SW Build: 3526262 on Mon Apr 18 15:47:01 MDT 2022
+IP Build: 3524634 on Mon Apr 18 20:55:01 MDT 2022
+
+Process ID (PID): 16118
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Tue Oct 31 02:22:02 EDT 2023
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: Ubuntu
+OS Version: 5.15.0-87-generic
+OS Architecture: amd64
+Available processors (cores): 2
+
+Display: 0
+Screen size: 1920x967
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.11 64-bit
+Java home: 	/tools/Xilinx/Vivado/2022.1/tps/lnx64/jre11.0.11_9
+Java executable: 	/tools/Xilinx/Vivado/2022.1/tps/lnx64/jre11.0.11_9/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m, -Xrs]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	ubuntu
+User home directory: /home/ubuntu
+User working directory: /home/ubuntu/lab4-1/lab-exmem_fir/vivado
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Xilinx/Vivado
+HDI_APPROOT: /tools/Xilinx/Vivado/2022.1
+RDI_DATADIR: /tools/Xilinx/Vivado/2022.1/data
+RDI_BINDIR: /tools/Xilinx/Vivado/2022.1/bin
+
+Vivado preferences file: /home/ubuntu/.Xilinx/Vivado/2022.1/vivado.xml
+Vivado preferences directory: /home/ubuntu/.Xilinx/Vivado/2022.1/
+Vivado layouts directory: /home/ubuntu/.Xilinx/Vivado/2022.1/data/layouts
+PlanAhead jar file: 	/tools/Xilinx/Vivado/2022.1/lib/classes/planAhead.jar
+Vivado log file: 	/home/ubuntu/lab4-1/lab-exmem_fir/vivado/vivado.log
+Vivado journal file: 	/home/ubuntu/lab4-1/lab-exmem_fir/vivado/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-16118-ubuntu2004
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /tools/Xilinx/Vivado/2022.1/ids_lite/ISE
+XILINX_DSP: /tools/Xilinx/Vivado/2022.1/ids_lite/ISE
+XILINX_HLS: /tools/Xilinx/Vitis_HLS/2022.1
+XILINX_PLANAHEAD: /tools/Xilinx/Vivado/2022.1
+XILINX_SDK: /tools/Xilinx/Vitis/2022.1
+XILINX_VITIS: /tools/Xilinx/Vitis/2022.1
+XILINX_VIVADO: /tools/Xilinx/Vivado/2022.1
+XILINX_VIVADO_HLS: /tools/Xilinx/Vivado/2022.1
+
+
+GUI allocated memory:	256 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,776 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// WARNING: HEventQueue.dispatchEvent() is taking  1008 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,777 MB. GUI used memory: 56 MB. Current time: 10/31/23, 2:22:03 AM EDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1008 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1012 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1003 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,785 MB. GUI used memory: 54 MB. Current time: 10/31/23, 2:22:23 AM EDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1004 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1003 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1004 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1003 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1011 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1007 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1002 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1002 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1004 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1006 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1002 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1007 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1005 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1012 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1017 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1006 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1008 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1008 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1008 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1017 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1009 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1002 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1009 ms.
+selectButton(PAResourceEtoH.GettingStartedView_CREATE_NEW_PROJECT, "Create Project"); // y
+// Run Command: PAResourceCommand.PACommandNames_NEW_PROJECT
+selectButton("NEXT", "Next >"); // JButton
+// Elapsed time: 12 seconds
+setText(PAResourceOtoP.ProjectNameChooser_PROJECT_NAME, "lab4_1"); // aa
+selectButton("NEXT", "Next >"); // JButton
+selectCheckBox(PAResourceItoN.NewProjectWizard_DO_NOT_SPECIFY_SOURCES_AT_THIS_TIME, "Do not specify sources at this time", true); // g: TRUE
+// [GUI Memory]: 101 MB (+103510kb) [00:02:57]
+// [Engine Memory]: 1,792 MB (+1727642kb) [00:02:57]
+// [GUI Memory]: 113 MB (+6735kb) [00:02:57]
+selectButton("NEXT", "Next >"); // JButton
+// Elapsed time: 18 seconds
+setText("PAResourceEtoH.FPGAChooser_FPGA_TABLE_SEARCH_FIELD", "xc7z020"); // OverlayTextField
+selectTable(PAResourceEtoH.FPGAChooser_FPGA_TABLE, "xc7z020clg400-1 ; 400 ; 125 ; 53200 ; 106400 ; 140 ; 0 ; 220 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 4 ;  ;  ;  ;  ; 0 ;  ;  ;  ;  ;  ;  ; 0.95 ; 0.95 ; 1.05", 2, "xc7z020clg400-1", 0); // r
+selectTable(PAResourceEtoH.FPGAChooser_FPGA_TABLE, "xc7z020clg400-1 ; 400 ; 125 ; 53200 ; 106400 ; 140 ; 0 ; 220 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 4 ;  ;  ;  ;  ; 0 ;  ;  ;  ;  ;  ;  ; 0.95 ; 0.95 ; 1.05", 2, "xc7z020clg400-1", 0, false, false, false, false, true); // r - Double Click
+selectButton("NEXT", "Next >"); // JButton
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: create_project lab4_1 /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1 -part xc7z020clg400-1 
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  1113 ms.
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 40 seconds
+dismissDialog("Create Project"); // bA
+dismissDialog("New Project"); // f
+// [GUI Memory]: 119 MB (+1222kb) [00:03:21]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 0); // D
+// HMemoryUtils.trashcanNow. Engine heap size: 1,873 MB. GUI used memory: 63 MB. Current time: 10/31/23, 2:25:13 AM EDT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, false, false, false, false, true, false); // D - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+// [Engine Memory]: 1,882 MB (+586kb) [00:03:35]
+// Elapsed time: 12 seconds
+setFileChooser("/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 20 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse -scan_for_includes {/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v} 
+// [GUI Memory]: 128 MB (+2856kb) [00:03:47]
+dismissDialog("Add Sources"); // bA
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, "Add or create simulation sources"); // a
+selectButton("NEXT", "Next >"); // JButton
+// HMemoryUtils.trashcanNow. Engine heap size: 1,929 MB. GUI used memory: 68 MB. Current time: 10/31/23, 2:25:43 AM EDT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/ubuntu/lab4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir_tb.v");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 16 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property SOURCE_SET sources_1 [get_filesets sim_1] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset sim_1 -norecurse -scan_for_includes /home/ubuntu/lab4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir_tb.v 
+dismissDialog("Add Simulation Sources"); // bA
+// [Engine Memory]: 1,983 MB (+6437kb) [00:04:10]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sim_1 
+// Elapsed time: 17 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 1, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceAtoD.ConstraintsChooserPanel_ADD_FILES, "Add Files"); // a
+// HMemoryUtils.trashcanNow. Engine heap size: 1,992 MB. GUI used memory: 78 MB. Current time: 10/31/23, 2:26:23 AM EDT
+// Elapsed time: 14 seconds
+dismissFileChooser();
+selectButton(PAResourceAtoD.ConstraintsChooserPanel_CREATE_FILE, "Create File"); // a
+// Tcl Command: 'file mkdir /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1'
+// Tcl Message: file mkdir /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1 
+setText(PAResourceAtoD.CreateConstraintsFilePanel_FILE_NAME, "clock_constraint"); // aa
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Create Constraints File"); // J
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 38 seconds
+dismissDialog("Add Sources"); // c
+// Tcl Command: 'file mkdir /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new'
+// Tcl Message: file mkdir /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new 
+// Tcl Message: close [ open /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc w ] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset constrs_1 /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1]", 2); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, clock_constraint.xdc]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, clock_constraint.xdc]", 3, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1106 ms.
+dismissDialog("Opening Editor"); // bA
+// Elapsed time: 24 seconds
+selectCodeEditor("clock_constraint.xdc", 157, 47); // be
+typeControlKey((HResource) null, "clock_constraint.xdc", 'v'); // be
+selectCodeEditor("clock_constraint.xdc", 170, 8); // be
+selectCodeEditor("clock_constraint.xdc", 258, 8); // be
+selectCodeEditor("clock_constraint.xdc", 258, 8, false, false, false, false, true); // be - Double Click
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true, false, false, false, false, true); // D - Double Click - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, user_proj_example.counter.v]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, user_proj_example.counter.v]", 2, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1140 ms.
+// [GUI Memory]: 136 MB (+1951kb) [00:05:48]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,018 MB. GUI used memory: 75 MB. Current time: 10/31/23, 2:27:38 AM EDT
+dismissDialog("Opening Editor"); // bA
+selectCodeEditor("user_proj_example.counter.v", 97, 216); // be
+selectCodeEditor("user_proj_example.counter.v", 97, 216, false, false, false, false, true); // be - Double Click
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'c'); // be
+selectCodeEditor("user_proj_example.counter.v", 144, 206); // be
+selectCodeEditor("user_proj_example.counter.v", 144, 206, false, false, false, false, true); // be - Double Click
+selectCodeEditor("user_proj_example.counter.v", 192, 192); // be
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clock_constraint.xdc", 1); // m
+selectCodeEditor("clock_constraint.xdc", 418, 11); // be
+selectCodeEditor("clock_constraint.xdc", 586, 25); // be
+selectCodeEditor("clock_constraint.xdc", 322, 16); // be
+selectCodeEditor("clock_constraint.xdc", 246, 9); // be
+selectCodeEditor("clock_constraint.xdc", 246, 9, false, false, false, false, true); // be - Double Click
+typeControlKey((HResource) null, "clock_constraint.xdc", 'v'); // be
+selectCodeEditor("clock_constraint.xdc", 303, 7); // be
+selectCodeEditor("clock_constraint.xdc", 393, 7); // be
+selectCodeEditor("clock_constraint.xdc", 438, 6); // be
+selectCodeEditor("clock_constraint.xdc", 418, 8); // be
+selectCodeEditor("clock_constraint.xdc", 329, 9); // be
+selectCodeEditor("clock_constraint.xdc", 346, 59); // be
+selectCodeEditor("clock_constraint.xdc", 396, 11); // be
+selectCodeEditor("clock_constraint.xdc", 396, 7); // be
+selectCodeEditor("clock_constraint.xdc", 529, 34); // be
+selectCodeEditor("clock_constraint.xdc", 547, 7); // be
+selectCodeEditor("clock_constraint.xdc", 547, 7, false, false, false, false, true); // be - Double Click
+typeControlKey((HResource) null, "clock_constraint.xdc", 'v'); // be
+selectCodeEditor("clock_constraint.xdc", 624, 7); // be
+selectCodeEditor("clock_constraint.xdc", 226, 49); // be
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // D
+// TclEventType: FILE_SET_CHANGE
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // D
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "user_proj_example.counter.v", 2); // m
+// Elapsed time: 81 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_HDL_NETLIST_BLOCK_DESIGN, "Add or create design sources"); // a
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+// Elapsed time: 11 seconds
+setFileChooser("/home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 23 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse -scan_for_includes /home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v 
+dismissDialog("Add Sources"); // bA
+selectCodeEditor("user_proj_example.counter.v", 169, 94); // be
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, user_proj_example.counter.v]", 2, false); // D
+// HMemoryUtils.trashcanNow. Engine heap size: 2,037 MB. GUI used memory: 75 MB. Current time: 10/31/23, 2:30:08 AM EDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, defines.v]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v)]", 3, true); // D - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v)]", 3); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v), user_bram : bram (bram.v)]", 4, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v)]", 3, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v), user_bram : bram (bram.v)]", 4, false); // D
+selectCodeEditor("user_proj_example.counter.v", 171, 135); // be
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clock_constraint.xdc", 1); // m
+selectCodeEditor("clock_constraint.xdc", 252, 26); // be
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis]", 13, true); // n - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis]", 13, true); // n - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis]", 13, true, false, false, false, true, false); // n - Popup Trigger - Node
+selectMenuItem(PAResourceCommand.PACommandNames_SYNTH_SETTINGS, "Synthesis Settings..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_SYNTH_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// WARNING: HEventQueue.dispatchEvent() is taking  1090 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 2,061 MB. GUI used memory: 101 MB. Current time: 10/31/23, 2:30:28 AM EDT
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, General]", 0, false); // B
+selectTree(PAResourceQtoS.SettingsDialog_PROJECT_TREE, "[projectRoot, Simulation]", 1, false); // B
+selectTab(PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_ELABORATION, "Elaboration", 1); // i
+selectTab(PAResourceOtoP.ProjectSettingsSimulationPanel_TABBED_PANE, PAResourceOtoP.ProjectSettingsSimulationPanel_SIMULATION, "Simulation", 2); // i
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property -name {xsim.simulate.runtime} -value {100000ns} -objects [get_filesets sim_1] 
+dismissDialog("Settings"); // d
+// [GUI Memory]: 167 MB (+24384kb) [00:08:48]
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+selectComboBox(PAResourceItoN.NumJobsChooser_NUMBER_OF_JOBS, "2", 1); // e
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Oct 31 02:30:46 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 6 seconds
+dismissDialog("Starting Design Runs"); // bA
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 24 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ag
+// Elapsed time: 10 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-10157] use of undefined macro 'MPRJ_IO_PADS' [/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v:65]. ]", 1, false); // ah
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v;-;;-;16;-;line;-;65;-;;-;16;-;"); // ah
+selectCodeEditor("user_proj_example.counter.v", 158, 258); // be
+selectCodeEditor("user_proj_example.counter.v", 158, 258, false, false, false, false, true); // be - Double Click
+selectCodeEditor("user_proj_example.counter.v", 150, 248); // be
+selectCodeEditor("user_proj_example.counter.v", 150, 248, false, false, false, false, true); // be - Double Click
+selectCodeEditor("user_proj_example.counter.v", 164, 136); // be
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, defines.v]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, defines.v]", 2, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1110 ms.
+dismissDialog("Opening Editor"); // bA
+selectCodeEditor("defines.v", 118, 245); // be
+selectCodeEditor("defines.v", 118, 243, false, false, false, false, true); // be - Double Click
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "user_proj_example.counter.v", 2); // m
+// Elapsed time: 13 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v)]", 3, true, false, true, false, false, false); // D - Control Key - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v), user_bram : bram (bram.v)]", 4, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, defines.v]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v)]", 3, true, false, true, false, false, false); // D - Control Key - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v), user_bram : bram (bram.v)]", 4, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, user_proj_example (user_proj_example.counter.v)]", 3, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ar
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  {/home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v} 
+// [Engine Memory]: 2,088 MB (+6685kb) [00:10:13]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sim_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,088 MB. GUI used memory: 95 MB. Current time: 10/31/23, 2:32:08 AM EDT
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+setFileChooser("/home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 19 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse -scan_for_includes {/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/bram.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/header/defines.v /home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v} 
+dismissDialog("Add Sources"); // bA
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1); // D
+// HMemoryUtils.trashcanNow. Engine heap size: 2,142 MB. GUI used memory: 93 MB. Current time: 10/31/23, 2:32:38 AM EDT
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6735] net type must be explicitly specified for 'wb_clk_i' when default_nettype is none [/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v:48]. ]", 2, true); // ah - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v;-;;-;16;-;line;-;48;-;;-;16;-;"); // ah
+// WARNING: HEventQueue.dispatchEvent() is taking  1047 ms.
+selectCodeEditor("user_proj_example.counter.v", 107, 19); // be
+selectCodeEditor("user_proj_example.counter.v", 107, 19, false, false, false, false, true); // be - Double Click
+selectCodeEditor("user_proj_example.counter.v", 144, 52); // be
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 8); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, counter_la_fir_tb (counter_la_fir_tb.v)]", 10, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, counter_la_fir_tb (counter_la_fir_tb.v), spiflash : xil_defaultlib.spiflash]", 12, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1062 ms.
+dismissDialog("Opening Editor"); // bA
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "user_proj_example.counter.v", 2); // m
+selectCodeEditor("user_proj_example.counter.v", 108, 157); // be
+selectCodeEditor("user_proj_example.counter.v", 108, 157, false, false, false, false, true); // be - Double Click
+selectCodeEditor("user_proj_example.counter.v", 163, 107); // be
+selectCodeEditor("user_proj_example.counter.v", 163, 107, false, false, false, false, true); // be - Double Click
+// Elapsed time: 12 seconds
+selectCodeEditor("user_proj_example.counter.v", 107, 258); // be
+selectCodeEditor("user_proj_example.counter.v", 107, 258, false, false, false, false, true); // be - Double Click
+// Elapsed time: 70 seconds
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6735] net type must be explicitly specified for 'wb_clk_i' when default_nettype is none [/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v:48]. ]", 2); // ah
+// Elapsed time: 13 seconds
+selectCodeEditor("user_proj_example.counter.v", 67, 84); // be
+selectCodeEditor("user_proj_example.counter.v", 140, 238); // be
+selectCodeEditor("user_proj_example.counter.v", 22, 240); // be
+selectCodeEditor("user_proj_example.counter.v", 44, 236); // be
+selectCodeEditor("user_proj_example.counter.v", 100, 228); // be
+// Elapsed time: 12 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6735] net type must be explicitly specified for 'wb_clk_i' when default_nettype is none [/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v:48]. ]", 2, true); // ah - Node
+selectTab((HResource) null, (HResource) null, "Log", 2); // aL
+selectCodeEditor(PAResourceItoN.LogMonitor_MONITOR, 1275, 68); // T
+// Elapsed time: 12 seconds
+typeControlKey(PAResourceItoN.LogMonitor_MONITOR, "Monitor", 'c'); // T
+selectCodeEditor("user_proj_example.counter.v", 160, 232); // be
+selectCodeEditor("user_proj_example.counter.v", 2, 233); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,172 MB. GUI used memory: 94 MB. Current time: 10/31/23, 2:35:48 AM EDT
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Oct 31 02:35:53 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bA
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 17 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ag
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-10157] use of undefined macro 'MPRJ_IO_PADS' [/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v:65]. ]", 1, false); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-10157] use of undefined macro 'MPRJ_IO_PADS' [/home/ubuntu/lab4-1/lab-exmem_fir/rtl/user/user_proj_example.counter.v:65]. ]", 1, false, false, false, false, false, true); // ah - Double Click
+// Elapsed time: 11 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, defines.v]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, defines.v]", 2, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1059 ms.
+dismissDialog("Opening Editor"); // bA
+// Elapsed time: 14 seconds
+selectCodeEditor("defines.v", 3, 219); // be
+typeControlKey((HResource) null, "defines.v", 'c'); // be
+// Elapsed time: 15 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "user_proj_example.counter.v", 2); // m
+selectCodeEditor("user_proj_example.counter.v", 196, 235); // be
+// Elapsed time: 10 seconds
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'v'); // be
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// [Engine Memory]: 2,195 MB (+2492kb) [00:15:34]
+// Tcl Message: reset_run synth_1 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Oct 31 02:37:26 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bA
+// TclEventType: RUN_STATUS_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,200 MB. GUI used memory: 95 MB. Current time: 10/31/23, 2:37:29 AM EDT
+// Elapsed time: 17 seconds
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aL
+selectTab((HResource) null, (HResource) null, "Log", 2); // aL
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 16 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_REPORTS_WINDOW, "View Reports"); // a
+// Elapsed time: 15 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Synthesis Completed"); // ag
+collapseTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15); // n
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15); // n
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Timing Summary]", 19, false); // n
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7z020clg400-1 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 2,212 MB. GUI used memory: 96 MB. Current time: 10/31/23, 2:38:33 AM EDT
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  1385 ms.
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Device 21-403] Loading part xc7z020clg400-1 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7872.820 ; gain = 0.000 ; free physical = 2637 ; free virtual = 7787 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2022.1 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [/home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc] Finished Parsing XDC File [/home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc] 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7880.824 ; gain = 0.000 ; free physical = 2532 ; free virtual = 7683 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Device view-level: 0.0
+// Tcl Message: open_run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 7904.930 ; gain = 32.109 ; free physical = 2444 ; free virtual = 7597 
+// Run Command: PAResourceCommand.PACommandNames_REPORT_TIMING_SUMMARY
+// RouteApi::initDelayMediator elapsed time: 4.1s
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Elapsed time: 10 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// 'r' command handler elapsed time: 5 seconds
+dismissDialog("Report Timing Summary"); // aJ
+// TclEventType: TIMING_RESULTS_STALE
+// TclEventType: TIMING_SUMMARY_UPDATED
+// [Engine Memory]: 2,642 MB (+353301kb) [00:16:49]
+// Tcl Message: report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs 
+dismissDialog("Report Timing Summary"); // bA
+// [GUI Memory]: 177 MB (+1746kb) [00:16:59]
+// Elapsed time: 11 seconds
+selectTab((HResource) null, (HResource) null, "Log", 2); // aL
+// [GUI Memory]: 192 MB (+6596kb) [00:17:03]
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Utilization]", 25, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RESOURCE_UTILIZATION
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// 'cR' command handler elapsed time: 3 seconds
+dismissDialog("Report Utilization"); // a
+// TclEventType: UTILIZATION_RESULT_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 2,670 MB. GUI used memory: 138 MB. Current time: 10/31/23, 2:39:02 AM EDT
+// Tcl Message: report_utilization -name utilization_1 
+dismissDialog("Report Utilization"); // bA
+selectTree(PAResourceQtoS.ReportUtilTab_REPORT_UTILIZATION_NAVIGATION_TREE, "[Report Contents, Summary]", 1, false); // l
+// Elapsed time: 10 seconds
+selectTable(PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_TABLE, "IO ; 308 ; 125 ; 246.4", 3, "246.4", 3); // s
+selectTable(PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_TABLE, "BRAM ; 2 ; 140 ; 1.4285715", 2, "2", 1); // s
+selectTable(PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_TABLE, "BRAM ; 2 ; 140 ; 1.4285715", 2, "BRAM", 0); // s
+selectTable(PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_TABLE, "FF ; 17 ; 106400 ; 0.015977444", 1, "FF", 0); // s
+selectTable(PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_TABLE, "LUT ; 26 ; 53200 ; 0.048872184", 0, "LUT", 0); // s
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clock_constraint.xdc", 2); // m
+selectCodeEditor("clock_constraint.xdc", 162, 9); // be
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Edit Timing Constraints]", 17, false); // n
+// Run Command: PAResourceCommand.PACommandNames_TIMING_CONSTRAINTS_WINDOW
+selectTable(PAResourceEtoH.EditCreateClockTablePanel_EDIT_CREATE_CLOCK_TABLE, "1 ; wb_clk_i ; 10.0 ; 0.0 ; 5.0 ; false ; [get_ports wb_clk_i] ; /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc ;  ; ", 0, "10.0", 2); // f
+selectTable(PAResourceEtoH.EditCreateClockTablePanel_EDIT_CREATE_CLOCK_TABLE, "1 ; wb_clk_i ; 10.0 ; 0.0 ; 5.0 ; false ; [get_ports wb_clk_i] ; /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc ;  ; ", 0, "10.0", 2); // f
+selectTable(PAResourceEtoH.EditCreateClockTablePanel_EDIT_CREATE_CLOCK_TABLE, null, -1, null, -1); // f
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "user_proj_example.counter.v", 3); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clock_constraint.xdc", 2); // m
+selectCodeEditor("clock_constraint.xdc", 161, 12); // be
+selectCodeEditor("clock_constraint.xdc", 410, 10); // be
+selectCodeEditor("clock_constraint.xdc", 144, 74); // be
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // D
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // g
+// HOptionPane Warning: 'There are uncommitted constraints in Timing Constraints window that would be lost. OK to reload? (Reload Design)'
+selectButton("OptionPane.button", "OK"); // JButton
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,677 MB. GUI used memory: 128 MB. Current time: 10/31/23, 2:40:02 AM EDT
+// TclEventType: TIMING_RESULTS_UNLOAD
+// Engine heap size: 2,677 MB. GUI used memory: 128 MB. Current time: 10/31/23, 2:40:02 AM EDT
+// Tcl Message: refresh_design 
+// TclEventType: DEBUG_GRAPH_STALE
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,677 MB. GUI used memory: 107 MB. Current time: 10/31/23, 2:40:03 AM EDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  1374 ms.
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [/home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc] Finished Parsing XDC File [/home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc] 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// RouteApi: Init Delay Mediator Swing Worker Finished
+dismissDialog("Reloading"); // bA
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "counter_la_fir_tb.v", 4); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "defines.v", 5); // m
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Edit Timing Constraints]", 17, false); // n
+// Run Command: PAResourceCommand.PACommandNames_TIMING_CONSTRAINTS_WINDOW
+closeView(PAResourceOtoP.PAViews_TIMING_CONSTRAINTS, "Timing Constraints"); // a
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // D
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Device", 1); // m
+// Device view-level: 0.0
+closeView(PAResourceOtoP.PAViews_DEVICE, "Device"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1160] Copying file /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.runs/synth_1/user_proj_example.dcp to /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/utils_1/imports/synth_1 and adding it to utils fileset 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Oct 31 02:40:17 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bA
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 38 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Synthesis Completed"); // ag
+// Elapsed time: 14 seconds
+selectCodeEditor("clock_constraint.xdc", 341, 236); // be
+// [GUI Memory]: 204 MB (+2597kb) [00:19:31]
+// Elapsed time: 11 seconds
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[user_proj_example, user_bram (bram)]", 3, false, false, false, false, true, false); // bD - Popup Trigger
+selectCodeEditor("clock_constraint.xdc", 285, 54); // be
+selectCodeEditor("clock_constraint.xdc", 303, 28); // be
+selectCodeEditor("clock_constraint.xdc", 578, 1); // be
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clock_constraint.xdc", 1); // m
+// Elapsed time: 18 seconds
+selectCodeEditor("clock_constraint.xdc", 538, 215); // be
+// Elapsed time: 106 seconds
+selectCodeEditor("clock_constraint.xdc", 274, 46); // be
+// Elapsed time: 917 seconds
+selectCodeEditor("clock_constraint.xdc", 426, 33); // be
+// Elapsed time: 56 seconds
+selectCodeEditor("clock_constraint.xdc", 103, 43); // be
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // g
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,660 MB. GUI used memory: 138 MB. Current time: 10/31/23, 2:59:53 AM EDT
+// Engine heap size: 2,660 MB. GUI used memory: 138 MB. Current time: 10/31/23, 2:59:53 AM EDT
+// Tcl Message: refresh_design 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,660 MB. GUI used memory: 113 MB. Current time: 10/31/23, 2:59:53 AM EDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// WARNING: HEventQueue.dispatchEvent() is taking  1153 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8338.098 ; gain = 0.000 ; free physical = 2670 ; free virtual = 7301 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2022.1 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [/home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc] Finished Parsing XDC File [/home/ubuntu/lab4-1/lab-exmem_fir/vivado/lab4_1/lab4_1.srcs/constrs_1/new/clock_constraint.xdc] 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+dismissDialog("Reloading"); // bA
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,671 MB. GUI used memory: 129 MB. Current time: 10/31/23, 3:29:57 AM EDT
+// HMemoryUtils.trashcanNow. Engine heap size: 2,672 MB. GUI used memory: 128 MB. Current time: 10/31/23, 3:59:59 AM EDT
