@@ -41,9 +41,10 @@ This repository is created on 2023.9.30
    | Simulation | /Simulation/simulation.log | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/simulation.log</br>By using `source run_sim > simulation.log` |
    | Simulation | /Simulation/counter_la_fir_tb.v | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir_tb.v |
    | Simulation | /Simulation/counter_la_fir.hex | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.hex |
-   | Waveform | /Waveform/counter_la_fir.vcd | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.vcd |
+   | ~~Waveform~~ | ~~/Waveform/counter_la_fir.vcd~~ | ~~/lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.vcd~~</br>(因檔案超過100MB而無法上傳。此檔案可透過在/lab_4-1/lab-exmem_fir/testbench/counter_la_fir資料夾中執行`source run_sim`獲得) |
    | Waveform | /Waveform/BRAM_WB_interface.png | 螢幕擷取畫面 2023-10-31 161940.png |
    | makefile</br>(for simulation) | run_sim | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/run_sim |
    | makefile</br>(for simulation) | include.rtl.list | /lab_4-1/lab-exmem_fir/testbench/counter_la_fir/include.rtl.list |
-   
+
+2. 沒有上傳下列「檔案太大(超過100MB)」的檔案：`/lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.vcd`
 
