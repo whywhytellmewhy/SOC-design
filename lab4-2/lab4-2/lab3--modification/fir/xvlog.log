@@ -1,0 +1,10 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab4-2/lab3--modification/fir/tb/fir_tb.v" into library work
+INFO: [VRFC 10-311] analyzing module fir_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab4-2/lab3--modification/fir/rtl/fir.v" into library work
+INFO: [VRFC 10-311] analyzing module fir
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab4-2/lab3--modification/fir/rtl/multiplier_adder.v" into library work
+INFO: [VRFC 10-311] analyzing module multiplier_adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab4-2/lab3--modification/bram/bram11.v" into library work
+INFO: [VRFC 10-311] analyzing module bram11
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/ubuntu/lab4-2/lab3--modification/bram/bram12.v" into library work
+INFO: [VRFC 10-311] analyzing module bram12
