@@ -48,3 +48,13 @@ This repository is created on 2023.9.30
 
 2. 沒有上傳下列「檔案太大(超過100MB)」的檔案：`/lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.vcd`
 
+## Lab 4-2 (Team work)
+1. 在其中的`/lab_4-2`為實作過程中完整的資料，而在外層的檔案則是從其中複製出題目中所提到的相關檔案，其對應路徑如下表所示：
+   | 分類 | 名稱 | 原路徑 |
+   |:---------:|:---------:|:----------:|
+   | Design | /Design/user_proj_example.counter.v | /lab_4-1/lab-exmem_fir/rtl/user_proj_example.counter.v |
+
+2. `/lab_4-2/lab3--modification`為將lab3的檔案修改成符合lab4-2（因為lab4-2中的bram11.v與lab3中的行為不同；另外也將handshake的條件設置得更加general）的測試過程
+3. `/lab_4-2/lab-caravel_fir`為實際lab4-2的實作內容。其中的`/lab4-2/lab-caravel_fir/rtl/user/fir.v`以及`/lab4-2/lab-caravel_fir/rtl/user/multiplier_adder.v`為將`/lab_4-2/lab3--modification`測試完成後直接複製過來的FIR engine檔案
+
+
