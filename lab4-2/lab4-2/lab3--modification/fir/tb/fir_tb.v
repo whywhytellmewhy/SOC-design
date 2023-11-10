@@ -399,6 +399,7 @@ module fir_tb
             end else begin
                 $display("OK: exp = %d, rdata = %d", exp_data, rdata);
             end
+            arvalid <= 0; // modified in lab4-2
         end
     endtask
 

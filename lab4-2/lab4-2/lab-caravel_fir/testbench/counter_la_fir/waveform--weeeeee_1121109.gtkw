@@ -1,0 +1,323 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Thu Nov  9 15:19:24 2023
+[*]
+[dumpfile] "/home/ubuntu/lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.vcd"
+[dumpfile_mtime] "Thu Nov  9 07:30:34 2023"
+[dumpfile_size] 1520257878
+[savefile] "/home/ubuntu/lab4-2/lab-caravel_fir/testbench/counter_la_fir/waveform--weeeeee_1121109.gtkw"
+[timestart] 6577700000
+[size] 1848 903
+[pos] -1 -1
+*-26.100557 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] counter_la_fir_tb.
+[treeopen] counter_la_fir_tb.uut.
+[treeopen] counter_la_fir_tb.uut.mprj.
+[treeopen] counter_la_fir_tb.uut.mprj.mprj.
+[treeopen] counter_la_fir_tb.uut.mprj.mprj.fir_DUT.
+[treeopen] counter_la_fir_tb.uut.padframe.mprj_pads.
+[treeopen] counter_la_fir_tb.uut.soc.core.
+[treeopen] counter_la_fir_tb.uut.soc.core.VexRiscv.
+[sst_width] 233
+[signals_width] 335
+[sst_expanded] 1
+[sst_vpaned_height] 271
+@200
+-#counter_la_fir_tb
+@28
+counter_la_fir_tb.clock
+counter_la_fir_tb.RSTB
+counter_la_fir_tb.CSB
+counter_la_fir_tb.gpio
+counter_la_fir_tb.uart_tx
+@22
+counter_la_fir_tb.mprj_io[37:0]
+@c00022
+[color] 5
+counter_la_fir_tb.checkbits[15:0]
+@28
+[color] 2
+(0)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(1)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(2)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(3)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(4)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(5)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(6)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(7)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(8)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(9)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(10)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(11)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(12)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(13)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(14)counter_la_fir_tb.checkbits[15:0]
+[color] 2
+(15)counter_la_fir_tb.checkbits[15:0]
+@1401200
+-group_end
+@28
+counter_la_fir_tb.flash_clk
+counter_la_fir_tb.flash_csb
+counter_la_fir_tb.flash_io0
+counter_la_fir_tb.flash_io1
+@200
+-
+-#uut(caravel)
+@28
+counter_la_fir_tb.uut.mprj_ack_i_core
+counter_la_fir_tb.uut.caravel_clk
+counter_la_fir_tb.uut.caravel_rstn
+counter_la_fir_tb.uut.clock
+counter_la_fir_tb.uut.gpio
+counter_la_fir_tb.uut.mprj_clock
+@22
+counter_la_fir_tb.uut.mprj_dat_i_core[31:0]
+counter_la_fir_tb.uut.mprj_dat_i_user[31:0]
+counter_la_fir_tb.uut.mprj_dat_o_core[31:0]
+counter_la_fir_tb.uut.mprj_dat_o_user[31:0]
+counter_la_fir_tb.uut.mprj_io[37:0]
+counter_la_fir_tb.uut.user_io_out[37:0]
+@200
+-
+-#soc
+@28
+counter_la_fir_tb.uut.soc.mprj_ack_i
+counter_la_fir_tb.uut.soc.core.shared_ack
+@22
+counter_la_fir_tb.uut.soc.core.shared_adr[29:0]
+counter_la_fir_tb.uut.soc.core.shared_dat_r[31:0]
+counter_la_fir_tb.uut.soc.core.shared_dat_w[31:0]
+@28
+counter_la_fir_tb.uut.soc.core.mgmtsoc_dbus_dbus_ack
+@22
+counter_la_fir_tb.uut.soc.core.mgmtsoc_dbus_dbus_adr[29:0]
+counter_la_fir_tb.uut.soc.core.mgmtsoc_dbus_dbus_dat_w[31:0]
+@200
+-
+@28
+counter_la_fir_tb.uut.mprj.mprj.tap_RAM.we
+@200
+-
+-#VexRiscV
+@22
+counter_la_fir_tb.uut.soc.core.VexRiscv.execute_PC[31:0]
+counter_la_fir_tb.uut.soc.core.VexRiscv.iBusWishbone_ADR[29:0]
+@28
+counter_la_fir_tb.uut.soc.core.VexRiscv.iBusWishbone_ACK
+counter_la_fir_tb.uut.soc.core.VexRiscv.iBusWishbone_CYC
+@22
+counter_la_fir_tb.uut.soc.core.VexRiscv.iBusWishbone_DAT_MISO[31:0]
+counter_la_fir_tb.uut.soc.core.VexRiscv.iBusWishbone_DAT_MOSI[31:0]
+counter_la_fir_tb.uut.soc.core.VexRiscv.dBusWishbone_ADR[29:0]
+@28
+counter_la_fir_tb.uut.soc.core.VexRiscv.dBusWishbone_ACK
+counter_la_fir_tb.uut.soc.core.VexRiscv.dBusWishbone_CYC
+@22
+counter_la_fir_tb.uut.soc.core.VexRiscv.dBusWishbone_DAT_MISO[31:0]
+counter_la_fir_tb.uut.soc.core.VexRiscv.dBusWishbone_DAT_MOSI[31:0]
+@28
+counter_la_fir_tb.uut.soc.core.VexRiscv.dBusWishbone_WE
+@200
+-
+-mprj
+@28
+counter_la_fir_tb.uut.mprj.mprj.clk
+@22
+counter_la_fir_tb.uut.mprj.mprj.delayed_count[15:0]
+counter_la_fir_tb.uut.mprj.mprj.rdata[31:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.ready
+counter_la_fir_tb.uut.mprj.mprj.valid
+counter_la_fir_tb.uut.mprj.mprj.wbs_ack_o
+counter_la_fir_tb.uut.mprj.mprj.wbs_we_i
+counter_la_fir_tb.uut.mprj.mprj.wbs_cyc_i
+counter_la_fir_tb.uut.mprj.mprj.wbs_stb_i
+@22
+counter_la_fir_tb.uut.mprj.mprj.wbs_adr_i[31:0]
+counter_la_fir_tb.uut.mprj.mprj.wbs_dat_i[31:0]
+@c00028
+counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+@28
+(0)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(1)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(2)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(3)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(4)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(5)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(6)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(7)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(8)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(9)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(10)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(11)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(12)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(13)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(14)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(15)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(16)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(17)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(18)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(19)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(20)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(21)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(22)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(23)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(24)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(25)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(26)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(27)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(28)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(29)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(30)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+(31)counter_la_fir_tb.uut.mprj.mprj.wbs_dat_o[31:0]
+@1401200
+-group_end
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.AXI_Lite_valid
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.arready
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.arvalid
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.rvalid
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.rready
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.rdata[31:0]
+@24
+counter_la_fir_tb.uut.mprj.mprj.fir_DUT.next_state[2:0]
+counter_la_fir_tb.uut.mprj.mprj.fir_DUT.state[2:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.wbs_stb_i
+counter_la_fir_tb.uut.mprj.mprj.tap_RAM.we
+@c00024
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Lite[2:0]
+@28
+(0)counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Lite[2:0]
+(1)counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Lite[2:0]
+(2)counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Lite[2:0]
+@1401200
+-group_end
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.awready
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.awvalid
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.awaddr[11:0]
+@24
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.wdata[31:0]
+@28
+[color] 3
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.debug
+[color] 3
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.debug_sm
+@22
+counter_la_fir_tb.uut.mprj.mprj.fir_DUT.araddr[11:0]
+counter_la_fir_tb.uut.mprj.mprj.fir_DUT.data_length[31:0]
+@28
+[color] 2
+counter_la_fir_tb.uut.mprj.mprj.fir_DUT.ap_idle_done_start[3:0]
+@24
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.input_number_counter[31:0]
+@200
+-
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Stream_sm[2:0]
+counter_la_fir_tb.uut.mprj.mprj.fir_DUT.ss_tvalid
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.ss_tready
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.input_x_buffer[31:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tready
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tvalid
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tdata[31:0]
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.output_y_buffer[31:0]
+@28
+[color] 2
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.Yn_valid_Xn_ready[1:0]
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.delay_counter_Stream_ss[15:0]
+@24
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Stream_ss[2:0]
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.delay_counter_Stream_sm[15:0]
+@24
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Stream_sm[2:0]
+counter_la_fir_tb.uut.mprj.mprj.fir_DUT.state[2:0]
+@200
+-User Bram
+@28
+counter_la_fir_tb.uut.mprj.mprj.user_bram.CLK
+@22
+counter_la_fir_tb.uut.mprj.mprj.user_bram.Di0[31:0]
+counter_la_fir_tb.uut.mprj.mprj.user_bram.Do0[31:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.user_bram.EN0
+@22
+counter_la_fir_tb.uut.mprj.mprj.user_bram.WE0[3:0]
+counter_la_fir_tb.uut.mprj.mprj.user_bram.A0[31:0]
+@200
+-
+-RAM256
+@28
+counter_la_fir_tb.uut.soc.core.RAM256.CLK
+@22
+counter_la_fir_tb.uut.soc.core.RAM256.A0[7:0]
+@28
+counter_la_fir_tb.uut.soc.core.RAM256.EN0
+@22
+counter_la_fir_tb.uut.soc.core.RAM256.WE0[3:0]
+counter_la_fir_tb.uut.soc.core.RAM256.Di0[31:0]
+counter_la_fir_tb.uut.soc.core.RAM256.Do0[31:0]
+@200
+-
+@28
+counter_la_fir_tb.uut.mprj.mprj.tap_RAM.re
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Lite[2:0]
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.wb_clk_i
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.wbs_cyc_i
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.wbs_adr_i[31:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.AXI_Lite_valid
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.next_state_Lite[2:0]
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.wb_rst_i
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.arvalid
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.arready
+@200
+-
+-
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.input_x_buffer[31:0]
+@28
+[color] 3
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.debug_ss
+@24
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Stream_ss[2:0]
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.ss_tdata[31:0]
+@29
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tvalid
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tlast
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tdata[31:0]
+@24
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.input_number_counter[31:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.ss_tlast
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.ss_tvalid
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.ss_tready
+[pattern_trace] 1
+[pattern_trace] 0

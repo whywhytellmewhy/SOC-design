@@ -13,7 +13,11 @@
 // limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
 
-`default_nettype none
+//`default_nettype none // modified by us
+`default_nettype wire // modified by us
+`define MPRJ_IO_PADS_1 19	/* number of user GPIO pads on user1 side */ // modified by us
+`define MPRJ_IO_PADS_2 19	/* number of user GPIO pads on user2 side */ // modified by us
+`define MPRJ_IO_PADS (`MPRJ_IO_PADS_1 + `MPRJ_IO_PADS_2) // modified by us
 /*
  *-------------------------------------------------------------
  *
@@ -418,7 +422,8 @@ endmodule
 module AXI_to_Stream #(
     parameter pADDR_WIDTH = 12,
     parameter pDATA_WIDTH = 32,
-    parameter DELAYS=10
+    parameter DELAYS=10,
+    parameter DATA_LENGTH=64
 )(
     // WB interface
     input wb_clk_i,
@@ -429,8 +434,8 @@ module AXI_to_Stream #(
     input [3:0] wbs_sel_i,
     input [31:0] wbs_dat_i,
     input [31:0] wbs_adr_i,
-    output wbs_ack_o,
-    output [31:0] wbs_dat_o,
+    output reg wbs_ack_o,
+    output reg [31:0] wbs_dat_o,
 
     // AXI-Lite interface
     input  wire                     awready,
@@ -448,12 +453,12 @@ module AXI_to_Stream #(
 
     // AXI-Stream interface
     // Data in
-    output   wire                     ss_tvalid, 
-    output   wire [(pDATA_WIDTH-1):0] ss_tdata, 
-    output   wire                     ss_tlast, 
+    output   reg                     ss_tvalid, 
+    output   reg [(pDATA_WIDTH-1):0] ss_tdata, 
+    output   reg                     ss_tlast, 
     input  wire                     ss_tready, 
     // Data out
-    output   wire                     sm_tready, 
+    output   reg                     sm_tready, 
     input  wire                     sm_tvalid, 
     input  wire [(pDATA_WIDTH-1):0] sm_tdata, 
     input  wire                     sm_tlast
@@ -530,17 +535,48 @@ always @* begin
     end
 end
 
+////////////////////////// For debugging //////////////////////////
+wire debug;
+//assign debug = wbs_cyc_i && wbs_stb_i && (wbs_adr_i[7:0] == 8'h84);
+//assign debug = wbs_cyc_i && wbs_stb_i && (wbs_adr_i[31:20] == 12'h300);
+assign debug = wbs_cyc_i && wbs_stb_i && (wbs_adr_i[31:20] == 12'h300) && (wbs_adr_i[7:0] == 8'h00);
+
+wire debug_ss;
+wire debug_sm;
+assign debug_ss = wbs_cyc_i && wbs_stb_i && (wbs_adr_i[31:20] == 12'h300) && (wbs_adr_i[7:0] == 8'h80);
+assign debug_sm = wbs_cyc_i && wbs_stb_i && (wbs_adr_i[31:20] == 12'h300) && (wbs_adr_i[7:0] == 8'h84);
+
+///////////////////////////////////////////////////////////////////
+
 /////wire wbs_ack_o_before_FF;
 /////wire [31:0] wbs_dat_o_before_FF;
 
 /////assign wbs_ack_o_before_FF=wbs_ack_Lite_before_FF;
 /////assign wbs_dat_o_before_FF=wbs_dat_Lite_before_FF;
 
-assign wbs_ack_o=wbs_ack_Lite; //////////////////////////<--------------------- remember to modify !!!!!
-assign wbs_dat_o=wbs_dat_Lite; //////////////////////////<--------------------- remember to modify !!!!!
+//assign wbs_ack_o=wbs_ack_Lite;
+//assign wbs_dat_o=wbs_dat_Lite;
 
+always @* begin
+    if(wbs_cyc_i && wbs_stb_i && (wbs_adr_i[7:0] <= 8'h7F)) begin
+        wbs_ack_o=wbs_ack_Lite;
+        wbs_dat_o=wbs_dat_Lite;
+    end
+    else if(wbs_cyc_i && wbs_stb_i && (wbs_adr_i[7:0] == 8'h80)) begin
+        wbs_ack_o=wbs_ack_Stream_ss;
+        wbs_dat_o=wbs_dat_Stream_ss;
+    end
+    else if(wbs_cyc_i && wbs_stb_i && (wbs_adr_i[7:0] == 8'h84)) begin
+        wbs_ack_o=wbs_ack_Stream_sm;
+        wbs_dat_o=wbs_dat_Stream_sm;
+    end
+    else begin
+        wbs_ack_o=0;
+        wbs_dat_o=0;
+    end
+end
 
-localparam Lite_IDLE = 3'd0, Lite_WRITE = 3'd1, Lite_READ = 3'd2, Lite_WAIT_FOR_COUNTER = 3'd3;
+localparam Lite_IDLE = 3'd0, Lite_WRITE = 3'd1, Lite_READ = 3'd2, Lite_WAIT_FOR_COUNTER = 3'd3, Lite_ACK = 3'd4;
 
 reg wbs_ack_Lite;
 reg wbs_ack_Lite_before_FF;
@@ -559,10 +595,10 @@ reg [2:0] next_state_Lite;
 reg [15:0] delay_counter;
 reg [15:0] next_delay_counter;
 
-reg [1:0] Xn_ready_Yn_valid;
-reg [1:0] next_Xn_ready_Yn_valid;
+reg [1:0] Yn_valid_Xn_ready; // original name is "Xn_ready_Yn_valid", but it's confusing
+reg [1:0] next_Yn_valid_Xn_ready;
 
-//////////////////////////next_Xn_ready_Yn_valid= //////////////////////////<--------------------- remember to modify !!!!!
+
 
 always @* begin
     case(state_Lite)
@@ -571,6 +607,7 @@ always @* begin
             wbs_dat_Lite_before_FF=0;
             
             awaddr_before_FF=wbs_adr_i[11:0];
+            araddr_before_FF=wbs_adr_i[11:0];
 
             if(AXI_Lite_valid==1) begin
                 if(wbs_we_i) begin
@@ -579,14 +616,14 @@ always @* begin
                     wvalid_before_FF=1;
                     if(wbs_adr_i[11:0]==12'h000) begin
                         wdata_before_FF={29'd0,wbs_dat_i[2:0]};
-                        //next_Xn_ready_Yn_valid=wbs_dat_i[5:4]; // read only
+                        //next_Yn_valid_Xn_ready=wbs_dat_i[5:4]; // read only
                     end
                     else begin
                         wdata_before_FF=wbs_dat_i;
                     end
                     
                     arvalid_before_FF=0;
-                    araddr_before_FF=0;
+                    ///araddr_before_FF=0;
                     rready_before_FF=0;
                 end
                 else begin
@@ -595,8 +632,8 @@ always @* begin
                     wvalid_before_FF=0;
                     wdata_before_FF=wbs_dat_i;
                     arvalid_before_FF=1;
-                    araddr_before_FF=1;
-                    rready_before_FF=1;
+                    //araddr_before_FF=1;
+                    rready_before_FF=0;
                 end
 
                 next_delay_counter=delay_counter+1;
@@ -607,7 +644,7 @@ always @* begin
                 wvalid_before_FF=0;
                 wdata_before_FF=wbs_dat_i;
                 arvalid_before_FF=0;
-                araddr_before_FF=0;
+                //araddr_before_FF=0;
                 rready_before_FF=0;
                 next_delay_counter=0;
             end
@@ -616,12 +653,12 @@ always @* begin
             wbs_dat_Lite_before_FF=0;
             awaddr_before_FF=wbs_adr_i[11:0];
             arvalid_before_FF=0;
-            araddr_before_FF=0;
+            araddr_before_FF=wbs_adr_i[11:0];;
             rready_before_FF=0;
 
             if(awvalid & wvalid & awready & wready) begin    /////// Write coefficient & ap ///////
                 if(delay_counter >= DELAYS) begin
-                    next_state_Lite=Lite_IDLE;
+                    next_state_Lite=Lite_ACK;
                     wbs_ack_Lite_before_FF=1;
                     next_delay_counter=0;
                 end
@@ -665,7 +702,7 @@ always @* begin
                 rready_before_FF=0;
                 
                 if(delay_counter >= DELAYS) begin
-                    next_state_Lite=Lite_IDLE;
+                    next_state_Lite=Lite_ACK;
                     wbs_ack_Lite_before_FF=1;
                     next_delay_counter=0;
                 end
@@ -676,7 +713,7 @@ always @* begin
                 end
 
                 if(wbs_adr_i[11:0]==12'h000) begin
-                    wbs_dat_Lite_before_FF={26'd0,Xn_ready_Yn_valid,1'b0,rdata[2:0]};
+                    wbs_dat_Lite_before_FF={26'd0,Yn_valid_Xn_ready,1'b0,rdata[2:0]};
                 end
                 else begin
                     wbs_dat_Lite_before_FF=rdata;
@@ -698,11 +735,11 @@ always @* begin
             wvalid_before_FF=0;
             wdata_before_FF=0;
             arvalid_before_FF=0;
-            araddr_before_FF=0;
+            araddr_before_FF=wbs_adr_i[11:0];;
             rready_before_FF=0;
 
             if(delay_counter >= DELAYS) begin
-                next_state_Lite=Lite_IDLE;
+                next_state_Lite=Lite_ACK;
                 wbs_ack_Lite_before_FF=1;
                 wbs_dat_Lite_before_FF=wbs_dat_Lite;
                 next_delay_counter=0;
@@ -713,6 +750,21 @@ always @* begin
                 wbs_dat_Lite_before_FF=wbs_dat_Lite;
                 next_delay_counter=delay_counter+1;
             end
+        end
+        Lite_ACK: begin
+            next_state_Lite=Lite_IDLE;
+            wbs_ack_Lite_before_FF=0;
+            wbs_dat_Lite_before_FF=wbs_dat_Lite;
+            
+            awvalid_before_FF=0;
+            awaddr_before_FF=wbs_adr_i[11:0];
+            wvalid_before_FF=0;
+            wdata_before_FF=0;
+            arvalid_before_FF=0;
+            araddr_before_FF=wbs_adr_i[11:0];;
+            rready_before_FF=0;
+
+            next_delay_counter=0;
         end
         default:begin
             /*next_state_Lite=
@@ -727,7 +779,7 @@ always @* begin
             araddr_before_FF=
             rready_before_FF=
 
-            //next_Xn_ready_Yn_valid=
+            //next_Yn_valid_Xn_ready=
             next_delay_counter=*/
 
             next_state_Lite=Lite_IDLE;
@@ -739,7 +791,7 @@ always @* begin
             wvalid_before_FF=0;
             wdata_before_FF=0;
             arvalid_before_FF=0;
-            araddr_before_FF=0;
+            araddr_before_FF=wbs_adr_i[11:0];;
             rready_before_FF=0;
 
             next_delay_counter=0;
@@ -761,7 +813,7 @@ always@(posedge wb_clk_i) begin
         araddr <= 0;
         rready <= 0;
         delay_counter <= 0;
-        Xn_ready_Yn_valid <= 0;
+        //Yn_valid_Xn_ready <= 0;
     end
     else begin
         state_Lite <= next_state_Lite;
@@ -775,11 +827,343 @@ always@(posedge wb_clk_i) begin
         araddr <= araddr_before_FF;
         rready <= rready_before_FF;
         delay_counter <= next_delay_counter;
-        Xn_ready_Yn_valid <= next_Xn_ready_Yn_valid;
+        //Yn_valid_Xn_ready <= next_Yn_valid_Xn_ready;
     end
 end
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////// AXI Stream (ss) for x[n] ///////////////////////////////////////
+localparam Stream_ss_IDLE = 3'd0, /*Stream_ss_WRITE_BUFFER = 3'd1, */Stream_ss_FEED_FIR = 3'd3, Stream_ss_WAIT_FOR_COUNTER = 3'd1, Stream_ss_ACK = 3'd2;
+
+reg wbs_ack_Stream_ss;
+reg wbs_ack_Stream_ss_before_FF;
+reg [31:0] wbs_dat_Stream_ss;
+reg [31:0] wbs_dat_Stream_ss_before_FF;
+
+reg ss_tvalid_before_FF;
+reg [(pDATA_WIDTH-1):0] ss_tdata_before_FF;
+reg ss_tlast_before_FF;
+
+reg [2:0] state_Stream_ss;
+reg [2:0] next_state_Stream_ss;
+reg [15:0] delay_counter_Stream_ss;
+reg [15:0] next_delay_counter_Stream_ss;
+
+reg [(pDATA_WIDTH-1):0] input_x_buffer;
+reg [(pDATA_WIDTH-1):0] next_input_x_buffer;
+reg [31:0] input_number_counter; // same size as data_length
+reg [31:0] next_input_number_counter;
+
+
+always @* begin
+    wbs_dat_Stream_ss_before_FF=0;
+
+    case(state_Stream_ss)
+        Stream_ss_IDLE: begin // input_x_buffer is out-of-date / has been used
+            wbs_ack_Stream_ss_before_FF=0;
+            //wbs_dat_Stream_ss_before_FF=0;
+            ss_tvalid_before_FF=0;
+            ss_tdata_before_FF=0;
+            ss_tlast_before_FF=0;
+            next_Yn_valid_Xn_ready[0]=1;
+            next_input_number_counter=input_number_counter;
+
+            if(AXI_ss_valid==1) begin
+                next_state_Stream_ss=Stream_ss_WAIT_FOR_COUNTER;
+
+                //ss_tvalid_before_FF=1;
+                //ss_tdata_before_FF=wbs_dat_i;
+                //if(input_number_counter==DATA_LENGTH-1) begin
+                //    ss_tlast_before_FF=1;
+                //end
+                //else begin
+                //    ss_tlast_before_FF=0;
+                //end
+
+                //next_Yn_valid_Xn_ready[0]=0;
+                next_input_x_buffer=wbs_dat_i;
+                next_delay_counter_Stream_ss=delay_counter_Stream_ss+1;
+                //next_input_number_counter=input_number_counter+1;
+            end
+            else begin
+                next_state_Stream_ss=Stream_ss_IDLE;
+
+                //ss_tvalid_before_FF=0;
+                //ss_tdata_before_FF=0;
+                //ss_tlast_before_FF=0;
+
+                //next_Yn_valid_Xn_ready[0]=1;
+                next_input_x_buffer=0;
+                next_delay_counter_Stream_ss=0;
+                //next_input_number_counter=input_number_counter;
+            end
+        end
+        Stream_ss_WAIT_FOR_COUNTER: begin
+            ss_tvalid_before_FF=0;
+            ss_tdata_before_FF=0;
+            ss_tlast_before_FF=0;
+            //next_Yn_valid_Xn_ready[0]=1;
+            next_input_x_buffer=input_x_buffer;
+            next_delay_counter_Stream_ss=0;
+            next_input_number_counter=input_number_counter;
+            
+            if(delay_counter_Stream_ss == DELAYS) begin
+                next_state_Stream_ss=Stream_ss_ACK;
+                wbs_ack_Stream_ss_before_FF=1;
+                next_delay_counter_Stream_ss=0;
+                next_Yn_valid_Xn_ready[0]=0;
+            end
+            else begin
+                next_state_Stream_ss=Stream_ss_WAIT_FOR_COUNTER;
+                wbs_ack_Stream_ss_before_FF=0;
+                next_delay_counter_Stream_ss=delay_counter_Stream_ss+1;
+                next_Yn_valid_Xn_ready[0]=1;
+            end
+        end
+        Stream_ss_ACK: begin
+            next_state_Stream_ss=Stream_ss_FEED_FIR;
+            wbs_ack_Stream_ss_before_FF=0;
+            ss_tvalid_before_FF=1;
+            ss_tdata_before_FF=input_x_buffer;
+
+            if(input_number_counter==DATA_LENGTH-1) begin
+                ss_tlast_before_FF=1;
+                next_input_number_counter=0;
+            end
+            else begin
+                ss_tlast_before_FF=0;
+                next_input_number_counter=input_number_counter+1;
+            end
+
+            next_Yn_valid_Xn_ready[0]=0;
+            next_input_x_buffer=input_x_buffer;
+            next_delay_counter_Stream_ss=0;
+            //next_input_number_counter=input_number_counter+1;
+        end
+        Stream_ss_FEED_FIR: begin
+            wbs_ack_Stream_ss_before_FF=0;
+            next_input_number_counter=input_number_counter;
+            next_delay_counter_Stream_ss=0;
+
+            if(ss_tvalid & ss_tready) begin
+                next_state_Stream_ss=Stream_ss_IDLE;
+                ss_tvalid_before_FF=0;
+                ss_tdata_before_FF=0;
+                ss_tlast_before_FF=0;
+                next_Yn_valid_Xn_ready[0]=1;
+                next_input_x_buffer=0;
+            end
+            else begin
+                next_state_Stream_ss=Stream_ss_FEED_FIR;
+                ss_tvalid_before_FF=1;
+                ss_tdata_before_FF=input_x_buffer;
+                ss_tlast_before_FF=ss_tlast;
+                next_Yn_valid_Xn_ready[0]=0;
+                next_input_x_buffer=input_x_buffer;
+            end
+        end
+       
+        default:begin
+            next_state_Stream_ss=Stream_ss_IDLE;
+            wbs_ack_Stream_ss_before_FF=0;
+            //wbs_dat_Stream_ss_before_FF=0;
+
+            ss_tvalid_before_FF=0;
+            ss_tdata_before_FF=0;
+            ss_tlast_before_FF=0;
+
+            next_Yn_valid_Xn_ready[0]=0;
+            next_input_x_buffer=0;
+            next_delay_counter_Stream_ss=0;
+            next_input_number_counter=0;
+        end
+    endcase
+end
+
+//always @* begin
+    /*if(state_Stream_ss==Stream_ss_IDLE) begin
+        next_delay_counter_Stream_ss=1;
+    end
+    else begin
+        next_delay_counter_Stream_ss=delay_counter_Stream_ss+1;
+    end
+
+    if(delay_counter_Stream_ss == DELAYS) begin
+        wbs_ack_Stream_ss_before_FF=1;
+    end
+    else begin
+        wbs_ack_Stream_ss_before_FF=0;
+    end*/
+
+//    wbs_dat_Stream_ss_before_FF=0;
+//end
+
+always@(posedge wb_clk_i) begin
+    if(wb_rst_i) begin // positive reset
+        state_Stream_ss <= Stream_ss_IDLE;
+        wbs_ack_Stream_ss <= 0;
+        wbs_dat_Stream_ss <= 0;
+        ss_tvalid <= 0;
+        ss_tdata <= 0;
+        ss_tlast <= 0;
+        delay_counter_Stream_ss <= 0;
+        Yn_valid_Xn_ready[0] <= 0;
+        input_x_buffer <= 0;
+        input_number_counter <= 0;
+    end
+    else begin
+        state_Stream_ss <= next_state_Stream_ss;
+        wbs_ack_Stream_ss <= wbs_ack_Stream_ss_before_FF;
+        wbs_dat_Stream_ss <= wbs_dat_Stream_ss_before_FF;
+        ss_tvalid <= ss_tvalid_before_FF;
+        ss_tdata <= ss_tdata_before_FF;
+        ss_tlast <= ss_tlast_before_FF;
+        delay_counter_Stream_ss <= next_delay_counter_Stream_ss;
+        Yn_valid_Xn_ready[0] <= next_Yn_valid_Xn_ready[0];
+        input_x_buffer <= next_input_x_buffer;
+        input_number_counter <= next_input_number_counter;
+    end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////// AXI Stream (sm) for y[n] ///////////////////////////////////////
+localparam /*Stream_sm_IDLE = 3'd0, */Stream_sm_WRITE_BUFFER = 3'd0, Stream_sm_WB_OUTPUT = 3'd1, Stream_sm_WAIT_FOR_COUNTER = 3'd2, Stream_sm_ACK = 3'd3;
+
+reg wbs_ack_Stream_sm;
+reg wbs_ack_Stream_sm_before_FF;
+reg [31:0] wbs_dat_Stream_sm;
+reg [31:0] wbs_dat_Stream_sm_before_FF;
+
+reg sm_tready_before_FF;
+
+reg [2:0] state_Stream_sm;
+reg [2:0] next_state_Stream_sm;
+reg [15:0] delay_counter_Stream_sm;
+reg [15:0] next_delay_counter_Stream_sm;
+
+reg [(pDATA_WIDTH-1):0] output_y_buffer;
+reg [(pDATA_WIDTH-1):0] next_output_y_buffer;
+
+
+always @* begin
+    case(state_Stream_sm)
+        Stream_sm_WRITE_BUFFER: begin // output_y_buffer is out-of-date / has been given out
+            next_delay_counter_Stream_sm=0;
+            wbs_ack_Stream_sm_before_FF=0;
+
+            if(sm_tvalid & sm_tready) begin
+                next_state_Stream_sm=Stream_sm_WB_OUTPUT;
+                sm_tready_before_FF=0;
+                next_Yn_valid_Xn_ready[1]=1;
+                next_output_y_buffer=sm_tdata;
+            end
+            else begin
+                next_state_Stream_sm=Stream_sm_WRITE_BUFFER;
+                sm_tready_before_FF=1;
+                next_Yn_valid_Xn_ready[1]=0;
+                next_output_y_buffer=0;
+            end
+        end
+        Stream_sm_WB_OUTPUT: begin
+            sm_tready_before_FF=0;
+            next_Yn_valid_Xn_ready[1]=1;
+            next_output_y_buffer=output_y_buffer;
+            wbs_ack_Stream_sm_before_FF=0;
+
+            if(AXI_sm_valid==1) begin
+                next_state_Stream_sm=Stream_sm_WAIT_FOR_COUNTER;
+                next_delay_counter_Stream_sm=delay_counter_Stream_sm+1;
+            end
+            else begin
+                next_state_Stream_sm=Stream_sm_WB_OUTPUT;
+                next_delay_counter_Stream_sm=0;
+            end
+        end
+        Stream_sm_WAIT_FOR_COUNTER: begin
+            sm_tready_before_FF=0;
+            next_Yn_valid_Xn_ready[1]=1;
+            next_output_y_buffer=output_y_buffer;
+
+           if(delay_counter_Stream_sm == DELAYS) begin
+                next_state_Stream_sm=Stream_sm_ACK;
+                wbs_ack_Stream_sm_before_FF=1;
+                next_delay_counter_Stream_sm=0;
+            end
+            else begin
+                next_state_Stream_sm=Stream_sm_WAIT_FOR_COUNTER;
+                wbs_ack_Stream_sm_before_FF=0;
+                next_delay_counter_Stream_sm=delay_counter_Stream_sm+1;
+            end
+        end
+        Stream_sm_ACK: begin
+            next_state_Stream_sm=Stream_sm_WRITE_BUFFER;
+            wbs_ack_Stream_sm_before_FF=0;
+            sm_tready_before_FF=1;
+            next_Yn_valid_Xn_ready[1]=0;
+            next_output_y_buffer=0;
+            next_delay_counter_Stream_sm=0;
+        end
+        default:begin
+            next_state_Stream_sm=Stream_sm_WRITE_BUFFER;
+            wbs_ack_Stream_sm_before_FF=0;
+
+            sm_tready_before_FF=0;
+
+            next_Yn_valid_Xn_ready[1]=0;
+            next_output_y_buffer=0;
+            next_delay_counter_Stream_sm=0;
+        end
+    endcase
+end
+
+always @* begin
+    wbs_dat_Stream_sm_before_FF=output_y_buffer;
+end
+
+always@(posedge wb_clk_i) begin
+    if(wb_rst_i) begin // positive reset
+        state_Stream_sm <= Stream_sm_WRITE_BUFFER;
+        wbs_ack_Stream_sm <= 0;
+        wbs_dat_Stream_sm <= 0;
+        sm_tready <= 0;
+        delay_counter_Stream_sm <= 0;
+        Yn_valid_Xn_ready[1] <= 0;
+        output_y_buffer <= 0;
+    end
+    else begin
+        state_Stream_sm <= next_state_Stream_sm;
+        wbs_ack_Stream_sm <= wbs_ack_Stream_sm_before_FF;
+        wbs_dat_Stream_sm <= wbs_dat_Stream_sm_before_FF;
+        sm_tready <= sm_tready_before_FF;
+        delay_counter_Stream_sm <= next_delay_counter_Stream_sm;
+        Yn_valid_Xn_ready[1] <= next_Yn_valid_Xn_ready[1];
+        output_y_buffer <= next_output_y_buffer;
+    end
+end
 
 endmodule
 

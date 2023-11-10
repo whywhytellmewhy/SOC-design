@@ -218,12 +218,32 @@ module counter_la_fir_tb;
     end
 
 	// Added by us to count latency_timer
+	integer FIR_latency_firmware;
 	integer FIR_latency_round1;
 	integer FIR_latency_round2;
 	integer FIR_latency_round3;
 	integer golden_final_Y;
 	initial begin
 		golden_final_Y=10614;
+		///////////////////////////////////// For firmware /////////////////////////////////////
+		$display("\n++++++++++ Step 1: Use firmware (lab4-1) ++++++++++");
+		wait(checkbits[7:0] == 8'hA5);
+		latency_timer=0;
+		$display("(Firmware) Detect start mark (8'hA5) on mprj[23:16], start latency timer.");
+		wait(checkbits[7:0] == 8'h5A);
+		FIR_latency_firmware=latency_timer;
+		$display("(Firmware) Detect end mark (8'h5A) on mprj[23:16], record latency timer.");
+		if (checkbits[15:8] == golden_final_Y[7:0]) begin
+			$display("(Firmware) Success: Final Y[7:0] output to mprj[31:24] is 0x%x, the same as the golden value.", checkbits[15:8]);
+		end
+		else begin
+			$display("(Firmware) Error: Final Y[7:0] output to mprj[31:24] is 0x%x, which is NOT the same as the golden value.", checkbits[15:8]);
+			$display("--------Simulation Failed---------");
+			$finish;
+		end
+        $display("Info: FIR \"firmware\" latency = %d clock cycles", FIR_latency_firmware);
+
+		$display("\n++++++++++ Step 2: Use hardware (FIR engine)(lab3) ++++++++++");
 		///////////////////////////////////// For round 1 /////////////////////////////////////
 		wait(checkbits[7:0] == 8'hA5);
 		latency_timer=0;
@@ -243,7 +263,7 @@ module counter_la_fir_tb;
 			$finish;
 		end
 		///// 3. Checking phase: (1)Report latency (lab3 workbook p.20)
-        $display("Info: FIR engine latency in round 1 = %d clock cycles", FIR_latency_round1);
+        $display("Info: FIR engine (hardware) latency in round 1 = %d clock cycles", FIR_latency_round1);
 
 		///////////////////////////////////// For round 2 /////////////////////////////////////
 		wait(checkbits[7:0] == 8'hA5);
@@ -264,7 +284,7 @@ module counter_la_fir_tb;
 			$finish;
 		end
 		///// 3. Checking phase: (1)Report latency (lab3 workbook p.20)
-        $display("Info: FIR engine latency in round 1 = %d clock cycles", FIR_latency_round2);
+        $display("Info: FIR engine (hardware) latency in round 2 = %d clock cycles", FIR_latency_round2);
 
 		///////////////////////////////////// For round 3 /////////////////////////////////////
 		wait(checkbits[7:0] == 8'hA5);
@@ -285,9 +305,9 @@ module counter_la_fir_tb;
 			$finish;
 		end
 		///// 3. Checking phase: (1)Report latency (lab3 workbook p.20)
-        $display("Info: FIR engine latency in round 1 = %d clock cycles", FIR_latency_round3);
+        $display("Info: FIR engine (hardware) latency in round 3 = %d clock cycles", FIR_latency_round3);
 
-		$display("Info: Total FIR engine latency = %d clock cycles", FIR_latency_round1+FIR_latency_round2+FIR_latency_round3);
+		$display("Info: Total FIR engine (hardware) latency = %d clock cycles", FIR_latency_round1+FIR_latency_round2+FIR_latency_round3);
 	end
 
 	initial begin

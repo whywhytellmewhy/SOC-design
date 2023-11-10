@@ -22,6 +22,7 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir(){
 	int data_RAM_pointer=0; // Point to some address in data_RAM (that is, inputbuffer[N] here)
 	//int outputsignal_total[data_length];
 	/////int pesudo_outputsignal; // only being calculated but not returned
+	reg_mprj_datal = 0x00A50000; // start mark on mprj[23:16]
 	for (int i = 0; i < DATA_LENGTH; i=i+1) { // Do this loop for "input number" times, here "N" means the number of inputs, which is "600" in lab3
 		input_data=x[i]; // To "mimic" AXI-Stream Data_in
 		inputbuffer[data_RAM_pointer]=input_data; // Store this input into data_RAM
@@ -77,6 +78,7 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir_RTL(int times){
 	}*/
 
 	int WB_return_data;
+	int WB_return_data_last_one;
 	int i;
 	int output_data_count=0;
 	int input_data_count=0;
@@ -96,8 +98,14 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir_RTL(int times){
 		for(i=0; i<N; i=i+1){ // Here "N" means the number of taps, which is "11" in lab3
 			WB_write((int*)(FIR_BASE_ADDRESS+0x20+4*i), taps[i]);
 		}
+		
 		// read-back and check
 		///$display(" Check Coefficient ...");
+		WB_return_data = WB_read((int*)(FIR_BASE_ADDRESS+0x10)); // check data_length
+		if(WB_return_data != DATA_LENGTH){
+			outputsignal[10]=-2;
+			return outputsignal; // Error happens, so return "-1" !!!
+		}
 		for(i=0; i<N; i=i+1){ // Here "N" means the number of taps, which is "11" in lab3
 			WB_return_data = WB_read((int*)(FIR_BASE_ADDRESS+0x20+4*i));
 			if(WB_return_data != taps[i]){
@@ -132,15 +140,26 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir_RTL(int times){
     /////       3. Task: Polling ap_done, when ap_done is sampled, disable tasks (stream_in_Xn, stream_out_Yn, and Polling) (in the next "initial begin" block) (lab3 workbook p.20)
     while(output_data_count < DATA_LENGTH){
 		WB_return_data = WB_read((int*)FIR_BASE_ADDRESS);
+		
 		///// 1. Setup phase: (4)Read and check ap_start, ap_idle, ap_done are in proper state (lab3 workbook p.20)
-		if(((WB_return_data & 7)!=0) && (input_data_count>0)){ // check whether each of ap_start, ap_idle, and ap_done = 0
-			outputsignal[10]=-2;
-			return outputsignal; // Error happens, so return "-1" !!!
+		if(output_data_count==DATA_LENGTH-1){
+			WB_return_data_last_one = WB_return_data;
+		}else{
+			if(((WB_return_data & 7)!=0) && (input_data_count>0)){ // check whether each of ap_start, ap_idle, and ap_done = 0
+				outputsignal[10]=-2;
+				return outputsignal; // Error happens, so return "-1" !!!
+			}
 		}
+		
+		//outputsignal[10]=-3;
+		//return outputsignal;
 		if(((WB_return_data>>5) & 1)==1){ // check whether WB-AXI module is valid to give an output Y[n]
+			//outputsignal[10]=-3;
+			//return outputsignal;
 			WB_return_data = WB_read((int*)(FIR_BASE_ADDRESS+0x84));
 			if (output_data_count>=DATA_LENGTH-N){ // Here "N" means the number of output number: if we wants to output the last 15 values, then set this N=15
 				outputsignal[output_data_count-(DATA_LENGTH-N)] = WB_return_data;
+				//reg_mprj_datal = WB_return_data;
 			}
 			output_data_count=output_data_count+1;
 		}else if(((WB_return_data>>4) & 1)==1){ // check whether WB-AXI module is ready to accept an input X[n]
@@ -151,12 +170,18 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir_RTL(int times){
 			WB_write((int*)(FIR_BASE_ADDRESS+0x80), x[input_data_count]);
 			input_data_count=input_data_count+1;
 		}
+		//outputsignal[10]=-3;
+		//return outputsignal;
 	}
 	///$display("------End the data input(AXI-Stream)------");
 
 	// check ap_done = 1 && ap_idle = 1
-	WB_return_data = WB_read((int*)FIR_BASE_ADDRESS);
+	/*WB_return_data = WB_read((int*)FIR_BASE_ADDRESS);
 	if(((WB_return_data>>1) & 3)!=3){
+		outputsignal[10]=-2;
+		return outputsignal; // Error happens, so return "-1" !!!
+	}*/
+	if(((WB_return_data_last_one>>1) & 3)!=3){
 		outputsignal[10]=-2;
 		return outputsignal; // Error happens, so return "-1" !!!
 	}

@@ -479,56 +479,170 @@ main:
 	addi	a4,a4,24
 	.loc 3 123 56
 	sw	a5,0(a4)
-	.loc 3 149 12
+	.loc 3 133 13
+	call	fir
+	sw	a0,-24(s0)
+	.loc 3 134 38
+	lw	a5,-24(s0)
+	lw	a5,0(a5)
+	.loc 3 134 43
+	slli	a4,a5,16
+	.loc 3 134 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 134 36
+	sw	a4,0(a5)
+	.loc 3 135 43
+	lw	a5,-24(s0)
+	addi	a5,a5,4
+	.loc 3 135 38
+	lw	a5,0(a5)
+	.loc 3 135 47
+	slli	a4,a5,16
+	.loc 3 135 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 135 36
+	sw	a4,0(a5)
+	.loc 3 136 43
+	lw	a5,-24(s0)
+	addi	a5,a5,8
+	.loc 3 136 38
+	lw	a5,0(a5)
+	.loc 3 136 47
+	slli	a4,a5,16
+	.loc 3 136 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 136 36
+	sw	a4,0(a5)
+	.loc 3 137 43
+	lw	a5,-24(s0)
+	addi	a5,a5,12
+	.loc 3 137 38
+	lw	a5,0(a5)
+	.loc 3 137 47
+	slli	a4,a5,16
+	.loc 3 137 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 137 36
+	sw	a4,0(a5)
+	.loc 3 138 43
+	lw	a5,-24(s0)
+	addi	a5,a5,16
+	.loc 3 138 38
+	lw	a5,0(a5)
+	.loc 3 138 47
+	slli	a4,a5,16
+	.loc 3 138 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 138 36
+	sw	a4,0(a5)
+	.loc 3 139 43
+	lw	a5,-24(s0)
+	addi	a5,a5,20
+	.loc 3 139 38
+	lw	a5,0(a5)
+	.loc 3 139 47
+	slli	a4,a5,16
+	.loc 3 139 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 139 36
+	sw	a4,0(a5)
+	.loc 3 140 43
+	lw	a5,-24(s0)
+	addi	a5,a5,24
+	.loc 3 140 38
+	lw	a5,0(a5)
+	.loc 3 140 47
+	slli	a4,a5,16
+	.loc 3 140 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 140 36
+	sw	a4,0(a5)
+	.loc 3 141 43
+	lw	a5,-24(s0)
+	addi	a5,a5,28
+	.loc 3 141 38
+	lw	a5,0(a5)
+	.loc 3 141 47
+	slli	a4,a5,16
+	.loc 3 141 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 141 36
+	sw	a4,0(a5)
+	.loc 3 142 43
+	lw	a5,-24(s0)
+	addi	a5,a5,32
+	.loc 3 142 38
+	lw	a5,0(a5)
+	.loc 3 142 47
+	slli	a4,a5,16
+	.loc 3 142 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 142 36
+	sw	a4,0(a5)
+	.loc 3 143 43
+	lw	a5,-24(s0)
+	addi	a5,a5,36
+	.loc 3 143 38
+	lw	a5,0(a5)
+	.loc 3 143 47
+	slli	a4,a5,16
+	.loc 3 143 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 143 36
+	sw	a4,0(a5)
+	.loc 3 144 43
+	lw	a5,-24(s0)
+	addi	a5,a5,40
+	.loc 3 144 38
+	lw	a5,0(a5)
+	.loc 3 144 48
+	slli	a4,a5,16
+	.loc 3 144 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 144 36
+	sw	a4,0(a5)
+	.loc 3 147 44
+	lw	a5,-24(s0)
+	addi	a5,a5,40
+	.loc 3 147 39
+	lw	a5,0(a5)
+	.loc 3 147 49
+	slli	a4,a5,24
+	.loc 3 147 56
+	li	a5,5898240
+	add	a4,a4,a5
+	.loc 3 147 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 147 36
+	sw	a4,0(a5)
+	.loc 3 150 5
+	sw	zero,-24(s0)
+	.loc 3 152 12
 	li	a5,1
 	sw	a5,-20(s0)
-	.loc 3 149 2
+	.loc 3 152 2
 	j	.L12
 .L13:
-	.loc 3 150 9 discriminator 3
+	.loc 3 153 9 discriminator 3
 	lw	a0,-20(s0)
 	call	fir_RTL
 	sw	a0,-24(s0)
-	.loc 3 152 39 discriminator 3
-	lw	a5,-24(s0)
-	lw	a5,0(a5)
-	.loc 3 152 44 discriminator 3
-	slli	a4,a5,16
-	.loc 3 152 4 discriminator 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 3 152 37 discriminator 3
-	sw	a4,0(a5)
-	.loc 3 153 44 discriminator 3
-	lw	a5,-24(s0)
-	addi	a5,a5,4
-	.loc 3 153 39 discriminator 3
-	lw	a5,0(a5)
-	.loc 3 153 48 discriminator 3
-	slli	a4,a5,16
-	.loc 3 153 4 discriminator 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 3 153 37 discriminator 3
-	sw	a4,0(a5)
-	.loc 3 154 44 discriminator 3
-	lw	a5,-24(s0)
-	addi	a5,a5,8
-	.loc 3 154 39 discriminator 3
-	lw	a5,0(a5)
-	.loc 3 154 48 discriminator 3
-	slli	a4,a5,16
-	.loc 3 154 4 discriminator 3
-	li	a5,637534208
-	addi	a5,a5,12
-	.loc 3 154 37 discriminator 3
-	sw	a4,0(a5)
-	.loc 3 155 44 discriminator 3
-	lw	a5,-24(s0)
-	addi	a5,a5,12
 	.loc 3 155 39 discriminator 3
+	lw	a5,-24(s0)
 	lw	a5,0(a5)
-	.loc 3 155 48 discriminator 3
+	.loc 3 155 44 discriminator 3
 	slli	a4,a5,16
 	.loc 3 155 4 discriminator 3
 	li	a5,637534208
@@ -537,7 +651,7 @@ main:
 	sw	a4,0(a5)
 	.loc 3 156 44 discriminator 3
 	lw	a5,-24(s0)
-	addi	a5,a5,16
+	addi	a5,a5,4
 	.loc 3 156 39 discriminator 3
 	lw	a5,0(a5)
 	.loc 3 156 48 discriminator 3
@@ -549,7 +663,7 @@ main:
 	sw	a4,0(a5)
 	.loc 3 157 44 discriminator 3
 	lw	a5,-24(s0)
-	addi	a5,a5,20
+	addi	a5,a5,8
 	.loc 3 157 39 discriminator 3
 	lw	a5,0(a5)
 	.loc 3 157 48 discriminator 3
@@ -561,7 +675,7 @@ main:
 	sw	a4,0(a5)
 	.loc 3 158 44 discriminator 3
 	lw	a5,-24(s0)
-	addi	a5,a5,24
+	addi	a5,a5,12
 	.loc 3 158 39 discriminator 3
 	lw	a5,0(a5)
 	.loc 3 158 48 discriminator 3
@@ -573,7 +687,7 @@ main:
 	sw	a4,0(a5)
 	.loc 3 159 44 discriminator 3
 	lw	a5,-24(s0)
-	addi	a5,a5,28
+	addi	a5,a5,16
 	.loc 3 159 39 discriminator 3
 	lw	a5,0(a5)
 	.loc 3 159 48 discriminator 3
@@ -585,7 +699,7 @@ main:
 	sw	a4,0(a5)
 	.loc 3 160 44 discriminator 3
 	lw	a5,-24(s0)
-	addi	a5,a5,32
+	addi	a5,a5,20
 	.loc 3 160 39 discriminator 3
 	lw	a5,0(a5)
 	.loc 3 160 48 discriminator 3
@@ -597,7 +711,7 @@ main:
 	sw	a4,0(a5)
 	.loc 3 161 44 discriminator 3
 	lw	a5,-24(s0)
-	addi	a5,a5,36
+	addi	a5,a5,24
 	.loc 3 161 39 discriminator 3
 	lw	a5,0(a5)
 	.loc 3 161 48 discriminator 3
@@ -609,45 +723,83 @@ main:
 	sw	a4,0(a5)
 	.loc 3 162 44 discriminator 3
 	lw	a5,-24(s0)
-	addi	a5,a5,40
+	addi	a5,a5,28
 	.loc 3 162 39 discriminator 3
 	lw	a5,0(a5)
-	.loc 3 162 49 discriminator 3
+	.loc 3 162 48 discriminator 3
 	slli	a4,a5,16
 	.loc 3 162 4 discriminator 3
 	li	a5,637534208
 	addi	a5,a5,12
 	.loc 3 162 37 discriminator 3
 	sw	a4,0(a5)
-	.loc 3 163 74 discriminator 3
-	li	a5,637534208
-	addi	a5,a5,12
+	.loc 3 163 44 discriminator 3
+	lw	a5,-24(s0)
+	addi	a5,a5,32
+	.loc 3 163 39 discriminator 3
 	lw	a5,0(a5)
-	slli	a3,a5,8
+	.loc 3 163 48 discriminator 3
+	slli	a4,a5,16
 	.loc 3 163 4 discriminator 3
 	li	a5,637534208
 	addi	a5,a5,12
-	.loc 3 163 80 discriminator 3
-	li	a4,5898240
-	add	a4,a3,a4
 	.loc 3 163 37 discriminator 3
 	sw	a4,0(a5)
-	.loc 3 149 29 discriminator 3
+	.loc 3 164 44 discriminator 3
+	lw	a5,-24(s0)
+	addi	a5,a5,36
+	.loc 3 164 39 discriminator 3
+	lw	a5,0(a5)
+	.loc 3 164 48 discriminator 3
+	slli	a4,a5,16
+	.loc 3 164 4 discriminator 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 164 37 discriminator 3
+	sw	a4,0(a5)
+	.loc 3 165 44 discriminator 3
+	lw	a5,-24(s0)
+	addi	a5,a5,40
+	.loc 3 165 39 discriminator 3
+	lw	a5,0(a5)
+	.loc 3 165 49 discriminator 3
+	slli	a4,a5,16
+	.loc 3 165 4 discriminator 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 165 37 discriminator 3
+	sw	a4,0(a5)
+	.loc 3 167 45 discriminator 3
+	lw	a5,-24(s0)
+	addi	a5,a5,40
+	.loc 3 167 40 discriminator 3
+	lw	a5,0(a5)
+	.loc 3 167 50 discriminator 3
+	slli	a4,a5,24
+	.loc 3 167 57 discriminator 3
+	li	a5,5898240
+	add	a4,a4,a5
+	.loc 3 167 4 discriminator 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 3 167 37 discriminator 3
+	sw	a4,0(a5)
+	.loc 3 152 29 discriminator 3
 	lw	a5,-20(s0)
 	addi	a5,a5,1
 	sw	a5,-20(s0)
 .L12:
-	.loc 3 149 20 discriminator 1
+	.loc 3 152 20 discriminator 1
 	lw	a4,-20(s0)
 	li	a5,3
 	ble	a4,a5,.L13
-	.loc 3 169 3
+	.loc 3 173 3
 	li	a5,637534208
 	addi	a5,a5,12
-	.loc 3 169 36
+	.loc 3 173 36
 	li	a4,-1420754944
 	sw	a4,0(a5)
-	.loc 3 170 1
+	.loc 3 174 1
 	nop
 	lw	ra,28(sp)
 	.cfi_restore 1
@@ -664,13 +816,13 @@ main:
 	.file 4 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0x13e
+	.4byte	0x150
 	.2byte	0x5
 	.byte	0x1
 	.byte	0x4
 	.4byte	.Ldebug_abbrev0
-	.byte	0x6
-	.4byte	.LASF17
+	.byte	0x7
+	.4byte	.LASF18
 	.byte	0x1d
 	.4byte	.LASF0
 	.4byte	.LASF1
@@ -701,8 +853,8 @@ main:
 	.byte	0x2
 	.byte	0x7
 	.4byte	.LASF7
-	.byte	0x7
-	.4byte	.LASF18
+	.byte	0x8
+	.4byte	.LASF19
 	.byte	0x4
 	.byte	0x34
 	.byte	0x1b
@@ -715,7 +867,7 @@ main:
 	.byte	0x8
 	.byte	0x7
 	.4byte	.LASF9
-	.byte	0x8
+	.byte	0x9
 	.byte	0x4
 	.byte	0x5
 	.string	"int"
@@ -723,18 +875,27 @@ main:
 	.byte	0x4
 	.byte	0x7
 	.4byte	.LASF10
-	.byte	0x9
-	.4byte	.LASF19
+	.byte	0xa
+	.4byte	.LASF11
 	.byte	0x3
 	.byte	0x18
 	.byte	0xd
 	.4byte	0x8a
 	.4byte	0x8a
-	.byte	0xa
-	.byte	0
 	.byte	0x2
+	.byte	0
+	.byte	0x3
 	.4byte	0x6a
 	.byte	0xb
+	.string	"fir"
+	.byte	0x3
+	.byte	0x16
+	.byte	0xd
+	.4byte	0x8a
+	.4byte	0xa1
+	.byte	0x2
+	.byte	0
+	.byte	0xc
 	.4byte	.LASF20
 	.byte	0x3
 	.byte	0x25
@@ -743,83 +904,83 @@ main:
 	.4byte	.LFE318-.LFB318
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xce
-	.byte	0xc
+	.4byte	0xe0
+	.byte	0xd
 	.string	"j"
 	.byte	0x3
 	.byte	0x27
 	.byte	0x6
 	.4byte	0x6a
-	.byte	0xd
+	.byte	0xe
 	.string	"tmp"
 	.byte	0x3
-	.byte	0x93
+	.byte	0x85
 	.byte	0x7
 	.4byte	0x8a
 	.byte	0x2
 	.byte	0x91
 	.byte	0x68
-	.byte	0xe
-	.4byte	.LASF11
+	.byte	0xf
+	.4byte	.LASF12
 	.byte	0x3
-	.byte	0x94
+	.byte	0x97
 	.byte	0x6
 	.4byte	0x6a
 	.byte	0x2
 	.byte	0x91
 	.byte	0x6c
 	.byte	0
-	.byte	0x3
-	.4byte	.LASF13
+	.byte	0x4
+	.4byte	.LASF14
 	.byte	0x1a
 	.4byte	.LFB317
 	.4byte	.LFE317-.LFB317
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xef
-	.byte	0x4
+	.4byte	0x101
+	.byte	0x5
 	.string	"p"
 	.byte	0x1a
 	.byte	0x18
-	.4byte	0xef
+	.4byte	0x101
 	.byte	0x2
 	.byte	0x91
 	.byte	0x6c
 	.byte	0
-	.byte	0x2
-	.4byte	0xfb
+	.byte	0x3
+	.4byte	0x10d
 	.byte	0x1
 	.byte	0x1
 	.byte	0x8
-	.4byte	.LASF12
-	.byte	0xf
-	.4byte	0xf4
-	.byte	0x3
-	.4byte	.LASF14
+	.4byte	.LASF13
+	.byte	0x10
+	.4byte	0x106
+	.byte	0x4
+	.4byte	.LASF15
 	.byte	0x12
 	.4byte	.LFB316
 	.4byte	.LFE316-.LFB316
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x121
-	.byte	0x4
+	.4byte	0x133
+	.byte	0x5
 	.string	"c"
 	.byte	0x12
 	.byte	0x13
-	.4byte	0xf4
+	.4byte	0x106
 	.byte	0x2
 	.byte	0x91
 	.byte	0x6f
 	.byte	0
-	.byte	0x5
-	.4byte	.LASF15
+	.byte	0x6
+	.4byte	.LASF16
 	.byte	0x1c
 	.4byte	.LFB22
 	.4byte	.LFE22-.LFB22
 	.byte	0x1
 	.byte	0x9c
-	.byte	0x5
-	.4byte	.LASF16
+	.byte	0x6
+	.4byte	.LASF17
 	.byte	0xe
 	.4byte	.LFB21
 	.4byte	.LFE21-.LFB21
@@ -840,6 +1001,11 @@ main:
 	.byte	0
 	.byte	0
 	.byte	0x2
+	.byte	0x18
+	.byte	0
+	.byte	0
+	.byte	0
+	.byte	0x3
 	.byte	0xf
 	.byte	0
 	.byte	0xb
@@ -849,7 +1015,7 @@ main:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x3
+	.byte	0x4
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x3f
@@ -878,7 +1044,7 @@ main:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x4
+	.byte	0x5
 	.byte	0x5
 	.byte	0
 	.byte	0x3
@@ -896,7 +1062,7 @@ main:
 	.byte	0x18
 	.byte	0
 	.byte	0
-	.byte	0x5
+	.byte	0x6
 	.byte	0x2e
 	.byte	0
 	.byte	0x3
@@ -921,7 +1087,7 @@ main:
 	.byte	0x19
 	.byte	0
 	.byte	0
-	.byte	0x6
+	.byte	0x7
 	.byte	0x11
 	.byte	0x1
 	.byte	0x25
@@ -940,7 +1106,7 @@ main:
 	.byte	0x17
 	.byte	0
 	.byte	0
-	.byte	0x7
+	.byte	0x8
 	.byte	0x16
 	.byte	0
 	.byte	0x3
@@ -955,7 +1121,7 @@ main:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x8
+	.byte	0x9
 	.byte	0x24
 	.byte	0
 	.byte	0xb
@@ -966,7 +1132,7 @@ main:
 	.byte	0x8
 	.byte	0
 	.byte	0
-	.byte	0x9
+	.byte	0xa
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x3f
@@ -987,12 +1153,28 @@ main:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0xa
-	.byte	0x18
-	.byte	0
-	.byte	0
-	.byte	0
 	.byte	0xb
+	.byte	0x2e
+	.byte	0x1
+	.byte	0x3f
+	.byte	0x19
+	.byte	0x3
+	.byte	0x8
+	.byte	0x3a
+	.byte	0xb
+	.byte	0x3b
+	.byte	0xb
+	.byte	0x39
+	.byte	0xb
+	.byte	0x49
+	.byte	0x13
+	.byte	0x3c
+	.byte	0x19
+	.byte	0x1
+	.byte	0x13
+	.byte	0
+	.byte	0
+	.byte	0xc
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x3f
@@ -1017,21 +1199,6 @@ main:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0xc
-	.byte	0x34
-	.byte	0
-	.byte	0x3
-	.byte	0x8
-	.byte	0x3a
-	.byte	0xb
-	.byte	0x3b
-	.byte	0xb
-	.byte	0x39
-	.byte	0xb
-	.byte	0x49
-	.byte	0x13
-	.byte	0
-	.byte	0
 	.byte	0xd
 	.byte	0x34
 	.byte	0
@@ -1045,11 +1212,26 @@ main:
 	.byte	0xb
 	.byte	0x49
 	.byte	0x13
+	.byte	0
+	.byte	0
+	.byte	0xe
+	.byte	0x34
+	.byte	0
+	.byte	0x3
+	.byte	0x8
+	.byte	0x3a
+	.byte	0xb
+	.byte	0x3b
+	.byte	0xb
+	.byte	0x39
+	.byte	0xb
+	.byte	0x49
+	.byte	0x13
 	.byte	0x2
 	.byte	0x18
 	.byte	0
 	.byte	0
-	.byte	0xe
+	.byte	0xf
 	.byte	0x34
 	.byte	0
 	.byte	0x3
@@ -1066,7 +1248,7 @@ main:
 	.byte	0x18
 	.byte	0
 	.byte	0
-	.byte	0xf
+	.byte	0x10
 	.byte	0x26
 	.byte	0
 	.byte	0x49
@@ -1089,21 +1271,21 @@ main:
 	.section	.debug_line,"",@progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",@progbits,1
-.LASF15:
+.LASF16:
 	.string	"flush_cpu_dcache"
 .LASF6:
 	.string	"unsigned char"
-.LASF11:
+.LASF12:
 	.string	"times"
 .LASF8:
 	.string	"long unsigned int"
 .LASF7:
 	.string	"short unsigned int"
-.LASF14:
+.LASF15:
 	.string	"putchar"
-.LASF17:
+.LASF18:
 	.string	"GNU C17 12.1.0 -mabi=ilp32 -mtune=rocket -misa-spec=2.2 -march=rv32i -g -ffreestanding"
-.LASF19:
+.LASF11:
 	.string	"fir_RTL"
 .LASF20:
 	.string	"main"
@@ -1111,17 +1293,17 @@ main:
 	.string	"unsigned int"
 .LASF9:
 	.string	"long long unsigned int"
-.LASF16:
+.LASF17:
 	.string	"flush_cpu_icache"
 .LASF5:
 	.string	"long long int"
-.LASF12:
-	.string	"char"
 .LASF13:
+	.string	"char"
+.LASF14:
 	.string	"print"
 .LASF3:
 	.string	"short int"
-.LASF18:
+.LASF19:
 	.string	"uint32_t"
 .LASF4:
 	.string	"long int"

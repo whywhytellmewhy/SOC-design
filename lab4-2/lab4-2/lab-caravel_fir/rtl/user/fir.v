@@ -99,6 +99,9 @@ reg rvalid_reg;
 //reg rvalid_before_FF;
 reg [(pDATA_WIDTH-1):0] rdata_reg;
 //reg [(pDATA_WIDTH-1):0] rdata_before_FF;
+reg [(pDATA_WIDTH-1):0] last_rdata;
+reg last_rvalid;
+reg last_rready;
 reg ss_tready_reg;
 reg ss_tready_before_FF;
 reg sm_tvalid_reg;
@@ -222,6 +225,9 @@ always @* begin
         data_EN_reg=0;
         data_Di_reg=0;
         data_A_reg=0;
+
+        rdata_reg=0;
+        rvalid_reg=0;
 
         next_counter_data_number=0;
         next_counter_BRAM=0;
@@ -361,8 +367,8 @@ always @* begin
                         next_data_length=data_length;
                     end
 
-                    rdata_reg=0;
-                    rvalid_reg=0;
+                    rdata_reg=last_rdata;
+                    rvalid_reg=last_rvalid;
                 end
                 else if(awvalid & wvalid) begin    /////// Write setup: to make sure protocol requirement ///////
 
@@ -390,6 +396,44 @@ always @* begin
                     next_ap_idle_done_start=ap_idle_done_start;
                     next_data_length=data_length;
 
+                    rdata_reg=last_rdata;
+                    rvalid_reg=last_rvalid;
+                end
+                else if(last_rvalid & last_rready) begin     /////// Read data finished ///////
+                    if(ap_idle_done_start[1]==1) begin
+                        next_state=IDLE;
+                        next_ap_idle_done_start={ap_idle_done_start[3:2],1'b0,ap_idle_done_start[0]};  // When address 0 is read, reset ap_done (workbook p.15)
+                    end
+                    else begin
+                        next_state=AXI_Lite_WAIT;
+                        next_ap_idle_done_start=ap_idle_done_start;
+                    end
+
+
+                    awready_before_FF=1;
+                    wready_before_FF=1;
+                    arready_before_FF=1;
+                    ss_tready_before_FF=0;
+                    sm_tvalid_before_FF=0;
+                    sm_tdata_before_FF=0;
+                    sm_tlast_before_FF=0;
+                    data_WE_reg=4'd0;
+                    data_EN_reg=0;
+                    data_Di_reg=0;
+                    data_A_reg=0;
+
+                    next_counter_data_number=0;
+                    next_counter_BRAM=0;
+
+                    next_data_length=data_length;
+
+                    tap_EN_reg = 0;
+                    tap_WE_reg = 4'd0;
+                    tap_Di_reg = 0;
+                    tap_A_reg = 0;
+
+                    //next_ap_idle_done_start=ap_idle_done_start;
+
                     rdata_reg=0;
                     rvalid_reg=0;
                 end
@@ -412,19 +456,21 @@ always @* begin
                     next_data_length=data_length;
                     //if((awaddr==12'h00) || (awaddr==12'h10)) begin
                     if(araddr==12'h00) begin
-                        if(ap_idle_done_start[1]==1) begin // added in lab4-2
+                        /*if(ap_idle_done_start[1]==1) begin // added in lab4-2
                             next_state=IDLE; // added in lab4-2
                         end // added in lab4-2
                         else begin // added in lab4-2
                             next_state=AXI_Lite_WAIT;
                         end // added in lab4-2
+                        */
                         
                         tap_EN_reg = 0;
                         tap_WE_reg = 4'd0;
                         tap_Di_reg = 0;
                         tap_A_reg = 0;
 
-                        next_ap_idle_done_start={ap_idle_done_start[3:2],1'b0,ap_idle_done_start[0]};  // When address 0 is read, reset ap_done (workbook p.15)
+                        //next_ap_idle_done_start={ap_idle_done_start[3:2],1'b0,ap_idle_done_start[0]};  // When address 0 is read, reset ap_done (workbook p.15)
+                        next_ap_idle_done_start=ap_idle_done_start;
 
                         rdata_reg={28'd0,ap_idle_done_start};
                         rvalid_reg=1;
@@ -439,7 +485,7 @@ always @* begin
 
                         next_ap_idle_done_start=ap_idle_done_start;
 
-                        rdata_reg={28'd0,ap_idle_done_start};
+                        rdata_reg=data_length; //{28'd0,ap_idle_done_start};
                         rvalid_reg=1;
                     end
                     else begin
@@ -452,8 +498,8 @@ always @* begin
 
                         next_ap_idle_done_start=ap_idle_done_start;
                         
-                        rdata_reg=0;
-                        rvalid_reg=0;
+                        rdata_reg=last_rdata;
+                        rvalid_reg=last_rvalid;
                     end
                 end
                 else if(ap_idle_done_start[0]==1) begin     /////// Start FIR engine ///////
@@ -486,8 +532,8 @@ always @* begin
 
                     next_ap_idle_done_start={ap_idle_done_start[3],1'b0,ap_idle_done_start[1:0]};  // When ap_start is sampled, set ap_idle to 0 (workbook p.16)
                     next_data_length=data_length;
-                    rdata_reg=0;
-                    rvalid_reg=0;
+                    rdata_reg=last_rdata;
+                    rvalid_reg=last_rvalid;
                 end
                 else begin
                     next_state=AXI_Lite_WAIT;
@@ -514,8 +560,8 @@ always @* begin
 
                     next_ap_idle_done_start=ap_idle_done_start;
                     next_data_length=data_length;
-                    rdata_reg=0;
-                    rvalid_reg=0;
+                    rdata_reg=last_rdata;
+                    rvalid_reg=last_rvalid;
                 end
             end
             AXI_Lite_WRITE: begin
@@ -540,17 +586,16 @@ always @* begin
 
                 next_ap_idle_done_start=ap_idle_done_start;
                 next_data_length=data_length;
-                rdata_reg=0;
-                rvalid_reg=0;
+                rdata_reg=last_rdata;
+                rvalid_reg=last_rvalid;
                 next_counter_data_number=0;
                 next_counter_BRAM=0;
             end
-            AXI_Lite_READ: begin
-                next_state=AXI_Lite_WAIT;
+            AXI_Lite_READ: begin // state=4
 
                 awready_before_FF=0; //1;
                 wready_before_FF=0; //1;
-                arready_before_FF=1;
+                
                 ss_tready_before_FF=0;
                 sm_tvalid_before_FF=0;
                 sm_tdata_before_FF=0;
@@ -571,6 +616,14 @@ always @* begin
                 rvalid_reg=1;
                 next_counter_data_number=0;
                 next_counter_BRAM=0;
+                if(rvalid & rready) begin //////////// Maybe cannot be synthsized here, because we use "rvalid" which was just changed value
+                    next_state=AXI_Lite_WAIT;
+                    arready_before_FF=1;
+                end
+                else begin
+                    next_state=AXI_Lite_READ;
+                    arready_before_FF=0;
+                end
             end
             DO_FIR: begin
                 awready_before_FF=0;
@@ -581,9 +634,13 @@ always @* begin
                     rdata_reg={28'd0,ap_idle_done_start};
                     rvalid_reg=1;
                 end
-                else begin
+                else if(last_rvalid & last_rready) begin
                     rdata_reg=0;
                     rvalid_reg=0;
+                end
+                else begin
+                    rdata_reg=last_rdata;
+                    rvalid_reg=last_rvalid;
                 end
 
 
@@ -775,13 +832,25 @@ always @* begin
                 wready_before_FF=0;
                 arready_before_FF=1;
 
-                if((arvalid & arready) && (araddr==12'h00)) begin
+                /*if((arvalid & arready) && (araddr==12'h00)) begin
                     rdata_reg={28'd0,ap_idle_done_start};
                     rvalid_reg=1;
                 end
                 else begin
                     rdata_reg=0;
                     rvalid_reg=0;
+                end*/
+                if((arvalid & arready) && (araddr==12'h00)) begin
+                    rdata_reg={28'd0,ap_idle_done_start};
+                    rvalid_reg=1;
+                end
+                else if(last_rvalid & last_rready) begin
+                    rdata_reg=0;
+                    rvalid_reg=0;
+                end
+                else begin
+                    rdata_reg=last_rdata;
+                    rvalid_reg=last_rvalid;
                 end
 
                 tap_EN_reg=1;
@@ -922,6 +991,9 @@ always@(posedge axis_clk or negedge axis_rst_n) begin
         arready_reg <= 0;
         /////rvalid_reg <= 0;
         /////rdata_reg <= 0;
+        last_rdata <= 0;
+        last_rvalid <= 0;
+        last_rready <= 0;
         ss_tready_reg <= 0;
         sm_tvalid_reg <= 0;
         sm_tdata_reg <= 0;
@@ -954,6 +1026,9 @@ always@(posedge axis_clk or negedge axis_rst_n) begin
         arready_reg <= arready_before_FF;
         /////rvalid_reg <= rvalid_before_FF;
         /////rdata_reg <= rdata_before_FF;
+        last_rdata <= rdata;
+        last_rvalid <= rvalid;
+        last_rready <= rready;
         ss_tready_reg <= ss_tready_before_FF;
         sm_tvalid_reg <= sm_tvalid_before_FF;
         sm_tdata_reg <= sm_tdata_before_FF;

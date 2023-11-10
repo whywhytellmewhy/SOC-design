@@ -187,13 +187,19 @@ fir:
 	call	initfir
 	.loc 2 22 6
 	sw	zero,-20(s0)
+	.loc 2 25 3
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 2 25 36
+	li	a4,10813440
+	sw	a4,0(a5)
 .LBB4:
-	.loc 2 25 11
+	.loc 2 26 11
 	sw	zero,-24(s0)
-	.loc 2 25 2
+	.loc 2 26 2
 	j	.L9
 .L15:
-	.loc 2 26 13
+	.loc 2 27 13
 	lui	a5,%hi(x)
 	addi	a4,a5,%lo(x)
 	lw	a5,-24(s0)
@@ -201,7 +207,7 @@ fir:
 	add	a5,a4,a5
 	lw	a5,0(a5)
 	sw	a5,-32(s0)
-	.loc 2 27 32
+	.loc 2 28 32
 	lui	a5,%hi(inputbuffer)
 	addi	a4,a5,%lo(inputbuffer)
 	lw	a5,-20(s0)
@@ -210,97 +216,97 @@ fir:
 	lw	a4,-32(s0)
 	sw	a4,0(a5)
 .LBB5:
-	.loc 2 28 12
+	.loc 2 29 12
 	sw	zero,-28(s0)
-	.loc 2 28 3
+	.loc 2 29 3
 	j	.L10
 .L14:
-	.loc 2 29 7
+	.loc 2 30 7
 	lw	a4,-24(s0)
 	li	a5,52
 	ble	a4,a5,.L11
-	.loc 2 30 46
+	.loc 2 31 46
 	lw	a5,-24(s0)
 	addi	a5,a5,-53
-	.loc 2 30 44
+	.loc 2 31 44
 	lui	a4,%hi(outputsignal)
 	addi	a4,a4,%lo(outputsignal)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	s1,0(a5)
-	.loc 2 30 63
+	.loc 2 31 63
 	lui	a5,%hi(taps)
 	addi	a4,a5,%lo(taps)
 	lw	a5,-28(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a3,0(a5)
-	.loc 2 30 78
+	.loc 2 31 78
 	lui	a5,%hi(inputbuffer)
 	addi	a4,a5,%lo(inputbuffer)
 	lw	a5,-20(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a5,0(a5)
-	.loc 2 30 66
+	.loc 2 31 66
 	mv	a1,a5
 	mv	a0,a3
 	call	__mulsi3
 	mv	a5,a0
 	mv	a4,a5
-	.loc 2 30 19
+	.loc 2 31 19
 	lw	a5,-24(s0)
 	addi	a5,a5,-53
-	.loc 2 30 57
+	.loc 2 31 57
 	add	a4,s1,a4
-	.loc 2 30 30
+	.loc 2 31 30
 	lui	a3,%hi(outputsignal)
 	addi	a3,a3,%lo(outputsignal)
 	slli	a5,a5,2
 	add	a5,a3,a5
 	sw	a4,0(a5)
 .L11:
-	.loc 2 35 7
+	.loc 2 36 7
 	lw	a4,-28(s0)
 	li	a5,10
 	beq	a4,a5,.L12
-	.loc 2 36 8
+	.loc 2 37 8
 	lw	a4,-20(s0)
 	li	a5,10
 	bne	a4,a5,.L13
-	.loc 2 37 22
+	.loc 2 38 22
 	sw	zero,-20(s0)
 	j	.L12
 .L13:
-	.loc 2 39 22
+	.loc 2 40 22
 	lw	a5,-20(s0)
 	addi	a5,a5,1
 	sw	a5,-20(s0)
 .L12:
-	.loc 2 28 28 discriminator 2
+	.loc 2 29 28 discriminator 2
 	lw	a5,-28(s0)
 	addi	a5,a5,1
 	sw	a5,-28(s0)
 .L10:
-	.loc 2 28 21 discriminator 1
+	.loc 2 29 21 discriminator 1
 	lw	a4,-28(s0)
 	li	a5,10
 	ble	a4,a5,.L14
 .LBE5:
-	.loc 2 25 27 discriminator 2
+	.loc 2 26 27 discriminator 2
 	lw	a5,-24(s0)
 	addi	a5,a5,1
 	sw	a5,-24(s0)
 .L9:
-	.loc 2 25 20 discriminator 1
+	.loc 2 26 20 discriminator 1
 	lw	a4,-24(s0)
 	li	a5,63
 	ble	a4,a5,.L15
 .LBE4:
-	.loc 2 47 9
+	.loc 2 48 9
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
-	.loc 2 48 1
+	.loc 2 49 1
 	mv	a0,a5
 	lw	ra,28(sp)
 	.cfi_restore 1
@@ -320,7 +326,7 @@ fir:
 	.type	WB_read, @function
 WB_read:
 .LFB318:
-	.loc 2 51 74
+	.loc 2 52 74
 	.cfi_startproc
 	addi	sp,sp,-32
 	.cfi_def_cfa_offset 32
@@ -329,10 +335,10 @@ WB_read:
 	addi	s0,sp,32
 	.cfi_def_cfa 8, 0
 	sw	a0,-20(s0)
-	.loc 2 55 9
+	.loc 2 56 9
 	lw	a5,-20(s0)
 	lw	a5,0(a5)
-	.loc 2 56 1
+	.loc 2 57 1
 	mv	a0,a5
 	lw	s0,28(sp)
 	.cfi_restore 8
@@ -348,7 +354,7 @@ WB_read:
 	.type	WB_write, @function
 WB_write:
 .LFB319:
-	.loc 2 58 92
+	.loc 2 59 92
 	.cfi_startproc
 	addi	sp,sp,-32
 	.cfi_def_cfa_offset 32
@@ -358,11 +364,11 @@ WB_write:
 	.cfi_def_cfa 8, 0
 	sw	a0,-20(s0)
 	sw	a1,-24(s0)
-	.loc 2 59 15
+	.loc 2 60 15
 	lw	a5,-20(s0)
 	lw	a4,-24(s0)
 	sw	a4,0(a5)
-	.loc 2 60 1
+	.loc 2 61 1
 	nop
 	lw	s0,28(sp)
 	.cfi_restore 8
@@ -378,222 +384,241 @@ WB_write:
 	.type	fir_RTL, @function
 fir_RTL:
 .LFB320:
-	.loc 2 63 69
+	.loc 2 64 69
 	.cfi_startproc
-	addi	sp,sp,-48
-	.cfi_def_cfa_offset 48
-	sw	ra,44(sp)
-	sw	s0,40(sp)
+	addi	sp,sp,-64
+	.cfi_def_cfa_offset 64
+	sw	ra,60(sp)
+	sw	s0,56(sp)
 	.cfi_offset 1, -4
 	.cfi_offset 8, -8
-	addi	s0,sp,48
+	addi	s0,sp,64
 	.cfi_def_cfa 8, 0
-	sw	a0,-36(s0)
-	.loc 2 64 2
+	sw	a0,-52(s0)
+	.loc 2 65 2
 	call	initfir
-	.loc 2 81 6
-	sw	zero,-28(s0)
-	.loc 2 82 6
+	.loc 2 83 6
 	sw	zero,-32(s0)
-	.loc 2 86 19
+	.loc 2 84 6
+	sw	zero,-36(s0)
+	.loc 2 88 19
 	li	a0,805306368
 	call	WB_read
 	sw	a0,-20(s0)
-	.loc 2 87 8
+	.loc 2 89 8
 	j	.L21
 .L22:
-	.loc 2 88 20
+	.loc 2 90 20
 	li	a0,805306368
 	call	WB_read
 	sw	a0,-20(s0)
 .L21:
-	.loc 2 87 32
+	.loc 2 89 32
 	lw	a5,-20(s0)
 	andi	a5,a5,4
 	beq	a5,zero,.L22
-	.loc 2 91 5
-	lw	a4,-36(s0)
+	.loc 2 93 5
+	lw	a4,-52(s0)
 	li	a5,1
 	bne	a4,a5,.L23
-	.loc 2 95 3
+	.loc 2 97 3
 	li	a1,64
 	li	a5,805306368
 	addi	a0,a5,16
 	call	WB_write
-	.loc 2 96 8
-	sw	zero,-24(s0)
-	.loc 2 96 3
+	.loc 2 98 8
+	sw	zero,-28(s0)
+	.loc 2 98 3
 	j	.L24
 .L25:
-	.loc 2 97 36 discriminator 3
-	lw	a4,-24(s0)
+	.loc 2 99 36 discriminator 3
+	lw	a4,-28(s0)
 	li	a5,201326592
 	addi	a5,a5,8
 	add	a5,a4,a5
 	slli	a5,a5,2
-	.loc 2 97 4 discriminator 3
+	.loc 2 99 4 discriminator 3
 	mv	a3,a5
 	lui	a5,%hi(taps)
 	addi	a4,a5,%lo(taps)
-	lw	a5,-24(s0)
+	lw	a5,-28(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a5,0(a5)
 	mv	a1,a5
 	mv	a0,a3
 	call	WB_write
-	.loc 2 96 19 discriminator 3
-	lw	a5,-24(s0)
+	.loc 2 98 19 discriminator 3
+	lw	a5,-28(s0)
 	addi	a5,a5,1
-	sw	a5,-24(s0)
+	sw	a5,-28(s0)
 .L24:
-	.loc 2 96 13 discriminator 1
-	lw	a4,-24(s0)
+	.loc 2 98 13 discriminator 1
+	lw	a4,-28(s0)
 	li	a5,10
 	ble	a4,a5,.L25
-	.loc 2 101 8
-	sw	zero,-24(s0)
-	.loc 2 101 3
-	j	.L26
-.L29:
-	.loc 2 102 52
-	lw	a4,-24(s0)
+	.loc 2 104 20
+	li	a5,805306368
+	addi	a0,a5,16
+	call	WB_read
+	sw	a0,-20(s0)
+	.loc 2 105 5
+	lw	a4,-20(s0)
+	li	a5,64
+	beq	a4,a5,.L26
+	.loc 2 106 20
+	lui	a5,%hi(outputsignal)
+	addi	a5,a5,%lo(outputsignal)
+	li	a4,-2
+	sw	a4,40(a5)
+	.loc 2 107 11
+	lui	a5,%hi(outputsignal)
+	addi	a5,a5,%lo(outputsignal)
+	j	.L27
+.L26:
+	.loc 2 109 8
+	sw	zero,-28(s0)
+	.loc 2 109 3
+	j	.L28
+.L30:
+	.loc 2 110 52
+	lw	a4,-28(s0)
 	li	a5,201326592
 	addi	a5,a5,8
 	add	a5,a4,a5
 	slli	a5,a5,2
-	.loc 2 102 21
+	.loc 2 110 21
 	mv	a0,a5
 	call	WB_read
 	sw	a0,-20(s0)
-	.loc 2 103 29
+	.loc 2 111 29
 	lui	a5,%hi(taps)
 	addi	a4,a5,%lo(taps)
-	lw	a5,-24(s0)
+	lw	a5,-28(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a5,0(a5)
-	.loc 2 103 6
+	.loc 2 111 6
 	lw	a4,-20(s0)
-	beq	a4,a5,.L27
-	.loc 2 104 21
+	beq	a4,a5,.L29
+	.loc 2 112 21
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
 	li	a4,-2
 	sw	a4,40(a5)
-	.loc 2 105 12
+	.loc 2 113 12
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
-	j	.L28
-.L27:
-	.loc 2 101 19 discriminator 2
-	lw	a5,-24(s0)
+	j	.L27
+.L29:
+	.loc 2 109 19 discriminator 2
+	lw	a5,-28(s0)
 	addi	a5,a5,1
-	sw	a5,-24(s0)
-.L26:
-	.loc 2 101 13 discriminator 1
-	lw	a4,-24(s0)
+	sw	a5,-28(s0)
+.L28:
+	.loc 2 109 13 discriminator 1
+	lw	a4,-28(s0)
 	li	a5,10
-	ble	a4,a5,.L29
-	.loc 2 110 19
-	lui	a5,%hi(outputsignal)
-	addi	a5,a5,%lo(outputsignal)
-	li	a4,-3
-	sw	a4,40(a5)
-	.loc 2 111 10
-	lui	a5,%hi(outputsignal)
-	addi	a5,a5,%lo(outputsignal)
-	j	.L28
+	ble	a4,a5,.L30
 .L23:
-	.loc 2 117 2
+	.loc 2 125 2
 	li	a1,1
 	li	a0,805306368
 	call	WB_write
-	.loc 2 119 3
+	.loc 2 127 3
 	li	a5,637534208
 	addi	a5,a5,12
-	.loc 2 119 36
+	.loc 2 127 36
 	li	a4,10813440
 	sw	a4,0(a5)
-	.loc 2 133 10
-	j	.L30
-.L35:
-	.loc 2 134 20
+	.loc 2 141 10
+	j	.L31
+.L37:
+	.loc 2 142 20
 	li	a0,805306368
 	call	WB_read
 	sw	a0,-20(s0)
-	.loc 2 136 23
+	.loc 2 145 5
+	lw	a4,-32(s0)
+	li	a5,63
+	bne	a4,a5,.L32
+	.loc 2 146 28
+	lw	a5,-20(s0)
+	sw	a5,-24(s0)
+	j	.L33
+.L32:
+	.loc 2 148 24
 	lw	a5,-20(s0)
 	andi	a5,a5,7
-	.loc 2 136 5
-	beq	a5,zero,.L31
-	.loc 2 136 32 discriminator 1
-	lw	a5,-32(s0)
-	ble	a5,zero,.L31
-	.loc 2 137 20
+	.loc 2 148 6
+	beq	a5,zero,.L33
+	.loc 2 148 33 discriminator 1
+	lw	a5,-36(s0)
+	ble	a5,zero,.L33
+	.loc 2 149 21
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
 	li	a4,-2
 	sw	a4,40(a5)
-	.loc 2 138 11
+	.loc 2 150 12
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
-	j	.L28
-.L31:
-	.loc 2 140 31
+	j	.L27
+.L33:
+	.loc 2 156 31
 	lw	a5,-20(s0)
 	andi	a5,a5,32
-	.loc 2 140 5
-	beq	a5,zero,.L32
-	.loc 2 141 21
+	.loc 2 156 5
+	beq	a5,zero,.L34
+	.loc 2 159 21
 	li	a5,805306368
 	addi	a0,a5,132
 	call	WB_read
 	sw	a0,-20(s0)
-	.loc 2 142 7
-	lw	a4,-28(s0)
+	.loc 2 160 7
+	lw	a4,-32(s0)
 	li	a5,52
-	ble	a4,a5,.L33
-	.loc 2 143 35
-	lw	a5,-28(s0)
+	ble	a4,a5,.L35
+	.loc 2 161 35
+	lw	a5,-32(s0)
 	addi	a5,a5,-53
-	.loc 2 143 46
+	.loc 2 161 46
 	lui	a4,%hi(outputsignal)
 	addi	a4,a4,%lo(outputsignal)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a4,-20(s0)
 	sw	a4,0(a5)
-.L33:
-	.loc 2 145 21
-	lw	a5,-28(s0)
+.L35:
+	.loc 2 164 21
+	lw	a5,-32(s0)
 	addi	a5,a5,1
-	sw	a5,-28(s0)
-	j	.L30
-.L32:
-	.loc 2 146 37
+	sw	a5,-32(s0)
+	j	.L31
+.L34:
+	.loc 2 165 37
 	lw	a5,-20(s0)
 	andi	a5,a5,16
-	.loc 2 146 11
-	beq	a5,zero,.L30
-	.loc 2 147 6
-	lw	a4,-32(s0)
+	.loc 2 165 11
+	beq	a5,zero,.L31
+	.loc 2 166 6
+	lw	a4,-36(s0)
 	li	a5,64
-	bne	a4,a5,.L34
-	.loc 2 148 21
+	bne	a4,a5,.L36
+	.loc 2 167 21
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
 	li	a4,-2
 	sw	a4,40(a5)
-	.loc 2 149 12
+	.loc 2 168 12
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
-	j	.L28
-.L34:
-	.loc 2 151 4
+	j	.L27
+.L36:
+	.loc 2 170 4
 	lui	a5,%hi(x)
 	addi	a4,a5,%lo(x)
-	lw	a5,-32(s0)
+	lw	a5,-36(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a5,0(a5)
@@ -601,49 +626,45 @@ fir_RTL:
 	li	a5,805306368
 	addi	a0,a5,128
 	call	WB_write
-	.loc 2 152 20
-	lw	a5,-32(s0)
+	.loc 2 171 20
+	lw	a5,-36(s0)
 	addi	a5,a5,1
-	sw	a5,-32(s0)
-.L30:
-	.loc 2 133 29
-	lw	a4,-28(s0)
+	sw	a5,-36(s0)
+.L31:
+	.loc 2 141 29
+	lw	a4,-32(s0)
 	li	a5,63
-	ble	a4,a5,.L35
-	.loc 2 158 19
-	li	a0,805306368
-	call	WB_read
-	sw	a0,-20(s0)
-	.loc 2 159 21
-	lw	a5,-20(s0)
+	ble	a4,a5,.L37
+	.loc 2 184 30
+	lw	a5,-24(s0)
 	srai	a5,a5,1
-	.loc 2 159 26
+	.loc 2 184 35
 	andi	a4,a5,3
-	.loc 2 159 4
+	.loc 2 184 4
 	li	a5,3
-	beq	a4,a5,.L36
-	.loc 2 160 19
+	beq	a4,a5,.L38
+	.loc 2 185 19
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
 	li	a4,-2
 	sw	a4,40(a5)
-	.loc 2 161 10
+	.loc 2 186 10
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
-	j	.L28
-.L36:
-	.loc 2 165 9
+	j	.L27
+.L38:
+	.loc 2 190 9
 	lui	a5,%hi(outputsignal)
 	addi	a5,a5,%lo(outputsignal)
-.L28:
-	.loc 2 166 1
+.L27:
+	.loc 2 191 1
 	mv	a0,a5
-	lw	ra,44(sp)
+	lw	ra,60(sp)
 	.cfi_restore 1
-	lw	s0,40(sp)
+	lw	s0,56(sp)
 	.cfi_restore 8
-	.cfi_def_cfa 2, 48
-	addi	sp,sp,48
+	.cfi_def_cfa 2, 64
+	addi	sp,sp,64
 	.cfi_def_cfa_offset 0
 	jr	ra
 	.cfi_endproc
@@ -655,13 +676,13 @@ fir_RTL:
 	.file 4 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0x25b
+	.4byte	0x268
 	.2byte	0x5
 	.byte	0x1
 	.byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0xa
-	.4byte	.LASF27
+	.4byte	.LASF28
 	.byte	0x1d
 	.4byte	.LASF0
 	.4byte	.LASF1
@@ -745,7 +766,7 @@ fir_RTL:
 	.byte	0x7
 	.4byte	.LASF11
 	.byte	0xd
-	.4byte	.LASF28
+	.4byte	.LASF29
 	.byte	0x4
 	.byte	0x34
 	.byte	0x1b
@@ -759,78 +780,85 @@ fir_RTL:
 	.byte	0x7
 	.4byte	.LASF13
 	.byte	0xe
-	.4byte	.LASF20
+	.4byte	.LASF21
 	.byte	0x2
-	.byte	0x3f
+	.byte	0x40
 	.byte	0x33
-	.4byte	0x134
+	.4byte	0x141
 	.4byte	.LFB320
 	.4byte	.LFE320-.LFB320
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x134
+	.4byte	0x141
 	.byte	0x4
-	.4byte	.LASF17
-	.byte	0x3f
+	.4byte	.LASF18
+	.byte	0x40
 	.byte	0x3f
 	.4byte	0x3d
 	.byte	0x2
 	.byte	0x91
-	.byte	0x5c
+	.byte	0x4c
 	.byte	0x2
 	.4byte	.LASF14
-	.byte	0x4f
+	.byte	0x50
 	.4byte	0x3d
 	.byte	0x2
 	.byte	0x91
 	.byte	0x6c
-	.byte	0x3
-	.string	"i"
-	.byte	0x50
-	.byte	0x6
-	.4byte	0x3d
-	.byte	0x2
-	.byte	0x91
-	.byte	0x68
 	.byte	0x2
 	.4byte	.LASF15
 	.byte	0x51
 	.4byte	0x3d
 	.byte	0x2
 	.byte	0x91
+	.byte	0x68
+	.byte	0x3
+	.string	"i"
+	.byte	0x52
+	.byte	0x6
+	.4byte	0x3d
+	.byte	0x2
+	.byte	0x91
 	.byte	0x64
 	.byte	0x2
 	.4byte	.LASF16
-	.byte	0x52
+	.byte	0x53
 	.4byte	0x3d
 	.byte	0x2
 	.byte	0x91
 	.byte	0x60
+	.byte	0x2
+	.4byte	.LASF17
+	.byte	0x54
+	.4byte	0x3d
+	.byte	0x2
+	.byte	0x91
+	.byte	0x5c
 	.byte	0
 	.byte	0xf
 	.byte	0x4
 	.4byte	0x3d
 	.byte	0x10
-	.4byte	.LASF22
+	.4byte	.LASF23
 	.byte	0x2
-	.byte	0x3a
+	.byte	0x3b
 	.byte	0x33
 	.4byte	.LFB319
 	.4byte	.LFE319-.LFB319
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x16d
+	.4byte	0x17a
 	.byte	0x4
-	.4byte	.LASF18
-	.byte	0x3a
+	.4byte	.LASF19
+	.byte	0x3b
 	.byte	0x41
-	.4byte	0x134
+	.4byte	0x141
 	.byte	0x2
 	.byte	0x91
 	.byte	0x6c
 	.byte	0x4
-	.4byte	.LASF19
-	.byte	0x3a
+	.4byte	.LASF20
+	.byte	0x3b
 	.byte	0x51
 	.4byte	0x3d
 	.byte	0x2
@@ -838,21 +866,21 @@ fir_RTL:
 	.byte	0x68
 	.byte	0
 	.byte	0x11
-	.4byte	.LASF21
+	.4byte	.LASF22
 	.byte	0x2
-	.byte	0x33
+	.byte	0x34
 	.byte	0x32
 	.4byte	0x3d
 	.4byte	.LFB318
 	.4byte	.LFE318-.LFB318
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x196
+	.4byte	0x1a3
 	.byte	0x4
-	.4byte	.LASF18
-	.byte	0x33
+	.4byte	.LASF19
+	.byte	0x34
 	.byte	0x3f
-	.4byte	0x134
+	.4byte	0x141
 	.byte	0x2
 	.byte	0x91
 	.byte	0x6c
@@ -862,21 +890,21 @@ fir_RTL:
 	.byte	0x2
 	.byte	0x10
 	.byte	0x33
-	.4byte	0x134
+	.4byte	0x141
 	.4byte	.LFB317
 	.4byte	.LFE317-.LFB317
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x1f7
+	.4byte	0x204
 	.byte	0x2
-	.4byte	.LASF23
+	.4byte	.LASF24
 	.byte	0x14
 	.4byte	0x3d
 	.byte	0x2
 	.byte	0x91
 	.byte	0x60
 	.byte	0x2
-	.4byte	.LASF24
+	.4byte	.LASF25
 	.byte	0x16
 	.4byte	0x3d
 	.byte	0x2
@@ -887,7 +915,7 @@ fir_RTL:
 	.4byte	.LBE4-.LBB4
 	.byte	0x3
 	.string	"i"
-	.byte	0x19
+	.byte	0x1a
 	.byte	0xb
 	.4byte	0x3d
 	.byte	0x2
@@ -898,7 +926,7 @@ fir_RTL:
 	.4byte	.LBE5-.LBB5
 	.byte	0x3
 	.string	"j"
-	.byte	0x1c
+	.byte	0x1d
 	.byte	0xc
 	.4byte	0x3d
 	.byte	0x2
@@ -908,7 +936,7 @@ fir_RTL:
 	.byte	0
 	.byte	0
 	.byte	0x13
-	.4byte	.LASF29
+	.4byte	.LASF30
 	.byte	0x2
 	.byte	0x4
 	.byte	0x33
@@ -916,11 +944,11 @@ fir_RTL:
 	.4byte	.LFE316-.LFB316
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x23e
+	.4byte	0x24b
 	.byte	0x14
 	.4byte	.LBB2
 	.4byte	.LBE2-.LBB2
-	.4byte	0x227
+	.4byte	0x234
 	.byte	0x3
 	.string	"n"
 	.byte	0x7
@@ -944,14 +972,14 @@ fir_RTL:
 	.byte	0
 	.byte	0
 	.byte	0x9
-	.4byte	.LASF25
+	.4byte	.LASF26
 	.byte	0x1c
 	.4byte	.LFB22
 	.4byte	.LFE22-.LFB22
 	.byte	0x1
 	.byte	0x9c
 	.byte	0x9
-	.4byte	.LASF26
+	.4byte	.LASF27
 	.byte	0xe
 	.4byte	.LFB21
 	.4byte	.LFE21-.LFB21
@@ -1377,45 +1405,47 @@ fir_RTL:
 	.section	.debug_str,"MS",@progbits,1
 .LASF14:
 	.string	"WB_return_data"
-.LASF29:
+.LASF30:
 	.string	"initfir"
-.LASF21:
+.LASF22:
 	.string	"WB_read"
-.LASF25:
+.LASF26:
 	.string	"flush_cpu_dcache"
-.LASF16:
+.LASF17:
 	.string	"input_data_count"
-.LASF23:
-	.string	"input_data"
+.LASF15:
+	.string	"WB_return_data_last_one"
 .LASF10:
 	.string	"unsigned char"
-.LASF17:
+.LASF18:
 	.string	"times"
 .LASF12:
 	.string	"long unsigned int"
 .LASF11:
 	.string	"short unsigned int"
-.LASF28:
+.LASF29:
 	.string	"uint32_t"
-.LASF19:
-	.string	"write_data"
-.LASF27:
-	.string	"GNU C17 12.1.0 -mabi=ilp32 -mtune=rocket -misa-spec=2.2 -march=rv32i -g -ffreestanding"
 .LASF20:
+	.string	"write_data"
+.LASF28:
+	.string	"GNU C17 12.1.0 -mabi=ilp32 -mtune=rocket -misa-spec=2.2 -march=rv32i -g -ffreestanding"
+.LASF21:
 	.string	"fir_RTL"
-.LASF18:
+.LASF19:
 	.string	"WB_address"
 .LASF2:
 	.string	"unsigned int"
 .LASF3:
 	.string	"taps"
-.LASF22:
+.LASF23:
 	.string	"WB_write"
 .LASF13:
 	.string	"long long unsigned int"
-.LASF15:
+.LASF24:
+	.string	"input_data"
+.LASF16:
 	.string	"output_data_count"
-.LASF26:
+.LASF27:
 	.string	"flush_cpu_icache"
 .LASF5:
 	.string	"outputsignal"
@@ -1423,7 +1453,7 @@ fir_RTL:
 	.string	"long long int"
 .LASF7:
 	.string	"short int"
-.LASF24:
+.LASF25:
 	.string	"data_RAM_pointer"
 .LASF4:
 	.string	"inputbuffer"

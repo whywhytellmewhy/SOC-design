@@ -1,0 +1,712 @@
+/*
+
+Xilinx Vivado v2022.1 (64-bit) [Major: 2022, Minor: 1]
+SW Build: 3526262 on Mon Apr 18 15:47:01 MDT 2022
+IP Build: 3524634 on Mon Apr 18 20:55:01 MDT 2022
+
+Process ID (PID): 54030
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Thu Nov 09 04:59:34 EST 2023
+Time zone: 	Eastern Standard Time (America/New_York)
+
+OS: Ubuntu
+OS Version: 5.15.0-88-generic
+OS Architecture: amd64
+Available processors (cores): 2
+
+Display: 0
+Screen size: 1920x967
+Screen resolution (DPI): 100
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.11 64-bit
+Java home: 	/tools/Xilinx/Vivado/2022.1/tps/lnx64/jre11.0.11_9
+Java executable: 	/tools/Xilinx/Vivado/2022.1/tps/lnx64/jre11.0.11_9/bin/java
+Java arguments: 	[-Dsun.java2d.pmoffscreen=false, -Dhttps.protocols=TLSv1,TLSv1.1,TLSv1.2, -Dsun.java2d.xrender=false, -Djdk.gtk.version=2, -Dsun.java2d.uiScale.enabled=false, -Xverify:none, -Dswing.aatext=true, -XX:-UsePerfData, -Djdk.map.althashing.threshold=512, -XX:StringTableSize=4072, --add-opens=java.desktop/com.sun.awt=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.base/java.nio=ALL-UNNAMED, --add-opens=java.desktop/sun.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-opens=java.desktop/javax.swing=ALL-UNNAMED, --add-opens=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-opens=java.desktop/java.awt.event=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.base/java.nio=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.tree=ALL-UNNAMED, --add-exports=java.desktop/javax.swing.plaf.basic=ALL-UNNAMED, --add-exports=java.desktop/sun.swing=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.table=ALL-UNNAMED, --add-exports=java.desktop/sun.swing.plaf.synth=ALL-UNNAMED, --add-exports=java.desktop/sun.awt.shell=ALL-UNNAMED, --add-exports=java.base/sun.security.action=ALL-UNNAMED, --add-exports=java.desktop/sun.font=ALL-UNNAMED, --add-opens=java.desktop/sun.awt.X11=ALL-UNNAMED, -XX:NewSize=60m, -XX:MaxNewSize=60m, -Xms256m, -Xmx3072m, -Xss5m, -Xrs]
+Java initial memory (-Xms): 	256 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	ubuntu
+User home directory: /home/ubuntu
+User working directory: /home/ubuntu/lab4-2/lab-caravel_fir/vivado
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /tools/Xilinx/Vivado
+HDI_APPROOT: /tools/Xilinx/Vivado/2022.1
+RDI_DATADIR: /tools/Xilinx/Vivado/2022.1/data
+RDI_BINDIR: /tools/Xilinx/Vivado/2022.1/bin
+
+Vivado preferences file: /home/ubuntu/.Xilinx/Vivado/2022.1/vivado.xml
+Vivado preferences directory: /home/ubuntu/.Xilinx/Vivado/2022.1/
+Vivado layouts directory: /home/ubuntu/.Xilinx/Vivado/2022.1/data/layouts
+PlanAhead jar file: 	/tools/Xilinx/Vivado/2022.1/lib/classes/planAhead.jar
+Vivado log file: 	/home/ubuntu/lab4-2/lab-caravel_fir/vivado/vivado.log
+Vivado journal file: 	/home/ubuntu/lab4-2/lab-caravel_fir/vivado/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-54030-ubuntu2004
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /tools/Xilinx/Vivado/2022.1/ids_lite/ISE
+XILINX_DSP: /tools/Xilinx/Vivado/2022.1/ids_lite/ISE
+XILINX_HLS: /tools/Xilinx/Vitis_HLS/2022.1
+XILINX_PLANAHEAD: /tools/Xilinx/Vivado/2022.1
+XILINX_SDK: /tools/Xilinx/Vitis/2022.1
+XILINX_VITIS: /tools/Xilinx/Vitis/2022.1
+XILINX_VIVADO: /tools/Xilinx/Vivado/2022.1
+XILINX_VIVADO_HLS: /tools/Xilinx/Vivado/2022.1
+
+
+GUI allocated memory:	370 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,908 MB
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// WARNING: HEventQueue.dispatchEvent() is taking  1002 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,790 MB. GUI used memory: 56 MB. Current time: 11/9/23, 4:59:35 AM EST
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+selectButton(PAResourceEtoH.GettingStartedView_CREATE_NEW_PROJECT, "Create Project"); // y
+// Run Command: PAResourceCommand.PACommandNames_NEW_PROJECT
+selectButton("NEXT", "Next >"); // JButton
+// Elapsed time: 20 seconds
+setText(PAResourceOtoP.ProjectNameChooser_PROJECT_NAME, "lab4_2"); // aa
+selectButton("NEXT", "Next >"); // JButton
+// WARNING: HEventQueue.dispatchEvent() is taking  1002 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// [GUI Memory]: 99 MB (+101157kb) [00:01:08]
+// [Engine Memory]: 1,800 MB (+1736169kb) [00:01:08]
+// [GUI Memory]: 110 MB (+6326kb) [00:01:08]
+// Elapsed time: 11 seconds
+selectButton("NEXT", "Next >"); // JButton
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1004 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1002 ms.
+// Elapsed time: 27 seconds
+setText("PAResourceEtoH.FPGAChooser_FPGA_TABLE_SEARCH_FIELD", "xc7z020clg400-1"); // OverlayTextField
+selectTable(PAResourceEtoH.FPGAChooser_FPGA_TABLE, "xc7z020clg400-1 ; 400 ; 125 ; 53200 ; 106400 ; 140 ; 0 ; 220 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 4 ;  ;  ;  ;  ; 0 ;  ;  ;  ;  ;  ;  ; 0.95 ; 0.95 ; 1.05", 0, "xc7z020clg400-1", 0); // r
+selectButton("NEXT", "Next >"); // JButton
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: FLOW_ADDED
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: create_project lab4_2 /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2 -part xc7z020clg400-1 
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  1302 ms.
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [GUI Memory]: 117 MB (+1449kb) [00:01:41]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 66 seconds
+dismissDialog("Create Project"); // bA
+dismissDialog("New Project"); // f
+// [GUI Memory]: 123 MB (+94kb) [00:13:51]
+// Elapsed time: 863 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, false, false, false, false, true, false); // D - Popup Trigger
+// [Engine Memory]: 1,890 MB (+94kb) [00:16:05]
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+// Elapsed time: 29 seconds
+setFileChooser("/home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/user_proj_example.counter.v");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+// Elapsed time: 14 seconds
+setFileChooser("/home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/bram.v");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/fir.v");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/multiplier_adder.v");
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/bram11.v");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 64 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse -scan_for_includes {/home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/bram.v /home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/fir.v /home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/multiplier_adder.v /home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/user_proj_example.counter.v /home/ubuntu/lab4-2/lab-caravel_fir/rtl/user/bram11.v} 
+// [GUI Memory]: 151 MB (+23744kb) [00:17:12]
+dismissDialog("Add Sources"); // bA
+// HMemoryUtils.trashcanNow. Engine heap size: 1,941 MB. GUI used memory: 66 MB. Current time: 11/9/23, 5:16:40 AM EST
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+// [Engine Memory]: 1,986 MB (+1165kb) [00:17:24]
+// Elapsed time: 107 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // aj
+selectMenuItem(RDIResourceCommand.RDICommands_SETTINGS, "Settings..."); // ar
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // aj
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// WARNING: HEventQueue.dispatchEvent() is taking  1023 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 1,998 MB. GUI used memory: 92 MB. Current time: 11/9/23, 5:18:26 AM EST
+// Elapsed time: 14 seconds
+dismissDialog("Settings"); // d
+// Elapsed time: 12 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_OR_CREATE_CONSTRAINT_FILES, "Add or create constraints"); // a
+selectButton("NEXT", "Next >"); // JButton
+// Elapsed time: 23 seconds
+selectButton(PAResourceAtoD.ConstraintsChooserPanel_CREATE_FILE, "Create File"); // a
+// Tcl Command: 'file mkdir /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1'
+// Tcl Message: file mkdir /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1 
+// Elapsed time: 46 seconds
+setText(PAResourceAtoD.CreateConstraintsFilePanel_FILE_NAME, "clock_constraint"); // aa
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Create Constraints File"); // J
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 80 seconds
+dismissDialog("Add Sources"); // c
+// Tcl Command: 'file mkdir /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new'
+// Tcl Message: file mkdir /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new 
+// Tcl Message: close [ open /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc w ] 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -fileset constrs_1 /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc 
+// Elapsed time: 10 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, clock_constraint.xdc]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, clock_constraint.xdc]", 3, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1102 ms.
+dismissDialog("Opening Editor"); // bA
+selectCodeEditor("clock_constraint.xdc", 166, 124); // be
+typeControlKey((HResource) null, "clock_constraint.xdc", 'v'); // be
+selectCodeEditor("clock_constraint.xdc", 175, 10); // be
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("clock_constraint.xdc", 396, 12); // be
+// Elapsed time: 51 seconds
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // D
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+selectComboBox(PAResourceItoN.NumJobsChooser_NUMBER_OF_JOBS, "1", 0); // e
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 
+// Tcl Message: [Thu Nov  9 05:21:43 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 5 seconds
+dismissDialog("Starting Design Runs"); // bA
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 31 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ag
+// Elapsed time: 93 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ao
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ao
+selectMenuItem(PAResourceCommand.PACommandNames_ADD_SOURCES, "Add Sources..."); // ar
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_HDL_NETLIST_BLOCK_DESIGN, "Add or create design sources"); // a
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/ubuntu/lab4-2/lab-caravel_fir/rtl/header/defines.v");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 12 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse -scan_for_includes /home/ubuntu/lab4-2/lab-caravel_fir/rtl/header/defines.v 
+dismissDialog("Add Sources"); // bA
+// HMemoryUtils.trashcanNow. Engine heap size: 2,024 MB. GUI used memory: 91 MB. Current time: 11/9/23, 5:24:05 AM EST
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectCodeEditor("clock_constraint.xdc", 163, 89); // be
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 
+// Tcl Message: [Thu Nov  9 05:24:14 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bA
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 19 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ag
+// Elapsed time: 259 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 5); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files]", 6); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files, defines.v]", 7, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files, defines.v]", 7, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1123 ms.
+dismissDialog("Opening Editor"); // bA
+// HMemoryUtils.trashcanNow. Engine heap size: 2,053 MB. GUI used memory: 92 MB. Current time: 11/9/23, 5:29:05 AM EST
+// Elapsed time: 15 seconds
+selectCodeEditor("defines.v", 94, 191); // be
+selectCodeEditor("defines.v", 2, 168); // be
+typeControlKey((HResource) null, "defines.v", 'c'); // be
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clock_constraint.xdc", 1); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "defines.v", 2); // m
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, user_proj_example (user_proj_example.counter.v)]", 8, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, user_proj_example (user_proj_example.counter.v), data_RAM : bram11 (bram11.v)]", 13, false, false, false, false, false, true); // D - Double Click
+// WARNING: HEventQueue.dispatchEvent() is taking  1126 ms.
+dismissDialog("Opening Editor"); // bA
+selectCodeEditor("user_proj_example.counter.v", 190, 220); // be
+selectCodeEditor("user_proj_example.counter.v", 181, 234); // be
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'v'); // be
+// Elapsed time: 12 seconds
+selectCodeEditor("user_proj_example.counter.v", 1, 234); // be
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // D
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 
+// Tcl Message: [Thu Nov  9 05:29:54 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bA
+// HMemoryUtils.trashcanNow. Engine heap size: 2,081 MB. GUI used memory: 93 MB. Current time: 11/9/23, 5:29:55 AM EST
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 20 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ag
+selectCodeEditor("user_proj_example.counter.v", 169, 229); // be
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'v'); // be
+selectCodeEditor("user_proj_example.counter.v", 0, 229); // be
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // D
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("user_proj_example.counter.v", 252, 242); // be
+// [Engine Memory]: 2,098 MB (+13595kb) [00:31:08]
+selectCodeEditor("user_proj_example.counter.v", 276, 240); // be
+selectCodeEditor("user_proj_example.counter.v", 281, 228); // be
+// Elapsed time: 14 seconds
+selectCodeEditor("user_proj_example.counter.v", 298, 237); // be
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'c'); // be
+selectCodeEditor("user_proj_example.counter.v", 168, 254); // be
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'v'); // be
+typeControlKey(null, null, 'z');
+selectCodeEditor("user_proj_example.counter.v", 259, 241); // be
+selectCodeEditor("user_proj_example.counter.v", 173, 236); // be
+selectCodeEditor("user_proj_example.counter.v", 209, 234); // be
+selectCodeEditor("user_proj_example.counter.v", 288, 236); // be
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'c'); // be
+selectCodeEditor("user_proj_example.counter.v", 160, 249); // be
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'v'); // be
+selectCodeEditor("user_proj_example.counter.v", 530, 257); // be
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'v'); // be
+selectCodeEditor("user_proj_example.counter.v", 542, 278); // be
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'v'); // be
+selectCodeEditor("user_proj_example.counter.v", 529, 295); // be
+typeControlKey((HResource) null, "user_proj_example.counter.v", 'v'); // be
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // D
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,116 MB. GUI used memory: 95 MB. Current time: 11/9/23, 5:31:05 AM EST
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 
+// Tcl Message: [Thu Nov  9 05:31:13 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 10 seconds
+dismissDialog("Starting Design Runs"); // bA
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 47 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN, "Open Synthesized Design"); // a
+selectRadioButton(PAResourceCommand.PACommandNames_REPORTS_WINDOW, "View Reports"); // a
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Synthesis Completed"); // ag
+collapseTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15); // n
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15); // n
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Timing Summary]", 19, false); // n
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7z020clg400-1 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 2,126 MB. GUI used memory: 95 MB. Current time: 11/9/23, 5:32:15 AM EST
+// TclEventType: DESIGN_NEW
+// DeviceModel: Load Xgds SwingWorker Join Forever elapsed time: 0.6s
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [GUI Memory]: 163 MB (+3689kb) [00:32:53]
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// WARNING: HEventQueue.dispatchEvent() is taking  1226 ms.
+// Tcl Message: INFO: [Device 21-403] Loading part xc7z020clg400-1 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7792.617 ; gain = 0.000 ; free physical = 2190 ; free virtual = 5327 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 123 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2022.1 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc] Finished Parsing XDC File [/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc] 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7800.613 ; gain = 0.000 ; free physical = 2086 ; free virtual = 5224 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary:   A total of 64 instances were transformed.   RAM16X1S => RAM32X1S (RAMS32): 64 instances  
+// Device view-level: 0.0
+// Tcl Message: open_run: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 7816.617 ; gain = 24.000 ; free physical = 2001 ; free virtual = 5144 
+// Run Command: PAResourceCommand.PACommandNames_REPORT_TIMING_SUMMARY
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// 'r' command handler elapsed time: 3 seconds
+dismissDialog("Report Timing Summary"); // aJ
+// Tcl Message: report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 
+// RouteApi::initDelayMediator elapsed time: 4.2s
+// [Engine Memory]: 2,506 MB (+317623kb) [00:32:58]
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// TclEventType: TIMING_RESULTS_STALE
+// TclEventType: TIMING_SUMMARY_UPDATED
+// [GUI Memory]: 178 MB (+7780kb) [00:32:58]
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs 
+dismissDialog("Report Timing Summary"); // bA
+// Elapsed time: 14 seconds
+selectButton(PAResourceAtoD.DesignTimingSumSectionPanel_WORST_NEGATIVE_SLACK, "-0.397 ns"); // g
+// [GUI Memory]: 190 MB (+2594kb) [00:33:14]
+// PAPropertyPanels.initPanels (Path 1) elapsed time: 0.4s
+selectTable(PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, "Path 1 ; -0.39706904 ; 9 ; 10 ; 2 ; fir_DUT/U0_MAC/product__0/CLK ; fir_DUT/sm_tdata_reg_reg[31]/D ; 10.260714 ; 8.15 ; 2.1107142 ; 10.0 ; wb_clk_i ; wb_clk_i ;  ; 0.03535534", 0, "10", 3); // h
+selectTable(PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, "Path 1 ; -0.39706904 ; 9 ; 10 ; 2 ; fir_DUT/U0_MAC/product__0/CLK ; fir_DUT/sm_tdata_reg_reg[31]/D ; 10.260714 ; 8.15 ; 2.1107142 ; 10.0 ; wb_clk_i ; wb_clk_i ;  ; 0.03535534", 0, "10", 3, false, false, false, false, true); // h - Double Click
+// [GUI Memory]: 199 MB (+148kb) [00:33:33]
+// [GUI Memory]: 210 MB (+302kb) [00:34:33]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,618 MB. GUI used memory: 140 MB. Current time: 11/9/23, 5:34:00 AM EST
+// [Engine Memory]: 2,683 MB (+53802kb) [00:34:43]
+// Elapsed time: 168 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clock_constraint.xdc", 2); // m
+// Elapsed time: 29 seconds
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // aL
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aL
+selectTab((HResource) null, (HResource) null, "Reports", 3); // aL
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // aL
+selectTab((HResource) null, (HResource) null, "Timing", 5); // aL
+selectTree(PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, "[Root, Check Timing]", 5, true); // a - Node
+selectTree(PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, "[Root, General Information]", 0, false); // a
+selectTree(PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, "[Root, Timer Settings]", 1, false); // a
+selectTree(PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, "[Root, Design Timing Summary]", 2, false); // a
+// Elapsed time: 37 seconds
+selectCodeEditor("clock_constraint.xdc", 166, 12); // be
+selectCodeEditor("clock_constraint.xdc", 159, 3); // be
+selectCodeEditor("clock_constraint.xdc", 428, 2); // be
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // D
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // g
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,700 MB. GUI used memory: 142 MB. Current time: 11/9/23, 5:37:07 AM EST
+// TclEventType: TIMING_RESULTS_UNLOAD
+// Engine heap size: 2,700 MB. GUI used memory: 143 MB. Current time: 11/9/23, 5:37:07 AM EST
+// Tcl Message: refresh_design 
+// TclEventType: DEBUG_GRAPH_STALE
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,669 MB. GUI used memory: 100 MB. Current time: 11/9/23, 5:37:08 AM EST
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// DeviceView Instantiated
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc] Finished Parsing XDC File [/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc] 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+dismissDialog("Reloading"); // bA
+selectCodeEditor("clock_constraint.xdc", 249, 15); // be
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1160] Copying file /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/user_proj_example.dcp to /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/utils_1/imports/synth_1 and adding it to utils fileset 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 
+// Tcl Message: [Thu Nov  9 05:37:15 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 4 seconds
+dismissDialog("Starting Design Runs"); // bA
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 36 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Synthesis Completed"); // ag
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Timing Summary]", 19, false); // n
+// Run Command: PAResourceCommand.PACommandNames_REPORT_TIMING_SUMMARY
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Report Timing Summary"); // aJ
+// TclEventType: TIMING_RESULTS_STALE
+// TclEventType: TIMING_SUMMARY_UPDATED
+// Tcl Message: report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs 
+dismissDialog("Report Timing Summary"); // bA
+selectCodeEditor("clock_constraint.xdc", 175, 10); // be
+// Elapsed time: 16 seconds
+selectCodeEditor("clock_constraint.xdc", 416, 35); // be
+selectButton(RDIResourceCommand.RDICommands_SAVE_FILE, (String) null); // D
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("clock_constraint.xdc", 93, 79); // be
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // g
+// TclEventType: DESIGN_REFRESH
+// TclEventType: TIMING_RESULTS_UNLOAD
+// Engine heap size: 2,687 MB. GUI used memory: 161 MB. Current time: 11/9/23, 5:38:19 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,687 MB. GUI used memory: 104 MB. Current time: 11/9/23, 5:38:19 AM EST
+// Tcl Message: refresh_design 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,687 MB. GUI used memory: 103 MB. Current time: 11/9/23, 5:38:20 AM EST
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// DeviceView Instantiated
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 8264.422 ; gain = 0.000 ; free physical = 2573 ; free virtual = 4744 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 123 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2022.1 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc] Finished Parsing XDC File [/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc] 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// RouteApi: Init Delay Mediator Swing Worker Finished
+dismissDialog("Reloading"); // bA
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// Tcl Message: INFO: [Project 1-1161] Replacing file /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/utils_1/imports/synth_1/user_proj_example.dcp with file /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/user_proj_example.dcp 
+// TclEventType: FILE_SET_CHANGE
+selectComboBox(PAResourceItoN.NumJobsChooser_NUMBER_OF_JOBS, "2", 1); // e
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Launch Runs"); // f
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Thu Nov  9 05:38:27 2023] Launched synth_1... Run output will be captured here: /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 3 seconds
+dismissDialog("Starting Design Runs"); // bA
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// Elapsed time: 96 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_REPORTS_WINDOW
+dismissDialog("Synthesis Completed"); // ag
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Timing Summary]", 19, false); // n
+// Run Command: PAResourceCommand.PACommandNames_REPORT_TIMING_SUMMARY
+selectTab(PAResourceQtoS.ReportTimingSummaryDialog_REPORT_TIMING_SUMMARY_DIALOG_TABBED, PAResourceQtoS.ReportTimingSummaryDialog_ADVANCED, "Advanced", 1); // i
+selectCheckBox(PAResourceAtoD.CommandOutputOptionsPanel_EXPORT_TO_FILE, "Export to file:", true); // g: TRUE
+selectButton(PAResourceAtoD.CommandOutputOptionsPanel_CHOOSE_OUTPUT_FILE_FOR_TIMING_REPORT, (String) null); // s
+setFileChooser("/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/timing_report.txt");
+setText(PAResourceAtoD.CommandOutputOptionsPanel_CHOOSE_OUTPUT_FILE_FOR_TIMING_REPORT, "/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/timing_report_10_4ns.txt"); // ap
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// 'r' command handler elapsed time: 18 seconds
+dismissDialog("Report Timing Summary"); // aJ
+// TclEventType: TIMING_RESULTS_STALE
+// TclEventType: TIMING_SUMMARY_UPDATED
+// Tcl Message: report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 -file /home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/timing_report_10_4ns.txt 
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs 
+dismissDialog("Report Timing Summary"); // bA
+selectButton(PAResourceAtoD.DesignTimingSumSectionPanel_WORST_NEGATIVE_SLACK, "0.003 ns"); // g
+// PAPropertyPanels.initPanels (Path 1) elapsed time: 0.2s
+selectTable(PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, "Path 2 ; 0.11993073 ; 8 ; 9 ; 2 ; fir_DUT/U0_MAC/product__0/CLK ; fir_DUT/sm_tdata_reg_reg[27]/D ; 10.143713 ; 8.033 ; 2.1107142 ; 10.4 ; wb_clk_i ; wb_clk_i ;  ; 0.03535534", 1, "9", 3, false, false, false, false, true); // h - Double Click
+selectTable(PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, "Path 1 ; 0.0029309888 ; 9 ; 10 ; 2 ; fir_DUT/U0_MAC/product__0/CLK ; fir_DUT/sm_tdata_reg_reg[31]/D ; 10.260714 ; 8.15 ; 2.1107142 ; 10.4 ; wb_clk_i ; wb_clk_i ;  ; 0.03535534", 0, "2", 4); // h
+selectTable(PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, "Path 1 ; 0.0029309888 ; 9 ; 10 ; 2 ; fir_DUT/U0_MAC/product__0/CLK ; fir_DUT/sm_tdata_reg_reg[31]/D ; 10.260714 ; 8.15 ; 2.1107142 ; 10.4 ; wb_clk_i ; wb_clk_i ;  ; 0.03535534", 0, "2", 4, false, false, false, false, true); // h - Double Click
+// Elapsed time: 61 seconds
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // g
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,691 MB. GUI used memory: 141 MB. Current time: 11/9/23, 5:41:35 AM EST
+// TclEventType: TIMING_RESULTS_UNLOAD
+// Engine heap size: 2,691 MB. GUI used memory: 142 MB. Current time: 11/9/23, 5:41:35 AM EST
+// Tcl Message: refresh_design 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,691 MB. GUI used memory: 106 MB. Current time: 11/9/23, 5:41:36 AM EST
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// DeviceView Instantiated
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 8264.422 ; gain = 0.000 ; free physical = 2662 ; free virtual = 4735 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 123 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2022.1 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc] Finished Parsing XDC File [/home/ubuntu/lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.srcs/constrs_1/new/clock_constraint.xdc] 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// RouteApi: Init Delay Mediator Swing Worker Finished
+dismissDialog("Reloading"); // bA
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Timing Summary]", 19, false); // n
+// Run Command: PAResourceCommand.PACommandNames_REPORT_TIMING_SUMMARY
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Report Timing Summary"); // aJ
+// TclEventType: TIMING_RESULTS_STALE
+// TclEventType: TIMING_SUMMARY_UPDATED
+// Tcl Message: report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs 
+dismissDialog("Report Timing Summary"); // bA
+// Elapsed time: 11 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "clock_constraint.xdc", 2); // m
+selectCodeEditor("clock_constraint.xdc", 783, 113); // be
+// Elapsed time: 12 seconds
+selectButton(PAResourceAtoD.DesignTimingSumSectionPanel_WORST_NEGATIVE_SLACK, "0.003 ns"); // g
+selectTable(PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, "Path 1 ; 0.0029309888 ; 9 ; 10 ; 2 ; fir_DUT/U0_MAC/product__0/CLK ; fir_DUT/sm_tdata_reg_reg[31]/D ; 10.260714 ; 8.15 ; 2.1107142 ; 10.4 ; wb_clk_i ; wb_clk_i ;  ; 0.03535534", 0, "9", 2); // h
+selectTable(PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, "Path 1 ; 0.0029309888 ; 9 ; 10 ; 2 ; fir_DUT/U0_MAC/product__0/CLK ; fir_DUT/sm_tdata_reg_reg[31]/D ; 10.260714 ; 8.15 ; 2.1107142 ; 10.4 ; wb_clk_i ; wb_clk_i ;  ; 0.03535534", 0, "9", 2, false, false, false, false, true); // h - Double Click
+// Elapsed time: 11 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Utilization]", 25, false); // n
+// Run Command: PAResourceCommand.PACommandNames_RESOURCE_UTILIZATION
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// 'cR' command handler elapsed time: 3 seconds
+dismissDialog("Report Utilization"); // a
+// TclEventType: UTILIZATION_RESULT_GENERATED
+// Tcl Message: report_utilization -name utilization_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,708 MB. GUI used memory: 155 MB. Current time: 11/9/23, 5:42:27 AM EST
+dismissDialog("Report Utilization"); // bA
+selectTree(PAResourceQtoS.ReportUtilTab_REPORT_UTILIZATION_NAVIGATION_TREE, "[Report Contents, Summary]", 1, false); // l
+// HMemoryUtils.trashcanNow. Engine heap size: 2,709 MB. GUI used memory: 139 MB. Current time: 11/9/23, 6:12:31 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,709 MB. GUI used memory: 133 MB. Current time: 11/9/23, 6:42:31 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 133 MB. Current time: 11/9/23, 7:12:31 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 133 MB. Current time: 11/9/23, 7:42:32 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 133 MB. Current time: 11/9/23, 8:12:32 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 133 MB. Current time: 11/9/23, 8:42:32 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 133 MB. Current time: 11/9/23, 9:12:33 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 133 MB. Current time: 11/9/23, 9:42:33 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 134 MB. Current time: 11/9/23, 10:12:33 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 10:42:33 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 131 MB. Current time: 11/9/23, 11:12:34 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 11:42:34 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 12:12:34 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 12:42:35 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 131 MB. Current time: 11/9/23, 1:12:35 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 131 MB. Current time: 11/9/23, 1:42:35 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 2:12:36 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 2:42:36 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 3:12:36 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 3:42:36 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 4:12:37 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 4:42:37 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 5:12:37 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 5:42:38 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 6:12:38 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 6:42:38 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 7:12:39 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 7:42:39 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 8:12:39 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 8:42:39 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 9:12:40 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 9:42:40 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 10:12:40 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 131 MB. Current time: 11/9/23, 10:42:41 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 11:12:41 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 130 MB. Current time: 11/9/23, 11:42:41 PM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 131 MB. Current time: 11/10/23, 12:12:41 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,710 MB. GUI used memory: 131 MB. Current time: 11/10/23, 12:42:42 AM EST
+// HMemoryUtils.trashcanNow. Engine heap size: 2,711 MB. GUI used memory: 130 MB. Current time: 11/10/23, 1:12:42 AM EST

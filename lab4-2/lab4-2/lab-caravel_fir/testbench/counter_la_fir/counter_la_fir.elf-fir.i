@@ -1627,6 +1627,7 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir(){
  int data_RAM_pointer=0;
 
 
+ (*(volatile uint32_t*)0x2600000c) = 0x00A50000;
  for (int i = 0; i < 64; i=i+1) {
   input_data=x[i];
   inputbuffer[data_RAM_pointer]=input_data;
@@ -1667,8 +1668,9 @@ void __attribute__ ( ( section ( ".mprjram" ) ) ) WB_write(int* WB_address, int 
 
 int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir_RTL(int times){
  initfir();
-# 79 "fir.c"
+# 80 "fir.c"
  int WB_return_data;
+ int WB_return_data_last_one;
  int i;
  int output_data_count=0;
  int input_data_count=0;
@@ -1690,6 +1692,12 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir_RTL(int times){
   }
 
 
+
+  WB_return_data = WB_read((int*)(0x30000000 +0x10));
+  if(WB_return_data != 64){
+   outputsignal[10]=-2;
+   return outputsignal;
+  }
   for(i=0; i<11; i=i+1){
    WB_return_data = WB_read((int*)(0x30000000 +0x20+4*i));
    if(WB_return_data != taps[i]){
@@ -1699,8 +1707,8 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir_RTL(int times){
   }
 
 
-  outputsignal[10]=-3;
-  return outputsignal;
+
+
  }
 
 
@@ -1709,18 +1717,29 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir_RTL(int times){
  WB_write((int*)(0x30000000), 1);
 
  (*(volatile uint32_t*)0x2600000c) = 0x00A50000;
-# 133 "fir.c"
+# 141 "fir.c"
     while(output_data_count < 64){
   WB_return_data = WB_read((int*)0x30000000);
 
-  if(((WB_return_data & 7)!=0) && (input_data_count>0)){
-   outputsignal[10]=-2;
-   return outputsignal;
+
+  if(output_data_count==64 -1){
+   WB_return_data_last_one = WB_return_data;
+  }else{
+   if(((WB_return_data & 7)!=0) && (input_data_count>0)){
+    outputsignal[10]=-2;
+    return outputsignal;
+   }
   }
+
+
+
   if(((WB_return_data>>5) & 1)==1){
+
+
    WB_return_data = WB_read((int*)(0x30000000 +0x84));
    if (output_data_count>=64 -11){
     outputsignal[output_data_count-(64 -11)] = WB_return_data;
+
    }
    output_data_count=output_data_count+1;
   }else if(((WB_return_data>>4) & 1)==1){
@@ -1731,12 +1750,11 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) fir_RTL(int times){
    WB_write((int*)(0x30000000 +0x80), x[input_data_count]);
    input_data_count=input_data_count+1;
   }
+
+
  }
-
-
-
- WB_return_data = WB_read((int*)0x30000000);
- if(((WB_return_data>>1) & 3)!=3){
+# 184 "fir.c"
+ if(((WB_return_data_last_one>>1) & 3)!=3){
   outputsignal[10]=-2;
   return outputsignal;
  }

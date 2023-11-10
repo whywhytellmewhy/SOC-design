@@ -130,7 +130,7 @@ void main()
 		}
 	}
 */	
-	/*int* tmp = fir(); //////////////////////<----------------------------------------------------- remember to uncomment this !!!!!
+	int* tmp = fir();
 	reg_mprj_datal = *tmp << 16;
 	reg_mprj_datal = *(tmp+1) << 16;
 	reg_mprj_datal = *(tmp+2) << 16;
@@ -142,9 +142,12 @@ void main()
 	reg_mprj_datal = *(tmp+8) << 16;
 	reg_mprj_datal = *(tmp+9) << 16;
 	reg_mprj_datal = *(tmp+10) << 16;
-	*/
+	
 	///////////////////////////////// Added /////////////////////////////////
-	int* tmp;
+	reg_mprj_datal = (*(tmp+10) << 24) + 0x5A0000;
+
+	//int* tmp;
+	tmp=0; // reset
 	int times;
 	for (times=1;times<=3;times=times+1){
 		tmp = fir_RTL(times);
@@ -160,7 +163,8 @@ void main()
 		reg_mprj_datal = *(tmp+8) << 16;
 		reg_mprj_datal = *(tmp+9) << 16;
 		reg_mprj_datal = *(tmp+10) << 16;
-		reg_mprj_datal = (reg_mprj_datal << 8) + 0x5A0000; // To match the requirement: write final Y[7:0] output to mprj[31:24], and end mark (8'h5A) to mprj[23:16]
+		//reg_mprj_datal = (reg_mprj_datal << 8) + 0x5A0000; // To match the requirement: write final Y[7:0] output to mprj[31:24], and end mark (8'h5A) to mprj[23:16]
+		reg_mprj_datal = (*(tmp+10) << 24) + 0x5A0000; // To match the requirement: write final Y[7:0] output to mprj[31:24], and end mark (8'h5A) to mprj[23:16]
 	}
 	/////////////////////////////////////////////////////////////////////////
 
