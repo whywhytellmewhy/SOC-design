@@ -1,0 +1,29 @@
+Reading counter_la_fir.hex
+counter_la_fir.hex loaded into memory
+Memory 5 bytes = 0x6f 0x00 0x00 0x0b 0x13
+VCD info: dumpfile counter_la_fir.vcd opened for output.
+
+++++++++++ Step 1: Use firmware (lab4-1) ++++++++++
+LA Test 1 started
+(Firmware) Detect start mark (8'hA5) on mprj[23:16], start latency timer.
+(Firmware) Detect end mark (8'h5A) on mprj[23:16], record latency timer.
+(Firmware) Success: Final Y[7:0] output to mprj[31:24] is 0x76, the same as the golden value.
+Info: FIR "firmware" latency =     1510415 clock cycles
+
+++++++++++ Step 2: Use hardware (FIR engine)(lab3) ++++++++++
+(Round 1) Detect start mark (8'hA5) on mprj[23:16], start latency timer.
+(Round 1) Detect end mark (8'h5A) on mprj[23:16], record latency timer.
+(Round 1) Success: Final Y[7:0] output to mprj[31:24] is 0x76, the same as the golden value.
+Info: FIR engine (hardware) latency in round 1 =      551675 clock cycles
+(Round 2) Detect start mark (8'hA5) on mprj[23:16], start latency timer.
+(Round 2) Detect end mark (8'h5A) on mprj[23:16], record latency timer.
+(Round 2) Success: Final Y[7:0] output to mprj[31:24] is 0x76, the same as the golden value.
+Info: FIR engine (hardware) latency in round 2 =      551675 clock cycles
+(Round 3) Detect start mark (8'hA5) on mprj[23:16], start latency timer.
+(Round 3) Detect end mark (8'h5A) on mprj[23:16], record latency timer.
+(Round 3) Success: Final Y[7:0] output to mprj[31:24] is 0x76, the same as the golden value.
+Info: FIR engine (hardware) latency in round 3 =      551675 clock cycles
+Info: Total FIR engine (hardware) latency =     1655025 clock cycles
+LA Test 2 passed
+---------------------------------------------
+-----------Congratulations! Pass-------------
