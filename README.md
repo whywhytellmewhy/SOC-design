@@ -52,6 +52,7 @@ This repository is created on 2023.9.30
 1. 在其中的`/lab_4-2`為實作過程中完整的資料，而在外層的檔案則是從其中複製出題目中所提到的相關檔案，其對應路徑如下表所示：
    | 分類 | 名稱 | 原路徑 |
    |:---------:|:---------:|:----------:|
+   <!--
    | Design sources</br>(user_project design & exmem_FIR) | /Design/XXX.v | /lab_4-2/XXX.v |
    | Design sources</br>(FIR RTL) | /Design/XXX.v | /lab_4-2/XXX.v |
    | Design sources</br>(firmware code) | /Design/XXX.v | /lab_4-2/XXX.v |
@@ -59,8 +60,25 @@ This repository is created on 2023.9.30
    | Simulation log | /Design/XXX.v | /lab_4-2/XXX.v |
    | Synthesis report</br>(area) | /Design/XXX.v | /lab_4-2/XXX.v |
    | Synthesis report</br>(timing) | /Design/XXX.v | /lab_4-2/XXX.v |
+   -->
+   | Design sources</br>(user_project design & exmem_FIR) | /Design/user_proj_example.counter.v | /lab4-2/lab-caravel_fir/rtl/user/user_proj_example.counter.v |
+   | Design sources</br>(user_project design & exmem_FIR) | /Design/bram.v | /lab4-2/lab-caravel_fir/rtl/user/bram.v |
+   | Design sources</br>(FIR RTL) | /Design/fir.v | /lab4-2/lab-caravel_fir/rtl/user/fir.v |
+   | Design sources</br>(FIR RTL) | /Design/multiplier_adder.v | /lab4-2/lab-caravel_fir/rtl/user/multiplier_adder.v |
+   | Design sources</br>(firmware code) | /Design/counter_la_fir.c | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.c |
+   | Design sources</br>(firmware code) | /Design/fir.c | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/fir.c |
+   | Design sources</br>(firmware code) | /Design/fir.h | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/fir.h |
+   | Design sources</br>(testbench) | /Design/counter_la_fir_tb.v | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir_tb.v |
+   | Design sources</br>(testbench) | /Design/run_sim | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/run_sim |
+   | Design sources</br>(testbench) | /Design/include.rtl.list | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/include.rtl.list |
+   | Simulation log | /Simulation log/counter_la_fir.hex | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.hex |
+   | Simulation log | /Simulation log/counter_la_fir.out | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.out |
+   | ~~Simulation log~~ | ~~/Simulation log/counter_la_fir.vcd~~ | ~~/lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.vcd~~</br>(因檔案超過100MB而無法上傳。此檔案可透過在/lab4-2/lab-caravel_fir/testbench/counter_la_fir資料夾中執行`source run_sim`獲得) |
+   | Synthesis report</br>(area) | /Synthesis report/user_proj_example_utilization_synth.rpt | /lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/user_proj_example_utilization_synth.rpt |
+   | Synthesis report</br>(timing) | /Synthesis report/timing_report_10_4ns.txt | /lab4-2/lab-caravel_fir/vivado/lab4_2/timing_report_10_4ns.txt |
 
-3. `/lab_4-2/lab3--modification`為將lab3的檔案修改成符合lab4-2（因為lab4-2中的bram11.v與lab3中的行為不同；另外也將handshake的條件設置得更加general）的測試過程
-4. `/lab_4-2/lab-caravel_fir`為實際lab4-2的實作內容。其中的`/lab4-2/lab-caravel_fir/rtl/user/fir.v`以及`/lab4-2/lab-caravel_fir/rtl/user/multiplier_adder.v`為將`/lab_4-2/lab3--modification`測試完成後直接複製過來的FIR engine檔案
+3. 沒有上傳下列「檔案太大(超過100MB)」的檔案：`/lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.vcd`
+4. `/lab_4-2/lab3--modification`為將lab3的檔案修改成符合lab4-2（因為lab4-2中的bram11.v與lab3中的行為不同；另外也將handshake的條件設置得更加general）的測試過程
+5. `/lab_4-2/lab-caravel_fir`為實際lab4-2的實作內容。其中的`/lab4-2/lab-caravel_fir/rtl/user/fir.v`以及`/lab4-2/lab-caravel_fir/rtl/user/multiplier_adder.v`為將`/lab_4-2/lab3--modification`測試完成後直接複製過來的FIR engine檔案
 
 
