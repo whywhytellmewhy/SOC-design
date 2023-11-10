@@ -49,18 +49,17 @@ This repository is created on 2023.9.30
 2. 沒有上傳下列「檔案太大(超過100MB)」的檔案：`/lab_4-1/lab-exmem_fir/testbench/counter_la_fir/counter_la_fir.vcd`
 
 ## Lab 4-2 (Team work)
-1. 在其中的`/lab_4-2`為實作過程中完整的資料，而在外層的檔案則是從其中複製出題目中所提到的相關檔案，其對應路徑如下表所示：
-   | 分類 | 名稱 | 原路徑 |
-   |:---------:|:---------:|:----------:|
-   <!--
-   | Design sources</br>(user_project design & exmem_FIR) | /Design/XXX.v | /lab_4-2/XXX.v |
+<!--| Design sources</br>(user_project design & exmem_FIR) | /Design/XXX.v | /lab_4-2/XXX.v |
    | Design sources</br>(FIR RTL) | /Design/XXX.v | /lab_4-2/XXX.v |
    | Design sources</br>(firmware code) | /Design/XXX.v | /lab_4-2/XXX.v |
    | Design sources</br>(testbench) | /Design/XXX.v | /lab_4-2/XXX.v |
    | Simulation log | /Design/XXX.v | /lab_4-2/XXX.v |
    | Synthesis report</br>(area) | /Design/XXX.v | /lab_4-2/XXX.v |
    | Synthesis report</br>(timing) | /Design/XXX.v | /lab_4-2/XXX.v |
-   -->
+-->
+1. 在其中的`/lab_4-2`為實作過程中完整的資料，而在外層的檔案則是從其中複製出題目中所提到的相關檔案，其對應路徑如下表所示：
+   | 分類 | 名稱 | 原路徑 |
+   |:---------:|:---------:|:----------:|
    | Design sources</br>(user_project design & exmem_FIR) | /Design/user_proj_example.counter.v | /lab4-2/lab-caravel_fir/rtl/user/user_proj_example.counter.v |
    | Design sources</br>(user_project design & exmem_FIR) | /Design/bram.v | /lab4-2/lab-caravel_fir/rtl/user/bram.v |
    | Design sources</br>(FIR RTL) | /Design/fir.v | /lab4-2/lab-caravel_fir/rtl/user/fir.v |
