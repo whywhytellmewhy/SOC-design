@@ -80,5 +80,6 @@ This repository is created on 2023.9.30
 3. 沒有上傳下列「檔案太大(超過100MB)」的檔案：`/lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.vcd`
 4. `/lab_4-2/lab3--modification`為將lab3的檔案修改成符合lab4-2（因為lab4-2中的bram11.v與lab3中的行為不同；另外也將handshake的條件設置得更加general）的測試過程
 5. `/lab_4-2/lab-caravel_fir`為實際lab4-2的實作內容。其中的`/lab4-2/lab-caravel_fir/rtl/user/fir.v`以及`/lab4-2/lab-caravel_fir/rtl/user/multiplier_adder.v`為將`/lab_4-2/lab3--modification`測試完成後直接複製過來的FIR engine檔案
+6. 更多的說明可參閱 [/lab4-2中的README.md](https://github.com/whywhytellmewhy/SOC-design/tree/master/lab4-2)
 
 
