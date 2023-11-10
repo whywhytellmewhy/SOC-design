@@ -72,6 +72,7 @@ This repository is created on 2023.9.30
    | Design sources</br>(testbench) | /Design/include.rtl.list | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/include.rtl.list |
    | Simulation log | /Simulation log/counter_la_fir.hex | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.hex |
    | Simulation log | /Simulation log/counter_la_fir.out | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.out |
+   | Simulation log | /Simulation log/simulation.log | /lab4-2/lab-caravel_fir/testbench/counter_la_fir/simulation.log</br>By using `source run_sim > simulation.log` |
    | ~~Simulation log~~ | ~~/Simulation log/counter_la_fir.vcd~~ | ~~/lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.vcd~~</br>(因檔案超過100MB而無法上傳。此檔案可透過在/lab4-2/lab-caravel_fir/testbench/counter_la_fir資料夾中執行`source run_sim`獲得) |
    | Synthesis report</br>(area) | /Synthesis report/user_proj_example_utilization_synth.rpt | /lab4-2/lab-caravel_fir/vivado/lab4_2/lab4_2.runs/synth_1/user_proj_example_utilization_synth.rpt |
    | Synthesis report</br>(timing) | /Synthesis report/timing_report_10_4ns.txt | /lab4-2/lab-caravel_fir/vivado/lab4_2/timing_report_10_4ns.txt |
