@@ -1,0 +1,81 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Fri Nov 10 19:10:02 2023
+[*]
+[dumpfile] "/home/ubuntu/lab4-2/lab-caravel_fir/testbench/counter_la_fir/counter_la_fir.vcd"
+[dumpfile_mtime] "Fri Nov 10 09:12:05 2023"
+[dumpfile_size] 1520257878
+[savefile] "/home/ubuntu/lab4-2/lab-caravel_fir/testbench/counter_la_fir/waveform--report-Q4.gtkw"
+[timestart] 19548363800
+[size] 1848 903
+[pos] -1 -1
+*-17.302301 19548887500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] counter_la_fir_tb.
+[treeopen] counter_la_fir_tb.uut.
+[treeopen] counter_la_fir_tb.uut.mprj.
+[treeopen] counter_la_fir_tb.uut.mprj.mprj.
+[treeopen] counter_la_fir_tb.uut.mprj.mprj.fir_DUT.
+[treeopen] counter_la_fir_tb.uut.padframe.mprj_pads.
+[treeopen] counter_la_fir_tb.uut.soc.core.
+[treeopen] counter_la_fir_tb.uut.soc.core.VexRiscv.
+[sst_width] 233
+[signals_width] 335
+[sst_expanded] 1
+[sst_vpaned_height] 318
+@200
+-
+@28
+counter_la_fir_tb.uut.mprj.mprj.clk
+@200
+-
+-AXI-Stream
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.input_number_counter[31:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.Yn_valid_Xn_ready[1:0]
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.input_x_buffer[31:0]
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.output_y_buffer[31:0]
+@200
+-
+-AXI-Stream (Data_in)
+@28
+[color] 3
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.AXI_ss_valid
+[color] 3
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.wbs_ack_Stream_ss
+@22
+[color] 3
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.wbs_dat_Stream_ss[31:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Stream_ss[2:0]
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.delay_counter_Stream_ss[15:0]
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.ss_tdata[31:0]
+@29
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.ss_tvalid
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.ss_tready
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.ss_tlast
+@200
+-
+-AXI-Stream (Data_out)
+@28
+[color] 3
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.AXI_sm_valid
+[color] 3
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.wbs_ack_Stream_sm
+@22
+[color] 3
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.wbs_dat_Stream_sm[31:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.state_Stream_sm[2:0]
+@22
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.delay_counter_Stream_sm[15:0]
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tdata[31:0]
+@28
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tvalid
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tready
+counter_la_fir_tb.uut.mprj.mprj.AXI_to_Stream_DUT.sm_tlast
+[pattern_trace] 1
+[pattern_trace] 0
