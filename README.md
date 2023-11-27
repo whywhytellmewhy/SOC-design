@@ -82,4 +82,10 @@ This repository is created on 2023.9.30
 5. `/lab_4-2/lab-caravel_fir`為實際lab4-2的實作內容。其中的`/lab4-2/lab-caravel_fir/rtl/user/fir.v`以及`/lab4-2/lab-caravel_fir/rtl/user/multiplier_adder.v`為將`/lab_4-2/lab3--modification`測試完成後直接複製過來的FIR engine檔案
 6. 更多的說明可參閱 [/lab4-2中的README.md](https://github.com/whywhytellmewhy/SOC-design/tree/master/lab4-2)
 
-
+## Lab 5 (Team work)
+1. 在其中的`/lab_5`為實作過程中完整的資料，而在外層的檔案`report.pdf`則是繳交至NTHU eeclass上的report檔案，其對應之原始名稱為：`lab5_report(小組雲端共用) 112.11.27.pdf`
+2. 這次lab主要依序執行下列步驟，以產生.bit檔及.hwh檔：
+   1. 先進入`/lab5/lab_5/labi`的資料夾中
+   2. 執行`source run_vitis.sh`產生high-level synthesis (HLS)合成後的檔案
+   3. 執行`source run_vivado.sh`產生counter example的bitstream及相關檔案
+   4. 執行`source run_vivado_gcd.sh`產生gcd example的bitstream及相關檔案
