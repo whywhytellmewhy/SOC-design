@@ -1,0 +1,99 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.1 (64-bit)
+  **** SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+  **** IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source /tools/Xilinx/Vitis_HLS/2022.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/tools/Xilinx/Vitis_HLS/2022.1/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'ubuntu' on host 'ubuntu2004.linuxvmimages.local' (Linux_x86_64 version 5.15.0-88-generic) on Sun Nov 26 08:49:44 EST 2023
+INFO: [HLS 200-10] On os Ubuntu 20.04.4 LTS
+INFO: [HLS 200-10] In directory '/home/ubuntu/lab_5/labi/vitis_hls_project/hls_caravel_ps'
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project -reset hls_caravel_ps.prj 
+INFO: [HLS 200-10] Creating and opening project '/home/ubuntu/lab_5/labi/vitis_hls_project/hls_caravel_ps/hls_caravel_ps.prj'.
+INFO: [HLS 200-1510] Running: add_files src/caravel_ps.cpp 
+INFO: [HLS 200-10] Adding design file 'src/caravel_ps.cpp' to the project
+INFO: [HLS 200-1510] Running: set_top caravel_ps 
+INFO: [HLS 200-1510] Running: open_solution -reset solution1 
+INFO: [HLS 200-10] Creating and opening solution '/home/ubuntu/lab_5/labi/vitis_hls_project/hls_caravel_ps/hls_caravel_ps.prj/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+WARNING: [HLS 200-40] No /home/ubuntu/lab_5/labi/vitis_hls_project/hls_caravel_ps/hls_caravel_ps.prj/solution1/solution1.aps file found.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1510] Running: create_clock -period 10 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.454 GB.
+INFO: [HLS 200-10] Analyzing design file 'src/caravel_ps.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 2.09 seconds. CPU system time: 0.29 seconds. Elapsed time: 1.66 seconds; current allocated memory: 456.645 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_47_1' is marked as complete unroll implied by the pipeline pragma (src/caravel_ps.cpp:47:19)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_47_1' (src/caravel_ps.cpp:47:19) in function 'caravel_ps' completely with a factor of 38 (src/caravel_ps.cpp:27:0)
+INFO: [HLS 214-241] Aggregating scalar variable 'mprj_in' with compact=bit mode in 38-bits (src/caravel_ps.cpp:27:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1.83 seconds. CPU system time: 0.2 seconds. Elapsed time: 2.06 seconds; current allocated memory: 457.480 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 457.480 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.01 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 458.500 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 458.504 MB.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 481.441 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 481.441 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'caravel_ps' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'caravel_ps' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'caravel_ps'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, function 'caravel_ps'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.04 seconds; current allocated memory: 481.441 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.04 seconds; current allocated memory: 481.441 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'caravel_ps' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'caravel_ps/ps_mprj_in' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'caravel_ps/ps_mprj_out' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'caravel_ps/ps_mprj_en' to 's_axilite & ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'caravel_ps/mprj_in' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'mprj_in' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'caravel_ps/mprj_out' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'caravel_ps/mprj_en' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'caravel_ps' to 'ap_ctrl_none'.
+INFO: [RTGEN 206-100] Bundling port 'ps_mprj_in', 'ps_mprj_out' and 'ps_mprj_en' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'caravel_ps'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 481.441 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.28 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.31 seconds; current allocated memory: 482.625 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.13 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.13 seconds; current allocated memory: 484.359 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for caravel_ps.
+INFO: [VLOG 209-307] Generating Verilog RTL for caravel_ps.
+INFO: [HLS 200-789] **** Estimated Fmax: 501.76 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 4.56 seconds. CPU system time: 0.56 seconds. Elapsed time: 4.42 seconds; current allocated memory: -1004.422 MB.
+INFO: [HLS 200-1510] Running: config_export -version 0.0.1 
+INFO: [HLS 200-1510] Running: export_design -rtl verilog -format ip_catalog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2022.1 (64-bit)
+  **** SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+  **** IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 26 08:49:55 2023...
+INFO: [HLS 200-802] Generated output file hls_caravel_ps.prj/solution1/impl/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 6.96 seconds. CPU system time: 0.96 seconds. Elapsed time: 8.89 seconds; current allocated memory: 6.250 MB.
+INFO: [HLS 200-112] Total CPU user time: 13.01 seconds. Total CPU system time: 1.98 seconds. Total elapsed time: 14.45 seconds; peak allocated memory: 1.454 GB.
+INFO: [Common 17-206] Exiting vitis_hls at Sun Nov 26 08:49:58 2023...
