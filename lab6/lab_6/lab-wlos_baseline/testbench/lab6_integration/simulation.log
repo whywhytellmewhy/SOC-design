@@ -1,0 +1,81 @@
+Reading uart.hex
+uart.hex loaded into memory
+Memory 5 bytes = 0x6f 0x00 0x00 0x0b 0x13
+VCD info: dumpfile uart.vcd opened for output.
+LA Test 1 started
+Info: Start UART test 1...
+Info: Start matrix multiplication test...
+tx data bit index 0: 1
+tx data bit index 1: 1
+tx data bit index 2: 1
+tx data bit index 3: 1
+tx data bit index 4: 0
+tx data bit index 5: 0
+tx data bit index 6: 0
+tx data bit index 7: 0
+tx complete 1
+rx data bit index 0: 1
+rx data bit index 1: 1
+rx data bit index 2: 1
+rx data bit index 3: 1
+rx data bit index 4: 0
+rx data bit index 5: 0
+rx data bit index 6: 0
+rx data bit index 7: 0
+recevied word  15
+Call function matmul() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x003e, which is    62 in decimal
+Call function matmul() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x0044, which is    68 in decimal
+Call function matmul() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x004a, which is    74 in decimal
+Call function matmul() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x0050, which is    80 in decimal
+Success: Matrix multiplication test passed ♪
+Info: Start Q sort test...
+Info: Start UART test 2...
+tx data bit index 0: 1
+tx data bit index 1: 0
+Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x0028, which is    40 in decimal
+tx data bit index 2: 1
+Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x037d, which is   893 in decimal
+Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x09ed, which is  2541 in decimal
+Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x0a6d, which is  2669 in decimal
+tx data bit index 3: 1
+tx data bit index 4: 1
+Success: Q sort test passed ♪
+Info: Start FIR test...
+tx data bit index 5: 1
+tx data bit index 6: 0
+tx data bit index 7: 0
+tx complete 2
+rx data bit index 0: 1
+rx data bit index 1: 0
+rx data bit index 2: 1
+rx data bit index 3: 1
+rx data bit index 4: 1
+rx data bit index 5: 1
+rx data bit index 6: 0
+rx data bit index 7: 0
+recevied word  61
+Info: Start the last UART test ('\n')...
+tx data bit index 0: 0
+tx data bit index 1: 1
+tx data bit index 2: 0
+tx data bit index 3: 1
+tx data bit index 4: 0
+tx data bit index 5: 0
+tx data bit index 6: 0
+tx data bit index 7: 0
+tx (last) complete
+Success: UART test passed ♪
+rx data bit index 0: 0
+rx data bit index 1: 1
+rx data bit index 2: 0
+rx data bit index 3: 1
+rx data bit index 4: 0
+rx data bit index 5: 0
+rx data bit index 6: 0
+rx data bit index 7: 0
+recevied word  10
+Call function fir() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x044a, which is  1098 in decimal
+Success: FIR test passed ♪
+LA Test 1 passed
+---------------------------------------------
+-----------Congratulations! Pass-------------
