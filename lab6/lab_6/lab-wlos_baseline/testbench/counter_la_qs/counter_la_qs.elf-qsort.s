@@ -7,12 +7,12 @@
 .Ltext0:
 	.cfi_sections	.debug_frame
 	.file 0 "/home/ubuntu/lab_6/lab-wlos_baseline/testbench/counter_la_qs" "qsort.c"
-	.globl	A
+	.globl	Target_array
 	.data
 	.align	2
-	.type	A, @object
-	.size	A, 40
-A:
+	.type	Target_array, @object
+	.size	Target_array, 40
+Target_array:
 	.word	893
 	.word	40
 	.word	3233
@@ -41,8 +41,8 @@ partition:
 	sw	a0,-36(s0)
 	sw	a1,-40(s0)
 	.loc 1 4 6
-	lui	a5,%hi(A)
-	addi	a4,a5,%lo(A)
+	lui	a5,%hi(Target_array)
+	addi	a4,a5,%lo(Target_array)
 	lw	a5,-40(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
@@ -58,9 +58,9 @@ partition:
 	.loc 1 7 2
 	j	.L2
 .L4:
-	.loc 1 8 7
-	lui	a5,%hi(A)
-	addi	a4,a5,%lo(A)
+	.loc 1 8 18
+	lui	a5,%hi(Target_array)
+	addi	a4,a5,%lo(Target_array)
 	lw	a5,-24(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
@@ -73,30 +73,30 @@ partition:
 	addi	a5,a5,1
 	sw	a5,-20(s0)
 	.loc 1 10 9
-	lui	a5,%hi(A)
-	addi	a4,a5,%lo(A)
+	lui	a5,%hi(Target_array)
+	addi	a4,a5,%lo(Target_array)
 	lw	a5,-20(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a5,0(a5)
 	sw	a5,-32(s0)
-	.loc 1 11 12
-	lui	a5,%hi(A)
-	addi	a4,a5,%lo(A)
+	.loc 1 11 34
+	lui	a5,%hi(Target_array)
+	addi	a4,a5,%lo(Target_array)
 	lw	a5,-24(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a4,0(a5)
-	.loc 1 11 9
-	lui	a5,%hi(A)
-	addi	a3,a5,%lo(A)
+	.loc 1 11 20
+	lui	a5,%hi(Target_array)
+	addi	a3,a5,%lo(Target_array)
 	lw	a5,-20(s0)
 	slli	a5,a5,2
 	add	a5,a3,a5
 	sw	a4,0(a5)
-	.loc 1 12 9
-	lui	a5,%hi(A)
-	addi	a4,a5,%lo(A)
+	.loc 1 12 20
+	lui	a5,%hi(Target_array)
+	addi	a4,a5,%lo(Target_array)
 	lw	a5,-24(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
@@ -112,53 +112,53 @@ partition:
 	lw	a4,-24(s0)
 	lw	a5,-40(s0)
 	blt	a4,a5,.L4
-	.loc 1 15 6
-	lui	a5,%hi(A)
-	addi	a4,a5,%lo(A)
+	.loc 1 15 17
+	lui	a5,%hi(Target_array)
+	addi	a4,a5,%lo(Target_array)
 	lw	a5,-40(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a4,0(a5)
-	.loc 1 15 16
+	.loc 1 15 38
 	lw	a5,-20(s0)
 	addi	a5,a5,1
-	.loc 1 15 14
-	lui	a3,%hi(A)
-	addi	a3,a3,%lo(A)
+	.loc 1 15 36
+	lui	a3,%hi(Target_array)
+	addi	a3,a3,%lo(Target_array)
 	slli	a5,a5,2
 	add	a5,a3,a5
 	lw	a5,0(a5)
 	.loc 1 15 4
 	bge	a4,a5,.L5
-	.loc 1 16 13
+	.loc 1 16 24
 	lw	a5,-20(s0)
 	addi	a5,a5,1
 	.loc 1 16 8
-	lui	a4,%hi(A)
-	addi	a4,a4,%lo(A)
+	lui	a4,%hi(Target_array)
+	addi	a4,a4,%lo(Target_array)
 	slli	a5,a5,2
 	add	a5,a4,a5
 	lw	a5,0(a5)
 	sw	a5,-32(s0)
-	.loc 1 17 6
+	.loc 1 17 17
 	lw	a5,-20(s0)
 	addi	a5,a5,1
-	.loc 1 17 13
-	lui	a4,%hi(A)
-	addi	a3,a4,%lo(A)
+	.loc 1 17 35
+	lui	a4,%hi(Target_array)
+	addi	a3,a4,%lo(Target_array)
 	lw	a4,-40(s0)
 	slli	a4,a4,2
 	add	a4,a3,a4
 	lw	a4,0(a4)
-	.loc 1 17 10
-	lui	a3,%hi(A)
-	addi	a3,a3,%lo(A)
+	.loc 1 17 21
+	lui	a3,%hi(Target_array)
+	addi	a3,a3,%lo(Target_array)
 	slli	a5,a5,2
 	add	a5,a3,a5
 	sw	a4,0(a5)
-	.loc 1 18 9
-	lui	a5,%hi(A)
-	addi	a4,a5,%lo(A)
+	.loc 1 18 20
+	lui	a5,%hi(Target_array)
+	addi	a4,a5,%lo(Target_array)
 	lw	a5,-40(s0)
 	slli	a5,a5,2
 	add	a5,a4,a5
@@ -253,8 +253,8 @@ qsort:
 	li	a0,0
 	call	sort
 	.loc 1 33 9
-	lui	a5,%hi(A)
-	addi	a5,a5,%lo(A)
+	lui	a5,%hi(Target_array)
+	addi	a5,a5,%lo(Target_array)
 	.loc 1 34 1
 	mv	a0,a5
 	lw	ra,12(sp)
@@ -273,7 +273,7 @@ qsort:
 	.file 2 "qsort.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0x119
+	.4byte	0x11b
 	.2byte	0x5
 	.byte	0x1
 	.byte	0x4
@@ -302,20 +302,20 @@ qsort:
 	.byte	0x5
 	.string	"int"
 	.byte	0x9
-	.string	"A"
+	.4byte	.LASF8
 	.byte	0x2
 	.byte	0x5
 	.byte	0x5
 	.4byte	0x26
 	.byte	0x5
 	.byte	0x3
-	.4byte	A
+	.4byte	Target_array
 	.byte	0xa
-	.4byte	.LASF8
+	.4byte	.LASF9
 	.byte	0x1
 	.byte	0x1f
 	.byte	0x33
-	.4byte	0x6a
+	.4byte	0x6c
 	.4byte	.LFB2
 	.4byte	.LFE2-.LFB2
 	.byte	0x1
@@ -332,7 +332,7 @@ qsort:
 	.4byte	.LFE1-.LFB1
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xb8
+	.4byte	0xba
 	.byte	0x1
 	.string	"low"
 	.byte	0x17
@@ -540,7 +540,7 @@ qsort:
 	.byte	0x34
 	.byte	0
 	.byte	0x3
-	.byte	0x8
+	.byte	0xe
 	.byte	0x3a
 	.byte	0xb
 	.byte	0x3b
@@ -694,9 +694,11 @@ qsort:
 	.section	.debug_str,"MS",@progbits,1
 .LASF2:
 	.string	"unsigned int"
+.LASF8:
+	.string	"Target_array"
 .LASF5:
 	.string	"pivot"
-.LASF8:
+.LASF9:
 	.string	"qsort"
 .LASF6:
 	.string	"temp"

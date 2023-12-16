@@ -77,5 +77,5 @@ recevied word  10
 Call function fir() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x044a, which is  1098 in decimal
 Success: FIR test passed ♪
 LA Test 1 passed
----------------------------------------------
------------Congratulations! Pass-------------
+-----------------------------------------------------
+----------Congratulations! Pass all tests------------

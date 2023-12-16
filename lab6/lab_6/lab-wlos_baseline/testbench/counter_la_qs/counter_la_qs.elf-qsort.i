@@ -8,25 +8,25 @@
 
 
 
-int A[10] = {893, 40, 3233, 4267, 2669, 2541, 9073, 6023, 5681, 4622};
+int Target_array[10] = {893, 40, 3233, 4267, 2669, 2541, 9073, 6023, 5681, 4622};
 # 2 "qsort.c" 2
 
 int __attribute__ ( ( section ( ".mprjram" ) ) ) partition(int low,int hi){
- int pivot = A[hi];
+ int pivot = Target_array[hi];
  int i = low-1,j;
  int temp;
  for(j = low;j<hi;j++){
-  if(A[j] < pivot){
+  if(Target_array[j] < pivot){
    i = i+1;
-   temp = A[i];
-   A[i] = A[j];
-   A[j] = temp;
+   temp = Target_array[i];
+   Target_array[i] = Target_array[j];
+   Target_array[j] = temp;
   }
  }
- if(A[hi] < A[i+1]){
-  temp = A[i+1];
-  A[i+1] = A[hi];
-  A[hi] = temp;
+ if(Target_array[hi] < Target_array[i+1]){
+  temp = Target_array[i+1];
+  Target_array[i+1] = Target_array[hi];
+  Target_array[hi] = temp;
  }
  return i+1;
 }
@@ -41,5 +41,5 @@ void __attribute__ ( ( section ( ".mprjram" ) ) ) sort(int low, int hi){
 
 int* __attribute__ ( ( section ( ".mprjram" ) ) ) qsort(){
  sort(0,10 -1);
- return A;
+ return Target_array;
 }

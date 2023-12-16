@@ -105,9 +105,9 @@ isr:
 	.loc 3 28 5
 	li	a0,0
 	call	irq_setmask
-	.loc 3 43 5
+	.loc 3 48 5
 	nop
-	.loc 3 45 1
+	.loc 3 50 1
 	lw	ra,12(sp)
 	.cfi_restore 1
 	lw	s0,8(sp)

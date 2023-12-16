@@ -13,7 +13,7 @@
 // limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
 
-//`default_nettype none
+`default_nettype none
 /*
  *-------------------------------------------------------------
  *
@@ -62,9 +62,9 @@ module user_proj_example #(
     input  [127:0] la_oenb,
 
     // IOs
-    input  wire [`MPRJ_IO_PADS-1:0] io_in,
-    output wire [`MPRJ_IO_PADS-1:0] io_out,
-    output wire [`MPRJ_IO_PADS-1:0] io_oeb,
+    input  [`MPRJ_IO_PADS-1:0] io_in,
+    output [`MPRJ_IO_PADS-1:0] io_out,
+    output [`MPRJ_IO_PADS-1:0] io_oeb,
 
     // IRQ
     output [2:0] irq
@@ -72,13 +72,13 @@ module user_proj_example #(
     wire clk;
     wire rst;
 
-    //wire [`MPRJ_IO_PADS-1:0] io_in;
-    //wire [`MPRJ_IO_PADS-1:0] io_out;
-    //wire [`MPRJ_IO_PADS-1:0] io_oeb;
+    wire [`MPRJ_IO_PADS-1:0] io_in;
+    wire [`MPRJ_IO_PADS-1:0] io_out;
+    wire [`MPRJ_IO_PADS-1:0] io_oeb;
 
     wire [31:0] rdata; 
     wire [31:0] wdata;
-    wire [BITS-1:0] count;
+    reg [BITS-1:0] count;
 
     wire valid;
     wire [3:0] wstrb;
@@ -111,7 +111,6 @@ module user_proj_example #(
     assign rst = (~la_oenb[65]) ? la_data_in[65]: wb_rst_i;
 
     assign decoded = wbs_adr_i[31:20] == 12'h380 ? 1'b1 : 1'b0;
-
     always @(posedge clk) begin
         if (rst) begin
             ready <= 1'b0;
@@ -128,7 +127,20 @@ module user_proj_example #(
             end
         end
     end
-
+    
+    always @(posedge clk) begin
+    	if (rst) begin
+    	    count <= 0;
+    	end else if (count == 0) begin
+    	    if ((wbs_adr_i == 32'h38000000) && valid && (|wstrb == 1'b0)) begin
+    	        count <= count + 1;
+    	    end else begin
+    	        count <= count;
+    	    end
+    	end else begin
+    	    count <= count + 1;
+    	end
+    end
 /*
     counter #(
         .BITS(BITS)
@@ -157,5 +169,46 @@ module user_proj_example #(
 
 endmodule
 
+module counter #(
+    parameter BITS = 32
+)(
+    input clk,
+    input reset,
+    input valid,
+    input [3:0] wstrb,
+    input [BITS-1:0] wdata,
+    input [BITS-1:0] la_write,
+    input [BITS-1:0] la_input,
+    output ready,
+    output [BITS-1:0] rdata,
+    output [BITS-1:0] count
+);
+    reg ready;
+    reg [BITS-1:0] count;
+    reg [BITS-1:0] rdata;
 
-//`default_nettype wire
+    always @(posedge clk) begin
+        if (reset) begin
+            count <= 0;
+            ready <= 0;
+        end else begin
+            ready <= 1'b0;
+            if (~|la_write) begin
+                count <= count + 1;
+            end
+            if (valid && !ready) begin
+                ready <= 1'b1;
+                rdata <= count;
+                if (wstrb[0]) count[7:0]   <= wdata[7:0];
+                if (wstrb[1]) count[15:8]  <= wdata[15:8];
+                if (wstrb[2]) count[23:16] <= wdata[23:16];
+                if (wstrb[3]) count[31:24] <= wdata[31:24];
+            end else if (|la_write) begin
+                count <= la_write & la_input;
+            end
+        end
+    end
+
+endmodule
+
+`default_nettype wire

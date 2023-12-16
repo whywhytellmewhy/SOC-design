@@ -223,21 +223,32 @@ isr:
 	lw	a5,-20(s0)
 	andi	a5,a5,4
 	.loc 5 35 8
-	beq	a5,zero,.L12
+	beq	a5,zero,.L13
 	.loc 5 36 9
 	li	a0,1
 	call	user_irq_0_ev_pending_write
 	.loc 5 37 15
 	call	uart_read
 	sw	a0,-24(s0)
-	.loc 5 38 9
+	.loc 5 39 12
+	lw	a4,-24(s0)
+	li	a5,10
+	bne	a4,a5,.L11
+	.loc 5 40 14
+	li	a5,637534208
+	addi	a5,a5,12
+	.loc 5 40 47
+	li	a4,-1419706368
+	sw	a4,0(a5)
+.L11:
+	.loc 5 43 9
 	lw	a0,-24(s0)
 	call	uart_write
-	.loc 5 43 5
+	.loc 5 48 5
 	nop
-.L12:
+.L13:
 	nop
-	.loc 5 45 1
+	.loc 5 50 1
 	lw	ra,28(sp)
 	.cfi_restore 1
 	lw	s0,24(sp)

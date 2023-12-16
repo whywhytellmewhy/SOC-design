@@ -52,7 +52,7 @@ Linker script and memory map
  .data          0x0000000000000000        0x0 counter_la_qs.elf-crt0_vex.o
  .data          0x0000000000000000        0x0 counter_la_qs.elf-isr.o
  .data          0x0000000000000000       0x28 counter_la_qs.elf-qsort.o
-                0x0000000000000000                A
+                0x0000000000000000                Target_array
  .data          0x0000000000000028        0x0 counter_la_qs.elf-counter_la_qs.o
  *(.data1)
                 0x0000000000000030                _gp = ALIGN (0x10)
@@ -119,11 +119,11 @@ OUTPUT(counter_la_qs.elf elf32-littleriscv)
  .comment       0x000000000000001b       0x1c counter_la_qs.elf-qsort.o
  .comment       0x000000000000001b       0x1c counter_la_qs.elf-counter_la_qs.o
 
-.debug_line     0x0000000000000000      0x9c6
+.debug_line     0x0000000000000000      0x9c4
  .debug_line    0x0000000000000000      0x204 counter_la_qs.elf-crt0_vex.o
  .debug_line    0x0000000000000204       0x9e counter_la_qs.elf-isr.o
- .debug_line    0x00000000000002a2      0x165 counter_la_qs.elf-qsort.o
- .debug_line    0x0000000000000407      0x5bf counter_la_qs.elf-counter_la_qs.o
+ .debug_line    0x00000000000002a2      0x163 counter_la_qs.elf-qsort.o
+ .debug_line    0x0000000000000405      0x5bf counter_la_qs.elf-counter_la_qs.o
 
 .debug_line_str
                 0x0000000000000000       0xe9
@@ -139,11 +139,11 @@ OUTPUT(counter_la_qs.elf elf32-littleriscv)
                 0x000000000000008f       0x5a counter_la_qs.elf-counter_la_qs.o
                                         0x10c (size before relaxing)
 
-.debug_info     0x0000000000000000      0x33a
+.debug_info     0x0000000000000000      0x33c
  .debug_info    0x0000000000000000       0x25 counter_la_qs.elf-crt0_vex.o
  .debug_info    0x0000000000000025       0xc5 counter_la_qs.elf-isr.o
- .debug_info    0x00000000000000ea      0x11d counter_la_qs.elf-qsort.o
- .debug_info    0x0000000000000207      0x133 counter_la_qs.elf-counter_la_qs.o
+ .debug_info    0x00000000000000ea      0x11f counter_la_qs.elf-qsort.o
+ .debug_info    0x0000000000000209      0x133 counter_la_qs.elf-counter_la_qs.o
 
 .debug_abbrev   0x0000000000000000      0x266
  .debug_abbrev  0x0000000000000000       0x14 counter_la_qs.elf-crt0_vex.o
@@ -161,13 +161,13 @@ OUTPUT(counter_la_qs.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000070       0x20 counter_la_qs.elf-counter_la_qs.o
 
-.debug_str      0x0000000000000000      0x16f
+.debug_str      0x0000000000000000      0x17c
  .debug_str     0x0000000000000000       0x63 counter_la_qs.elf-crt0_vex.o
  .debug_str     0x0000000000000063       0xd5 counter_la_qs.elf-isr.o
                                         0x10e (size before relaxing)
- .debug_str     0x0000000000000138       0x1b counter_la_qs.elf-qsort.o
-                                         0x84 (size before relaxing)
- .debug_str     0x0000000000000153       0x1c counter_la_qs.elf-counter_la_qs.o
+ .debug_str     0x0000000000000138       0x28 counter_la_qs.elf-qsort.o
+                                         0x91 (size before relaxing)
+ .debug_str     0x0000000000000160       0x1c counter_la_qs.elf-counter_la_qs.o
                                         0x124 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x1f8

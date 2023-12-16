@@ -1,0 +1,2 @@
+The "caravel.bit" and "caravel.hwh" have been replaced in 2023/12/16
+This round is implemented in another computer(with "vvd_caravel_fpga_40mhz.tcl" changing to "Performance_NetDelay_high"in line 1571), so other vivado files in "vivado_only_UART" directory are not updated, and we only update "caravel.bit" and "caravel.hwh" here.

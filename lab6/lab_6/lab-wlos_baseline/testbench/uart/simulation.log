@@ -12,15 +12,4 @@ tx data bit index 5: 1
 tx data bit index 6: 0
 tx data bit index 7: 0
 tx complete 2
-rx data bit index 0: 1
-rx data bit index 1: 0
-rx data bit index 2: 1
-rx data bit index 3: 1
-rx data bit index 4: 1
-rx data bit index 5: 1
-rx data bit index 6: 0
-rx data bit index 7: 0
-recevied word  61
-[1;31m
-Monitor: Timeout, Test LA (RTL) Failed
-[0m
+LA Test 1 passed

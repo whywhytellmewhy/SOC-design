@@ -16,7 +16,7 @@ Linker script and memory map
 
                 0x0000000000000000                __DYNAMIC = 0x0
 
-.text           0x0000000010000000      0x77c
+.text           0x0000000010000000      0x798
                 0x0000000010000000                _ftext = .
  *crt0*(.text)
  .text          0x0000000010000000      0x148 uart.elf-crt0_vex.o
@@ -25,33 +25,33 @@ Linker script and memory map
  *crt0*(.text)
  *(.text.isr)
                 0x0000000010000148                _etext = .
- .text          0x0000000010000148      0x15c uart.elf-isr.o
+ .text          0x0000000010000148      0x178 uart.elf-isr.o
                 0x0000000010000238                isr
- .text          0x00000000100002a4       0x38 uart.elf-uart.o
- .text          0x00000000100002dc      0x4a0 uart.elf-counter_la_uart.o
-                0x00000000100003cc                main
+ .text          0x00000000100002c0       0x38 uart.elf-uart.o
+ .text          0x00000000100002f8      0x4a0 uart.elf-counter_la_uart.o
+                0x00000000100003e8                main
 
-.mprj           0x000000001000077c      0x1ec
- .mprj          0x000000001000077c      0x1ec uart.elf-uart.o
-                0x000000001000077c                uart_write
-                0x00000000100007c4                uart_write_char
-                0x000000001000082c                uart_write_string
-                0x0000000010000880                uart_read_char
-                0x00000000100008f4                uart_read
+.mprj           0x0000000010000798      0x1ec
+ .mprj          0x0000000010000798      0x1ec uart.elf-uart.o
+                0x0000000010000798                uart_write
+                0x00000000100007e0                uart_write_char
+                0x0000000010000848                uart_write_string
+                0x000000001000089c                uart_read_char
+                0x0000000010000910                uart_read
 
-.rela.dyn       0x0000000010000968        0x0
- .rela.text     0x0000000010000968        0x0 uart.elf-crt0_vex.o
+.rela.dyn       0x0000000010000984        0x0
+ .rela.text     0x0000000010000984        0x0 uart.elf-crt0_vex.o
 
-.rodata         0x0000000010000968        0x0
-                0x0000000010000968                . = ALIGN (0x8)
- *fill*         0x0000000010000968        0x0 
-                0x0000000010000968                _frodata = .
+.rodata         0x0000000010000984        0x4
+                0x0000000010000988                . = ALIGN (0x8)
+ *fill*         0x0000000010000984        0x4 
+                0x0000000010000988                _frodata = .
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  *(.rodata1)
-                0x0000000010000968                . = ALIGN (0x8)
-                0x0000000010000968                _erodata = .
+                0x0000000010000988                . = ALIGN (0x8)
+                0x0000000010000988                _erodata = .
 
-.data           0x0000000000000000        0x8 load address 0x0000000010000968
+.data           0x0000000000000000        0x8 load address 0x0000000010000988
                 0x0000000000000000                . = ALIGN (0x8)
                 0x0000000000000000                _fdata = .
  *(.data .data.* .gnu.linkonce.d.*)
@@ -68,7 +68,7 @@ Linker script and memory map
  *fill*         0x0000000000000004        0x4 
                 0x0000000000000008                _edata = .
 
-.bss            0x0000000000000008        0x0 load address 0x0000000010000970
+.bss            0x0000000000000008        0x0 load address 0x0000000010000990
                 0x0000000000000008                . = ALIGN (0x8)
                 0x0000000000000008                _fbss = .
  *(.dynsbss)
@@ -85,15 +85,15 @@ Linker script and memory map
                 0x0000000000000008                _ebss = .
                 0x0000000000000008                _end = .
 
-.mprjram        0x0000000038000000        0x0 load address 0x0000000010000970
+.mprjram        0x0000000038000000        0x0 load address 0x0000000010000990
                 0x0000000038000000                . = ALIGN (0x8)
                 0x0000000038000000                _fsram = .
  *libgcc.a:*(.text .text.*)
                 0x0000000000000600                PROVIDE (_fstack = (ORIGIN (dff2) + LENGTH (dff2)))
-                0x0000000010000968                PROVIDE (_fdata_rom = LOADADDR (.data))
+                0x0000000010000988                PROVIDE (_fdata_rom = LOADADDR (.data))
                 [!provide]                        PROVIDE (_edata_rom = (LOADADDR (.data) + SIZEOF (.data)))
                 0x0000000038000000                PROVIDE (_esram = (ORIGIN (mprjram) + SIZEOF (.mprjram)))
-                0x0000000010000970                PROVIDE (_esram_rom = LOADADDR (.mprjram))
+                0x0000000010000990                PROVIDE (_esram_rom = LOADADDR (.mprjram))
 LOAD uart.elf-crt0_vex.o
 LOAD uart.elf-isr.o
 LOAD uart.elf-uart.o
@@ -123,11 +123,11 @@ OUTPUT(uart.elf elf32-littleriscv)
  .comment       0x000000000000001b       0x1c uart.elf-uart.o
  .comment       0x000000000000001b       0x1c uart.elf-counter_la_uart.o
 
-.debug_line     0x0000000000000000      0x9ee
+.debug_line     0x0000000000000000      0xa06
  .debug_line    0x0000000000000000      0x20a uart.elf-crt0_vex.o
- .debug_line    0x000000000000020a      0x151 uart.elf-isr.o
- .debug_line    0x000000000000035b      0x25e uart.elf-uart.o
- .debug_line    0x00000000000005b9      0x435 uart.elf-counter_la_uart.o
+ .debug_line    0x000000000000020a      0x169 uart.elf-isr.o
+ .debug_line    0x0000000000000373      0x25e uart.elf-uart.o
+ .debug_line    0x00000000000005d1      0x435 uart.elf-counter_la_uart.o
 
 .debug_line_str
                 0x0000000000000000       0xec

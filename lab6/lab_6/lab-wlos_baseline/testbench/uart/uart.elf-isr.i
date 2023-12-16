@@ -1669,6 +1669,11 @@ void isr(void)
     if ( irqs & (1 << 2)) {
         user_irq_0_ev_pending_write(1);
         buf = uart_read();
+
+        if (buf==10){
+            (*(volatile uint32_t*)0x2600000c) = 0xAB610000;
+        }
+
         uart_write(buf);
 
     }

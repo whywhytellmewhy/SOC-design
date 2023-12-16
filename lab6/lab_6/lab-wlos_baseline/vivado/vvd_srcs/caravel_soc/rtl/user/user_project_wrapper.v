@@ -13,7 +13,7 @@
 // limitations under the License.
 // SPDX-License-Identifier: Apache-2.0
 
-//`default_nettype none
+`default_nettype none
 /*
  *-------------------------------------------------------------
  *
@@ -120,4 +120,4 @@ user_proj_example mprj (
 
 endmodule	// user_project_wrapper
 
-//`default_nettype wire
+`default_nettype wire
