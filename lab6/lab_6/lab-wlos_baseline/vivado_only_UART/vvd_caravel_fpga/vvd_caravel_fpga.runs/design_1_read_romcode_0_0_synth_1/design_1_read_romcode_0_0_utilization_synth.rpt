@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date         : Sat Dec  9 17:28:56 2023
+| Date         : Sun Dec 17 03:37:49 2023
 | Host         : ubuntu2004 running 64-bit Ubuntu 20.04.4 LTS
 | Command      : report_utilization -file design_1_read_romcode_0_0_utilization_synth.rpt -pb design_1_read_romcode_0_0_utilization_synth.pb
 | Design       : design_1_read_romcode_0_0

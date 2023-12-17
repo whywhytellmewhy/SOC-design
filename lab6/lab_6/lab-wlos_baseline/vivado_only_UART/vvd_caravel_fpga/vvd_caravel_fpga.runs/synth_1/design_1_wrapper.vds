@@ -2,13 +2,13 @@
 # Vivado v2022.1 (64-bit)
 # SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
 # IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
-# Start of session at: Sat Dec  9 18:03:08 2023
-# Process ID: 36302
+# Start of session at: Sun Dec 17 03:41:16 2023
+# Process ID: 5052
 # Current directory: /home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1
 # Command line: vivado -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
 # Log file: /home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/design_1_wrapper.vds
 # Journal file: /home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/vivado.jou
-# Running On: ubuntu2004, OS: Linux, CPU Frequency: 2495.996 MHz, CPU Physical cores: 2, Host memory: 10425 MB
+# Running On: ubuntu2004, OS: Linux, CPU Frequency: 2496.000 MHz, CPU Physical cores: 2, Host memory: 10425 MB
 #-----------------------------------------------------------
 source design_1_wrapper.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
@@ -16,53 +16,49 @@ INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab_6/lab-wlos_b
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vitis_prj/hls_output_pin'.
 INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vitis_prj/hls_read_romcode'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2022.1/data/ip'.
-Command: read_checkpoint -auto_incremental -incremental /home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from /home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp for incremental synthesis
-INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+add_files: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2903.090 ; gain = 0.012 ; free physical = 4881 ; free virtual = 8420
 Command: synth_design -top design_1_wrapper -part xc7z020clg400-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Device 21-403] Loading part xc7z020clg400-1
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 36334
+INFO: [Synth 8-7075] Helper process launched with PID 5066
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2875.375 ; gain = 0.000 ; free physical = 131 ; free virtual = 767
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2903.090 ; gain = 0.000 ; free physical = 4120 ; free virtual = 7660
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'design_1_wrapper' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'design_1' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:12]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_intc_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_axi_intc_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_intc_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_axi_intc_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_intc_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_axi_intc_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_intc_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_axi_intc_0_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'design_1_axi_mem_intercon_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:737]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_7HNO1D' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:2511]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_auto_pc_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_us_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_auto_us_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_us_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_auto_us_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_auto_pc_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_us_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_auto_us_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_us_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_auto_us_0_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_7HNO1D' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:2511]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_mem_intercon_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:737]
-INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_axi_uartlite_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_axi_uartlite_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_blk_mem_gen_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_blk_mem_gen_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_blk_mem_gen_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_blk_mem_gen_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_axi_uartlite_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_axi_uartlite_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_axi_uartlite_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_axi_uartlite_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_blk_mem_gen_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_blk_mem_gen_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_blk_mem_gen_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_blk_mem_gen_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'rsta_busy' of module 'design_1_blk_mem_gen_0_0' is unconnected for instance 'blk_mem_gen_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:348]
 WARNING: [Synth 8-7071] port 'rstb_busy' of module 'design_1_blk_mem_gen_0_0' is unconnected for instance 'blk_mem_gen_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:348]
 WARNING: [Synth 8-7023] instance 'blk_mem_gen_0' of module 'design_1_blk_mem_gen_0_0' has 16 connections declared, but only 14 given [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:348]
-INFO: [Synth 8-6157] synthesizing module 'design_1_caravel_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_caravel_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_caravel_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_caravel_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_caravel_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_caravel_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_caravel_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_caravel_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'gpio' of module 'design_1_caravel_0_0' is unconnected for instance 'caravel_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:363]
 WARNING: [Synth 8-7023] instance 'caravel_0' of module 'design_1_caravel_0_0' has 10 connections declared, but only 9 given [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:363]
-INFO: [Synth 8-6157] synthesizing module 'design_1_caravel_ps_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_caravel_ps_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_caravel_ps_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_caravel_ps_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_caravel_ps_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_caravel_ps_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_caravel_ps_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_caravel_ps_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'mprj_in' of module 'design_1_caravel_ps_0_0' is unconnected for instance 'caravel_ps_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:373]
 WARNING: [Synth 8-7023] instance 'caravel_ps_0' of module 'design_1_caravel_ps_0_0' has 22 connections declared, but only 21 given [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:373]
-INFO: [Synth 8-6157] synthesizing module 'design_1_output_pin_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_output_pin_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_output_pin_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_output_pin_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_processing_system7_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_processing_system7_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_output_pin_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_output_pin_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_output_pin_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_output_pin_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_processing_system7_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_processing_system7_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_processing_system7_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_processing_system7_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:416]
 WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:416]
 WARNING: [Synth 8-7071] port 'S_AXI_HP0_AWREADY' of module 'design_1_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:416]
@@ -88,17 +84,17 @@ INFO: [Synth 8-6155] done synthesizing module 'm03_couplers_imp_YFYJ3U' (0#1) [/
 INFO: [Synth 8-6157] synthesizing module 'm04_couplers_imp_17KQ732' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:2379]
 INFO: [Synth 8-6155] done synthesizing module 'm04_couplers_imp_17KQ732' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:2379]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_UYSKKA' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:2734]
-INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_auto_pc_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_auto_pc_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_auto_pc_1' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_auto_pc_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_auto_pc_1' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_auto_pc_1_stub.v:5]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_UYSKKA' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:2734]
-INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_xbar_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_xbar_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_xbar_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_xbar_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_xbar_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_xbar_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'm_axi_awprot' of module 'design_1_xbar_0' is unconnected for instance 'xbar' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:1810]
 WARNING: [Synth 8-7071] port 'm_axi_arprot' of module 'design_1_xbar_0' is unconnected for instance 'xbar' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:1810]
 WARNING: [Synth 8-7023] instance 'xbar' of module 'design_1_xbar_0' has 40 connections declared, but only 38 given [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:1810]
 INFO: [Synth 8-6155] done synthesizing module 'design_1_ps7_0_axi_periph_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:922]
-INFO: [Synth 8-6157] synthesizing module 'design_1_read_romcode_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_read_romcode_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_read_romcode_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_read_romcode_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_read_romcode_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_read_romcode_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_read_romcode_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_read_romcode_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'interrupt' of module 'design_1_read_romcode_0_0' is unconnected for instance 'read_romcode_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:654]
 WARNING: [Synth 8-7071] port 'm_axi_BUS0_AWADDR' of module 'design_1_read_romcode_0_0' is unconnected for instance 'read_romcode_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:654]
 WARNING: [Synth 8-7071] port 'm_axi_BUS0_AWLEN' of module 'design_1_read_romcode_0_0' is unconnected for instance 'read_romcode_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:654]
@@ -116,14 +112,14 @@ WARNING: [Synth 8-7071] port 'm_axi_BUS0_WLAST' of module 'design_1_read_romcode
 WARNING: [Synth 8-7071] port 'm_axi_BUS0_WVALID' of module 'design_1_read_romcode_0_0' is unconnected for instance 'read_romcode_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:654]
 WARNING: [Synth 8-7071] port 'm_axi_BUS0_BREADY' of module 'design_1_read_romcode_0_0' is unconnected for instance 'read_romcode_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:654]
 WARNING: [Synth 8-7023] instance 'read_romcode_0' of module 'design_1_read_romcode_0_0' has 62 connections declared, but only 46 given [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:654]
-INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_10M_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_rst_ps7_0_10M_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_10M_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_rst_ps7_0_10M_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_rst_ps7_0_10M_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_rst_ps7_0_10M_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_rst_ps7_0_10M_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_rst_ps7_0_10M_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'mb_reset' of module 'design_1_rst_ps7_0_10M_0' is unconnected for instance 'rst_ps7_0_10M' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:701]
 WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'design_1_rst_ps7_0_10M_0' is unconnected for instance 'rst_ps7_0_10M' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:701]
 WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'design_1_rst_ps7_0_10M_0' is unconnected for instance 'rst_ps7_0_10M' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:701]
 WARNING: [Synth 8-7023] instance 'rst_ps7_0_10M' of module 'design_1_rst_ps7_0_10M_0' has 10 connections declared, but only 7 given [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/synth/design_1.v:701]
-INFO: [Synth 8-6157] synthesizing module 'design_1_spiflash_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_spiflash_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_spiflash_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-36302-ubuntu2004/realtime/design_1_spiflash_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_spiflash_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_spiflash_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_spiflash_0_0' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/.Xil/Vivado-5052-ubuntu2004/realtime/design_1_spiflash_0_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'design_1_xlconcat_0_0' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ip/design_1_xlconcat_0_0/synth/design_1_xlconcat_0_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat' (0#1) [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.gen/sources_1/bd/design_1/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
@@ -244,18 +240,18 @@ WARNING: [Synth 8-7129] Port In64[0] in module xlconcat_v2_1_4_xlconcat is eithe
 WARNING: [Synth 8-7129] Port In65[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2875.375 ; gain = 0.000 ; free physical = 1190 ; free virtual = 1755
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2903.090 ; gain = 0.000 ; free physical = 4167 ; free virtual = 7707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2875.375 ; gain = 0.000 ; free physical = 1188 ; free virtual = 1755
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2903.090 ; gain = 0.000 ; free physical = 4167 ; free virtual = 7707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2875.375 ; gain = 0.000 ; free physical = 1188 ; free virtual = 1755
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2903.090 ; gain = 0.000 ; free physical = 4167 ; free virtual = 7707
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2875.375 ; gain = 0.000 ; free physical = 1150 ; free virtual = 1761
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2903.090 ; gain = 0.000 ; free physical = 4167 ; free virtual = 7707
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -292,23 +288,21 @@ Parsing XDC File [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_cara
 Finished Parsing XDC File [/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2891.371 ; gain = 0.000 ; free physical = 1063 ; free virtual = 1755
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2919.086 ; gain = 0.000 ; free physical = 4092 ; free virtual = 7632
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2891.371 ; gain = 0.000 ; free physical = 1061 ; free virtual = 1755
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2919.086 ; gain = 0.000 ; free physical = 4092 ; free virtual = 7632
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'design_1_i/blk_mem_gen_0' at clock pin 'clkb' is different from the actual clock period '10.000', this can lead to different synthesis results.
-INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
-INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 1096 ; free virtual = 1794
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4154 ; free virtual = 7694
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 1096 ; free virtual = 1794
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4154 ; free virtual = 7694
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -595,10 +589,10 @@ Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/xlconcat_0. (constrain
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/xlconstant_0. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for design_1_i/xlconstant_1. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 1096 ; free virtual = 1795
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4154 ; free virtual = 7694
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 1096 ; free virtual = 1796
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4154 ; free virtual = 7695
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -621,25 +615,25 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 1096 ; free virtual = 1805
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4153 ; free virtual = 7699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 974 ; free virtual = 1694
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4064 ; free virtual = 7609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 974 ; free virtual = 1693
+Finished Timing Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4064 ; free virtual = 7609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 957 ; free virtual = 1676
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4046 ; free virtual = 7592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -657,37 +651,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 957 ; free virtual = 1677
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4046 ; free virtual = 7592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 957 ; free virtual = 1677
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4046 ; free virtual = 7592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 957 ; free virtual = 1677
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4046 ; free virtual = 7592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 957 ; free virtual = 1677
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4046 ; free virtual = 7592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 957 ; free virtual = 1677
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4046 ; free virtual = 7592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 957 ; free virtual = 1677
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4046 ; free virtual = 7592
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -732,24 +726,24 @@ Report Cell Usage:
 |14    |design_1_xbar                 |     1|
 +------+------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2891.371 ; gain = 15.996 ; free physical = 957 ; free virtual = 1677
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2919.086 ; gain = 15.996 ; free physical = 4046 ; free virtual = 7592
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 55 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2891.371 ; gain = 0.000 ; free physical = 1003 ; free virtual = 1723
-Synthesis Optimization Complete : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2891.379 ; gain = 15.996 ; free physical = 1003 ; free virtual = 1724
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 2919.086 ; gain = 0.000 ; free physical = 4095 ; free virtual = 7641
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 2919.094 ; gain = 15.996 ; free physical = 4095 ; free virtual = 7641
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2891.379 ; gain = 0.000 ; free physical = 1003 ; free virtual = 1729
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2919.094 ; gain = 0.000 ; free physical = 4179 ; free virtual = 7725
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2891.379 ; gain = 0.000 ; free physical = 1016 ; free virtual = 1776
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2919.094 ; gain = 0.000 ; free physical = 4128 ; free virtual = 7674
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 Synth Design complete, checksum: 27ac4423
 INFO: [Common 17-83] Releasing license: Synthesis
-90 Infos, 146 Warnings, 0 Critical Warnings and 0 Errors encountered.
+84 Infos, 146 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:17 . Memory (MB): peak = 2891.379 ; gain = 16.004 ; free physical = 1201 ; free virtual = 1962
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:31 . Memory (MB): peak = 2919.094 ; gain = 16.004 ; free physical = 4306 ; free virtual = 7852
 INFO: [Common 17-1381] The checkpoint '/home/ubuntu/lab_6/lab-wlos_baseline/vivado_only_UART/vvd_caravel_fpga/vvd_caravel_fpga.runs/synth_1/design_1_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Dec  9 18:03:36 2023...
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 17 03:42:02 2023...

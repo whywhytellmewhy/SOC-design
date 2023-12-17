@@ -21,64 +21,6 @@
   <key id="VT" for="node" attr.name="vert_type" attr.type="string"/>
   <graph id="G" edgedefault="undirected" parse.nodeids="canonical" parse.edgeids="canonical" parse.order="nodesfirst">
     <node id="n0">
-      <data key="VM">design_1</data>
-      <data key="VT">BC</data>
-    </node>
-    <node id="n1">
-      <data key="BA">0x40000000</data>
-      <data key="BP">C_S_AXI_CONTROL_BASEADDR</data>
-      <data key="HA">0x4000FFFF</data>
-      <data key="HP">C_S_AXI_CONTROL_HIGHADDR</data>
-      <data key="MA">Data</data>
-      <data key="MX">/processing_system7_0</data>
-      <data key="MI">M_AXI_GP0</data>
-      <data key="MS">SEG_caravel_ps_0_Reg</data>
-      <data key="MV">xilinx.com:ip:processing_system7:5.5</data>
-      <data key="TM">both</data>
-      <data key="SX">/caravel_ps_0</data>
-      <data key="SI">s_axi_control</data>
-      <data key="SS">Reg</data>
-      <data key="SV">xilinx.com:hls:caravel_ps:0.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n2">
-      <data key="BA">0x0000000000000000</data>
-      <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x000000001FFFFFFF</data>
-      <data key="HP">C_HIGHADDR</data>
-      <data key="MA">Data_m_axi_BUS0</data>
-      <data key="MX">/read_romcode_0</data>
-      <data key="MI">m_axi_BUS0</data>
-      <data key="MS">SEG_processing_system7_0_HP0_DDR_LOWOCM</data>
-      <data key="MV">xilinx.com:hls:read_romcode:0.0</data>
-      <data key="TM">both</data>
-      <data key="SX">/processing_system7_0</data>
-      <data key="SI">S_AXI_HP0</data>
-      <data key="SS">HP0_DDR_LOWOCM</data>
-      <data key="SV">xilinx.com:ip:processing_system7:5.5</data>
-      <data key="TU">memory</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n3">
-      <data key="BA">0x40020000</data>
-      <data key="BP">C_S_AXI_CONTROL_BASEADDR</data>
-      <data key="HA">0x4002FFFF</data>
-      <data key="HP">C_S_AXI_CONTROL_HIGHADDR</data>
-      <data key="MA">Data</data>
-      <data key="MX">/processing_system7_0</data>
-      <data key="MI">M_AXI_GP0</data>
-      <data key="MS">SEG_read_romcode_0_Reg</data>
-      <data key="MV">xilinx.com:ip:processing_system7:5.5</data>
-      <data key="TM">both</data>
-      <data key="SX">/read_romcode_0</data>
-      <data key="SI">s_axi_control</data>
-      <data key="SS">Reg</data>
-      <data key="SV">xilinx.com:hls:read_romcode:0.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n4">
       <data key="BA">0x40010000</data>
       <data key="BP">C_S_AXI_CONTROL_BASEADDR</data>
       <data key="HA">0x4001FFFF</data>
@@ -96,7 +38,11 @@
       <data key="TU">register</data>
       <data key="VT">AC</data>
     </node>
-    <node id="n5">
+    <node id="n1">
+      <data key="VM">design_1</data>
+      <data key="VT">BC</data>
+    </node>
+    <node id="n2">
       <data key="BA">0x41200000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x4120FFFF</data>
@@ -114,17 +60,30 @@
       <data key="TU">register</data>
       <data key="VT">AC</data>
     </node>
-    <node id="n6">
-      <data key="VH">2</data>
-      <data key="VM">design_1</data>
-      <data key="VT">VR</data>
+    <node id="n3">
+      <data key="BA">0x0000000000000000</data>
+      <data key="BP">C_BASEADDR</data>
+      <data key="HA">0x000000001FFFFFFF</data>
+      <data key="HP">C_HIGHADDR</data>
+      <data key="MA">Data_m_axi_BUS0</data>
+      <data key="MX">/read_romcode_0</data>
+      <data key="MI">m_axi_BUS0</data>
+      <data key="MS">SEG_processing_system7_0_HP0_DDR_LOWOCM</data>
+      <data key="MV">xilinx.com:hls:read_romcode:0.0</data>
+      <data key="TM">both</data>
+      <data key="SX">/processing_system7_0</data>
+      <data key="SI">S_AXI_HP0</data>
+      <data key="SS">HP0_DDR_LOWOCM</data>
+      <data key="SV">xilinx.com:ip:processing_system7:5.5</data>
+      <data key="TU">memory</data>
+      <data key="VT">AC</data>
     </node>
-    <node id="n7">
+    <node id="n4">
       <data key="TU">active</data>
       <data key="VH">2</data>
       <data key="VT">PM</data>
     </node>
-    <node id="n8">
+    <node id="n5">
       <data key="BA">0x40030000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x4003FFFF</data>
@@ -142,24 +101,65 @@
       <data key="TU">register</data>
       <data key="VT">AC</data>
     </node>
-    <edge id="e0" source="n0" target="n6"/>
-    <edge id="e1" source="n6" target="n7"/>
-    <edge id="e2" source="n5" target="n7">
+    <node id="n6">
+      <data key="BA">0x40020000</data>
+      <data key="BP">C_S_AXI_CONTROL_BASEADDR</data>
+      <data key="HA">0x4002FFFF</data>
+      <data key="HP">C_S_AXI_CONTROL_HIGHADDR</data>
+      <data key="MA">Data</data>
+      <data key="MX">/processing_system7_0</data>
+      <data key="MI">M_AXI_GP0</data>
+      <data key="MS">SEG_read_romcode_0_Reg</data>
+      <data key="MV">xilinx.com:ip:processing_system7:5.5</data>
+      <data key="TM">both</data>
+      <data key="SX">/read_romcode_0</data>
+      <data key="SI">s_axi_control</data>
+      <data key="SS">Reg</data>
+      <data key="SV">xilinx.com:hls:read_romcode:0.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n7">
+      <data key="BA">0x40000000</data>
+      <data key="BP">C_S_AXI_CONTROL_BASEADDR</data>
+      <data key="HA">0x4000FFFF</data>
+      <data key="HP">C_S_AXI_CONTROL_HIGHADDR</data>
+      <data key="MA">Data</data>
+      <data key="MX">/processing_system7_0</data>
+      <data key="MI">M_AXI_GP0</data>
+      <data key="MS">SEG_caravel_ps_0_Reg</data>
+      <data key="MV">xilinx.com:ip:processing_system7:5.5</data>
+      <data key="TM">both</data>
+      <data key="SX">/caravel_ps_0</data>
+      <data key="SI">s_axi_control</data>
+      <data key="SS">Reg</data>
+      <data key="SV">xilinx.com:hls:caravel_ps:0.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n8">
+      <data key="VH">2</data>
+      <data key="VM">design_1</data>
+      <data key="VT">VR</data>
+    </node>
+    <edge id="e0" source="n1" target="n8"/>
+    <edge id="e1" source="n8" target="n4"/>
+    <edge id="e2" source="n2" target="n4">
       <data key="EH">2</data>
     </edge>
-    <edge id="e3" source="n8" target="n7">
+    <edge id="e3" source="n5" target="n4">
       <data key="EH">2</data>
     </edge>
-    <edge id="e4" source="n1" target="n7">
+    <edge id="e4" source="n7" target="n4">
       <data key="EH">2</data>
     </edge>
-    <edge id="e5" source="n4" target="n7">
+    <edge id="e5" source="n0" target="n4">
       <data key="EH">2</data>
     </edge>
-    <edge id="e6" source="n3" target="n7">
+    <edge id="e6" source="n6" target="n4">
       <data key="EH">2</data>
     </edge>
-    <edge id="e7" source="n2" target="n7">
+    <edge id="e7" source="n3" target="n4">
       <data key="EH">2</data>
     </edge>
   </graph>
