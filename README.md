@@ -89,3 +89,36 @@ This repository is created on 2023.9.30
    2. 執行`source run_vitis.sh`產生high-level synthesis (HLS)合成後的檔案
    3. 執行`source run_vivado.sh`產生counter example的bitstream及相關檔案
    4. 執行`source run_vivado_gcd.sh`產生gcd example的bitstream及相關檔案
+
+## Lab 6 (Team work)
+1. 在其中的`/lab_6`為實作過程中完整的資料，而在外層的檔案則是從其中複製出workbook中所提到的相關檔案，和實作過程中的相關備份檔案，其對應路徑如下表所示：
+   | 分類 | 名稱 | 原路徑 |
+   |:---------:|:---------:|:----------:|
+   | Firmware code<br/>(that we integrate all tasks) | /firmware/counter_la_uart.c | /lab_6/lab-wlos_baseline/testbench/lab6_integration/counter_la_uart.c |
+   | Firmware code | /firmware/isr.c | /lab_6/lab-wlos_baseline/firmware/isr.c |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/only UART/caravel_fpga.bit | /lab_6/lab-wlos_baseline/vivado_only_UART/jupyter_notebook/caravel_fpga.bit |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/only UART/caravel_fpga.hwh | /lab_6/lab-wlos_baseline/vivado_only_UART/jupyter_notebook/caravel_fpga.hwh |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/only UART/caravel_fpga_uart.ipynb | /lab_6/lab-wlos_baseline/vivado_only_UART/jupyter_notebook/caravel_fpga_uart.ipynb |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/only UART/uartlite.py | /lab_6/lab-wlos_baseline/vivado_only_UART/jupyter_notebook/uartlite.py |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/only UART/uart.hex | /lab_6/lab-wlos_baseline/testbench/uart/uart.hex |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/lab6 implementation/caravel_fpga.bit | /lab_6/lab-wlos_baseline/vivado/jupyter_notebook/caravel_fpga.bit |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/lab6 implementation/caravel_fpga.hwh | /lab_6/lab-wlos_baseline/vivado/jupyter_notebook/caravel_fpga.hwh |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/lab6 implementation/caravel_fpga_uart.ipynb | /lab_6/lab-wlos_baseline/vivado/jupyter_notebook/caravel_fpga_uart.ipynb |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/lab6 implementation/uartlite.py | /lab_6/lab-wlos_baseline/vivado/jupyter_notebook/uartlite.py |
+   | FPGA<br/>(required files) | /Required_files_for_FPGA/lab6 implementation/uart.hex | /lab_6/lab-wlos_baseline/testbench/lab6_integration/uart.hex |
+   
+3. 實作上主要修改到的檔案：
+   | 分類 | 名稱 | 路徑 |
+   |:---------:|:---------:|:----------:|
+   | Hardware | uart.v | /lab_6/lab-wlos_baseline/rtl/user/uart.v |
+   | Firmware | counter_la_uart.c | /lab_6/lab-wlos_baseline/testbench/lab6_integration/counter_la_uart.c |
+   | Firmware | isr.c | /lab_6/lab-wlos_baseline/firmware/isr.c |
+   | Testbench | uart_tb.v | /lab_6/lab-wlos_baseline/testbench/lab6_integration/uart_tb.v |
+   | onlineFPGA | caravel_fpga_uart.ipynb | /lab_6/lab-wlos_baseline/vivado/jupyter_notebook/caravel_fpga_uart.ipynb |
+   
+5. 沒有上傳下列「有被git clone過來但實作過程中沒有動到」的檔案：`Lab6-wlos-baseline_workbook.pdf`、`pg142-axi-uartlite.pdf`、`README.md`
+6. 沒有上傳下列「檔案太大(超過100MB)」的檔案：`/lab_6/lab-wlos_baseline/testbench/counter_la_fir/counter_la_fir.vcd`、`/lab_6/lab-wlos_baseline/testbench/counter_la_mm/counter_la_mm.vcd`、`/lab_6/lab-wlos_baseline/testbench/counter_la_qs/counter_la_qs.vcd`、`/lab_6/lab-wlos_baseline/testbench/uart/uart.vcd`、`/lab_6/lab-wlos_baseline/testbench/lab6_integration/uart.vcd`
+7. `/Related_files_during_Jupyter_Notebook_implementation`為onlineFPGA的實作過程中的相關備份資料
+
+
+
