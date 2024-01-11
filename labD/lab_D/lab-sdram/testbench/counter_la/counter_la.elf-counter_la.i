@@ -1,5 +1,5 @@
 # 0 "counter_la.c"
-# 1 "/home/ubuntu/LAB/github_teamsync/SOC-design/labD/lab_D/lab-sdram/testbench/counter_la//"
+# 1 "/home/ubuntu/LAB/github_teamsync/test/SOC-design/labD/lab_D/lab-sdram/testbench/counter_la//"
 # 0 "<built-in>"
 # 0 "<command-line>"
 # 1 "counter_la.c"
