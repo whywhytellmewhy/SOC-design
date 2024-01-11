@@ -89,7 +89,7 @@ module user_proj_example #(
     wire [31:0] d2c_data;
     wire [31:0] c2d_data;
     wire [3:0]  bram_mask;
-    wire decoded;
+
     wire [22:0] ctrl_addr;
     wire ctrl_busy;
     wire ctrl_in_valid, ctrl_out_valid;
@@ -117,6 +117,7 @@ module user_proj_example #(
     assign clk = (~la_oenb[64]) ? la_data_in[64]: wb_clk_i;
     assign rst = (~la_oenb[65]) ? la_data_in[65]: wb_rst_i;
     assign rst_n = ~rst;
+
     always @(posedge clk) begin
         if (rst) begin
             ctrl_in_valid_q <= 1'b0;

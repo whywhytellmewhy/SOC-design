@@ -41,8 +41,8 @@ module sdram_controller (
     // BA (Bank Address) - 9:8
     // RA (Row Address)  - 22:10
     // CA (Col Address)  - 2'b0, 1'b0, <7:0>, 2'b0
-    `define BA      11:10
-    `define RA      9:8
+    `define BA      9:8
+    `define RA      22:10
     `define CA      7:0
 
     // Address Remap
@@ -81,8 +81,7 @@ module sdram_controller (
                READ = 4'd9,
                READ_RES = 4'd10,
                WRITE = 4'd11,
-               PRECHARGE = 4'd12,
-               PREFETCH = 4'd13;
+               PRECHARGE = 4'd12;
     
     // registers for SDRAM signals
     reg cle_d, cle_q;
@@ -109,9 +108,9 @@ module sdram_controller (
     reg [STATE_SIZE-1:0] state_d, state_q;
     reg [STATE_SIZE-1:0] next_state_d, next_state_q;
 
-    reg [22:0] addr_d, addr_q, fetch_a1, fetch_a2, fetch_a3;
-    reg [31:0] data_d, data_q, fetch_d1, fetch_d2, fetch_d3, prefetch_data;
-    reg out_valid_d, out_valid_q, prefetch_check;
+    reg [22:0] addr_d, addr_q;
+    reg [31:0] data_d, data_q;
+    reg out_valid_d, out_valid_q;
 
     reg [15:0] delay_ctr_d, delay_ctr_q;
 
@@ -130,10 +129,10 @@ module sdram_controller (
 
     reg [2:0] precharge_bank_d, precharge_bank_q;
     integer i;
-    reg [1:0] fetch_count_d, fetch_count_q;
-    assign data_out = prefetch_check ? prefetch_data : data_q;
+
+    assign data_out = data_q;
     assign busy = !ready_q;
-    assign out_valid = out_valid_q | prefetch_check;
+    assign out_valid = out_valid_q;
     
     always @* begin
         // Default values
@@ -153,8 +152,7 @@ module sdram_controller (
         out_valid_d = 1'b0;
         precharge_bank_d = precharge_bank_q;
         rw_op_d = rw_op_q;
-        prefetch_check = 0;
-        fetch_count_d = 2'd0;
+
         row_open_d = row_open_q;
 
         // row_addr is a 2d array and must be coppied this way
@@ -220,7 +218,6 @@ module sdram_controller (
             end
             WAIT: begin
                 delay_ctr_d = delay_ctr_q - 1'b1;
-                    
                 if (delay_ctr_q == 13'd0) begin
                     state_d = next_state_q;
                     // if (next_state_q == WRITE) begin
@@ -228,32 +225,6 @@ module sdram_controller (
                     //     dq_d = data_q[7:0];
                     // end
                 end
-            end
-            PREFETCH: begin
-                delay_ctr_d = delay_ctr_q - 1'b1;
-                case (delay_ctr_q[1:0])
-                    2'd2: begin
-                        cmd_d = CMD_READ;
-                        a_d = {2'b0, 1'b0, fetch_a1[7:0], 2'b00};
-                        ba_d = fetch_a1[9:8];
-                    end
-                    2'd1: begin
-                        cmd_d = CMD_READ;
-                        a_d = {2'b0, 1'b0, fetch_a2[7:0], 2'b00};
-                        ba_d = fetch_a2[9:8];
-                    end
-                    2'd0: begin
-                        cmd_d = CMD_READ;
-                        a_d = {2'b0, 1'b0, fetch_a3[7:0], 2'b00};
-                        ba_d = fetch_a3[9:8];                    
-                        state_d = next_state_q;
-                    end
-                    default: begin
-                        cmd_d = CMD_READ;
-                        a_d = {2'b0, 1'b0, 8'd0, 2'b0};
-                        ba_d = 2'b00;
-                    end
-                endcase
             end
 
             ///// IDLE STATE /////
@@ -263,16 +234,7 @@ module sdram_controller (
                     next_state_d = REFRESH;
                     precharge_bank_d = 3'b100; // all banks
                     refresh_flag_d = 1'b0; // clear the refresh flag
-                end   
-                else if (ready_q && fetch_count_q == 2'd3) begin
-                    fetch_d1 = dqi_q;
-                    fetch_count_d = 2'd2;
-                end
-                else if (ready_q && fetch_count_q == 2'd2) begin
-                    fetch_d2 = dqi_q;
-                    fetch_count_d = 2'd1;
-                end                    
-                else if (!ready_q) begin // operation waiting
+                end else if (!ready_q) begin // operation waiting
                     ready_d = 1'b1; // clear the queue
                     rw_op_d = saved_rw_q; // save the values we'll need later
                     addr_d = saved_addr_q;
@@ -286,61 +248,15 @@ module sdram_controller (
                             // Row is already open
                             if (saved_rw_q)
                                 state_d = WRITE;
-                            else if(fetch_count_q == 2'd1)begin
-                                fetch_d3 = dqi_q;
-                                fetch_count_d = 2'd0;
-                                if(saved_addr_q == fetch_a1)begin
-                                    prefetch_data = fetch_d1;
-                                    prefetch_check = 1;
-                                    state_d = IDLE;
-                                end
-                                else if(saved_addr_q == fetch_a2)begin
-                                    prefetch_data = fetch_d2;
-                                    prefetch_check = 1;
-                                    state_d = IDLE;
-                                end
-                                else if(saved_addr_q == fetch_a3)begin
-                                    prefetch_data = fetch_d3;
-                                    prefetch_check = 1;
-                                    state_d = IDLE;
-                                end         
-                                else begin
-                                    prefetch_check = 0;
-                                    state_d = READ;
-                                end                                                      
-                            end
-                            else if(fetch_count_q == 2'd0)begin
-                                if(saved_addr_q == fetch_a1)begin
-                                    prefetch_data = fetch_d1;
-                                    prefetch_check = 1;
-                                    state_d = IDLE;
-                                end
-                                else if(saved_addr_q == fetch_a2)begin
-                                    prefetch_data = fetch_d2;
-                                    prefetch_check = 1;
-                                    state_d = IDLE;
-                                end
-                                else if(saved_addr_q == fetch_a3)begin
-                                    prefetch_data = fetch_d3;
-                                    prefetch_check = 1;
-                                    state_d = IDLE;
-                                end         
-                                else begin
-                                    prefetch_check = 0;
-                                    state_d = READ;
-                                end                                                      
-                            end                                                          
                             else
                                 state_d = READ;
-                        end
-                        else begin
+                        end else begin
                             // A different row in the bank is open
                             state_d = PRECHARGE; // precharge open row
                             precharge_bank_d = {1'b0, saved_addr_q[9:8]};
                             next_state_d = ACTIVATE; // open current row
                         end
-                    end
-                    else begin
+                    end else begin
                         // no rows open
                         state_d = ACTIVATE; // open the row
                     end
@@ -383,12 +299,10 @@ module sdram_controller (
             ///// READ /////
             READ: begin
                 cmd_d = CMD_READ;
-                a_d = {2'b0, 1'b0, addr_q[7:0], 2'b00};
+                // a_d = {2'b0, 1'b0, addr_q[7:0], 2'b0};
+                a_d = {7'b0, addr_q[7:2]};
                 ba_d = addr_q[9:8];
-                fetch_a1 = {addr_q[22:8],addr_q[7:0]+8'd4};
-                fetch_a2 = {addr_q[22:8],addr_q[7:0]+8'd8};
-                fetch_a3 = {addr_q[22:8],addr_q[7:0]+8'd12};
-                state_d = PREFETCH;
+                state_d = WAIT;
 
                 // Jiin
                 // delay_ctr_d = 13'd2; // wait for the data to show up
@@ -401,7 +315,6 @@ module sdram_controller (
                 data_d = dqi_q; // data_d by pass
                 out_valid_d = 1'b1;
                 state_d = IDLE;
-                fetch_count_d = 2'd3;
             end
 
             ///// WRITE /////
@@ -411,11 +324,11 @@ module sdram_controller (
                 dq_d = data_q;
                 // data_d = data_q;
                 dq_en_d = 1'b1; // enable out bus
-                a_d = {2'b0, 1'b0, addr_q[7:0], 2'b00};
+                // a_d = {2'b0, 1'b0, addr_q[7:0], 2'b00};
+                a_d = {7'b0, addr_q[7:2]};
                 ba_d = addr_q[9:8];
-                delay_ctr_d = tCASL;
-                state_d = WAIT;
-                next_state_d = IDLE;
+
+                state_d = IDLE;
             end
 
             ///// PRECHARGE /////
@@ -446,13 +359,11 @@ module sdram_controller (
             dq_en_q <= 1'b0;
             state_q <= INIT;
             ready_q <= 1'b0;
-            fetch_count_q <= 2'd0;
         end else begin
             cle_q <= cle_d;
             dq_en_q <= dq_en_d;
             state_q <= state_d;
             ready_q <= ready_d;
-            fetch_count_q <= fetch_count_d;
         end
 
         saved_rw_q <= saved_rw_d;

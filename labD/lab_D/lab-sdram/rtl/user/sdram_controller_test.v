@@ -133,33 +133,6 @@ module sdram_controller (
     assign data_out = data_q;
     assign busy = !ready_q;
     assign out_valid = out_valid_q;
-
-
-
-    /////////////////prefetch declaration/////////////////
-    reg [22:0] prefetch_addr;
-    reg        prefetch ;
-
-    /////////////////wei modify --add prefetch/////////////////////////
-
-    always @(posedge clk) begin
-        if(in_valid) prefetch_addr <= addr + 22'd4;
-        else if(!in_valid && out_valid_q) prefetch_addr <= 0;
-    end
-
-    always @(posedge clk) begin
-        if((prefetch_addr == addr) && in_valid && ~rw) prefetch <= 1'b1;
-        else if((prefetch_addr != addr) && in_valid && ~rw) prefetch <= 1'b0;
-        else prefetch <= 1'b0;
-    end
-
-
-
-
-    //////////////////////////////////////////////////////
-
-
-
     
     always @* begin
         // Default values
@@ -269,9 +242,6 @@ module sdram_controller (
                     if (saved_rw_q) // Write
                         data_d = saved_data_q;
 
-
-/////////////////////////////////////////wei modify/////////
-
                     // if the row is open we don't have to activate it
                     if (row_open_q[saved_addr_q[9:8]]) begin
                         if (row_addr_q[saved_addr_q[9:8]] == saved_addr_q[22:10]) begin
@@ -280,19 +250,12 @@ module sdram_controller (
                                 state_d = WRITE;
                             else
                                 state_d = READ;
-                        end 
-                        
-                        else if(prefetch)
-                                state_d = READ;
-                        
-                        else begin
+                        end else begin
                             // A different row in the bank is open
                             state_d = PRECHARGE; // precharge open row
                             precharge_bank_d = {1'b0, saved_addr_q[9:8]};
                             next_state_d = ACTIVATE; // open current row
                         end
-
-////////////////////////////////////////////////////////////////////////////
                     end else begin
                         // no rows open
                         state_d = ACTIVATE; // open the row
@@ -336,8 +299,7 @@ module sdram_controller (
             ///// READ /////
             READ: begin
                 cmd_d = CMD_READ;
-                // a_d = {2'b0, 1'b0, addr_q[7:0], 2'b0};
-                a_d = {7'b0, addr_q[7:2]};
+                a_d = {2'b0, 1'b0, addr_q[7:0], 2'b0};
                 ba_d = addr_q[9:8];
                 state_d = WAIT;
 
@@ -361,8 +323,7 @@ module sdram_controller (
                 dq_d = data_q;
                 // data_d = data_q;
                 dq_en_d = 1'b1; // enable out bus
-                // a_d = {2'b0, 1'b0, addr_q[7:0], 2'b00};
-                a_d = {7'b0, addr_q[7:2]};
+                a_d = {2'b0, 1'b0, addr_q[7:0], 2'b00};
                 ba_d = addr_q[9:8];
 
                 state_d = IDLE;
