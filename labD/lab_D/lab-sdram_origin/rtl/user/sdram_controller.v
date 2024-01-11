@@ -135,7 +135,7 @@ module sdram_controller (
     assign out_valid = out_valid_q;
     
     always @* begin
-        // Default values
+        // Default values.
         dq_d = dq_q;
         dqi_d = sdram_dqi;
         dq_en_d = 1'b0; // normally keep the bus in high-Z
