@@ -3,7 +3,7 @@ module SDRAM_arbiter (
         input   rst,
 
         
-        // CPU WB interface
+        /*// CPU WB interface
         //input wb_clk_i,
         //input wb_rst_i,
         input wbs_stb_i_CPU,
@@ -14,6 +14,7 @@ module SDRAM_arbiter (
         input [31:0] wbs_adr_i_CPU,
         output wbs_ack_o_CPU,
         output [31:0] wbs_dat_o_CPU,
+
 
         // FIR WB interface
         //input wb_clk_i,
@@ -37,24 +38,614 @@ module SDRAM_arbiter (
         input [31:0] wbs_dat_i_MM,
         input [31:0] wbs_adr_i_MM,
         output wbs_ack_o_MM,
-        output [31:0] wbs_dat_o_MM,
+        output [31:0] wbs_dat_o_MM,*/
 
+        // CPU interface
+        input   [22:0] CPU_address,
+        input   CPU_rw, // 1 = write, 0 = read
+        input   [31:0] data_from_CPU,
+        output reg [31:0] data_to_CPU,
+        output reg CPU_busy,
+        input   CPU_in_valid,
+        output reg CPU_out_valid,
+        input   CPU_prefetch_step,
 
         // SDRAM controller interface
-        output   [22:0] user_addr,   // the address will be remap to addr in sdram_controller
-        
-        output   rw,                 // 1 = write, 0 = read
-        output   [31:0] data_to_controller,
+        output reg   [22:0] controller_address,   // the address will be remap to addr in sdram_controller
+        output reg  controller_rw,                 // 1 = write, 0 = read
+        output reg  [31:0] data_to_controller,
         input  [31:0] data_from_controller,
-        input  busy,               // controller is busy when high
-        output   in_valid,           // pulse high to initiate a read/write
-        input  out_valid           // pulses high when data from read is valid
+        input  controller_busy,               // controller is busy when high
+        output reg  controller_in_valid,           // pulse high to initiate a read/write
+        input  controller_out_valid,           // pulses high when data from read is valid
+        output reg controller_prefetch_step
     );
 
-    reg [31:0] prefetch_buffer_CPU [0:3], next_prefetch_buffer_CPU[0:3];
-    reg [22:0] address_CPU [0:3], next_address_CPU [0:3];
+    ///////////////////////////////////////// (For test) /////////////////////////////////////////
+    wire [22:0] prefetch_address_CPU0;
+    wire [22:0] prefetch_address_CPU1;
+    wire [22:0] prefetch_address_CPU2;
+    wire [31:0] prefetch_buffer_CPU0;
+    wire [31:0] prefetch_buffer_CPU1;
+    wire [31:0] prefetch_buffer_CPU2;
+    wire [2:0] request_FIFO_0;
+    wire [2:0] request_FIFO_1;
+    wire [2:0] request_FIFO_2;
+
+    assign prefetch_address_CPU0=prefetch_address_CPU[0];
+    assign prefetch_address_CPU1=prefetch_address_CPU[1];
+    assign prefetch_address_CPU2=prefetch_address_CPU[2];
+    assign prefetch_buffer_CPU0=prefetch_buffer_CPU[0];
+    assign prefetch_buffer_CPU1=prefetch_buffer_CPU[1];
+    assign prefetch_buffer_CPU2=prefetch_buffer_CPU[2];
+    assign request_FIFO_0=request_FIFO[0];
+    assign request_FIFO_1=request_FIFO[1];
+    assign request_FIFO_2=request_FIFO[2];
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    localparam CPU_IDLE = 3'd0, CPU_WRITE = 3'd1, CPU_CHECK_PREFETCH = 3'd2,/* CPU_READ_REQUEST = 3'd3,*/ CPU_READ = 3'd3, CPU_OUTPUT = 3'd4;
+    localparam FIFO_IDLE = 3'd0, FIFO_WRITE = 3'd1, FIFO_READ = 3'd2, FIFO_PREFETCH = 3'd3;
+    
+    
+    reg [22:0] controller_address_before_FF;
+    reg controller_rw_before_FF;
+    reg [31:0] data_to_controller_before_FF;
+    reg controller_in_valid_before_FF;
+    reg controller_prefetch_step_before_FF;
+
+    
+    reg [31:0] data_to_CPU_before_FF;
+    reg CPU_busy_before_FF;
+    reg CPU_out_valid_before_FF;
+
+    reg [2:0] request_FIFO [0:2], next_request_FIFO [0:2]; // request_FIFO[XX][2]: CPU; request_FIFO[XX][1]: FIR; request_FIFO[XX][0]: MM
+    reg [2:0] state_FIFO;
+    reg [2:0] next_state_FIFO;
+    reg [1:0] prefetch_counter;
+    reg [1:0] next_prefetch_counter;
+    reg request_CPU, next_request_CPU;
+    reg request_CPU_accept, next_request_CPU_accept;
+
+    reg [2:0] state_CPU;
+    reg [2:0] next_state_CPU;
+
+    reg [31:0] prefetch_buffer_CPU [0:2], next_prefetch_buffer_CPU[0:2];
+    reg [22:0] prefetch_address_CPU [0:2], next_prefetch_address_CPU [0:2];
+    reg [22:0] CPU_address_saved, next_CPU_address_saved;
+    reg CPU_rw_saved, next_CPU_rw_saved;
+    reg [31:0] data_from_CPU_saved, next_data_from_CPU_saved;
+
+    integer i;
+
+    
+    //always @* begin
+    //    next_request_CPU_processed = (request_CPU & )
+    //end
+
+    //////////////////////////////////////////// (CPU request) ////////////////////////////////////////////
+    always @* begin
+        case(state_CPU)
+            /*++++++++++++++++++++++++++++++ (This works! But we can do better to reduce prefetched hits by 1 cycle.) ++++++++++++++++++++++++++++++
+            CPU_IDLE: begin
+                CPU_out_valid_before_FF=0;
+                data_to_CPU_before_FF=0;
+
+                //if(wbs_adr_i[11:0]==12'h000) begin
+                //end
+                //else begin
+                //end
+                if(CPU_in_valid) begin
+                    CPU_busy_before_FF=1;
+                    next_CPU_rw_saved=CPU_rw;
+                    next_CPU_address_saved=CPU_address;
+                    next_data_from_CPU_saved=data_from_CPU;
+                    if(CPU_rw) begin // 1 for write
+                        next_state_CPU=CPU_WRITE;
+                        next_request_CPU=1;
+                    end
+                    else begin // 0 for read
+                        next_state_CPU=CPU_CHECK_PREFETCH;
+                        next_request_CPU=0;
+                    end
+                end
+                else begin
+                    next_state_CPU=CPU_IDLE;
+                    CPU_busy_before_FF=0;
+                    next_CPU_address_saved=0;
+                    next_CPU_rw_saved=0;
+                    next_data_from_CPU_saved=0;
+                    next_request_CPU=0;
+                end
+
+                
+            end
+            CPU_WRITE: begin
+                CPU_busy_before_FF=0;
+                CPU_out_valid_before_FF=0;
+                data_to_CPU_before_FF=0;
+                next_CPU_address_saved=CPU_address_saved;
+                next_data_from_CPU_saved=data_from_CPU_saved;
+                next_CPU_rw_saved=CPU_rw_saved;
+                if(request_CPU_accept) begin
+                    next_request_CPU=0;
+                end
+                else begin
+                    next_request_CPU=request_CPU;
+                end
+
+                if((request_FIFO[0][2]==1) && (state_FIFO==FIFO_WRITE)) begin // [0] means the being-processed request; [2] is the place of CPU_request (request_FIFO[XX][2]: CPU)
+                    next_state_CPU=CPU_IDLE;
+                end
+                else begin
+                    next_state_CPU=CPU_WRITE;
+                end
+
+            end
+            CPU_CHECK_PREFETCH: begin
+                CPU_busy_before_FF=0;
+                next_CPU_address_saved=CPU_address_saved;
+                next_data_from_CPU_saved=data_from_CPU_saved;
+                next_CPU_rw_saved=CPU_rw_saved;
+
+                if(CPU_address_saved == prefetch_address_CPU[0]) begin
+                    next_state_CPU=CPU_OUTPUT;
+                    CPU_out_valid_before_FF=1;
+                    data_to_CPU_before_FF=prefetch_buffer_CPU[0];
+                    next_request_CPU=0;
+                end
+                else if(CPU_address_saved == prefetch_address_CPU[1]) begin
+                    next_state_CPU=CPU_OUTPUT;
+                    CPU_out_valid_before_FF=1;
+                    data_to_CPU_before_FF=prefetch_buffer_CPU[1];
+                    next_request_CPU=0;
+                end
+                else if(CPU_address_saved == prefetch_address_CPU[2]) begin
+                    next_state_CPU=CPU_OUTPUT;
+                    CPU_out_valid_before_FF=1;
+                    data_to_CPU_before_FF=prefetch_buffer_CPU[2];
+                    next_request_CPU=0;
+                end
+                else begin
+                    next_state_CPU=CPU_READ;
+                    CPU_out_valid_before_FF=0;
+                    data_to_CPU_before_FF=0;
+                    next_request_CPU=1;
+                end
+            end
+            ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+            CPU_IDLE: begin
+
+                //if(wbs_adr_i[11:0]==12'h000) begin
+                //end
+                //else begin
+                //end
+                if(CPU_in_valid) begin
+                    CPU_busy_before_FF=1;
+                    next_CPU_rw_saved=CPU_rw;
+                    next_CPU_address_saved=CPU_address;
+                    next_data_from_CPU_saved=data_from_CPU;
+                    if(CPU_rw) begin // 1 for write
+                        next_state_CPU=CPU_WRITE;
+                        next_request_CPU=1;
+                        CPU_out_valid_before_FF=0;
+                        data_to_CPU_before_FF=0;
+                    end
+                    else begin // 0 for read
+                        if(CPU_address == prefetch_address_CPU[0]) begin
+                            next_state_CPU=CPU_OUTPUT;
+                            CPU_out_valid_before_FF=1;
+                            data_to_CPU_before_FF=prefetch_buffer_CPU[0];
+                            next_request_CPU=0;
+                        end
+                        else if(CPU_address == prefetch_address_CPU[1]) begin
+                            next_state_CPU=CPU_OUTPUT;
+                            CPU_out_valid_before_FF=1;
+                            data_to_CPU_before_FF=prefetch_buffer_CPU[1];
+                            next_request_CPU=0;
+                        end
+                        else if(CPU_address == prefetch_address_CPU[2]) begin
+                            next_state_CPU=CPU_OUTPUT;
+                            CPU_out_valid_before_FF=1;
+                            data_to_CPU_before_FF=prefetch_buffer_CPU[2];
+                            next_request_CPU=0;
+                        end
+                        else begin
+                            next_state_CPU=CPU_READ;
+                            CPU_out_valid_before_FF=0;
+                            data_to_CPU_before_FF=0;
+                            next_request_CPU=1;
+                        end
+                    end
+                end
+                else begin
+                    next_state_CPU=CPU_IDLE;
+                    CPU_busy_before_FF=0;
+                    CPU_out_valid_before_FF=0;
+                    data_to_CPU_before_FF=0;
+                    next_CPU_address_saved=0;
+                    next_CPU_rw_saved=0;
+                    next_data_from_CPU_saved=0;
+                    next_request_CPU=0;
+                end
+
+                
+            end
+            CPU_WRITE: begin
+                CPU_busy_before_FF=0;
+                CPU_out_valid_before_FF=0;
+                data_to_CPU_before_FF=0;
+                next_CPU_address_saved=CPU_address_saved;
+                next_data_from_CPU_saved=data_from_CPU_saved;
+                next_CPU_rw_saved=CPU_rw_saved;
+                if(request_CPU_accept) begin
+                    next_request_CPU=0;
+                end
+                else begin
+                    next_request_CPU=request_CPU;
+                end
+
+                if((request_FIFO[0][2]==1) && (state_FIFO==FIFO_WRITE)) begin // [0] means the being-processed request; [2] is the place of CPU_request (request_FIFO[XX][2]: CPU)
+                    next_state_CPU=CPU_IDLE;
+                end
+                else begin
+                    next_state_CPU=CPU_WRITE;
+                end
+
+            end
+            //CPU_CHECK_PREFETCH: begin
+            //end
+            CPU_READ: begin
+                CPU_busy_before_FF=0;
+                next_CPU_address_saved=CPU_address_saved;
+                next_data_from_CPU_saved=data_from_CPU_saved;
+                next_CPU_rw_saved=CPU_rw_saved;
+
+                if(request_CPU_accept) begin
+                    next_request_CPU=0;
+                end
+                else begin
+                    next_request_CPU=request_CPU;
+                end
+                
+                if((request_FIFO[0][2]==1) && (controller_out_valid==1)) begin // [0] means the being-processed request; [2] is the place of CPU_request (request_FIFO[XX][2]: CPU)
+                    next_state_CPU=CPU_OUTPUT;
+                    CPU_out_valid_before_FF=1;
+                    data_to_CPU_before_FF=data_from_controller;
+                end
+                else begin
+                    next_state_CPU=CPU_READ;
+                    CPU_out_valid_before_FF=0;
+                    data_to_CPU_before_FF=0;
+                end
+            end
+            CPU_OUTPUT: begin
+                next_state_CPU=CPU_IDLE;
+                CPU_busy_before_FF=0;
+                CPU_out_valid_before_FF=0;
+                data_to_CPU_before_FF=0;
+                next_CPU_address_saved=0;
+                next_data_from_CPU_saved=0;
+                next_CPU_rw_saved=0;
+                next_request_CPU=0;
+            end
+            default:begin
+                next_state_CPU=CPU_IDLE;
+                CPU_busy_before_FF=0;
+                CPU_out_valid_before_FF=0;
+                data_to_CPU_before_FF=0;
+                next_CPU_address_saved=0;
+                next_data_from_CPU_saved=0;
+                next_CPU_rw_saved=0;
+                next_request_CPU=0;
+            end
+        endcase
+    end
+
+    //////////////////////////////////////////// (FIFO) ////////////////////////////////////////////
+    always @* begin
+        if(request_FIFO[0][2]==1) begin
+            controller_address_before_FF=CPU_address_saved;
+            controller_rw_before_FF=CPU_rw_saved;
+            data_to_controller_before_FF=data_from_CPU_saved;
+            controller_prefetch_step_before_FF=CPU_prefetch_step;
+        end
+        /*else if(request_FIFO[0][1]==1) begin
+        end
+        else if(request_FIFO[0][0]==1) begin
+        end*/
+        else begin
+            controller_address_before_FF=0;
+            controller_rw_before_FF=0;
+            data_to_controller_before_FF=0;
+            controller_prefetch_step_before_FF=0;
+        end
+    end
+
+    always @* begin
+        case(state_FIFO)
+            FIFO_IDLE: begin
+                //controller_address_before_FF=0;
+                //controller_rw_before_FF=0;
+                //data_to_controller_before_FF=0;
+                //controller_in_valid_before_FF=0;
+                next_prefetch_counter=0;
+                for(i=0;i<3;i=i+1)begin
+                    next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
+                    next_prefetch_address_CPU[i] <= prefetch_address_CPU[i];
+                end
+
+                /*if(wbs_adr_i[11:0]==12'h000) begin
+                end
+                else begin
+                end*/
+                if(request_CPU & (~request_CPU_accept)) begin
+                    next_state_FIFO=FIFO_IDLE;
+                    controller_in_valid_before_FF=0;
+                    next_request_CPU_accept=1;
+                    if(request_FIFO[0]==3'b000) begin
+                        next_request_FIFO[0]=3'b100;
+                        next_request_FIFO[1]=request_FIFO[1];
+                        next_request_FIFO[2]=request_FIFO[2];
+                    end
+                    else if(request_FIFO[1]==3'b000) begin
+                        next_request_FIFO[0]=request_FIFO[0];
+                        next_request_FIFO[1]=3'b100;
+                        next_request_FIFO[2]=request_FIFO[2];
+                    end
+                    else begin
+                        next_request_FIFO[0]=request_FIFO[0];
+                        next_request_FIFO[1]=request_FIFO[1];
+                        next_request_FIFO[2]=3'b100;
+                    end
+                end
+                /*else if(request_FIR) begin
+                end
+                else if(request_MM) begin
+                end*/
+                else if(request_FIFO[0]!=3'b000) begin
+                    controller_in_valid_before_FF=1;
+                    if(((request_FIFO[0][2]==1) && (CPU_rw_saved==1)) /*|| ((request_FIFO[0][1]==1) && (FIR_rw_saved==1)) || ((request_FIFO[0][0]==1) && (MM_rw_saved==1))*/) begin
+                        next_state_FIFO=FIFO_WRITE;
+                    end
+                    else begin
+                        next_state_FIFO=FIFO_READ;
+                    end
+                    next_request_CPU_accept=0;
+                    next_request_FIFO[0] <= request_FIFO[0];
+                    next_request_FIFO[1] <= request_FIFO[1];
+                    next_request_FIFO[2] <= request_FIFO[2];
+                    
+                end
+                else begin
+                    next_state_FIFO=FIFO_IDLE;
+                    controller_in_valid_before_FF=0;
+                    next_request_CPU_accept=0;
+                    next_request_FIFO[0] <= request_FIFO[0];
+                    next_request_FIFO[1] <= request_FIFO[1];
+                    next_request_FIFO[2] <= request_FIFO[2];
+                end
+            end
+            FIFO_WRITE: begin
+                next_request_CPU_accept=0;
+                next_prefetch_counter=0;
+                for(i=0;i<3;i=i+1)begin
+                    next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
+                    next_prefetch_address_CPU[i] <= prefetch_address_CPU[i];
+                end
+
+                if(controller_busy) begin
+                    next_state_FIFO=FIFO_WRITE;
+                    controller_in_valid_before_FF=controller_in_valid;
+                    next_request_FIFO[0] <= request_FIFO[0];
+                    next_request_FIFO[1] <= request_FIFO[1];
+                    next_request_FIFO[2] <= request_FIFO[2];
+                end
+                else begin
+                    next_state_FIFO=FIFO_IDLE;
+                    controller_in_valid_before_FF=0;
+                    next_request_FIFO[0] <= request_FIFO[1];
+                    next_request_FIFO[1] <= request_FIFO[2];
+                    next_request_FIFO[2] <= 3'b000;
+                end
+            end
+            FIFO_READ: begin
+                next_request_CPU_accept=0;
+                next_prefetch_counter=0;
+                for(i=0;i<3;i=i+1)begin
+                    next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
+                    next_prefetch_address_CPU[i] <= prefetch_address_CPU[i];
+                end
+                next_request_FIFO[0] <= request_FIFO[0];
+                next_request_FIFO[1] <= request_FIFO[1];
+                next_request_FIFO[2] <= request_FIFO[2];
+
+                if(controller_busy) begin
+                    next_state_FIFO=FIFO_READ;
+                    controller_in_valid_before_FF=controller_in_valid;
+                end
+                else if(controller_out_valid) begin
+                    next_state_FIFO=FIFO_PREFETCH;
+                    controller_in_valid_before_FF=0;
+                end
+                else begin
+                    next_state_FIFO=FIFO_READ;
+                    controller_in_valid_before_FF=0;
+                end
+            end
+            FIFO_PREFETCH: begin
+                next_prefetch_counter = prefetch_counter+1;
+                if(prefetch_counter==2'd2) begin
+                    next_state_FIFO=FIFO_IDLE;
+                    next_request_FIFO[0] <= request_FIFO[1];
+                    next_request_FIFO[1] <= request_FIFO[2];
+                    next_request_FIFO[2] <= 3'b000;
+
+                    if(request_FIFO[0][2]==1) begin // CPU
+                        next_prefetch_address_CPU[0]=prefetch_address_CPU[0];
+                        next_prefetch_address_CPU[1]=prefetch_address_CPU[1];
+                        next_prefetch_address_CPU[2]=prefetch_address_CPU[2];
+                        next_prefetch_buffer_CPU[0]=prefetch_buffer_CPU[0];
+                        next_prefetch_buffer_CPU[1]=prefetch_buffer_CPU[1];
+                        next_prefetch_buffer_CPU[2]=data_from_controller;
+                    end
+                    /*else if(request_FIFO[0][1]==1) begin // FIR
+                    end*/
+                    else begin // MM
+                        for(i=0;i<3;i=i+1)begin
+                            next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
+                            next_prefetch_address_CPU[i] <= prefetch_address_CPU[i];
+                        end
+                    end
+                end
+                else if(prefetch_counter==2'd1) begin
+                    next_state_FIFO=FIFO_PREFETCH;
+                    next_request_FIFO[0] <= request_FIFO[0];
+                    next_request_FIFO[1] <= request_FIFO[1];
+                    next_request_FIFO[2] <= request_FIFO[2];
+
+                    if(request_FIFO[0][2]==1) begin // CPU
+                        next_prefetch_address_CPU[0]=prefetch_address_CPU[0];
+                        next_prefetch_address_CPU[1]=prefetch_address_CPU[1];
+                        next_prefetch_address_CPU[2]=prefetch_address_CPU[2];
+                        next_prefetch_buffer_CPU[0]=prefetch_buffer_CPU[0];
+                        next_prefetch_buffer_CPU[1]=data_from_controller;
+                        next_prefetch_buffer_CPU[2]=prefetch_buffer_CPU[2];
+                    end
+                    /*else if(request_FIFO[0][1]==1) begin // FIR
+                    end*/
+                    else begin // MM
+                        for(i=0;i<3;i=i+1)begin
+                            next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
+                            next_prefetch_address_CPU[i] <= prefetch_address_CPU[i];
+                        end
+                    end
+                end
+                else begin
+                    next_state_FIFO=FIFO_PREFETCH;
+                    next_request_FIFO[0] <= request_FIFO[0];
+                    next_request_FIFO[1] <= request_FIFO[1];
+                    next_request_FIFO[2] <= request_FIFO[2];
+                    
+                    if(request_FIFO[0][2]==1) begin // CPU
+                        if(controller_prefetch_step) begin
+                            next_prefetch_address_CPU[0]=controller_address+16;
+                            next_prefetch_address_CPU[1]=controller_address+32;
+                            next_prefetch_address_CPU[2]=controller_address+48;
+                        end
+                        else begin
+                            next_prefetch_address_CPU[0]=controller_address+4;
+                            next_prefetch_address_CPU[1]=controller_address+8;
+                            next_prefetch_address_CPU[2]=controller_address+12;
+                        end
+                        next_prefetch_buffer_CPU[0]=data_from_controller;
+                        next_prefetch_buffer_CPU[1]=0;
+                        next_prefetch_buffer_CPU[2]=0;
+                    end
+                    /*else if(request_FIFO[0][1]==1) begin // FIR
+                    end*/
+                    else begin // MM
+                        for(i=0;i<3;i=i+1)begin
+                            next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
+                            next_prefetch_address_CPU[i] <= prefetch_address_CPU[i];
+                        end
+                    end
+                end
+            end
+            default:begin
+                next_state_FIFO=FIFO_IDLE;
+                //controller_address_before_FF=0;
+                //controller_rw_before_FF=0;
+                //data_to_controller_before_FF=0;
+                controller_in_valid_before_FF=0;
+                next_request_FIFO[0] <= 0;
+                next_request_FIFO[1] <= 0;
+                next_request_FIFO[2] <= 0;
+
+                next_request_CPU_accept=0;
+                next_prefetch_counter=0;
+                for(i=0;i<3;i=i+1)begin
+                    next_prefetch_buffer_CPU[i] <= 0;
+                    next_prefetch_address_CPU[i] <= 0;
+                end
+                
+            end
+        endcase
+    end
+
+
+    
+    always@(posedge clk) begin
+    if(rst) begin // positive reset
+        controller_address <= 0;
+        controller_rw <= 0;
+        data_to_controller <= 0;
+        controller_in_valid <= 0;
+        controller_prefetch_step <= 0;
+
+        state_FIFO <= FIFO_IDLE;
+        for(i=0;i<3;i=i+1)begin
+            request_FIFO[i] <= 0;
+        end
+        prefetch_counter <= 0;
+
+        state_CPU <= CPU_IDLE;
+        data_to_CPU <= 0;
+        CPU_busy <= 0;
+        CPU_out_valid <= 0;
+        request_CPU <= 0;
+        request_CPU_accept <= 0;
+        for(i=0;i<3;i=i+1)begin
+            prefetch_buffer_CPU[i] <= 0;
+            prefetch_address_CPU[i] <= 1;
+        end
+        CPU_address_saved <= 0;
+        CPU_rw_saved <= 0;
+        data_from_CPU_saved <= 0;
+    end
+    else begin
+        controller_address <= controller_address_before_FF;
+        controller_rw <= controller_rw_before_FF;
+        data_to_controller <= data_to_controller_before_FF;
+        controller_in_valid <= controller_in_valid_before_FF;
+        controller_prefetch_step <= controller_prefetch_step_before_FF;
+
+        state_FIFO <= next_state_FIFO;
+        for(i=0;i<3;i=i+1)begin
+            request_FIFO[i] <= next_request_FIFO[i];
+        end
+        prefetch_counter <= next_prefetch_counter;
+
+        state_CPU <= next_state_CPU;
+        data_to_CPU <= data_to_CPU_before_FF;
+        CPU_busy <= CPU_busy_before_FF;
+        CPU_out_valid <= CPU_out_valid_before_FF;
+        request_CPU <= next_request_CPU;
+        request_CPU_accept <= next_request_CPU_accept;
+        for(i=0;i<3;i=i+1)begin
+            prefetch_buffer_CPU[i] <= next_prefetch_buffer_CPU[i];
+            prefetch_address_CPU[i] <= next_prefetch_address_CPU[i];
+        end
+        CPU_address_saved <= next_CPU_address_saved;
+        CPU_rw_saved <= next_CPU_rw_saved;
+        data_from_CPU_saved <= next_data_from_CPU_saved;
+    end
+end
 
 endmodule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -87,7 +678,11 @@ module sdram_controller (
         output  [31:0] data_out,    // data for a write
         output  busy,               // controller is busy when high
         input   in_valid,           // pulse high to initiate a read/write
-        output  out_valid           // pulses high when data from read is valid
+        /////output  out_valid           // pulses high when data from read is valid
+        output  out_valid,           // pulses high when data from read is valid // Modified
+        //////////////////////////// (Added by us) ////////////////////////////
+        input   prefetch_step       // 0 for step=4; 1 for step=16
+        ///////////////////////////////////////////////////////////////////////
     );
 
     // Jiin: SDRAM Timing  3-3-3, i.e. CASL=3, PRE=3, ACT=3
@@ -424,7 +1019,13 @@ module sdram_controller (
             PREFETCH: begin
                 
                 cmd_d = CMD_READ;
-                a_d = a_q + 4;
+                if (prefetch_step) begin
+                    a_d = a_q + 4; //16;
+                end
+                else begin
+                    a_d = a_q + 1; //4;
+                end
+
                 ba_d = ba_q;
                 
                 if (prefetch_counter == 2'd2) begin

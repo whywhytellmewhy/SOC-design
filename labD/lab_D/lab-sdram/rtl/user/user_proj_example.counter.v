@@ -90,19 +90,19 @@ module user_proj_example #(
     wire [31:0] c2d_data;
     wire [3:0]  bram_mask;
 
-    wire [22:0] ctrl_addr;
-    wire ctrl_busy;
-    wire ctrl_in_valid, ctrl_out_valid;
+    wire [22:0] CPU_address;
+    wire CPU_busy;
+    wire CPU_in_valid, CPU_out_valid;
 
-    reg ctrl_in_valid_q;
+    reg CPU_in_valid_q;
     
     // WB MI A
     
     assign valid = wbs_stb_i && wbs_cyc_i;
-    assign ctrl_in_valid = wbs_we_i ? valid : ~ctrl_in_valid_q && valid;
-    assign wbs_ack_o = (wbs_we_i) ? ~ctrl_busy && valid : ctrl_out_valid; 
+    assign CPU_in_valid = wbs_we_i ? valid : ~CPU_in_valid_q && valid;
+    assign wbs_ack_o = (wbs_we_i) ? ~CPU_busy && valid : CPU_out_valid; 
     assign bram_mask = wbs_sel_i & {4{wbs_we_i}};
-    assign ctrl_addr = wbs_adr_i[22:0];
+    assign CPU_address = wbs_adr_i[22:0];
 
     // IO
     assign io_out = d2c_data;
@@ -120,16 +120,56 @@ module user_proj_example #(
 
     always @(posedge clk) begin
         if (rst) begin
-            ctrl_in_valid_q <= 1'b0;
+            CPU_in_valid_q <= 1'b0;
         end
         else begin
-            if (~wbs_we_i && valid && ~ctrl_busy && ctrl_in_valid_q == 1'b0)
-                ctrl_in_valid_q <= 1'b1;
-            else if (ctrl_out_valid)
-                ctrl_in_valid_q <= 1'b0;
+            if (~wbs_we_i && valid && ~CPU_busy && CPU_in_valid_q == 1'b0)
+                CPU_in_valid_q <= 1'b1;
+            else if (CPU_out_valid)
+                CPU_in_valid_q <= 1'b0;
         end
     end
 
+    wire CPU_prefetch_step;
+
+    
+    assign CPU_prefetch_step=0;
+
+
+    wire [22:0] controller_address;
+    wire controller_rw;
+    wire [31:0] data_to_controller;
+    wire [31:0] data_from_controller;
+    wire controller_busy;
+    wire controller_in_valid;
+    wire controller_out_valid;
+    wire controller_prefetch_step;
+
+    SDRAM_arbiter user_sdram_arbiter (
+        .clk(clk),
+        .rst(rst),
+
+        // CPU interface
+        .CPU_address(CPU_address),
+        .CPU_rw(wbs_we_i),
+        .data_from_CPU(wbs_dat_i),
+        .data_to_CPU(wbs_dat_o),
+        .CPU_busy(CPU_busy),
+        .CPU_in_valid(CPU_in_valid),
+        .CPU_out_valid(CPU_out_valid),
+        .CPU_prefetch_step(CPU_prefetch_step),
+
+        // SDRAM controller interface
+        .controller_address(controller_address),
+        .controller_rw(controller_rw),
+        .data_to_controller(data_to_controller),
+        .data_from_controller(data_from_controller),
+        .controller_busy(controller_busy),
+        .controller_in_valid(controller_in_valid),
+        .controller_out_valid(controller_out_valid),
+        .controller_prefetch_step(controller_prefetch_step)
+    );
+    
     sdram_controller user_sdram_controller (
         .clk(clk),
         .rst(rst),
@@ -145,13 +185,14 @@ module user_proj_example #(
         .sdram_dqi(d2c_data),
         .sdram_dqo(c2d_data),
 
-        .user_addr(ctrl_addr),
-        .rw(wbs_we_i),
-        .data_in(wbs_dat_i),
-        .data_out(wbs_dat_o),
-        .busy(ctrl_busy),
-        .in_valid(ctrl_in_valid),
-        .out_valid(ctrl_out_valid)
+        .user_addr(controller_address),
+        .rw(controller_rw),
+        .data_in(data_to_controller),
+        .data_out(data_from_controller),
+        .busy(controller_busy),
+        .in_valid(controller_in_valid),
+        .out_valid(controller_out_valid),
+        .prefetch_step(controller_prefetch_step)
     );
 
     sdr user_bram (
