@@ -1,0 +1,4 @@
+## User project
+-v ./sdram_controller.v
+-v ./sdr.v
+

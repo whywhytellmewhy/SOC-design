@@ -6,7 +6,7 @@
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.file 0 "/home/ubuntu/LAB/github_teamsync/test/SOC-design/labD/lab_D/lab-sdram/testbench/counter_la" "../../firmware/isr.c"
+	.file 0 "/home/ubuntu/lab_D/lab-sdram/testbench/counter_la" "../../firmware/isr.c"
 	.align	2
 	.type	flush_cpu_icache, @function
 flush_cpu_icache:
@@ -487,5 +487,5 @@ isr:
 .LASF0:
 	.string	"../../firmware/isr.c"
 .LASF1:
-	.string	"/home/ubuntu/LAB/github_teamsync/test/SOC-design/labD/lab_D/lab-sdram/testbench/counter_la"
+	.string	"/home/ubuntu/lab_D/lab-sdram/testbench/counter_la"
 	.ident	"GCC: (g1ea978e3066) 12.1.0"

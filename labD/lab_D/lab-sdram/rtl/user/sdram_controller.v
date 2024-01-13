@@ -1,3 +1,63 @@
+module SDRAM_arbiter (
+        input   clk,
+        input   rst,
+
+        
+        // CPU WB interface
+        //input wb_clk_i,
+        //input wb_rst_i,
+        input wbs_stb_i_CPU,
+        input wbs_cyc_i_CPU,
+        input wbs_we_i_CPU,
+        input [3:0] wbs_sel_i_CPU,
+        input [31:0] wbs_dat_i_CPU,
+        input [31:0] wbs_adr_i_CPU,
+        output wbs_ack_o_CPU,
+        output [31:0] wbs_dat_o_CPU,
+
+        // FIR WB interface
+        //input wb_clk_i,
+        //input wb_rst_i,
+        input wbs_stb_i_FIR,
+        input wbs_cyc_i_FIR,
+        input wbs_we_i_FIR,
+        input [3:0] wbs_sel_i_FIR,
+        input [31:0] wbs_dat_i_FIR,
+        input [31:0] wbs_adr_i_FIR,
+        output wbs_ack_o_FIR,
+        output [31:0] wbs_dat_o_FIR,
+
+        // MM WB interface
+        //input wb_clk_i,
+        //input wb_rst_i,
+        input wbs_stb_i_MM,
+        input wbs_cyc_i_MM,
+        input wbs_we_i_MM,
+        input [3:0] wbs_sel_i_MM,
+        input [31:0] wbs_dat_i_MM,
+        input [31:0] wbs_adr_i_MM,
+        output wbs_ack_o_MM,
+        output [31:0] wbs_dat_o_MM,
+
+
+        // SDRAM controller interface
+        output   [22:0] user_addr,   // the address will be remap to addr in sdram_controller
+        
+        output   rw,                 // 1 = write, 0 = read
+        output   [31:0] data_to_controller,
+        input  [31:0] data_from_controller,
+        input  busy,               // controller is busy when high
+        output   in_valid,           // pulse high to initiate a read/write
+        input  out_valid           // pulses high when data from read is valid
+    );
+
+    reg [31:0] prefetch_buffer_CPU [0:3], next_prefetch_buffer_CPU[0:3];
+    reg [22:0] address_CPU [0:3], next_address_CPU [0:3];
+
+endmodule
+
+
+
 module sdram_controller (
         input   clk,
         input   rst,
@@ -41,8 +101,8 @@ module sdram_controller (
     // BA (Bank Address) - 9:8
     // RA (Row Address)  - 22:10
     // CA (Col Address)  - 2'b0, 1'b0, <7:0>, 2'b0
-    `define BA      11:10
-    `define RA      9:8
+    `define BA      9:8
+    `define RA      22:10
     `define CA      7:0
 
     // Address Remap
@@ -81,8 +141,11 @@ module sdram_controller (
                READ = 4'd9,
                READ_RES = 4'd10,
                WRITE = 4'd11,
-               PRECHARGE = 4'd12,
-               PREFETCH = 4'd13;    // addbyself
+               /////PRECHARGE = 4'd12;
+               PRECHARGE = 4'd12, // Modified
+               //////////////////////////// (Added by us) ////////////////////////////
+               PREFETCH = 4'd13;
+               ///////////////////////////////////////////////////////////////////////
     
     // registers for SDRAM signals
     reg cle_d, cle_q;
@@ -109,12 +172,9 @@ module sdram_controller (
     reg [STATE_SIZE-1:0] state_d, state_q;
     reg [STATE_SIZE-1:0] next_state_d, next_state_q;
 
-    reg [22:0]  addr_d, addr_q;
-    reg [31:0]  data_d, data_q;
-    reg         out_valid_d, out_valid_q;
-    reg [22:0]  fetch_a1, fetch_a2, fetch_a3;    // addbyself
-    reg [31:0]  fetch_d1, fetch_d2, fetch_d3, prefetch_data; // addbyself
-    reg         prefetch_check;   // addbyself
+    reg [22:0] addr_d, addr_q;
+    reg [31:0] data_d, data_q;
+    reg out_valid_d, out_valid_q;
 
     reg [15:0] delay_ctr_d, delay_ctr_q;
 
@@ -134,11 +194,15 @@ module sdram_controller (
     reg [2:0] precharge_bank_d, precharge_bank_q;
     integer i;
 
-    reg [1:0] fetch_count_d, fetch_count_q; // addbyself
-    
-    assign data_out = prefetch_check ? prefetch_data : data_q;  // addbyself
+    assign data_out = data_q;
     assign busy = !ready_q;
-    assign out_valid = out_valid_q | prefetch_check;    // addbyself
+    assign out_valid = out_valid_q;
+
+    //////////////////////////// (Added by us) ////////////////////////////
+    //reg [1:0] LOAD_MODE_counter;
+    reg [1:0] prefetch_counter;
+    reg [1:0] next_prefetch_counter;
+    ///////////////////////////////////////////////////////////////////////
     
     always @* begin
         // Default values
@@ -158,8 +222,11 @@ module sdram_controller (
         out_valid_d = 1'b0;
         precharge_bank_d = precharge_bank_q;
         rw_op_d = rw_op_q;
-        prefetch_check = 0;     // addbyself
-        fetch_count_d = 2'd0;   // addbyself
+
+        //////////////////////////// (Added by us) ////////////////////////////
+        next_prefetch_counter = 2'd0;
+        ///////////////////////////////////////////////////////////////////////
+
         row_open_d = row_open_q;
 
         // row_addr is a 2d array and must be coppied this way
@@ -200,10 +267,14 @@ module sdram_controller (
                 out_valid_d = 1'b0;
                 // a_d = 13'b0;
                 // Reserved, Burst Access, Standard Op, CAS = 2, Sequential, Burst = 4
-                a_d = {3'b000, 1'b0, 2'b00, 3'b010, 1'b0, 3'b010}; //010
+                a_d = {3'b000, 1'b1, 2'b00, 3'b010, 1'b0, 3'b010}; //010
+                //////////////////////////// (Added by us) ////////////////////////////
+                //cmd_d = CMD_LOAD_MODE_REG;
+                ///////////////////////////////////////////////////////////////////////
                 ba_d = 2'b0;
                 cle_d = 1'b1;
                 state_d = WAIT;
+                /////state_d = LOAD_MODE_REG; // Modified (At the end, we do not use this modification.)
                 // Note: Jiin - We can skip the power-up sequence & LMR
                 // directly jump to IDLE state
                 // Power-up Sequence
@@ -223,9 +294,24 @@ module sdram_controller (
 
                 dq_en_d = 1'b0;
             end
+            //////////////////////////// (Added by us) ////////////////////////////
+            /*LOAD_MODE_REG: begin
+                /////refresh_ctr_d = 10'b1;
+                a_d = a_q;
+                
+                if (delay_ctr_q == 13'd3) begin
+                    state_d = WAIT;
+                    delay_ctr_d = 16'd0;
+                end
+                else begin
+                    state_d = LOAD_MODE_REG;
+                    cmd_d = CMD_LOAD_MODE_REG;
+                    delay_ctr_d = delay_ctr_q + 1'b1;
+                end
+            end*/
+            ///////////////////////////////////////////////////////////////////////
             WAIT: begin
                 delay_ctr_d = delay_ctr_q - 1'b1;
-                    
                 if (delay_ctr_q == 13'd0) begin
                     state_d = next_state_q;
                     // if (next_state_q == WRITE) begin
@@ -234,34 +320,6 @@ module sdram_controller (
                     // end
                 end
             end
-            //************************addbyself*************************//
-            PREFETCH: begin
-                delay_ctr_d = delay_ctr_q - 1'b1;
-                case (delay_ctr_q[1:0])
-                    2'd2: begin
-                        cmd_d = CMD_READ;
-                        a_d = {2'b0, 1'b0, fetch_a1[7:0], 2'b00};
-                        ba_d = fetch_a1[9:8];   // addbyself
-                    end
-                    2'd1: begin
-                        cmd_d = CMD_READ;
-                        a_d = {2'b0, 1'b0, fetch_a2[7:0], 2'b00};
-                        ba_d = fetch_a2[9:8];   // addbyself
-                    end
-                    2'd0: begin
-                        cmd_d = CMD_READ;
-                        a_d = {2'b0, 1'b0, fetch_a3[7:0], 2'b00};
-                        ba_d = fetch_a3[9:8];   // addbyself                   
-                        state_d = next_state_q;
-                    end
-                    default: begin
-                        cmd_d = CMD_READ;
-                        a_d = {2'b0, 1'b0, 8'd0, 2'b0};
-                        ba_d = 2'b00;   // addbyself
-                    end
-                endcase
-            end
-            //************************addbyself*************************//
 
             ///// IDLE STATE /////
             IDLE: begin
@@ -270,16 +328,7 @@ module sdram_controller (
                     next_state_d = REFRESH;
                     precharge_bank_d = 3'b100; // all banks
                     refresh_flag_d = 1'b0; // clear the refresh flag
-                end   
-                else if (ready_q && fetch_count_q == 2'd3) begin
-                    fetch_d1 = dqi_q;   // addbyself
-                    fetch_count_d = 2'd2;   // addbyself
-                end
-                else if (ready_q && fetch_count_q == 2'd2) begin
-                    fetch_d2 = dqi_q;   // addbyself
-                    fetch_count_d = 2'd1;   // addbyself
-                end                    
-                else if (!ready_q) begin // operation waiting
+                end else if (!ready_q) begin // operation waiting
                     ready_d = 1'b1; // clear the queue
                     rw_op_d = saved_rw_q; // save the values we'll need later
                     addr_d = saved_addr_q;
@@ -293,63 +342,15 @@ module sdram_controller (
                             // Row is already open
                             if (saved_rw_q)
                                 state_d = WRITE;
-                            //************************addbyself*************************//
-                            else if(fetch_count_q == 2'd1)begin
-                                fetch_d3 = dqi_q;   // addbyself
-                                fetch_count_d = 2'd0;   // addbyself
-                                if(saved_addr_q == fetch_a1)begin
-                                    prefetch_data = fetch_d1;   // addbyself
-                                    prefetch_check = 1; // addbyself
-                                    state_d = IDLE;
-                                end
-                                else if(saved_addr_q == fetch_a2)begin
-                                    prefetch_data = fetch_d2;
-                                    prefetch_check = 1; // addbyself
-                                    state_d = IDLE;
-                                end
-                                else if(saved_addr_q == fetch_a3)begin
-                                    prefetch_data = fetch_d3;
-                                    prefetch_check = 1; // addbyself
-                                    state_d = IDLE;
-                                end         
-                                else begin
-                                    prefetch_check = 0; // addbyself
-                                    state_d = READ;
-                                end                                                      
-                            end
-                            else if(fetch_count_q == 2'd0)begin
-                                if(saved_addr_q == fetch_a1)begin
-                                    prefetch_data = fetch_d1;
-                                    prefetch_check = 1; // addbyself
-                                    state_d = IDLE;
-                                end
-                                else if(saved_addr_q == fetch_a2)begin
-                                    prefetch_data = fetch_d2;
-                                    prefetch_check = 1; // addbyself
-                                    state_d = IDLE;
-                                end
-                                else if(saved_addr_q == fetch_a3)begin
-                                    prefetch_data = fetch_d3;
-                                    prefetch_check = 1; // addbyself
-                                    state_d = IDLE;
-                                end         
-                                else begin
-                                    prefetch_check = 0; // addbyself
-                                    state_d = READ;
-                                end                                                      
-                            end                                                          
                             else
                                 state_d = READ;
-                        end
-                        //************************addbyself*************************//
-                        else begin
+                        end else begin
                             // A different row in the bank is open
                             state_d = PRECHARGE; // precharge open row
                             precharge_bank_d = {1'b0, saved_addr_q[9:8]};
                             next_state_d = ACTIVATE; // open current row
                         end
-                    end
-                    else begin
+                    end else begin
                         // no rows open
                         state_d = ACTIVATE; // open the row
                     end
@@ -392,12 +393,11 @@ module sdram_controller (
             ///// READ /////
             READ: begin
                 cmd_d = CMD_READ;
-                a_d = {2'b0, 1'b0, addr_q[7:0], 2'b00};
+                // a_d = {2'b0, 1'b0, addr_q[7:0], 2'b0};
+                a_d = {7'b0, addr_q[7:2]};
                 ba_d = addr_q[9:8];
-                fetch_a1 = {addr_q[22:8],addr_q[7:0]+8'd4}; // addbyself
-                fetch_a2 = {addr_q[22:8],addr_q[7:0]+8'd8}; // addbyself
-                fetch_a3 = {addr_q[22:8],addr_q[7:0]+8'd12}; // addbyself
-                state_d = PREFETCH;
+                /////state_d = WAIT;
+                state_d = PREFETCH; // Modified
 
                 // Jiin
                 // delay_ctr_d = 13'd2; // wait for the data to show up
@@ -409,9 +409,34 @@ module sdram_controller (
             READ_RES: begin
                 data_d = dqi_q; // data_d by pass
                 out_valid_d = 1'b1;
-                state_d = IDLE;
-                fetch_count_d = 2'd3;   // addbyself
+                /////state_d = IDLE;
+                //////////////////////////// (Added by us) ////////////////////////////
+                next_prefetch_counter = prefetch_counter + 1;
+                if (prefetch_counter == 2'd3) begin
+                    state_d = IDLE;
+                end
+                else begin
+                    state_d = READ_RES;
+                end
+                ///////////////////////////////////////////////////////////////////////
             end
+            //////////////////////////// (Added by us) ////////////////////////////
+            PREFETCH: begin
+                
+                cmd_d = CMD_READ;
+                a_d = a_q + 4;
+                ba_d = ba_q;
+                
+                if (prefetch_counter == 2'd2) begin
+                    state_d = READ_RES;
+                    next_prefetch_counter = 0;
+                end
+                else begin
+                    state_d = PREFETCH;
+                    next_prefetch_counter = prefetch_counter + 1;
+                end
+            end
+            ///////////////////////////////////////////////////////////////////////
 
             ///// WRITE /////
             WRITE: begin
@@ -420,11 +445,11 @@ module sdram_controller (
                 dq_d = data_q;
                 // data_d = data_q;
                 dq_en_d = 1'b1; // enable out bus
-                a_d = {2'b0, 1'b0, addr_q[7:0], 2'b00};
+                // a_d = {2'b0, 1'b0, addr_q[7:0], 2'b00};
+                a_d = {7'b0, addr_q[7:2]};
                 ba_d = addr_q[9:8];
-                delay_ctr_d = tCASL;
-                state_d = WAIT;
-                next_state_d = IDLE;
+
+                state_d = IDLE;
             end
 
             ///// PRECHARGE /////
@@ -455,13 +480,11 @@ module sdram_controller (
             dq_en_q <= 1'b0;
             state_q <= INIT;
             ready_q <= 1'b0;
-            fetch_count_q <= 2'd0;
         end else begin
             cle_q <= cle_d;
             dq_en_q <= dq_en_d;
             state_q <= state_d;
             ready_q <= ready_d;
-            fetch_count_q <= fetch_count_d; // addbyself
         end
 
         saved_rw_q <= saved_rw_d;
@@ -487,6 +510,9 @@ module sdram_controller (
         precharge_bank_q <= precharge_bank_d;
         rw_op_q <= rw_op_d;
         delay_ctr_q <= delay_ctr_d;
+        //////////////////////////// (Added by us) ////////////////////////////
+        prefetch_counter <= next_prefetch_counter;
+        ///////////////////////////////////////////////////////////////////////
     end
 
 endmodule

@@ -2,10 +2,10 @@
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
 [*] Tue Sep 19 07:26:27 2023
 [*]
-[dumpfile] "/home/ubuntu/LAB/github_teamsync/SOC-design/labD/lab_D/lab-sdram/testbench/counter_la/counter_la.vcd"
+[dumpfile] "/home/eehpc/caravel-soc_fpga-lab/lab-exmem/testbench/counter_la/counter_la.vcd"
 [dumpfile_mtime] "Tue Sep 19 06:48:34 2023"
 [dumpfile_size] 24538902
-[savefile] "/home/ubuntu/LAB/github_teamsync/SOC-design/labD/lab_D/lab-sdram/testbench/counter_la/waveform.gtkw"
+[savefile] "/home/eehpc/caravel-soc_fpga-lab/lab-exmem/testbench/counter_la/waveform.gtkw"
 [timestart] 0
 [size] 1075 907
 [pos] 1923 970
