@@ -6,7 +6,7 @@
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.file 0 "/home/ubuntu/soc/soc_final/SOC-design/labD/lab_D/lab-sdram/testbench/counter_la_mm" "counter_la_mm.c"
+	.file 0 "/home/ubuntu/lab_D/lab-sdram/testbench/counter_la_mm" "counter_la_mm.c"
 	.align	2
 	.type	flush_cpu_icache, @function
 flush_cpu_icache:
@@ -1002,5 +1002,5 @@ main:
 .LASF0:
 	.string	"counter_la_mm.c"
 .LASF1:
-	.string	"/home/ubuntu/soc/soc_final/SOC-design/labD/lab_D/lab-sdram/testbench/counter_la_mm"
+	.string	"/home/ubuntu/lab_D/lab-sdram/testbench/counter_la_mm"
 	.ident	"GCC: (g1ea978e3066) 12.1.0"

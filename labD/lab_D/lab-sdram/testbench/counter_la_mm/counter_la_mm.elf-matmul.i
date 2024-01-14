@@ -1,5 +1,5 @@
 # 0 "matmul.c"
-# 1 "/home/ubuntu/soc/soc_final/SOC-design/labD/lab_D/lab-sdram/testbench/counter_la_mm//"
+# 1 "/home/ubuntu/lab_D/lab-sdram/testbench/counter_la_mm//"
 # 0 "<built-in>"
 # 0 "<command-line>"
 # 1 "matmul.c"
