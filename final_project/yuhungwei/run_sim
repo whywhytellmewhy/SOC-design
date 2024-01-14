@@ -1,0 +1,4 @@
+iverilog -Ttyp -DFUNCTIONAL -DSIM -DUNIT_DELAY=#1 \
+  -o mm_wave.vvp mm.v TESTBED.v
+vvp mm_wave.vvp
+
