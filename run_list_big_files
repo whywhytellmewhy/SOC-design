@@ -1,0 +1,2 @@
+##### Reference: https://dylan237.github.io/linux-basic.html
+find ./ -type f -size +100M
