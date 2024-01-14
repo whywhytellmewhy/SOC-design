@@ -122,18 +122,18 @@ OUTPUT(counter_la.elf elf32-littleriscv)
  .debug_line    0x000000000000037c      0x42f counter_la.elf-counter_la.o
 
 .debug_line_str
-                0x0000000000000000       0xea
+                0x0000000000000000      0x10e
  .debug_line_str
-                0x0000000000000000       0x4c counter_la.elf-crt0_vex.o
+                0x0000000000000000       0x70 counter_la.elf-crt0_vex.o
  .debug_line_str
-                0x000000000000004c       0x6b counter_la.elf-isr.o
+                0x0000000000000070       0x6b counter_la.elf-isr.o
+                                        0x132 (size before relaxing)
+ .debug_line_str
+                0x00000000000000db       0x1f counter_la.elf-adder.o
                                          0xea (size before relaxing)
  .debug_line_str
-                0x00000000000000b7       0x1f counter_la.elf-adder.o
-                                         0xa2 (size before relaxing)
- .debug_line_str
-                0x00000000000000d6       0x14 counter_la.elf-counter_la.o
-                                         0xed (size before relaxing)
+                0x00000000000000fa       0x14 counter_la.elf-counter_la.o
+                                        0x135 (size before relaxing)
 
 .debug_info     0x0000000000000000      0x2d2
  .debug_info    0x0000000000000000       0x25 counter_la.elf-crt0_vex.o
@@ -157,13 +157,13 @@ OUTPUT(counter_la.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000060       0x20 counter_la.elf-counter_la.o
 
-.debug_str      0x0000000000000000      0x174
- .debug_str     0x0000000000000000       0x58 counter_la.elf-crt0_vex.o
- .debug_str     0x0000000000000058       0xec counter_la.elf-isr.o
+.debug_str      0x0000000000000000      0x198
+ .debug_str     0x0000000000000000       0x7c counter_la.elf-crt0_vex.o
+ .debug_str     0x000000000000007c       0xec counter_la.elf-isr.o
                                         0x125 (size before relaxing)
- .debug_str     0x0000000000000144       0x1d counter_la.elf-adder.o
+ .debug_str     0x0000000000000168       0x1d counter_la.elf-adder.o
                                          0x81 (size before relaxing)
- .debug_str     0x0000000000000161       0x13 counter_la.elf-counter_la.o
+ .debug_str     0x0000000000000185       0x13 counter_la.elf-counter_la.o
                                         0x124 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x1a8
