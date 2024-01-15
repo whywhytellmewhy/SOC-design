@@ -28,7 +28,7 @@ module DMA_FIR
 );
 
     localparam DMA_FIR_IDLE = 3'd0, DMA_FIR_BASE_ADDRESS = 3'd1, DMA_FIR_DETECT_Yn_Xn = 3'd2, DMA_FIR_STREAM_IN = 3'd3, DMA_FIR_STREAM_OUT = 3'd4, DMA_FIR_DONE = 3'd5;
-    localparam DMA_FIR_REQUEST_IDLE = 2'd0, DMA_FIR_NO_REQUEST = 2'd1, DMA_FIR_REQUEST_SDRAM = 2'd2, DMA_FIR_REQUEST_DONE = 2'd3;
+    localparam DMA_FIR_REQUEST_IDLE = 2'd0, DMA_FIR_REQUEST_SDRAM = 2'd1, DMA_FIR_NO_REQUEST = 2'd2, DMA_FIR_REQUEST_DONE = 2'd3;
     
     reg wbs_ack_o_before_FF;
     reg [31:0] wbs_dat_o_before_FF;
@@ -84,7 +84,6 @@ module DMA_FIR
     always @* begin
         case(state_DMA_FIR_request_SDRAM)
             DMA_FIR_REQUEST_IDLE: begin
-                FIR_in_valid_before_FF=0;
                 FIR_rw_before_FF=0;
                 data_from_FIR_before_FF=0;
                 next_input_buffer=input_buffer;
@@ -93,29 +92,13 @@ module DMA_FIR
 
                 if(FIR_base_address_buffer==3721) begin
                     next_state_DMA_FIR_request_SDRAM=DMA_FIR_REQUEST_IDLE;
+                    FIR_in_valid_before_FF=0;
                     FIR_address_before_FF=0;
                 end
                 else begin
-                    next_state_DMA_FIR_request_SDRAM=DMA_FIR_NO_REQUEST;
-                    FIR_address_before_FF=FIR_base_address_buffer;
-                end
-            end
-            DMA_FIR_NO_REQUEST: begin
-                FIR_rw_before_FF=0;
-                FIR_address_before_FF=FIR_address;
-                data_from_FIR_before_FF=0;
-
-                next_input_buffer=input_buffer;
-                //next_input_buffer_valid=input_buffer_valid;
-                next_input_number_counter=input_number_counter;
-
-                if(input_buffer_valid==0) begin
                     next_state_DMA_FIR_request_SDRAM=DMA_FIR_REQUEST_SDRAM;
                     FIR_in_valid_before_FF=1;
-                end
-                else begin
-                    next_state_DMA_FIR_request_SDRAM=DMA_FIR_NO_REQUEST;
-                    FIR_in_valid_before_FF=0;
+                    FIR_address_before_FF=FIR_base_address_buffer;
                 end
             end
             DMA_FIR_REQUEST_SDRAM: begin
@@ -153,6 +136,24 @@ module DMA_FIR
                     FIR_address_before_FF=FIR_address;
                     next_input_buffer=input_buffer;
                     next_input_number_counter=input_number_counter;
+                end
+            end
+            DMA_FIR_NO_REQUEST: begin
+                FIR_rw_before_FF=0;
+                FIR_address_before_FF=FIR_address;
+                data_from_FIR_before_FF=0;
+
+                next_input_buffer=input_buffer;
+                //next_input_buffer_valid=input_buffer_valid;
+                next_input_number_counter=input_number_counter;
+
+                if(input_buffer_valid==0) begin
+                    next_state_DMA_FIR_request_SDRAM=DMA_FIR_REQUEST_SDRAM;
+                    FIR_in_valid_before_FF=1;
+                end
+                else begin
+                    next_state_DMA_FIR_request_SDRAM=DMA_FIR_NO_REQUEST;
+                    FIR_in_valid_before_FF=0;
                 end
             end
             DMA_FIR_REQUEST_DONE: begin
@@ -234,8 +235,14 @@ module DMA_FIR
                 end
             end
             DMA_FIR_DETECT_Yn_Xn: begin
-                wbs_ack_o_before_FF=0;
-                wbs_dat_o_before_FF=0;
+                if((wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==0) && (wbs_adr_i[7:0]==8'h00)) begin // that is, read ap_register(0x30000000)
+                    wbs_ack_o_before_FF=1;
+                    wbs_dat_o_before_FF=32'd0;
+                end
+                else begin
+                    wbs_ack_o_before_FF=0;
+                    wbs_dat_o_before_FF=0;
+                end
 
                 wbs_stb_DMA_to_FIR=1;
                 wbs_cyc_DMA_to_FIR=1;
@@ -262,8 +269,14 @@ module DMA_FIR
                 end
             end
             DMA_FIR_STREAM_IN: begin
-                wbs_ack_o_before_FF=0;
-                wbs_dat_o_before_FF=0;
+                if((wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==0) && (wbs_adr_i[7:0]==8'h00)) begin // that is, read ap_register(0x30000000)
+                    wbs_ack_o_before_FF=1;
+                    wbs_dat_o_before_FF=32'd0;
+                end
+                else begin
+                    wbs_ack_o_before_FF=0;
+                    wbs_dat_o_before_FF=0;
+                end
 
                 wbs_stb_DMA_to_FIR=1;
                 wbs_cyc_DMA_to_FIR=1;
@@ -284,8 +297,14 @@ module DMA_FIR
                 end
             end
             DMA_FIR_STREAM_OUT: begin
-                wbs_ack_o_before_FF=0;
-                wbs_dat_o_before_FF=0;
+                if((wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==0) && (wbs_adr_i[7:0]==8'h00)) begin // that is, read ap_register(0x30000000)
+                    wbs_ack_o_before_FF=1;
+                    wbs_dat_o_before_FF=32'd0;
+                end
+                else begin
+                    wbs_ack_o_before_FF=0;
+                    wbs_dat_o_before_FF=0;
+                end
 
                 wbs_stb_DMA_to_FIR=1;
                 wbs_cyc_DMA_to_FIR=1;

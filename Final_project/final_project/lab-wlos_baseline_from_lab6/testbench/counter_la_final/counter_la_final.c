@@ -166,6 +166,7 @@ void main()
 
 	//////////////////////////////// Q sort (counter_la_qs.c) ////////////////////////////////
 	int* tmp = qsort();
+
 	reg_mprj_datal = *tmp << 16;
 	reg_mprj_datal = *(tmp+1) << 16;
 	reg_mprj_datal = *(tmp+2) << 16;

@@ -206,13 +206,15 @@ module WB_decoder #(
 
     //assign decoded = wbs_adr_i[31:20] == 12'h380 ? 1'b1 : 1'b0;
     always @* begin
-        if(wbs_adr_i[31:20] == 12'h380) begin
+        if(wbs_adr_i[31:20] == 12'h380) begin  // SDRAM
             decoded=2'b11;
         end
-        else if((wbs_adr_i[31:20] == 12'h300) && (wbs_adr_i[19] == 0)) begin
+        //else if((wbs_adr_i[31:20] == 12'h300) && (wbs_adr_i[19] == 0)) begin
+        else if(wbs_adr_i[31:16] == 16'h3000) begin  // FIR
             decoded=2'b01;
         end
-        else if((wbs_adr_i[31:20] == 12'h300) && (wbs_adr_i[19] == 1)) begin
+        //else if((wbs_adr_i[31:20] == 12'h300) && (wbs_adr_i[19] == 1)) begin
+        else if(wbs_adr_i[31:16] == 16'h3001) begin  // MM
             decoded=2'b10;
         end
         else begin
