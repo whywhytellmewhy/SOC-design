@@ -4,7 +4,7 @@ module mm
 )
 (
     input   wire                     axis_clk,
-    input   wire                     axis_rst_n
+    input   wire                     axis_rst_n,
     
     // ap_start from DMA
     input   wire                     mm_start,

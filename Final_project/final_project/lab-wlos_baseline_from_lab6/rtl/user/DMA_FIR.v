@@ -27,6 +27,36 @@ module DMA_FIR
     output reg  FIR_prefetch_step
 );
 
+    ///////////////////////////////////////// (For test) /////////////////////////////////////////
+    //wire test1;
+    wire [31:0] output_buffer0;
+    wire [31:0] output_buffer1;
+    wire [31:0] output_buffer2;
+    wire [31:0] output_buffer3;
+    wire [31:0] output_buffer4;
+    wire [31:0] output_buffer5;
+    wire [31:0] output_buffer6;
+    wire [31:0] output_buffer7;
+    wire [31:0] output_buffer8;
+    wire [31:0] output_buffer9;
+    wire [31:0] output_buffer10;
+
+    assign output_buffer0=output_buffer[0];
+    assign output_buffer1=output_buffer[1];
+    assign output_buffer2=output_buffer[2];
+    assign output_buffer3=output_buffer[3];
+    assign output_buffer4=output_buffer[4];
+    assign output_buffer5=output_buffer[5];
+    assign output_buffer6=output_buffer[6];
+    assign output_buffer7=output_buffer[7];
+    assign output_buffer8=output_buffer[8];
+    assign output_buffer9=output_buffer[9];
+    assign output_buffer10=output_buffer[10];
+
+
+    //assign test1=(wbs_adr_i[7:0]==8'h88);
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    
     localparam DMA_FIR_IDLE = 3'd0, DMA_FIR_BASE_ADDRESS = 3'd1, DMA_FIR_DETECT_Yn_Xn = 3'd2, DMA_FIR_STREAM_IN = 3'd3, DMA_FIR_STREAM_OUT = 3'd4, DMA_FIR_DONE = 3'd5;
     localparam DMA_FIR_REQUEST_IDLE = 2'd0, DMA_FIR_REQUEST_SDRAM = 2'd1, DMA_FIR_NO_REQUEST = 2'd2, DMA_FIR_REQUEST_DONE = 2'd3;
     
@@ -107,14 +137,7 @@ module DMA_FIR
 
                 //next_input_buffer_valid=
 
-                if(FIR_busy) begin
-                    next_state_DMA_FIR_request_SDRAM=DMA_FIR_REQUEST_SDRAM;
-                    FIR_in_valid_before_FF=FIR_in_valid;
-                    FIR_address_before_FF=FIR_address;
-                    next_input_buffer=input_buffer;
-                    next_input_number_counter=input_number_counter;
-                end
-                else if(FIR_out_valid) begin
+                if(FIR_out_valid) begin
                     if(input_number_counter==6'd63) begin
                         next_state_DMA_FIR_request_SDRAM=DMA_FIR_REQUEST_DONE;
                         FIR_in_valid_before_FF=0;
@@ -125,10 +148,17 @@ module DMA_FIR
                     else begin
                         next_state_DMA_FIR_request_SDRAM=DMA_FIR_NO_REQUEST;
                         FIR_in_valid_before_FF=0;
-                        FIR_address_before_FF=FIR_address + 1;
+                        FIR_address_before_FF=FIR_address + 4;
                         next_input_buffer=data_to_FIR;
                         next_input_number_counter=input_number_counter+1;
                     end
+                end
+                else if(FIR_busy) begin
+                    next_state_DMA_FIR_request_SDRAM=DMA_FIR_REQUEST_SDRAM;
+                    FIR_in_valid_before_FF=FIR_in_valid;
+                    FIR_address_before_FF=FIR_address;
+                    next_input_buffer=input_buffer;
+                    next_input_number_counter=input_number_counter;
                 end
                 else begin
                     next_state_DMA_FIR_request_SDRAM=DMA_FIR_REQUEST_SDRAM;
@@ -229,7 +259,7 @@ module DMA_FIR
                     wbs_dat_o_before_FF=0;
                 end
                 else begin
-                    next_state_DMA_FIR=DMA_FIR_IDLE;
+                    next_state_DMA_FIR=DMA_FIR_BASE_ADDRESS;
                     wbs_ack_o_before_FF=wbs_ack_FIR_to_DMA;
                     wbs_dat_o_before_FF=output_data_FIR_to_DMA;
                 end
@@ -255,14 +285,15 @@ module DMA_FIR
                     next_output_buffer[i] = output_buffer[i];
                 end
 
-                if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[4]==1) && (input_buffer_valid==1)) begin  // output_data_FIR_to_DMA[4] means Xn_ready
-                    next_state_DMA_FIR=DMA_FIR_STREAM_IN;
-                end
-                else if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[5]==1)) begin  // output_data_FIR_to_DMA[5] means Yn_valid
+                if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[5]==1)) begin  // output_data_FIR_to_DMA[5] means Yn_valid
                     next_state_DMA_FIR=DMA_FIR_STREAM_OUT;
                 end
-                else if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[1]==1)) begin  // output_data_FIR_to_DMA[1] means ap_done
+                //else if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[1]==1)) begin  // output_data_FIR_to_DMA[1] means ap_done
+                else if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[2]==1)) begin  // output_data_FIR_to_DMA[2] means ap_idle
                     next_state_DMA_FIR=DMA_FIR_DONE;
+                end
+                else if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[4]==1) && (input_buffer_valid==1)) begin  // output_data_FIR_to_DMA[4] means Xn_ready
+                    next_state_DMA_FIR=DMA_FIR_STREAM_IN;
                 end
                 else begin
                     next_state_DMA_FIR=DMA_FIR_DETECT_Yn_Xn;
@@ -545,14 +576,14 @@ module DMA_FIR
         .data_A_shifted(data_A_shifted),
         .data_Do(data_Do),
 
-        .axis_clk(clk),
-        .axis_rst_n(~rst)
+        .axis_clk(wb_clk_i),
+        .axis_rst_n(~wb_rst_i)
 
     );
     
     // RAM for tap
     bram11 tap_RAM (
-        .clk(clk),
+        .clk(wb_clk_i),
         .we(tap_WE_merge),
         .re(tap_RE),
         .waddr(tap_A_shifted),
@@ -563,7 +594,7 @@ module DMA_FIR
 
     // RAM for data
     bram11 data_RAM(
-        .clk(clk),
+        .clk(wb_clk_i),
         .we(data_WE_merge),
         .re(data_RE),
         .waddr(data_A_shifted),

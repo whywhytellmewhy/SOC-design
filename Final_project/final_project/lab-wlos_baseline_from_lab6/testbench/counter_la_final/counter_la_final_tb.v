@@ -144,7 +144,7 @@ module counter_la_final_tb;
 		$dumpvars(0, counter_la_final_tb);
 
 		// Repeat cycles of 1000 clock edges as needed to complete testbench
-		repeat (1000) begin // modified (original:200)
+		repeat (100) begin // modified (original:200)
 			repeat (1000) @(posedge clock);
 			// $display("+1000 cycles");
 		end
@@ -166,7 +166,7 @@ module counter_la_final_tb;
 		pass_MatMul_QS_FIR=0;
 		wait(checkbits == 16'hAB40);
 		#0.1;
-		$display("Info: Start matrix multiplication test...");
+	/*	$display("Info: Start matrix multiplication test...");
 		
 		wait(checkbits == 16'h003E);
 		$display("Call function matmul() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x, which is %d in decimal", checkbits, checkbits);
@@ -178,13 +178,18 @@ module counter_la_final_tb;
 		$display("Call function matmul() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x, which is %d in decimal", checkbits, checkbits);
 
 		wait(checkbits == 16'hAB51);
-		$display("Success: Matrix multiplication test passed ♪");
+		$display("Success: Matrix multiplication test passed ♪");*/
 	/*end
 
 	initial begin
 		wait(checkbits == 16'hAB51);
 		#0.1;*/
-		$display("Info: Start Q sort test...");
+		$display("\n++++++++++ Step 1: FIR & MM hardware accelerator initialization ++++++++++");
+		wait(checkbits == 16'hAB50);
+		$display("Info: Detect check bits (16'hAB50) on reg_mprj_datal[31:16], hardware initialization finished!");
+
+		/////$display("Info: Start Q sort test...");
+		$display("\n++++++++++ Step 2: Start Q sort test (firmware) ++++++++++");
 		
 		wait(checkbits == 16'd40);
 		$display("Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x, which is %d in decimal", checkbits, checkbits);
@@ -196,7 +201,18 @@ module counter_la_final_tb;
 		$display("Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x, which is %d in decimal", checkbits, checkbits);
 
 		wait(checkbits == 16'hAB52);
-		$display("Success: Q sort test passed ♪");
+		$display("Success: Detect check bits (16'hAB52) on reg_mprj_datal[31:16], Q sort test passed ♪");
+
+		$display("\n++++++++++ Step 3: Check FIR & MM hardware accelerator results ++++++++++");
+		wait(checkbits == 16'd10614);
+		$display("FIR return value passed, 0x%x, which is %d in decimal", checkbits, checkbits);
+
+		wait(checkbits == 16'hAB60);
+		$display("Success: Detect check bits (16'hAB60) on reg_mprj_datal[31:16], FIR & MM hardware accelerator test passed ♪");
+
+
+		#10;
+		$finish;
 	/*end
 
 	initial begin
@@ -213,6 +229,7 @@ module counter_la_final_tb;
 	end
 	/////////////////////////////////////////////////////////////////////////
 
+	/* /////// (We do not improve UART part, so ignore here.) ///////
 	initial begin
 		pass_UART=0;
 		wait(checkbits == 16'hAB40);
@@ -312,6 +329,7 @@ module counter_la_final_tb;
 		
 	end endtask
 	/////////////////////////////////////////////////////////////////////////
+	*/
 
 	initial begin
 		RSTB <= 1'b0;
@@ -389,6 +407,7 @@ module counter_la_final_tb;
 		.io3()			// not used
 	);
 
+	/* /////// (We do not improve UART part, so ignore here.) ///////
 	// Testbench UART
 	tbuart tbuart (
 		.ser_rx(uart_tx),
@@ -398,6 +417,7 @@ module counter_la_final_tb;
 		.tx_busy(tx_busy),
 		.tx_clear_req(tx_clear_req)
 	);
+	*/
 
 endmodule
 `default_nettype wire

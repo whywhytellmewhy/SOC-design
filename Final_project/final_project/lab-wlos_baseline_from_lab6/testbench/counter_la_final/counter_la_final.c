@@ -34,6 +34,8 @@
 /////extern int* fir();
 /////extern int* matmul();
 extern int* qsort();
+extern int* hardware_accelerator_initialization();
+extern int* hardware_accelerator_check_result();
 /////////////////////////////////////////////////////////////////////////
 
 // --------------------------------------------------------
@@ -165,6 +167,10 @@ void main()
 /////	reg_mprj_datal = 0xAB510000;
 
 	//////////////////////////////// Q sort (counter_la_qs.c) ////////////////////////////////
+	hardware_accelerator_initialization();
+	reg_mprj_datal = 0xAB500000;
+	
+
 	int* tmp = qsort();
 
 	reg_mprj_datal = *tmp << 16;
@@ -180,6 +186,13 @@ void main()
 
 	reg_mprj_datal = 0xAB520000;
 
+
+	//reg_mprj_datal = (int)(hardware_accelerator_check_result());
+	tmp = hardware_accelerator_check_result();
+	reg_mprj_datal = *tmp << 16;
+
+	reg_mprj_datal = 0xAB600000;
+	
 	//////////////////////////////// FIR (counter_la_fir.c) ////////////////////////////////
 /////	tmp = fir();
 /////	reg_mprj_datal = *tmp << 16;

@@ -88,6 +88,12 @@ module SDRAM_arbiter (
     wire [31:0] prefetch_buffer_CPU0;
     wire [31:0] prefetch_buffer_CPU1;
     wire [31:0] prefetch_buffer_CPU2;
+    wire [22:0] prefetch_address_FIR0;
+    wire [22:0] prefetch_address_FIR1;
+    wire [22:0] prefetch_address_FIR2;
+    wire [31:0] prefetch_buffer_FIR0;
+    wire [31:0] prefetch_buffer_FIR1;
+    wire [31:0] prefetch_buffer_FIR2;
     wire [2:0] request_FIFO_0;
     wire [2:0] request_FIFO_1;
     wire [2:0] request_FIFO_2;
@@ -98,6 +104,12 @@ module SDRAM_arbiter (
     assign prefetch_buffer_CPU0=prefetch_buffer_CPU[0];
     assign prefetch_buffer_CPU1=prefetch_buffer_CPU[1];
     assign prefetch_buffer_CPU2=prefetch_buffer_CPU[2];
+    assign prefetch_address_FIR0=prefetch_address_FIR[0];
+    assign prefetch_address_FIR1=prefetch_address_FIR[1];
+    assign prefetch_address_FIR2=prefetch_address_FIR[2];
+    assign prefetch_buffer_FIR0=prefetch_buffer_FIR[0];
+    assign prefetch_buffer_FIR1=prefetch_buffer_FIR[1];
+    assign prefetch_buffer_FIR2=prefetch_buffer_FIR[2];
     assign request_FIFO_0=request_FIFO[0];
     assign request_FIFO_1=request_FIFO[1];
     assign request_FIFO_2=request_FIFO[2];
@@ -458,7 +470,7 @@ module SDRAM_arbiter (
                     next_request_FIR=request_FIR;
                 end
 
-                if((request_FIFO[0][2]==1) && (state_FIFO==FIFO_WRITE)) begin // [0] means the being-processed request; [2] is the place of FIR_request (request_FIFO[XX][2]: FIR)
+                if((request_FIFO[0][1]==1) && (state_FIFO==FIFO_WRITE)) begin // [0] means the being-processed request; [1] is the place of FIR_request (request_FIFO[XX][1]: FIR)
                     next_state_FIR=FIR_IDLE;
                 end
                 else begin
@@ -481,7 +493,7 @@ module SDRAM_arbiter (
                     next_request_FIR=request_FIR;
                 end
                 
-                if((request_FIFO[0][2]==1) && (controller_out_valid==1)) begin // [0] means the being-processed request; [2] is the place of FIR_request (request_FIFO[XX][2]: FIR)
+                if((request_FIFO[0][1]==1) && (controller_out_valid==1)) begin // [0] means the being-processed request; [1] is the place of FIR_request (request_FIFO[XX][1]: FIR)
                     next_state_FIR=FIR_OUTPUT;
                     FIR_out_valid_before_FF=1;
                     data_to_FIR_before_FF=data_from_controller;
@@ -584,7 +596,7 @@ module SDRAM_arbiter (
                     next_request_MM=request_MM;
                 end
 
-                if((request_FIFO[0][2]==1) && (state_FIFO==FIFO_WRITE)) begin // [0] means the being-processed request; [2] is the place of MM_request (request_FIFO[XX][2]: MM)
+                if((request_FIFO[0][0]==1) && (state_FIFO==FIFO_WRITE)) begin // [0] means the being-processed request; [0] is the place of MM_request (request_FIFO[XX][0]: MM)
                     next_state_MM=MM_IDLE;
                 end
                 else begin
@@ -607,7 +619,7 @@ module SDRAM_arbiter (
                     next_request_MM=request_MM;
                 end
                 
-                if((request_FIFO[0][2]==1) && (controller_out_valid==1)) begin // [0] means the being-processed request; [2] is the place of MM_request (request_FIFO[XX][2]: MM)
+                if((request_FIFO[0][0]==1) && (controller_out_valid==1)) begin // [0] means the being-processed request; [0] is the place of MM_request (request_FIFO[XX][0]: MM)
                     next_state_MM=MM_OUTPUT;
                     MM_out_valid_before_FF=1;
                     data_to_MM_before_FF=data_from_controller;
@@ -662,10 +674,10 @@ module SDRAM_arbiter (
             controller_prefetch_step_before_FF=MM_prefetch_step;
         end
         else begin
-            controller_address_before_FF=0;
-            controller_rw_before_FF=0;
-            data_to_controller_before_FF=0;
-            controller_prefetch_step_before_FF=0;
+            controller_address_before_FF=controller_address;
+            controller_rw_before_FF=controller_rw;
+            data_to_controller_before_FF=data_to_controller;
+            controller_prefetch_step_before_FF=controller_prefetch_step;
         end
     end
 

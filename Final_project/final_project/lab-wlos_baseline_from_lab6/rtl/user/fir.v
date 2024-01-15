@@ -905,9 +905,9 @@ always @* begin
                     awready_before_FF=0;
                     wready_before_FF=0;
                     arready_before_FF=0;
-                    sm_tvalid_before_FF=0;
-                    sm_tdata_before_FF=0;
-                    sm_tlast_before_FF=0;
+                    sm_tvalid_before_FF=sm_tvalid;
+                    sm_tdata_before_FF=sm_tdata;
+                    sm_tlast_before_FF=sm_tlast;
                     next_ap_idle_done_start=ap_idle_done_start;
                     next_counter_data_number=counter_data_number;
                 end

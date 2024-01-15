@@ -9,14 +9,14 @@ rm -f counter_la_final.hex
 #	-Wl,-Bstatic,-T,../../firmware/sections.lds,--strip-discarded \
 #	-ffreestanding -nostartfiles -O2 -o counter_la_final.elf ../../firmware/crt0_vex.S ../../firmware/isr.c qsort.c uart.c counter_la_final.c
 
-### Without UART with "-O2" flag
+### Without UART with "-Os" flag
 riscv32-unknown-elf-gcc -Wl,--no-warn-rwx-segments -g \
 	--save-temps \
 	-Xlinker -Map=output.map \
 	-I../../firmware \
 	-march=rv32i -mabi=ilp32 -D__vexriscv__ \
 	-Wl,-Bstatic,-T,../../firmware/sections.lds,--strip-discarded \
-	-ffreestanding -nostartfiles -O2 -o counter_la_final.elf ../../firmware/crt0_vex.S ../../firmware/isr.c qsort.c counter_la_final.c
+	-ffreestanding -nostartfiles -Os -o counter_la_final.elf ../../firmware/crt0_vex.S ../../firmware/isr.c qsort.c counter_la_final.c
 
 # -nostartfiles	
 riscv32-unknown-elf-objcopy -O verilog counter_la_final.elf counter_la_final.hex

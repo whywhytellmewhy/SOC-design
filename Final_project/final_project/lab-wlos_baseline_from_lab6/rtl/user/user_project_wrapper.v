@@ -83,7 +83,7 @@ module user_project_wrapper #(
 /*--------------------------------------*/
 
 /////user_proj_example mprj (
-WB_decoder mprj (
+WB_decoder WB_decoder_U0 (
 `ifdef USE_POWER_PINS
 	.vccd1(vccd1),	// User area 1 1.8V power
 	.vssd1(vssd1),	// User area 1 digital ground

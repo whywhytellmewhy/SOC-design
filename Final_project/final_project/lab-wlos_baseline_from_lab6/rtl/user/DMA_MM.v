@@ -109,18 +109,7 @@ module DMA_MM
                 data_from_MM_before_FF=0;
                 MM_prefetch_step_before_FF=MM_prefetch_step;
 
-                if(MM_busy) begin
-                    next_state_DMA_MM_request_SDRAM=DMA_MM_REQUEST_SDRAM;
-                    MM_in_valid_before_FF=MM_in_valid;
-                    MM_address_before_FF=MM_address;
-                    next_input_buffer[0]=input_buffer[0];
-                    next_input_buffer[1]=input_buffer[1];
-                    next_input_buffer[2]=input_buffer[2];
-                    next_input_buffer[3]=input_buffer[3];
-                    next_input_number_counter_coarse=input_number_counter_coarse;
-                    next_input_number_counter_fine=input_number_counter_fine;
-                end
-                else if(MM_out_valid) begin
+                if(MM_out_valid) begin
                     if(input_number_counter_fine==2'd3) begin
                         MM_in_valid_before_FF=0;
                         MM_address_before_FF=MM_address;
@@ -143,10 +132,10 @@ module DMA_MM
                         next_state_DMA_MM_request_SDRAM=DMA_MM_REQUEST_SDRAM;
                         MM_in_valid_before_FF=1;
                         if((input_number_counter_coarse==3'd0) || (input_number_counter_coarse==3'd5) || (input_number_counter_coarse==3'd6) || (input_number_counter_coarse==3'd7)) begin // A_row
-                            MM_address_before_FF=MM_address+1;
+                            MM_address_before_FF=MM_address+4;
                         end
                         else begin // B_column
-                            MM_address_before_FF=MM_address+4;
+                            MM_address_before_FF=MM_address+16;
                         end
                         case(input_number_counter_fine)
                             2'd0: begin
@@ -178,6 +167,17 @@ module DMA_MM
                         next_input_number_counter_fine=input_number_counter_fine+1;
                     end
                 end
+                else if(MM_busy) begin
+                    next_state_DMA_MM_request_SDRAM=DMA_MM_REQUEST_SDRAM;
+                    MM_in_valid_before_FF=MM_in_valid;
+                    MM_address_before_FF=MM_address;
+                    next_input_buffer[0]=input_buffer[0];
+                    next_input_buffer[1]=input_buffer[1];
+                    next_input_buffer[2]=input_buffer[2];
+                    next_input_buffer[3]=input_buffer[3];
+                    next_input_number_counter_coarse=input_number_counter_coarse;
+                    next_input_number_counter_fine=input_number_counter_fine;
+                end
                 else begin
                     next_state_DMA_MM_request_SDRAM=DMA_MM_REQUEST_SDRAM;
                     MM_in_valid_before_FF=0;
@@ -206,12 +206,12 @@ module DMA_MM
                     
                     case(input_number_counter_coarse)
                         3'd1: MM_address_before_FF=MM_base_address_B_buffer;
-                        3'd2: MM_address_before_FF=MM_base_address_B_buffer+1;
-                        3'd3: MM_address_before_FF=MM_base_address_B_buffer+2;
-                        3'd4: MM_address_before_FF=MM_base_address_B_buffer+3;
-                        3'd5: MM_address_before_FF=MM_base_address_A_buffer+4;
-                        3'd6: MM_address_before_FF=MM_base_address_A_buffer+8;
-                        3'd7: MM_address_before_FF=MM_base_address_A_buffer+12;
+                        3'd2: MM_address_before_FF=MM_base_address_B_buffer+4;
+                        3'd3: MM_address_before_FF=MM_base_address_B_buffer+8;
+                        3'd4: MM_address_before_FF=MM_base_address_B_buffer+12;
+                        3'd5: MM_address_before_FF=MM_base_address_A_buffer+16;
+                        3'd6: MM_address_before_FF=MM_base_address_A_buffer+32;
+                        3'd7: MM_address_before_FF=MM_base_address_A_buffer+48;
                         default: MM_address_before_FF=MM_base_address_A_buffer;
                     endcase
 
@@ -315,7 +315,7 @@ module DMA_MM
                     
                 end
                 else begin
-                    next_state_DMA_MM=DMA_FIR_IDLE;
+                    next_state_DMA_MM=DMA_MM_IDLE;
                     wbs_ack_o_before_FF=0;
                     wbs_dat_o_before_FF=0;
                     next_MM_base_address_A_buffer=MM_base_address_A_buffer;
