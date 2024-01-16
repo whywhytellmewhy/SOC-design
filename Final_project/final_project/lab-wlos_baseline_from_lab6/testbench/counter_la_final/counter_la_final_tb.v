@@ -207,6 +207,9 @@ module counter_la_final_tb;
 		wait(checkbits == 16'd10614);
 		$display("FIR return value passed, 0x%x, which is %d in decimal", checkbits, checkbits);
 
+		wait(checkbits == 16'd80);
+		$display("Matrix Multiplication return value passed, 0x%x, which is %d in decimal", checkbits, checkbits);
+
 		wait(checkbits == 16'hAB60);
 		$display("Success: Detect check bits (16'hAB60) on reg_mprj_datal[31:16], FIR & MM hardware accelerator test passed ♪");
 

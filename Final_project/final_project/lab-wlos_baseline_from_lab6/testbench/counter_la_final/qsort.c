@@ -76,16 +76,35 @@ void __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_initializ
 	//reg_mprj_datal =(((int)(&x))<<16);
 	//reg_mprj_datal = 0x00A50000;
 
+
+	//------------------------------- (MM part) -------------------------------//
+
+	// check idle
+	WB_return_data = *((int*)MM_BASE_ADDRESS);
+	while (((WB_return_data>>2)&1)==0){
+		WB_return_data = *((int*)MM_BASE_ADDRESS);
+	}
+
+	// Provide the base address of A matrix (base address configuration address map as 8'h04) & B matrix (base address configuration address map as 8'h08) to DMA_MM
+	*((int*)(MM_BASE_ADDRESS+0x04))=(int)(&A);
+	*((int*)(MM_BASE_ADDRESS+0x08))=(int)(&B);
+
+
+	//------------------------------- (FIR part) -------------------------------//
 	// Program ap_start
 	*((int*)(FIR_BASE_ADDRESS))=1; //WB_write((int*)(FIR_BASE_ADDRESS), 1); // which means "ap_idle_done_start==1"
 	/////reg_mprj_datal = 0x00A50000; // start mark on mprj[23:16]
 
 
 	//------------------------------- (MM part) -------------------------------//
+	// Program ap_start
+	*((int*)(MM_BASE_ADDRESS))=1;
+	
+
 }
 
 
-int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_result(){
+int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_result_FIR(){
 
 	//------------------------------- (FIR part) -------------------------------//
 	/*int outputsignal[N];
@@ -96,4 +115,11 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_res
 	return outputsignal[10];*/
 	//outputsignal[0]=*((int*)(FIR_BASE_ADDRESS+0xB4));
 	return (int*)(FIR_BASE_ADDRESS+0xB4);
+}
+
+
+int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_result_MM(){
+
+	//------------------------------- (MM part) -------------------------------//
+	return (int*)(MM_BASE_ADDRESS+0x48);
 }

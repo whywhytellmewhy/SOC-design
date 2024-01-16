@@ -26,6 +26,43 @@ module DMA_MM
     input   MM_out_valid,
     output reg  MM_prefetch_step
 );
+
+    ///////////////////////////////////////// (For test) /////////////////////////////////////////
+    wire [31:0] MM_output_buffer0;
+    wire [31:0] MM_output_buffer1;
+    wire [31:0] MM_output_buffer2;
+    wire [31:0] MM_output_buffer3;
+    wire [31:0] MM_output_buffer4;
+    wire [31:0] MM_output_buffer5;
+    wire [31:0] MM_output_buffer6;
+    wire [31:0] MM_output_buffer7;
+    wire [31:0] MM_output_buffer8;
+    wire [31:0] MM_output_buffer9;
+    wire [31:0] MM_output_buffer10;
+    wire [31:0] MM_output_buffer11;
+    wire [31:0] MM_output_buffer12;
+    wire [31:0] MM_output_buffer13;
+    wire [31:0] MM_output_buffer14;
+    wire [31:0] MM_output_buffer15;
+
+    assign MM_output_buffer0=output_buffer[0];
+    assign MM_output_buffer1=output_buffer[1];
+    assign MM_output_buffer2=output_buffer[2];
+    assign MM_output_buffer3=output_buffer[3];
+    assign MM_output_buffer4=output_buffer[4];
+    assign MM_output_buffer5=output_buffer[5];
+    assign MM_output_buffer6=output_buffer[6];
+    assign MM_output_buffer7=output_buffer[7];
+    assign MM_output_buffer8=output_buffer[8];
+    assign MM_output_buffer9=output_buffer[9];
+    assign MM_output_buffer10=output_buffer[10];
+    assign MM_output_buffer11=output_buffer[11];
+    assign MM_output_buffer12=output_buffer[12];
+    assign MM_output_buffer13=output_buffer[13];
+    assign MM_output_buffer14=output_buffer[14];
+    assign MM_output_buffer15=output_buffer[15];
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
     
     localparam DMA_MM_IDLE = 3'd0, DMA_MM_BASE_ADDRESS = 3'd1, DMA_MM_DETECT_Yn_Xn = 3'd2, DMA_MM_STREAM_IN = 3'd3, DMA_MM_STREAM_OUT = 3'd4, DMA_MM_DONE = 3'd5;
     localparam DMA_MM_REQUEST_IDLE = 2'd0, DMA_MM_REQUEST_SDRAM = 2'd1, DMA_MM_NO_REQUEST = 2'd2, DMA_MM_REQUEST_DONE = 2'd3;
@@ -583,10 +620,10 @@ module DMA_MM
     mm mm_U0 (
 
         .axis_clk(wb_clk_i),
-        .axis_rst_n(wb_rst_i),
+        .axis_rst_n(~wb_rst_i),
 
-        .mm_start(mm_start),
-        .mm_done(mm_done),
+        .mm_start_whole(mm_start),
+        .mm_done_whole(mm_done),
 
         .ss_tvalid(ss_tvalid),
         .ss_tdata(ss_tdata),

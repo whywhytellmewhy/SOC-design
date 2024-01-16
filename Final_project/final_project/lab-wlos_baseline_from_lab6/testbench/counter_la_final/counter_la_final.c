@@ -35,7 +35,9 @@
 /////extern int* matmul();
 extern int* qsort();
 extern int* hardware_accelerator_initialization();
-extern int* hardware_accelerator_check_result();
+//extern int* hardware_accelerator_check_result();
+extern int* hardware_accelerator_check_result_FIR();
+extern int* hardware_accelerator_check_result_MM();
 /////////////////////////////////////////////////////////////////////////
 
 // --------------------------------------------------------
@@ -188,7 +190,13 @@ void main()
 
 
 	//reg_mprj_datal = (int)(hardware_accelerator_check_result());
-	tmp = hardware_accelerator_check_result();
+	tmp = hardware_accelerator_check_result_FIR();
+	reg_mprj_datal = *tmp << 16;
+
+	/////reg_mprj_datal = 0xAB600000;
+
+
+	tmp = hardware_accelerator_check_result_MM();
 	reg_mprj_datal = *tmp << 16;
 
 	reg_mprj_datal = 0xAB600000;

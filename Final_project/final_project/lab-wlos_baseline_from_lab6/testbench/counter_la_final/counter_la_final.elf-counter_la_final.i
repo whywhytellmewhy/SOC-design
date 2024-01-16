@@ -1599,11 +1599,13 @@ extern uint32_t flashio_worker_end;
 # 36 "counter_la_final.c"
 extern int* qsort();
 extern int* hardware_accelerator_initialization();
-extern int* hardware_accelerator_check_result();
-# 51 "counter_la_final.c"
+
+extern int* hardware_accelerator_check_result_FIR();
+extern int* hardware_accelerator_check_result_MM();
+# 53 "counter_la_final.c"
 void main()
 {
-# 82 "counter_la_final.c"
+# 84 "counter_la_final.c"
     (*(volatile uint32_t*) (0xf0000000L + 0x3800L)) = 1;
 
     (*(volatile uint32_t*)0x260000a0) = 0x1809;
@@ -1661,7 +1663,7 @@ void main()
 
 
  (*(volatile uint32_t*) ((0xf0000000L + 0x3010L) + 8)) = (*(volatile uint32_t*) ((0xf0000000L + 0x3000L) + 8)) = 0x00000000;
-# 170 "counter_la_final.c"
+# 172 "counter_la_final.c"
  hardware_accelerator_initialization();
  (*(volatile uint32_t*)0x2600000c) = 0xAB500000;
 
@@ -1683,9 +1685,15 @@ void main()
 
 
 
- tmp = hardware_accelerator_check_result();
+ tmp = hardware_accelerator_check_result_FIR();
+ (*(volatile uint32_t*)0x2600000c) = *tmp << 16;
+
+
+
+
+ tmp = hardware_accelerator_check_result_MM();
  (*(volatile uint32_t*)0x2600000c) = *tmp << 16;
 
  (*(volatile uint32_t*)0x2600000c) = 0xAB600000;
-# 237 "counter_la_final.c"
+# 245 "counter_la_final.c"
 }

@@ -31,23 +31,23 @@ Linker script and memory map
  .text          0x0000000010000160        0x0 counter_la_final.elf-qsort.o
  .text          0x0000000010000160        0x0 counter_la_final.elf-counter_la_final.o
 
-.text.startup   0x0000000010000160      0x1c0
- .text.startup  0x0000000010000160      0x1c0 counter_la_final.elf-counter_la_final.o
+.text.startup   0x0000000010000160      0x1d4
+ .text.startup  0x0000000010000160      0x1d4 counter_la_final.elf-counter_la_final.o
                 0x0000000010000160                main
 
-.rela.dyn       0x0000000010000320        0x0
- .rela.text     0x0000000010000320        0x0 counter_la_final.elf-crt0_vex.o
+.rela.dyn       0x0000000010000334        0x0
+ .rela.text     0x0000000010000334        0x0 counter_la_final.elf-crt0_vex.o
 
-.rodata         0x0000000010000320        0x0
-                0x0000000010000320                . = ALIGN (0x8)
- *fill*         0x0000000010000320        0x0 
-                0x0000000010000320                _frodata = .
+.rodata         0x0000000010000334        0x4
+                0x0000000010000338                . = ALIGN (0x8)
+ *fill*         0x0000000010000334        0x4 
+                0x0000000010000338                _frodata = .
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  *(.rodata1)
-                0x0000000010000320                . = ALIGN (0x8)
-                0x0000000010000320                _erodata = .
+                0x0000000010000338                . = ALIGN (0x8)
+                0x0000000010000338                _erodata = .
 
-.data           0x0000000038000200       0xd8 load address 0x0000000010000320
+.data           0x0000000038000200       0xd8 load address 0x0000000010000338
                 0x0000000038000200                . = ALIGN (0x8)
                 0x0000000038000200                _fdata = .
  *(.data .data.* .gnu.linkonce.d.*)
@@ -56,8 +56,8 @@ Linker script and memory map
  .data          0x0000000038000200       0xd4 counter_la_final.elf-qsort.o
                 0x0000000038000200                Target_array
                 0x0000000038000228                taps
-                0x0000000038000254                B
-                0x0000000038000294                A
+                0x0000000038000254                A
+                0x0000000038000294                B
  .data          0x00000000380002d4        0x0 counter_la_final.elf-counter_la_final.o
  *(.data1)
                 0x00000000380002e0                _gp = ALIGN (0x10)
@@ -66,7 +66,7 @@ Linker script and memory map
  *fill*         0x00000000380002d4        0x4 
                 0x00000000380002d8                _edata = .
 
-.bss            0x00000000380002d8      0x100 load address 0x00000000100003f8
+.bss            0x00000000380002d8      0x100 load address 0x0000000010000410
                 0x00000000380002d8                . = ALIGN (0x8)
                 0x00000000380002d8                _fbss = .
  *(.dynsbss)
@@ -84,22 +84,23 @@ Linker script and memory map
                 0x00000000380003d8                _ebss = .
                 0x00000000380003d8                _end = .
 
-.mprjram        0x0000000038000000      0x198 load address 0x00000000100003f8
+.mprjram        0x0000000038000000      0x1d8 load address 0x0000000010000410
                 0x0000000038000000                . = ALIGN (0x8)
                 0x0000000038000000                _fsram = .
  *libgcc.a:*(.text .text.*)
- .mprjram       0x0000000038000000      0x198 counter_la_final.elf-qsort.o
+ .mprjram       0x0000000038000000      0x1d8 counter_la_final.elf-qsort.o
                 0x0000000038000000                partition
                 0x0000000038000074                sort
                 0x00000000380000d0                qsort
                 0x00000000380000f8                initfir
                 0x000000003800011c                hardware_accelerator_initialization
-                0x000000003800018c                hardware_accelerator_check_result
+                0x00000000380001c0                hardware_accelerator_check_result_FIR
+                0x00000000380001cc                hardware_accelerator_check_result_MM
                 0x0000000000000600                PROVIDE (_fstack = (ORIGIN (dff2) + LENGTH (dff2)))
-                0x0000000010000320                PROVIDE (_fdata_rom = LOADADDR (.data))
+                0x0000000010000338                PROVIDE (_fdata_rom = LOADADDR (.data))
                 [!provide]                        PROVIDE (_edata_rom = (LOADADDR (.data) + SIZEOF (.data)))
-                0x0000000038000198                PROVIDE (_esram = (ORIGIN (mprjram) + SIZEOF (.mprjram)))
-                0x00000000100003f8                PROVIDE (_esram_rom = LOADADDR (.mprjram))
+                0x00000000380001d8                PROVIDE (_esram = (ORIGIN (mprjram) + SIZEOF (.mprjram)))
+                0x0000000010000410                PROVIDE (_esram_rom = LOADADDR (.mprjram))
 LOAD counter_la_final.elf-crt0_vex.o
 LOAD counter_la_final.elf-isr.o
 LOAD counter_la_final.elf-qsort.o
@@ -129,11 +130,11 @@ OUTPUT(counter_la_final.elf elf32-littleriscv)
  .comment       0x000000000000001b       0x1c counter_la_final.elf-qsort.o
  .comment       0x000000000000001b       0x1c counter_la_final.elf-counter_la_final.o
 
-.debug_line     0x0000000000000000      0xb70
+.debug_line     0x0000000000000000      0xc1c
  .debug_line    0x0000000000000000      0x204 counter_la_final.elf-crt0_vex.o
  .debug_line    0x0000000000000204       0x76 counter_la_final.elf-isr.o
- .debug_line    0x000000000000027a      0x3aa counter_la_final.elf-qsort.o
- .debug_line    0x0000000000000624      0x54c counter_la_final.elf-counter_la_final.o
+ .debug_line    0x000000000000027a      0x42a counter_la_final.elf-qsort.o
+ .debug_line    0x00000000000006a4      0x578 counter_la_final.elf-counter_la_final.o
 
 .debug_line_str
                 0x0000000000000000      0x100
@@ -149,54 +150,54 @@ OUTPUT(counter_la_final.elf elf32-littleriscv)
                 0x00000000000000aa       0x56 counter_la_final.elf-counter_la_final.o
                                         0x120 (size before relaxing)
 
-.debug_info     0x0000000000000000      0x459
+.debug_info     0x0000000000000000      0x484
  .debug_info    0x0000000000000000       0x25 counter_la_final.elf-crt0_vex.o
  .debug_info    0x0000000000000025       0xb4 counter_la_final.elf-isr.o
- .debug_info    0x00000000000000d9      0x293 counter_la_final.elf-qsort.o
- .debug_info    0x000000000000036c       0xed counter_la_final.elf-counter_la_final.o
+ .debug_info    0x00000000000000d9      0x2a5 counter_la_final.elf-qsort.o
+ .debug_info    0x000000000000037e      0x106 counter_la_final.elf-counter_la_final.o
 
-.debug_abbrev   0x0000000000000000      0x29b
+.debug_abbrev   0x0000000000000000      0x29d
  .debug_abbrev  0x0000000000000000       0x14 counter_la_final.elf-crt0_vex.o
  .debug_abbrev  0x0000000000000014       0x7f counter_la_final.elf-isr.o
- .debug_abbrev  0x0000000000000093      0x179 counter_la_final.elf-qsort.o
- .debug_abbrev  0x000000000000020c       0x8f counter_la_final.elf-counter_la_final.o
+ .debug_abbrev  0x0000000000000093      0x17b counter_la_final.elf-qsort.o
+ .debug_abbrev  0x000000000000020e       0x8f counter_la_final.elf-counter_la_final.o
 
-.debug_aranges  0x0000000000000000       0xa8
+.debug_aranges  0x0000000000000000       0xb0
  .debug_aranges
                 0x0000000000000000       0x20 counter_la_final.elf-crt0_vex.o
  .debug_aranges
                 0x0000000000000020       0x20 counter_la_final.elf-isr.o
  .debug_aranges
-                0x0000000000000040       0x48 counter_la_final.elf-qsort.o
+                0x0000000000000040       0x50 counter_la_final.elf-qsort.o
  .debug_aranges
-                0x0000000000000088       0x20 counter_la_final.elf-counter_la_final.o
+                0x0000000000000090       0x20 counter_la_final.elf-counter_la_final.o
 
-.debug_str      0x0000000000000000      0x1c7
+.debug_str      0x0000000000000000      0x1f0
  .debug_str     0x0000000000000000       0x78 counter_la_final.elf-crt0_vex.o
  .debug_str     0x0000000000000078       0xb7 counter_la_final.elf-isr.o
                                          0xf0 (size before relaxing)
- .debug_str     0x000000000000012f       0x8a counter_la_final.elf-qsort.o
-                                        0x16e (size before relaxing)
- .debug_str     0x00000000000001b9        0xe counter_la_final.elf-counter_la_final.o
-                                        0x139 (size before relaxing)
+ .debug_str     0x000000000000012f       0xb3 counter_la_final.elf-qsort.o
+                                        0x197 (size before relaxing)
+ .debug_str     0x00000000000001e2        0xe counter_la_final.elf-counter_la_final.o
+                                        0x162 (size before relaxing)
 
 .debug_loclists
-                0x0000000000000000      0x172
+                0x0000000000000000      0x194
  .debug_loclists
                 0x0000000000000000       0x19 counter_la_final.elf-isr.o
  .debug_loclists
-                0x0000000000000019      0x136 counter_la_final.elf-qsort.o
+                0x0000000000000019      0x14d counter_la_final.elf-qsort.o
  .debug_loclists
-                0x000000000000014f       0x23 counter_la_final.elf-counter_la_final.o
+                0x0000000000000166       0x2e counter_la_final.elf-counter_la_final.o
 
-.debug_frame    0x0000000000000000       0xf4
+.debug_frame    0x0000000000000000      0x104
  .debug_frame   0x0000000000000000       0x20 counter_la_final.elf-isr.o
- .debug_frame   0x0000000000000020       0xa0 counter_la_final.elf-qsort.o
- .debug_frame   0x00000000000000c0       0x34 counter_la_final.elf-counter_la_final.o
+ .debug_frame   0x0000000000000020       0xb0 counter_la_final.elf-qsort.o
+ .debug_frame   0x00000000000000d0       0x34 counter_la_final.elf-counter_la_final.o
 
 .debug_rnglists
-                0x0000000000000000       0x59
+                0x0000000000000000       0x62
  .debug_rnglists
-                0x0000000000000000       0x43 counter_la_final.elf-qsort.o
+                0x0000000000000000       0x4c counter_la_final.elf-qsort.o
  .debug_rnglists
-                0x0000000000000043       0x16 counter_la_final.elf-counter_la_final.o
+                0x000000000000004c       0x16 counter_la_final.elf-counter_la_final.o

@@ -9,10 +9,6 @@ Info: Detect check bits (16'hAB50) on reg_mprj_datal[31:16], hardware initializa
 ++++++++++ Step 2: Start Q sort test (firmware) ++++++++++
 Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x0028, which is    40 in decimal
 Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x037d, which is   893 in decimal
-Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x09ed, which is  2541 in decimal
-Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x0a6d, which is  2669 in decimal
-Success: Detect check bits (16'hAB52) on reg_mprj_datal[31:16], Q sort test passed ♪
-
-++++++++++ Step 3: Check FIR & MM hardware accelerator results ++++++++++
-FIR return value passed, 0x2976, which is 10614 in decimal
-Success: Detect check bits (16'hAB60) on reg_mprj_datal[31:16], FIR & MM hardware accelerator test passed ♪
+[1;31m
+Monitor: Timeout, Test LA (RTL) Failed
+[0m
