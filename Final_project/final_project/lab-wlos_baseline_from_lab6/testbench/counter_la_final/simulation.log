@@ -1,0 +1,20 @@
+Reading counter_la_final.hex
+counter_la_final.hex loaded into memory
+Memory 5 bytes = 0x6f 0x00 0x00 0x0b 0x13
+VCD info: dumpfile counter_la_final.vcd opened for output.
+Info: Detect check bits (16'hAB40) on reg_mprj_datal[31:16], start testing!
+
+++++++++++ Step 1: FIR & MM hardware accelerator initialization ++++++++++
+Info: Detect check bits (16'hAB50) on reg_mprj_datal[31:16], hardware initialization finished!
+
+++++++++++ Step 2: Start Q sort test (firmware) ++++++++++
+Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x0028, which is    40 in decimal
+Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x037d, which is   893 in decimal
+Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x09ed, which is  2541 in decimal
+Call function qsort() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x0a6d, which is  2669 in decimal
+Success: Detect check bits (16'hAB52) on reg_mprj_datal[31:16], Q sort test passed ♪
+
+++++++++++ Step 3: Check FIR & MM hardware accelerator results ++++++++++
+FIR return value passed, 0x2976, which is 10614 in decimal
+Matrix Multiplication return value passed, 0x0050, which is    80 in decimal
+Success: Detect check bits (16'hAB60) on reg_mprj_datal[31:16], FIR & MM hardware accelerator test passed ♪
