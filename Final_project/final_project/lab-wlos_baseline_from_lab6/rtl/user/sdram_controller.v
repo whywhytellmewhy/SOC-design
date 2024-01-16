@@ -267,7 +267,8 @@ module sdram_controller (
 
             ///// IDLE STATE /////
             IDLE: begin
-                if (refresh_flag_q) begin // we need to do a refresh
+                /////if (refresh_flag_q begin // we need to do a refresh
+                if (refresh_flag_q & (next_state_q==IDLE) ) begin // we need to do a refresh // modified
                     state_d = PRECHARGE;
                     next_state_d = REFRESH;
                     precharge_bank_d = 3'b100; // all banks
@@ -362,6 +363,7 @@ module sdram_controller (
                 else begin
                     state_d = READ_RES;
                 end
+
                 ///////////////////////////////////////////////////////////////////////
             end
             //////////////////////////// (Added by us) ////////////////////////////
@@ -400,6 +402,7 @@ module sdram_controller (
                 ba_d = addr_q[9:8];
 
                 state_d = IDLE;
+                next_state_d=IDLE; //added
             end
 
             ///// PRECHARGE /////

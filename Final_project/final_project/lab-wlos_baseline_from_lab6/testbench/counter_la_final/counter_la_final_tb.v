@@ -184,6 +184,7 @@ module counter_la_final_tb;
 	initial begin
 		wait(checkbits == 16'hAB51);
 		#0.1;*/
+		$display("Info: Detect check bits (16'hAB40) on reg_mprj_datal[31:16], start testing!");
 		$display("\n++++++++++ Step 1: FIR & MM hardware accelerator initialization ++++++++++");
 		wait(checkbits == 16'hAB50);
 		$display("Info: Detect check bits (16'hAB50) on reg_mprj_datal[31:16], hardware initialization finished!");
@@ -214,21 +215,21 @@ module counter_la_final_tb;
 		$display("Success: Detect check bits (16'hAB60) on reg_mprj_datal[31:16], FIR & MM hardware accelerator test passed ♪");
 
 
-		#10;
+		#100;
 		$finish;
 	/*end
 
 	initial begin
 		wait(checkbits == 16'hAB52);
 		#0.1;*/
-		$display("Info: Start FIR test...");
+		/*$display("Info: Start FIR test...");
 		
 		wait(checkbits == 16'd1098);
 		$display("Call function fir() in User Project BRAM (mprjram, 0x38000000) return value passed, 0x%x, which is %d in decimal", checkbits, checkbits);
 		
 		wait(checkbits == 16'hAB60);
 		$display("Success: FIR test passed ♪");
-		pass_MatMul_QS_FIR=1;
+		pass_MatMul_QS_FIR=1;*/
 	end
 	/////////////////////////////////////////////////////////////////////////
 
