@@ -214,7 +214,8 @@ module counter_la_final_tb;
 		wait(checkbits == 16'hAB60);
 		$display("Success: Detect check bits (16'hAB60) on reg_mprj_datal[31:16], FIR & MM hardware accelerator test passed ♪");
 
-
+		$display("---------------------------------------------");
+        $display("-----------Congratulations! Pass-------------");
 		#100;
 		$finish;
 	/*end
@@ -231,6 +232,15 @@ module counter_la_final_tb;
 		$display("Success: FIR test passed ♪");
 		pass_MatMul_QS_FIR=1;*/
 	end
+	/*initial begin
+		integer FIR_latency_timer;
+		integer MM_latency_timer;
+		
+		/////wait(uut.mprj.WB_decoder_U0.DMA_FIR_U0.fir_U0.ap_idle_done_start[0] == 1);
+		$display("Latency calculation: Start FIR_latency_timer");
+		FIR_latency_timer=0;
+
+	end*/
 	/////////////////////////////////////////////////////////////////////////
 
 	/* /////// (We do not improve UART part, so ignore here.) ///////

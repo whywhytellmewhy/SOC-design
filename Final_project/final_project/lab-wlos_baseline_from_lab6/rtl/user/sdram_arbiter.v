@@ -94,6 +94,12 @@ module SDRAM_arbiter (
     wire [31:0] prefetch_buffer_FIR0;
     wire [31:0] prefetch_buffer_FIR1;
     wire [31:0] prefetch_buffer_FIR2;
+    wire [22:0] prefetch_address_MM0;
+    wire [22:0] prefetch_address_MM1;
+    wire [22:0] prefetch_address_MM2;
+    wire [31:0] prefetch_buffer_MM0;
+    wire [31:0] prefetch_buffer_MM1;
+    wire [31:0] prefetch_buffer_MM2;
     wire [2:0] request_FIFO_0;
     wire [2:0] request_FIFO_1;
     wire [2:0] request_FIFO_2;
@@ -110,6 +116,12 @@ module SDRAM_arbiter (
     assign prefetch_buffer_FIR0=prefetch_buffer_FIR[0];
     assign prefetch_buffer_FIR1=prefetch_buffer_FIR[1];
     assign prefetch_buffer_FIR2=prefetch_buffer_FIR[2];
+    assign prefetch_address_MM0=prefetch_address_MM[0];
+    assign prefetch_address_MM1=prefetch_address_MM[1];
+    assign prefetch_address_MM2=prefetch_address_MM[2];
+    assign prefetch_buffer_MM0=prefetch_buffer_MM[0];
+    assign prefetch_buffer_MM1=prefetch_buffer_MM[1];
+    assign prefetch_buffer_MM2=prefetch_buffer_MM[2];
     assign request_FIFO_0=request_FIFO[0];
     assign request_FIFO_1=request_FIFO[1];
     assign request_FIFO_2=request_FIFO[2];

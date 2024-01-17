@@ -18,3 +18,5 @@ Success: Detect check bits (16'hAB52) on reg_mprj_datal[31:16], Q sort test pass
 FIR return value passed, 0x2976, which is 10614 in decimal
 Matrix Multiplication return value passed, 0x0050, which is    80 in decimal
 Success: Detect check bits (16'hAB60) on reg_mprj_datal[31:16], FIR & MM hardware accelerator test passed ♪
+---------------------------------------------
+-----------Congratulations! Pass-------------
