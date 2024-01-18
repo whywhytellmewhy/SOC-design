@@ -6,7 +6,7 @@
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
-	.file 0 "/home/ubuntu/lab_D/burst_test/testbench/counter_la" "../../firmware/adder.c"
+	.file 0 "/home/ubuntu/LAB/github_teamsync/SOC-design/labD/lab_D/lab-sdram_origin/testbench/counter_la" "../../firmware/adder.c"
 	.globl	Number
 	.data
 	.align	2
@@ -350,8 +350,8 @@ adder:
 .LASF2:
 	.string	"unsigned int"
 	.section	.debug_line_str,"MS",@progbits,1
+.LASF1:
+	.string	"/home/ubuntu/LAB/github_teamsync/SOC-design/labD/lab_D/lab-sdram_origin/testbench/counter_la"
 .LASF0:
 	.string	"../../firmware/adder.c"
-.LASF1:
-	.string	"/home/ubuntu/lab_D/burst_test/testbench/counter_la"
 	.ident	"GCC: (g1ea978e3066) 12.1.0"
