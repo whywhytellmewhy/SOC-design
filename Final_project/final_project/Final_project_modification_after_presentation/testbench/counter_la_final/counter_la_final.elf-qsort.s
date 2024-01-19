@@ -361,10 +361,37 @@ hardware_accelerator_check_result_MM:
 .LFB322:
 	.loc 1 121 89 is_stmt 1
 	.cfi_startproc
-	.loc 1 124 2
-	.loc 1 125 1 is_stmt 0
-	li	a0,805371904
-	addi	a0,a0,72
+	.loc 1 126 2
+	.loc 1 129 2
+	.loc 1 129 17 is_stmt 0
+	li	a5,805371904
+	lw	a5,0(a5)
+.LVL34:
+	.loc 1 130 2 is_stmt 1
+	.loc 1 132 37 is_stmt 0
+	li	a4,637534208
+	li	a3,-1422917632
+	.loc 1 130 32 is_stmt 1
+	andi	a5,a5,64
+.LVL35:
+	bne	a5,zero,.L31
+.L30:
+	.loc 1 131 3
+	.loc 1 132 3
+	.loc 1 132 37 is_stmt 0
+	sw	a3,12(a4)
+	j	.L30
+.L31:
+	.loc 1 134 2 is_stmt 1
+	.loc 1 134 36 is_stmt 0
+	li	a5,-1419247616
+	.loc 1 136 1
+	lui	a0,%hi(.LANCHOR0+144)
+	.loc 1 134 36
+	sw	a5,12(a4)
+	.loc 1 135 2 is_stmt 1
+	.loc 1 136 1 is_stmt 0
+	addi	a0,a0,%lo(.LANCHOR0+144)
 	ret
 	.cfi_endproc
 .LFE322:
@@ -454,19 +481,20 @@ x:
 	.file 2 "qsort.h"
 	.file 3 "fir.h"
 	.file 4 "matmul.h"
+	.file 5 "/opt/riscv/lib/gcc/riscv32-unknown-elf/12.1.0/include/stdint-gcc.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0x2a1
+	.4byte	0x2c0
 	.2byte	0x5
 	.byte	0x1
 	.byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0xe
-	.4byte	.LASF23
+	.4byte	.LASF22
 	.byte	0x1d
 	.4byte	.LASF0
 	.4byte	.LASF1
-	.4byte	.LLRL10
+	.4byte	.LLRL11
 	.4byte	0
 	.4byte	.Ldebug_line0
 	.byte	0x4
@@ -484,7 +512,7 @@ x:
 	.byte	0x4
 	.byte	0x5
 	.string	"int"
-	.byte	0x8
+	.byte	0x9
 	.4byte	.LASF3
 	.byte	0x2
 	.byte	0x5
@@ -499,7 +527,7 @@ x:
 	.4byte	0x36
 	.byte	0xa
 	.byte	0
-	.byte	0x8
+	.byte	0x9
 	.4byte	.LASF4
 	.byte	0x3
 	.byte	0xa
@@ -572,6 +600,12 @@ x:
 	.byte	0x2
 	.byte	0x7
 	.4byte	.LASF10
+	.byte	0x10
+	.4byte	.LASF23
+	.byte	0x5
+	.byte	0x34
+	.byte	0x1b
+	.4byte	0xfc
 	.byte	0x1
 	.byte	0x4
 	.byte	0x7
@@ -580,35 +614,44 @@ x:
 	.byte	0x8
 	.byte	0x7
 	.4byte	.LASF12
-	.byte	0x9
-	.4byte	.LASF13
+	.byte	0xa
+	.4byte	.LASF16
 	.byte	0x79
-	.4byte	0x112
+	.4byte	0x131
 	.4byte	.LFB322
 	.4byte	.LFE322-.LFB322
 	.byte	0x1
 	.byte	0x9c
-	.byte	0x10
+	.4byte	0x131
+	.byte	0x7
+	.4byte	.LASF13
+	.byte	0x7e
+	.4byte	0x3d
+	.4byte	.LLST10
+	.byte	0
+	.byte	0x11
 	.byte	0x4
 	.4byte	0x3d
-	.byte	0x9
-	.4byte	.LASF14
+	.byte	0x12
+	.4byte	.LASF24
+	.byte	0x1
 	.byte	0x6b
-	.4byte	0x112
+	.byte	0x33
+	.4byte	0x131
 	.4byte	.LFB321
 	.4byte	.LFE321-.LFB321
 	.byte	0x1
 	.byte	0x9c
-	.byte	0xa
-	.4byte	.LASF16
+	.byte	0xb
+	.4byte	.LASF14
 	.byte	0x36
 	.4byte	.LFB320
 	.4byte	.LFE320-.LFB320
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x165
-	.byte	0xb
-	.4byte	.LASF15
+	.4byte	0x186
+	.byte	0x7
+	.4byte	.LASF13
 	.byte	0x3b
 	.4byte	0x3d
 	.4byte	.LLST8
@@ -618,18 +661,18 @@ x:
 	.byte	0x6
 	.4byte	0x3d
 	.4byte	.LLST9
-	.byte	0x11
+	.byte	0x13
 	.4byte	.LVL25
-	.4byte	0x165
+	.4byte	0x186
 	.byte	0
-	.byte	0xa
-	.4byte	.LASF17
+	.byte	0xb
+	.4byte	.LASF15
 	.byte	0x2c
 	.4byte	.LFB319
 	.4byte	.LFE319-.LFB319
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x191
+	.4byte	0x1b2
 	.byte	0xc
 	.4byte	.LBB3
 	.4byte	.LBE3-.LBB3
@@ -641,20 +684,18 @@ x:
 	.4byte	.LLST7
 	.byte	0
 	.byte	0
-	.byte	0x12
-	.4byte	.LASF18
-	.byte	0x1
+	.byte	0xa
+	.4byte	.LASF17
 	.byte	0x25
-	.byte	0x33
-	.4byte	0x112
+	.4byte	0x131
 	.4byte	.LFB318
 	.4byte	.LFE318-.LFB318
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x1c0
+	.4byte	0x1df
 	.byte	0xd
 	.4byte	.LVL21
-	.4byte	0x1c0
+	.4byte	0x1df
 	.byte	0x2
 	.byte	0x1
 	.byte	0x5a
@@ -667,8 +708,8 @@ x:
 	.byte	0x39
 	.byte	0
 	.byte	0
-	.byte	0x13
-	.4byte	.LASF19
+	.byte	0x14
+	.4byte	.LASF18
 	.byte	0x1
 	.byte	0x1d
 	.byte	0x33
@@ -676,14 +717,14 @@ x:
 	.4byte	.LFE317-.LFB317
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0x23b
-	.byte	0x7
+	.4byte	0x25a
+	.byte	0x8
 	.string	"low"
 	.byte	0x1d
 	.byte	0x3c
 	.4byte	0x3d
 	.4byte	.LLST4
-	.byte	0x7
+	.byte	0x8
 	.string	"hi"
 	.byte	0x1d
 	.byte	0x45
@@ -698,10 +739,10 @@ x:
 	.byte	0x7
 	.4byte	0x3d
 	.4byte	.LLST6
-	.byte	0x14
+	.byte	0x15
 	.4byte	.LVL16
-	.4byte	0x23b
-	.4byte	0x223
+	.4byte	0x25a
+	.4byte	0x242
 	.byte	0x2
 	.byte	0x1
 	.byte	0x5a
@@ -717,7 +758,7 @@ x:
 	.byte	0
 	.byte	0xd
 	.4byte	.LVL18
-	.4byte	0x1c0
+	.4byte	0x1df
 	.byte	0x2
 	.byte	0x1
 	.byte	0x5a
@@ -733,8 +774,8 @@ x:
 	.byte	0
 	.byte	0
 	.byte	0
-	.byte	0x15
-	.4byte	.LASF20
+	.byte	0x16
+	.4byte	.LASF19
 	.byte	0x1
 	.byte	0x7
 	.byte	0x32
@@ -743,13 +784,13 @@ x:
 	.4byte	.LFE316-.LFB316
 	.byte	0x1
 	.byte	0x9c
-	.byte	0x7
+	.byte	0x8
 	.string	"low"
 	.byte	0x7
 	.byte	0x40
 	.4byte	0x3d
 	.4byte	.LLST0
-	.byte	0x16
+	.byte	0x17
 	.string	"hi"
 	.byte	0x1
 	.byte	0x7
@@ -757,8 +798,8 @@ x:
 	.4byte	0x3d
 	.byte	0x1
 	.byte	0x5b
-	.byte	0x17
-	.4byte	.LASF21
+	.byte	0x18
+	.4byte	.LASF20
 	.byte	0x1
 	.byte	0x8
 	.byte	0x6
@@ -777,8 +818,8 @@ x:
 	.byte	0x10
 	.4byte	0x3d
 	.4byte	.LLST2
-	.byte	0xb
-	.4byte	.LASF22
+	.byte	0x7
+	.4byte	.LASF21
 	.byte	0xa
 	.4byte	0x3d
 	.4byte	.LLST3
@@ -862,6 +903,25 @@ x:
 	.byte	0
 	.byte	0
 	.byte	0x7
+	.byte	0x34
+	.byte	0
+	.byte	0x3
+	.byte	0xe
+	.byte	0x3a
+	.byte	0x21
+	.byte	0x1
+	.byte	0x3b
+	.byte	0xb
+	.byte	0x39
+	.byte	0x21
+	.byte	0x6
+	.byte	0x49
+	.byte	0x13
+	.byte	0x2
+	.byte	0x17
+	.byte	0
+	.byte	0
+	.byte	0x8
 	.byte	0x5
 	.byte	0
 	.byte	0x3
@@ -879,7 +939,7 @@ x:
 	.byte	0x17
 	.byte	0
 	.byte	0
-	.byte	0x8
+	.byte	0x9
 	.byte	0x34
 	.byte	0
 	.byte	0x3
@@ -897,33 +957,6 @@ x:
 	.byte	0x19
 	.byte	0x2
 	.byte	0x18
-	.byte	0
-	.byte	0
-	.byte	0x9
-	.byte	0x2e
-	.byte	0
-	.byte	0x3f
-	.byte	0x19
-	.byte	0x3
-	.byte	0xe
-	.byte	0x3a
-	.byte	0x21
-	.byte	0x1
-	.byte	0x3b
-	.byte	0xb
-	.byte	0x39
-	.byte	0x21
-	.byte	0x33
-	.byte	0x49
-	.byte	0x13
-	.byte	0x11
-	.byte	0x1
-	.byte	0x12
-	.byte	0x6
-	.byte	0x40
-	.byte	0x18
-	.byte	0x7a
-	.byte	0x19
 	.byte	0
 	.byte	0
 	.byte	0xa
@@ -941,6 +974,8 @@ x:
 	.byte	0x39
 	.byte	0x21
 	.byte	0x33
+	.byte	0x49
+	.byte	0x13
 	.byte	0x11
 	.byte	0x1
 	.byte	0x12
@@ -954,8 +989,10 @@ x:
 	.byte	0
 	.byte	0
 	.byte	0xb
-	.byte	0x34
-	.byte	0
+	.byte	0x2e
+	.byte	0x1
+	.byte	0x3f
+	.byte	0x19
 	.byte	0x3
 	.byte	0xe
 	.byte	0x3a
@@ -965,11 +1002,17 @@ x:
 	.byte	0xb
 	.byte	0x39
 	.byte	0x21
+	.byte	0x33
+	.byte	0x11
+	.byte	0x1
+	.byte	0x12
 	.byte	0x6
-	.byte	0x49
+	.byte	0x40
+	.byte	0x18
+	.byte	0x7a
+	.byte	0x19
+	.byte	0x1
 	.byte	0x13
-	.byte	0x2
-	.byte	0x17
 	.byte	0
 	.byte	0
 	.byte	0xc
@@ -1021,6 +1064,21 @@ x:
 	.byte	0
 	.byte	0
 	.byte	0x10
+	.byte	0x16
+	.byte	0
+	.byte	0x3
+	.byte	0xe
+	.byte	0x3a
+	.byte	0xb
+	.byte	0x3b
+	.byte	0xb
+	.byte	0x39
+	.byte	0xb
+	.byte	0x49
+	.byte	0x13
+	.byte	0
+	.byte	0
+	.byte	0x11
 	.byte	0xf
 	.byte	0
 	.byte	0xb
@@ -1029,18 +1087,9 @@ x:
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x11
-	.byte	0x48
-	.byte	0
-	.byte	0x7d
-	.byte	0x1
-	.byte	0x7f
-	.byte	0x13
-	.byte	0
-	.byte	0
 	.byte	0x12
 	.byte	0x2e
-	.byte	0x1
+	.byte	0
 	.byte	0x3f
 	.byte	0x19
 	.byte	0x3
@@ -1061,11 +1110,18 @@ x:
 	.byte	0x18
 	.byte	0x7a
 	.byte	0x19
+	.byte	0
+	.byte	0
+	.byte	0x13
+	.byte	0x48
+	.byte	0
+	.byte	0x7d
 	.byte	0x1
+	.byte	0x7f
 	.byte	0x13
 	.byte	0
 	.byte	0
-	.byte	0x13
+	.byte	0x14
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x3f
@@ -1088,22 +1144,22 @@ x:
 	.byte	0x18
 	.byte	0x7a
 	.byte	0x19
-	.byte	0x1
-	.byte	0x13
-	.byte	0
-	.byte	0
-	.byte	0x14
-	.byte	0x48
-	.byte	0x1
-	.byte	0x7d
-	.byte	0x1
-	.byte	0x7f
-	.byte	0x13
 	.byte	0x1
 	.byte	0x13
 	.byte	0
 	.byte	0
 	.byte	0x15
+	.byte	0x48
+	.byte	0x1
+	.byte	0x7d
+	.byte	0x1
+	.byte	0x7f
+	.byte	0x13
+	.byte	0x1
+	.byte	0x13
+	.byte	0
+	.byte	0
+	.byte	0x16
 	.byte	0x2e
 	.byte	0x1
 	.byte	0x3f
@@ -1130,7 +1186,7 @@ x:
 	.byte	0x19
 	.byte	0
 	.byte	0
-	.byte	0x16
+	.byte	0x17
 	.byte	0x5
 	.byte	0
 	.byte	0x3
@@ -1147,7 +1203,7 @@ x:
 	.byte	0x18
 	.byte	0
 	.byte	0
-	.byte	0x17
+	.byte	0x18
 	.byte	0x34
 	.byte	0
 	.byte	0x3
@@ -1173,6 +1229,19 @@ x:
 	.byte	0
 	.4byte	0
 .Ldebug_loc0:
+.LLST10:
+	.byte	0x7
+	.4byte	.LVL34
+	.4byte	.LVL35
+	.byte	0x1
+	.byte	0x5f
+	.byte	0x7
+	.4byte	.LVL35
+	.4byte	.LFE322
+	.byte	0x5
+	.byte	0xc
+	.4byte	0x30010000
+	.byte	0
 .LLST8:
 	.byte	0x7
 	.4byte	.LVL26
@@ -1381,7 +1450,7 @@ x:
 	.byte	0x4
 	.byte	0
 	.4byte	0
-.LLRL10:
+.LLRL11:
 	.byte	0x6
 	.4byte	.LFB316
 	.4byte	.LFE316
@@ -1408,15 +1477,15 @@ x:
 	.section	.debug_line,"",@progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",@progbits,1
-.LASF15:
+.LASF13:
 	.string	"WB_return_data"
-.LASF17:
+.LASF15:
 	.string	"initfir"
-.LASF19:
-	.string	"sort"
 .LASF18:
+	.string	"sort"
+.LASF17:
 	.string	"qsort"
-.LASF20:
+.LASF19:
 	.string	"partition"
 .LASF9:
 	.string	"unsigned char"
@@ -1424,15 +1493,15 @@ x:
 	.string	"Target_array"
 .LASF11:
 	.string	"long unsigned int"
-.LASF22:
+.LASF21:
 	.string	"temp"
 .LASF10:
 	.string	"short unsigned int"
-.LASF14:
+.LASF24:
 	.string	"hardware_accelerator_check_result_FIR"
 .LASF2:
 	.string	"unsigned int"
-.LASF23:
+.LASF22:
 	.string	"GNU C17 12.1.0 -mabi=ilp32 -mtune=rocket -misa-spec=2.2 -march=rv32i -g -Os -ffreestanding"
 .LASF4:
 	.string	"taps"
@@ -1442,15 +1511,17 @@ x:
 	.string	"long long int"
 .LASF6:
 	.string	"short int"
+.LASF23:
+	.string	"uint32_t"
 .LASF7:
 	.string	"long int"
-.LASF21:
+.LASF20:
 	.string	"pivot"
 .LASF5:
 	.string	"signed char"
-.LASF16:
+.LASF14:
 	.string	"hardware_accelerator_initialization"
-.LASF13:
+.LASF16:
 	.string	"hardware_accelerator_check_result_MM"
 	.section	.debug_line_str,"MS",@progbits,1
 .LASF1:

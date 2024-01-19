@@ -1743,5 +1743,16 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_res
 int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_result_MM(){
 
 
- return (int*)(0x30010000 +0x48);
+
+
+ int WB_return_data;
+
+
+ WB_return_data = *((int*)0x30010000);
+ while (((WB_return_data>>6)&1)==0){
+  WB_return_data = *((int*)0x30010000);
+  (*(volatile uint32_t*)0x2600000c) = 0xAB300000;
+ }
+ (*(volatile uint32_t*)0x2600000c) = 0xAB680000;
+ return (int*)(A)+15;
 }

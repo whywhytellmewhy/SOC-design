@@ -595,6 +595,12 @@ module SDRAM_arbiter (
                 
             end
             MM_WRITE: begin
+                //if(request_MM_accept) begin
+                //    MM_busy_before_FF=0;
+                //end
+                //else begin
+                //    MM_busy_before_FF=MM_busy;
+                //end
                 MM_busy_before_FF=0;
                 MM_out_valid_before_FF=0;
                 data_to_MM_before_FF=0;

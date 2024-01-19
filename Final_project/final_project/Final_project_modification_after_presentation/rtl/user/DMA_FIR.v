@@ -97,6 +97,9 @@ module DMA_FIR
     reg wbs_ack_FIR_to_DMA;
     reg [31:0] output_data_FIR_to_DMA;
 
+    reg FIR_done_shown_in_DMA;
+    reg next_FIR_done_shown_in_DMA;
+
     integer i;
 
     always @* begin
@@ -213,7 +216,7 @@ module DMA_FIR
         
     end
 
-    // DMA interacts with WB (in the upper level) and WB_to_AXI (in the downer level)
+    // DMA interacts with WB (in the upper level) and WB_to_AXI (in the downer level) <-- We have modified this to become WB_to_AXI function merged into DMA_FIR after Q&A session
     always @* begin
         FIR_prefetch_step_before_FF=0;
 
@@ -227,6 +230,7 @@ module DMA_FIR
                 for(i=0;i<11;i=i+1)begin
                     next_output_buffer[i] = output_buffer[i];
                 end
+                next_FIR_done_shown_in_DMA=0;
 
                 if((wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==1) && (wbs_adr_i[7:0]==8'h88)) begin // that is, program base_address_buffer(0x30000088)
                     next_state_DMA_FIR=DMA_FIR_BASE_ADDRESS;
@@ -254,6 +258,7 @@ module DMA_FIR
                 for(i=0;i<11;i=i+1)begin
                     next_output_buffer[i] = output_buffer[i];
                 end
+                next_FIR_done_shown_in_DMA=0;
 
                 if((wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==1) && (wbs_adr_i[7:0]==8'h00) && (wbs_dat_i==1) && (wbs_ack_FIR_to_DMA==1)) begin // that is, program ap_start
                     next_state_DMA_FIR=DMA_FIR_DETECT_Yn_Xn;
@@ -269,7 +274,7 @@ module DMA_FIR
             DMA_FIR_DETECT_Yn_Xn: begin
                 if((wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==0) && (wbs_adr_i[7:0]==8'h00)) begin // that is, read ap_register(0x30000000)
                     wbs_ack_o_before_FF=1;
-                    wbs_dat_o_before_FF=32'd0;
+                    wbs_dat_o_before_FF=32'd0; // that is, {25'd0,FIR_done_shown_in_DMA,6'd0} with FIR_done_shown_in_DMA=0
                 end
                 else begin
                     wbs_ack_o_before_FF=0;
@@ -286,8 +291,9 @@ module DMA_FIR
                 for(i=0;i<11;i=i+1)begin
                     next_output_buffer[i] = output_buffer[i];
                 end
+                next_FIR_done_shown_in_DMA=0;
 
-                if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[5]==1)) begin  // output_data_FIR_to_DMA[5] means Yn_valid
+                /*if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[5]==1)) begin  // output_data_FIR_to_DMA[5] means Yn_valid
                     next_state_DMA_FIR=DMA_FIR_STREAM_OUT;
                 end
                 //else if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[1]==1)) begin  // output_data_FIR_to_DMA[1] means ap_done
@@ -299,12 +305,29 @@ module DMA_FIR
                 end
                 else begin
                     next_state_DMA_FIR=DMA_FIR_DETECT_Yn_Xn;
+                end*/
+
+                // We use Yn_valid and Xn_ready signals directly to improve the speed performance.
+                if(Yn_valid_Xn_ready[1]==1) begin  // means Yn_valid
+                    next_state_DMA_FIR=DMA_FIR_STREAM_OUT;
+                    
                 end
+                else if((wbs_ack_FIR_to_DMA==1) && (output_data_FIR_to_DMA[2]==1)) begin  // output_data_FIR_to_DMA[2] means ap_idle
+                    next_state_DMA_FIR=DMA_FIR_DONE;
+                end
+                else if((Yn_valid_Xn_ready[0]==1) && (input_buffer_valid==1)) begin  // means Xn_ready
+                    next_state_DMA_FIR=DMA_FIR_STREAM_IN;
+                end
+                else begin
+                    next_state_DMA_FIR=DMA_FIR_DETECT_Yn_Xn;
+                end
+
+
             end
             DMA_FIR_STREAM_IN: begin
                 if((wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==0) && (wbs_adr_i[7:0]==8'h00)) begin // that is, read ap_register(0x30000000)
                     wbs_ack_o_before_FF=1;
-                    wbs_dat_o_before_FF=32'd0;
+                    wbs_dat_o_before_FF=32'd0; // that is, {25'd0,FIR_done_shown_in_DMA,6'd0} with FIR_done_shown_in_DMA=0
                 end
                 else begin
                     wbs_ack_o_before_FF=0;
@@ -321,6 +344,7 @@ module DMA_FIR
                 for(i=0;i<11;i=i+1)begin
                     next_output_buffer[i] = output_buffer[i];
                 end
+                next_FIR_done_shown_in_DMA=0;
 
                 if(wbs_ack_FIR_to_DMA==1) begin
                     next_state_DMA_FIR=DMA_FIR_DETECT_Yn_Xn;
@@ -332,7 +356,7 @@ module DMA_FIR
             DMA_FIR_STREAM_OUT: begin
                 if((wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==0) && (wbs_adr_i[7:0]==8'h00)) begin // that is, read ap_register(0x30000000)
                     wbs_ack_o_before_FF=1;
-                    wbs_dat_o_before_FF=32'd0;
+                    wbs_dat_o_before_FF=32'd0; // that is, {25'd0,FIR_done_shown_in_DMA,6'd0} with FIR_done_shown_in_DMA=0
                 end
                 else begin
                     wbs_ack_o_before_FF=0;
@@ -346,9 +370,15 @@ module DMA_FIR
                 input_data_DMA_to_FIR=0;
                 input_address_DMA_to_FIR=32'h30000084;
                 next_FIR_base_address_buffer=FIR_base_address_buffer;
+                next_FIR_done_shown_in_DMA=0;
 
                 if(wbs_ack_FIR_to_DMA==1) begin
-                    next_state_DMA_FIR=DMA_FIR_DETECT_Yn_Xn;
+                    if(sm_tlast) begin
+                        next_state_DMA_FIR=DMA_FIR_DONE;
+                    end
+                    else begin
+                        next_state_DMA_FIR=DMA_FIR_DETECT_Yn_Xn;
+                    end
                     for(i=0;i<10;i=i+1)begin
                         next_output_buffer[i] = output_buffer[i+1];
                     end
@@ -362,8 +392,12 @@ module DMA_FIR
                     end
                 end
             end
+            // Remember to add a data-movement state here !!
+            /*DMA_FIR_OUTPIT_DATA_MOVEMENT: begin
+            end*/
             DMA_FIR_DONE: begin
                 next_state_DMA_FIR=DMA_FIR_DONE;
+                //next_state_DMA_FIR=DMA_FIR_BASE_ADDRESS; // to wait the second round
                 wbs_cyc_DMA_to_FIR=wbs_cyc_i;
                 wbs_we_DMA_to_FIR=wbs_we_i;
                 wbs_sel_DMA_to_FIR=wbs_sel_i;
@@ -373,10 +407,11 @@ module DMA_FIR
                 for(i=0;i<11;i=i+1)begin
                     next_output_buffer[i] = output_buffer[i];
                 end
+                next_FIR_done_shown_in_DMA=1;
 
                 if(/*(wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==0) && */(wbs_adr_i[7:0]==8'h00)) begin
                     wbs_ack_o_before_FF=wbs_ack_FIR_to_DMA;
-                    wbs_dat_o_before_FF=output_data_FIR_to_DMA;
+                    wbs_dat_o_before_FF={25'd0,FIR_done_shown_in_DMA,output_data_FIR_to_DMA[5:0]};
                     wbs_stb_DMA_to_FIR=wbs_stb_i;
                 end
                 else if((wbs_stb_i==1) && (wbs_cyc_i==1) && (wbs_we_i==0)) begin
@@ -420,7 +455,7 @@ module DMA_FIR
                 for(i=0;i<11;i=i+1)begin
                     next_output_buffer[i] = output_buffer[i];
                 end
-
+                next_FIR_done_shown_in_DMA=0;
             end
         endcase
     end
@@ -444,6 +479,7 @@ module DMA_FIR
             for(i=0;i<11;i=i+1)begin
                 output_buffer[i] <= 0;
             end
+            FIR_done_shown_in_DMA <= 0;
         end
         else begin
             state_DMA_FIR <= next_state_DMA_FIR;
@@ -462,6 +498,7 @@ module DMA_FIR
             for(i=0;i<11;i=i+1)begin
                 output_buffer[i] <= next_output_buffer[i];
             end
+            FIR_done_shown_in_DMA <= next_FIR_done_shown_in_DMA;
         end
     end
 

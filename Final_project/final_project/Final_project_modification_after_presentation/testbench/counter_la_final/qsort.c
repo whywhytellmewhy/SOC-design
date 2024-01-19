@@ -121,5 +121,16 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_res
 int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_result_MM(){
 
 	//------------------------------- (MM part) -------------------------------//
-	return (int*)(MM_BASE_ADDRESS+0x48);
+	//return (int*)(MM_BASE_ADDRESS+0x48);
+
+	int WB_return_data;
+
+	// check done
+	WB_return_data = *((int*)MM_BASE_ADDRESS);
+	while (((WB_return_data>>6)&1)==0){ // that is, to check "MM_done_shown_in_DMA"
+		WB_return_data = *((int*)MM_BASE_ADDRESS);
+		//reg_mprj_datal = 0xAB300000;
+	}
+	//reg_mprj_datal = 0xAB680000;
+	return (int*)(A)+15;
 }
