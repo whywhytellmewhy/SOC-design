@@ -131,6 +131,8 @@ module SDRAM_arbiter (
     localparam FIFO_IDLE = 2'd0, FIFO_WRITE = 2'd1, FIFO_READ = 2'd2, FIFO_PREFETCH = 2'd3;
     localparam FIR_IDLE = 2'd0, FIR_WRITE = 2'd1, FIR_READ = 2'd2, FIR_OUTPUT = 2'd3;
     localparam MM_IDLE = 2'd0, MM_WRITE = 2'd1, MM_READ = 2'd2, MM_OUTPUT = 2'd3;
+
+    `define BANK_ADDRESS  9:8
     
     
     reg [22:0] controller_address_before_FF;
@@ -186,6 +188,20 @@ module SDRAM_arbiter (
     reg [31:0] data_from_MM_saved, next_data_from_MM_saved;
 
     integer i;
+
+    wire [22:0] controller_address_plus_4;
+    wire [22:0] controller_address_plus_8;
+    wire [22:0] controller_address_plus_12;
+    wire [22:0] controller_address_plus_16;
+    wire [22:0] controller_address_plus_32;
+    wire [22:0] controller_address_plus_48;
+
+    assign controller_address_plus_4=controller_address+4;
+    assign controller_address_plus_8=controller_address+8;
+    assign controller_address_plus_12=controller_address+12;
+    assign controller_address_plus_16=controller_address+16;
+    assign controller_address_plus_32=controller_address+32;
+    assign controller_address_plus_48=controller_address+48;
 
     
     //always @* begin
@@ -886,7 +902,23 @@ module SDRAM_arbiter (
                         next_prefetch_address_CPU[2]=prefetch_address_CPU[2];
                         next_prefetch_buffer_CPU[0]=prefetch_buffer_CPU[0];
                         next_prefetch_buffer_CPU[1]=prefetch_buffer_CPU[1];
-                        next_prefetch_buffer_CPU[2]=data_from_controller;
+                        ///next_prefetch_buffer_CPU[2]=data_from_controller;
+                        if(controller_prefetch_step) begin
+                            if(controller_address_plus_48[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_CPU[2]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_CPU[2]=prefetch_buffer_CPU[2];
+                            end
+                        end
+                        else begin
+                            if(controller_address_plus_12[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_CPU[2]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_CPU[2]=prefetch_buffer_CPU[2];
+                            end
+                        end
                         for(i=0;i<3;i=i+1)begin
                             next_prefetch_buffer_FIR[i] <= prefetch_buffer_FIR[i];
                             next_prefetch_address_FIR[i] <= prefetch_address_FIR[i];
@@ -900,7 +932,23 @@ module SDRAM_arbiter (
                         next_prefetch_address_FIR[2]=prefetch_address_FIR[2];
                         next_prefetch_buffer_FIR[0]=prefetch_buffer_FIR[0];
                         next_prefetch_buffer_FIR[1]=prefetch_buffer_FIR[1];
-                        next_prefetch_buffer_FIR[2]=data_from_controller;
+                        ///next_prefetch_buffer_FIR[2]=data_from_controller;
+                        if(controller_prefetch_step) begin
+                            if(controller_address_plus_48[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_FIR[2]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_FIR[2]=prefetch_buffer_FIR[2];
+                            end
+                        end
+                        else begin
+                            if(controller_address_plus_12[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_FIR[2]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_FIR[2]=prefetch_buffer_FIR[2];
+                            end
+                        end
                         for(i=0;i<3;i=i+1)begin
                             next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
                             next_prefetch_address_CPU[i] <= prefetch_address_CPU[i];
@@ -914,7 +962,23 @@ module SDRAM_arbiter (
                         next_prefetch_address_MM[2]=prefetch_address_MM[2];
                         next_prefetch_buffer_MM[0]=prefetch_buffer_MM[0];
                         next_prefetch_buffer_MM[1]=prefetch_buffer_MM[1];
-                        next_prefetch_buffer_MM[2]=data_from_controller;
+                        ///next_prefetch_buffer_MM[2]=data_from_controller;
+                        if(controller_prefetch_step) begin
+                            if(controller_address_plus_48[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_MM[2]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_MM[2]=prefetch_buffer_MM[2];
+                            end
+                        end
+                        else begin
+                            if(controller_address_plus_12[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_MM[2]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_MM[2]=prefetch_buffer_MM[2];
+                            end
+                        end
                         for(i=0;i<3;i=i+1)begin
                             next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
                             next_prefetch_address_CPU[i] <= prefetch_address_CPU[i];
@@ -934,7 +998,23 @@ module SDRAM_arbiter (
                         next_prefetch_address_CPU[1]=prefetch_address_CPU[1];
                         next_prefetch_address_CPU[2]=prefetch_address_CPU[2];
                         next_prefetch_buffer_CPU[0]=prefetch_buffer_CPU[0];
-                        next_prefetch_buffer_CPU[1]=data_from_controller;
+                        ///next_prefetch_buffer_CPU[1]=data_from_controller;
+                        if(controller_prefetch_step) begin
+                            if(controller_address_plus_32[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_CPU[1]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_CPU[1]=prefetch_buffer_CPU[1];
+                            end
+                        end
+                        else begin
+                            if(controller_address_plus_8[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_CPU[1]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_CPU[1]=prefetch_buffer_CPU[1];
+                            end
+                        end
                         next_prefetch_buffer_CPU[2]=prefetch_buffer_CPU[2];
                         for(i=0;i<3;i=i+1)begin
                             next_prefetch_buffer_FIR[i] <= prefetch_buffer_FIR[i];
@@ -948,7 +1028,23 @@ module SDRAM_arbiter (
                         next_prefetch_address_FIR[1]=prefetch_address_FIR[1];
                         next_prefetch_address_FIR[2]=prefetch_address_FIR[2];
                         next_prefetch_buffer_FIR[0]=prefetch_buffer_FIR[0];
-                        next_prefetch_buffer_FIR[1]=data_from_controller;
+                        ///next_prefetch_buffer_FIR[1]=data_from_controller;
+                        if(controller_prefetch_step) begin
+                            if(controller_address_plus_32[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_FIR[1]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_FIR[1]=prefetch_buffer_FIR[1];
+                            end
+                        end
+                        else begin
+                            if(controller_address_plus_8[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_FIR[1]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_FIR[1]=prefetch_buffer_FIR[1];
+                            end
+                        end
                         next_prefetch_buffer_FIR[2]=prefetch_buffer_FIR[2];
                         for(i=0;i<3;i=i+1)begin
                             next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
@@ -962,7 +1058,23 @@ module SDRAM_arbiter (
                         next_prefetch_address_MM[1]=prefetch_address_MM[1];
                         next_prefetch_address_MM[2]=prefetch_address_MM[2];
                         next_prefetch_buffer_MM[0]=prefetch_buffer_MM[0];
-                        next_prefetch_buffer_MM[1]=data_from_controller;
+                        ///next_prefetch_buffer_MM[1]=data_from_controller;
+                        if(controller_prefetch_step) begin
+                            if(controller_address_plus_32[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_MM[1]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_MM[1]=prefetch_buffer_MM[1];
+                            end
+                        end
+                        else begin
+                            if(controller_address_plus_8[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_MM[1]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_MM[1]=prefetch_buffer_MM[1];
+                            end
+                        end
                         next_prefetch_buffer_MM[2]=prefetch_buffer_MM[2];
                         for(i=0;i<3;i=i+1)begin
                             next_prefetch_buffer_CPU[i] <= prefetch_buffer_CPU[i];
@@ -980,16 +1092,68 @@ module SDRAM_arbiter (
                     
                     if(request_FIFO[0][2]==1) begin // CPU
                         if(controller_prefetch_step) begin
-                            next_prefetch_address_CPU[0]=controller_address+16;
-                            next_prefetch_address_CPU[1]=controller_address+32;
-                            next_prefetch_address_CPU[2]=controller_address+48;
+                            ///next_prefetch_address_CPU[0]=controller_address+16;
+                            ///next_prefetch_address_CPU[1]=controller_address+32;
+                            ///next_prefetch_address_CPU[2]=controller_address+48;
+                            if(controller_address_plus_16[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_CPU[0]=controller_address+16;
+                            end
+                            else begin
+                                next_prefetch_address_CPU[0]=controller_address;
+                            end
+                            if(controller_address_plus_32[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_CPU[1]=controller_address+32;
+                            end
+                            else begin
+                                next_prefetch_address_CPU[1]=controller_address;
+                            end
+                            if(controller_address_plus_48[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_CPU[2]=controller_address+48;
+                            end
+                            else begin
+                                next_prefetch_address_CPU[2]=controller_address;
+                            end
                         end
                         else begin
-                            next_prefetch_address_CPU[0]=controller_address+4;
-                            next_prefetch_address_CPU[1]=controller_address+8;
-                            next_prefetch_address_CPU[2]=controller_address+12;
+                            ///next_prefetch_address_CPU[0]=controller_address+4;
+                            ///next_prefetch_address_CPU[1]=controller_address+8;
+                            ///next_prefetch_address_CPU[2]=controller_address+12;
+                            if(controller_address_plus_4[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_CPU[0]=controller_address+4;
+                            end
+                            else begin
+                                next_prefetch_address_CPU[0]=controller_address;
+                            end
+                            if(controller_address_plus_8[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_CPU[1]=controller_address+8;
+                            end
+                            else begin
+                                next_prefetch_address_CPU[1]=controller_address;
+                            end
+                            if(controller_address_plus_12[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_CPU[2]=controller_address+12;
+                            end
+                            else begin
+                                next_prefetch_address_CPU[2]=controller_address;
+                            end
                         end
-                        next_prefetch_buffer_CPU[0]=data_from_controller;
+                        ///next_prefetch_buffer_CPU[0]=data_from_controller;
+                        if(controller_prefetch_step) begin
+                            if(controller_address_plus_16[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_CPU[0]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_CPU[0]=prefetch_buffer_CPU[0];
+                            end
+                        end
+                        else begin
+                            if(controller_address_plus_4[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_CPU[0]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_CPU[0]=prefetch_buffer_CPU[0];
+                            end
+                        end
                         next_prefetch_buffer_CPU[1]=0;
                         next_prefetch_buffer_CPU[2]=0;
                         for(i=0;i<3;i=i+1)begin
@@ -1001,16 +1165,68 @@ module SDRAM_arbiter (
                     end
                     else if(request_FIFO[0][1]==1) begin // FIR
                         if(controller_prefetch_step) begin
-                            next_prefetch_address_FIR[0]=controller_address+16;
-                            next_prefetch_address_FIR[1]=controller_address+32;
-                            next_prefetch_address_FIR[2]=controller_address+48;
+                            ///next_prefetch_address_FIR[0]=controller_address+16;
+                            ///next_prefetch_address_FIR[1]=controller_address+32;
+                            ///next_prefetch_address_FIR[2]=controller_address+48;
+                            if(controller_address_plus_16[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_FIR[0]=controller_address+16;
+                            end
+                            else begin
+                                next_prefetch_address_FIR[0]=controller_address;
+                            end
+                            if(controller_address_plus_32[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_FIR[1]=controller_address+32;
+                            end
+                            else begin
+                                next_prefetch_address_FIR[1]=controller_address;
+                            end
+                            if(controller_address_plus_48[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_FIR[2]=controller_address+48;
+                            end
+                            else begin
+                                next_prefetch_address_FIR[2]=controller_address;
+                            end
                         end
                         else begin
-                            next_prefetch_address_FIR[0]=controller_address+4;
-                            next_prefetch_address_FIR[1]=controller_address+8;
-                            next_prefetch_address_FIR[2]=controller_address+12;
+                            ///next_prefetch_address_FIR[0]=controller_address+4;
+                            ///next_prefetch_address_FIR[1]=controller_address+8;
+                            ///next_prefetch_address_FIR[2]=controller_address+12;
+                            if(controller_address_plus_4[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_FIR[0]=controller_address+4;
+                            end
+                            else begin
+                                next_prefetch_address_FIR[0]=controller_address;
+                            end
+                            if(controller_address_plus_8[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_FIR[1]=controller_address+8;
+                            end
+                            else begin
+                                next_prefetch_address_FIR[1]=controller_address;
+                            end
+                            if(controller_address_plus_12[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_FIR[2]=controller_address+12;
+                            end
+                            else begin
+                                next_prefetch_address_FIR[2]=controller_address;
+                            end
                         end
-                        next_prefetch_buffer_FIR[0]=data_from_controller;
+                        ///next_prefetch_buffer_FIR[0]=data_from_controller;
+                        if(controller_prefetch_step) begin
+                            if(controller_address_plus_16[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_FIR[0]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_FIR[0]=prefetch_buffer_FIR[0];
+                            end
+                        end
+                        else begin
+                            if(controller_address_plus_4[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_FIR[0]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_FIR[0]=prefetch_buffer_FIR[0];
+                            end
+                        end
                         next_prefetch_buffer_FIR[1]=0;
                         next_prefetch_buffer_FIR[2]=0;
                         for(i=0;i<3;i=i+1)begin
@@ -1022,16 +1238,68 @@ module SDRAM_arbiter (
                     end
                     else begin // MM
                         if(controller_prefetch_step) begin
-                            next_prefetch_address_MM[0]=controller_address+16;
-                            next_prefetch_address_MM[1]=controller_address+32;
-                            next_prefetch_address_MM[2]=controller_address+48;
+                            ///next_prefetch_address_MM[0]=controller_address+16;
+                            ///next_prefetch_address_MM[1]=controller_address+32;
+                            ///next_prefetch_address_MM[2]=controller_address+48;
+                            if(controller_address_plus_16[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_MM[0]=controller_address+16;
+                            end
+                            else begin
+                                next_prefetch_address_MM[0]=controller_address;
+                            end
+                            if(controller_address_plus_32[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_MM[1]=controller_address+32;
+                            end
+                            else begin
+                                next_prefetch_address_MM[1]=controller_address;
+                            end
+                            if(controller_address_plus_48[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_MM[2]=controller_address+48;
+                            end
+                            else begin
+                                next_prefetch_address_MM[2]=controller_address;
+                            end
                         end
                         else begin
-                            next_prefetch_address_MM[0]=controller_address+4;
-                            next_prefetch_address_MM[1]=controller_address+8;
-                            next_prefetch_address_MM[2]=controller_address+12;
+                            ///next_prefetch_address_MM[0]=controller_address+4;
+                            ///next_prefetch_address_MM[1]=controller_address+8;
+                            ///next_prefetch_address_MM[2]=controller_address+12;
+                            if(controller_address_plus_4[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_MM[0]=controller_address+4;
+                            end
+                            else begin
+                                next_prefetch_address_MM[0]=controller_address;
+                            end
+                            if(controller_address_plus_8[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_MM[1]=controller_address+8;
+                            end
+                            else begin
+                                next_prefetch_address_MM[1]=controller_address;
+                            end
+                            if(controller_address_plus_12[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_address_MM[2]=controller_address+12;
+                            end
+                            else begin
+                                next_prefetch_address_MM[2]=controller_address;
+                            end
                         end
-                        next_prefetch_buffer_MM[0]=data_from_controller;
+                        ///next_prefetch_buffer_MM[0]=data_from_controller;
+                        if(controller_prefetch_step) begin
+                            if(controller_address_plus_16[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_MM[0]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_MM[0]=prefetch_buffer_MM[0];
+                            end
+                        end
+                        else begin
+                            if(controller_address_plus_4[`BANK_ADDRESS]==controller_address[`BANK_ADDRESS]) begin
+                                next_prefetch_buffer_MM[0]=data_from_controller;
+                            end
+                            else begin
+                                next_prefetch_buffer_MM[0]=prefetch_buffer_MM[0];
+                            end
+                        end
                         next_prefetch_buffer_MM[1]=0;
                         next_prefetch_buffer_MM[2]=0;
                         for(i=0;i<3;i=i+1)begin

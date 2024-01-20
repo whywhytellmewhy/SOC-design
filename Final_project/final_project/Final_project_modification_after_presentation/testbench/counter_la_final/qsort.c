@@ -114,14 +114,23 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_res
 	}
 	return outputsignal[10];*/
 	//outputsignal[0]=*((int*)(FIR_BASE_ADDRESS+0xB4));
-	return (int*)(FIR_BASE_ADDRESS+0xB4);
+	///return (int*)(FIR_BASE_ADDRESS+0xB4);
+
+	int WB_return_data;
+
+	// check done
+	WB_return_data = *((int*)FIR_BASE_ADDRESS);
+	while (((WB_return_data>>6)&1)==0){ // that is, to check "FIR_done_shown_in_DMA"
+		WB_return_data = *((int*)FIR_BASE_ADDRESS);
+	}
+	return (int*)(x)+63;
 }
 
 
 int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_result_MM(){
 
 	//------------------------------- (MM part) -------------------------------//
-	//return (int*)(MM_BASE_ADDRESS+0x48);
+	///return (int*)(MM_BASE_ADDRESS+0x48);
 
 	int WB_return_data;
 

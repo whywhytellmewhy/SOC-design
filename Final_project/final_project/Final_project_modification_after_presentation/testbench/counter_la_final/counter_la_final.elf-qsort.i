@@ -1735,8 +1735,15 @@ void __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_initializ
 
 
 int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_result_FIR(){
-# 117 "qsort.c"
- return (int*)(0x30000000 +0xB4);
+# 119 "qsort.c"
+ int WB_return_data;
+
+
+ WB_return_data = *((int*)0x30000000);
+ while (((WB_return_data>>6)&1)==0){
+  WB_return_data = *((int*)0x30000000);
+ }
+ return (int*)(x)+63;
 }
 
 
@@ -1751,8 +1758,8 @@ int* __attribute__ ( ( section ( ".mprjram" ) ) ) hardware_accelerator_check_res
  WB_return_data = *((int*)0x30010000);
  while (((WB_return_data>>6)&1)==0){
   WB_return_data = *((int*)0x30010000);
-  (*(volatile uint32_t*)0x2600000c) = 0xAB300000;
+
  }
- (*(volatile uint32_t*)0x2600000c) = 0xAB680000;
+
  return (int*)(A)+15;
 }
