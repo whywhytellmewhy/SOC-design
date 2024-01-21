@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.1 (64-bit)
+# SW Build 3526262 on Mon Apr 18 15:47:01 MDT 2022
+# IP Build 3524634 on Mon Apr 18 20:55:01 MDT 2022
+# Start of session at: Tue Jan 16 11:11:33 2024
+# Process ID: 5842
+# Current directory: /home/ubuntu/LAB/github_teamsync/SOC-design/Final_project/final_project/lab-wlos_baseline_from_lab6/vivado_final
+# Command line: vivado -source vvd_caravel_fpga_40mhz.tcl -mode tcl
+# Log file: /home/ubuntu/LAB/github_teamsync/SOC-design/Final_project/final_project/lab-wlos_baseline_from_lab6/vivado_final/vivado.log
+# Journal file: /home/ubuntu/LAB/github_teamsync/SOC-design/Final_project/final_project/lab-wlos_baseline_from_lab6/vivado_final/vivado.jou
+# Running On: ubuntu2004, OS: Linux, CPU Frequency: 3593.250 MHz, CPU Physical cores: 8, Host memory: 10423 MB
+#-----------------------------------------------------------
+source vvd_caravel_fpga_40mhz.tcl
