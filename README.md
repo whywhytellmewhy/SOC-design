@@ -123,10 +123,16 @@ This repository is created on 2023.9.30
 ## Final project (Team work)
 1. 在其中的`/final_project`為實作過程中完整的資料，其中各資料夾的說明可參閱 [/Final_project中的README.md](./Final_project)
 
-2. 在`/final_project`外層的檔案說明如下：
-   1. `Final_project_presentation_Team12@813(雲端共用) 113.1.16~113.1.17.pdf`為[報告影片](https://www.youtube.com/watch?v=QBVTga1Z2X4&list=PLTA_T2FLzYNATYW-Xy8zbzRiDjETVyBnH&index=31)所搭配的簡報檔轉成PDF格式
-   2. `Final_project_Q&A_Team12(更新版) 113.1.23.pdf`為Q&A session時針對老師提出的問題作回答，當時所搭配的簡報檔轉成PDF格式
-   3. `final_report(小組雲端共用) 112.1.23.pdf`為繳交至NTHU eeclass上的**report檔案**
+2. Final project的時程回顧
+   | Proposal報告檔繳交期限 | Proposal presentation<br/>(實體口頭報告) | 報告影片+簡報檔 | 小組評分 | Q&A session<br/>(線上會議) | Final Report繳交期限 |
+   |:---------:|:---------:|:----------:|:----------:|:----------:|:----------:|
+   | 2023.12.12 13:00 | 2023.12.13 | 2024.1.16 | 2024.1.17 | 2024.1.18 | 2024.1.22 23:59 |
 
-3. 沒有上傳下列「檔案太大(超過100MB)」的檔案（透過`run_list_big_files`偵測，且透過`run_delete_big_files`刪除）：`/final_project/lab_6_for_latency_comparison/lab-wlos_baseline/testbench/counter_la_mm/counter_la_mm.vcd`
+3. 在`/final_project`外層的檔案說明如下：
+   1. `group12_final_proposal.pdf`為proposal報告時用的檔案，也是繳交至NTHU eeclass上的Final project proposal檔案
+   2. `Final_project_presentation_Team12@813(雲端共用) 113.1.16~113.1.17.pdf`為[報告影片](https://www.youtube.com/watch?v=QBVTga1Z2X4&list=PLTA_T2FLzYNATYW-Xy8zbzRiDjETVyBnH&index=31)所搭配的簡報檔轉成PDF格式
+   3. `Final_project_Q&A_Team12(更新版) 113.1.23.pdf`為Q&A session時針對老師提出的問題作回答，當時所搭配的簡報檔轉成PDF格式
+   4. `final_report(小組雲端共用) 112.1.23.pdf`為繳交至NTHU eeclass上的**report檔案**
+
+4. 沒有上傳下列「檔案太大(超過100MB)」的檔案（透過`run_list_big_files`偵測，且透過`run_delete_big_files`刪除）：`/final_project/lab_6_for_latency_comparison/lab-wlos_baseline/testbench/counter_la_mm/counter_la_mm.vcd`
 
