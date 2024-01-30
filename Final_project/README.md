@@ -6,6 +6,8 @@
 - `/lab_6_for_latency_comparison`資料夾放的是從`../lab6`複製需要的檔案過來，並加上latency timer以幫助計算workload的software latency。得到的結果有放在`Final_project_presentation_Team12@813(雲端共用) 113.1.16~113.1.17.pdf`以及`final_report(小組雲端共用) 112.1.23.pdf`中
 - `/lab-wlos_baseline_from_lab6`資料夾放的是報告影片所對應到的version，尚未修改Q&A session所提到的問題
 - `/Final_project_modification_after_presentation`資料夾放的是Q&A session後所更新後的內容，為**最新版本**
+  - `/Final_project_modification_after_presentation/backup_vivado_final_new_new_new_from_lab6(just_run_run_vivado)`資料夾為成功執行完`source run_vivado`的當下所複製的備份用檔案
+  - `/Final_project_modification_after_presentation/vivado_final_new_new_new_from_lab6`資料夾為實際合成成功並拿去onlineFPGA做驗證的檔案
 
 ## For more information
 在[前一層(/SOC-design)](https://github.com/whywhytellmewhy/SOC-design)的README.md中有更多關於檔案的註記
